@@ -1,0 +1,2019 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DatosEnergeticosDelEdificio version="2.0">
+	<DatosDelCertificador>
+		<NombreyApellidos>[Nombre][Apellidos]</NombreyApellidos>
+		<NIF>00000000A</NIF>
+		<RazonSocial>[Razon Social]</RazonSocial>
+		<NIFEntidad>ES00000000A</NIFEntidad>
+		<Domicilio>C/ Ram&#243;n y cajal 351</Domicilio>
+		<Municipio>Coru&#241;a (A)</Municipio>
+		<CodigoPostal>00000</CodigoPostal>
+		<Provincia>A Coru&#241;a</Provincia>
+		<ComunidadAutonoma>Galicia</ComunidadAutonoma>
+		<Email>[correo]</Email>
+		<Telefono>000000000</Telefono>
+		<Titulacion>Ingeniero Industrial</Titulacion>
+		<Fecha>05/01/2023</Fecha>
+	</DatosDelCertificador>
+	<IdentificacionEdificio>
+		<NombreDelEdificio>ES.CA.SFH.04</NombreDelEdificio>
+		<Direccion>[Direccion]</Direccion>
+		<Municipio>Madrid</Municipio>
+		<CodigoPostal>00000</CodigoPostal>
+		<Provincia>Madrid</Provincia>
+		<ComunidadAutonoma>Madrid</ComunidadAutonoma>
+		<ZonaClimatica>B4</ZonaClimatica>
+		<AnoConstruccion>[A&#241;o de construccion]</AnoConstruccion>
+		<ReferenciaCatastral>00000000000000</ReferenciaCatastral>
+		<TipoDeEdificio>ViviendaUnifamiliar</TipoDeEdificio>
+		<NormativaVigente>-</NormativaVigente>
+		<Procedimiento>Cerma 5.11  Fecha: junio-2022</Procedimiento>
+		<AlcanceInformacionXML>CertificacionExistente</AlcanceInformacionXML>
+	</IdentificacionEdificio>
+	<DatosGeneralesyGeometria>
+		<NumeroDePlantasSobreRasante>B+2</NumeroDePlantasSobreRasante>
+		<NumeroDePlantasBajoRasante>0</NumeroDePlantasBajoRasante>
+		<SuperficieHabitable>129.50</SuperficieHabitable>
+		<VolumenEspacioHabitable>375.60</VolumenEspacioHabitable>
+		<Compacidad>2.90</Compacidad>
+		<PorcentajeSuperficieHabitableCalefactada>100</PorcentajeSuperficieHabitableCalefactada>
+		<PorcentajeSuperficieHabitableRefrigerada>0</PorcentajeSuperficieHabitableRefrigerada>
+		<PorcentajeSuperficieAcristalada>
+			<N>9</N>
+			<NE>0</NE>
+			<E>0</E>
+			<SE>24</SE>
+			<S>0</S>
+			<SO>0</SO>
+			<O>0</O>
+			<NO>0</NO>
+		</PorcentajeSuperficieAcristalada>
+		<Imagen>
+			<![CDATA[data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABnoAAAOkBAMAAABzHvdWAAAAD1BMVEX//////9uQOgAAOpDb//9tW3inAAADdklEQVR4AezBAQ0AAADCIPunfg8HDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP7EHhyQAAAAAAj6/7ofoQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMBQ7MEBCQAAAICg/6/7ESoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMxR4ckAAAAAAI+v+6H6ECAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAUOzOAQ0AAAgDoJnFIvZP9RjqBgkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC4rnq2CwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPwT9uCABAAAAEDQ/9f9CBUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACGYg8OSAAAAAAE/X/dj1ABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgqPbgkAAAAABA0P/X3jAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMBTFgQBlhlRf4gAAAABJRU5ErkJggg==]]>
+		</Imagen>
+		<Plano/>
+		<DensidadFuentesInternas>0.00</DensidadFuentesInternas>
+		<VentilacionUsoResidencial>0.63</VentilacionUsoResidencial>
+		<VentilacionTotal>0.00</VentilacionTotal>
+		<DemandaDiariaACS>112.00</DemandaDiariaACS>
+	</DatosGeneralesyGeometria>
+	<DatosEnvolventeTermica>
+		<CerramientosOpacos>
+			<Elemento>
+				<Nombre>Cubierta Incl. 1</Nombre>
+				<Tipo>Cubierta</Tipo>
+				<Superficie>64.60</Superficie>
+				<Transmitancia>0.32</Transmitancia>
+				<ModoDeObtencion>Estimado</ModoDeObtencion>
+				<Capas>
+					<Capa>
+						<Material>Teja de arcilla cocida</Material>
+						<Espesor>0.0200</Espesor>
+						<ConductividadTermica>1.000</ConductividadTermica>
+						<Densidad>2000.00</Densidad>
+						<FactorResistenciaVapor>30.00</FactorResistenciaVapor>
+						<CalorEspecifico>800.00</CalorEspecifico>
+					</Capa>
+					<Capa>
+						<Material>Bet&#250;n fieltro o l&#225;mina</Material>
+						<Espesor>0.0010</Espesor>
+						<ConductividadTermica>0.230</ConductividadTermica>
+						<Densidad>1100.00</Densidad>
+						<FactorResistenciaVapor>99.00</FactorResistenciaVapor>
+						<CalorEspecifico>1000.00</CalorEspecifico>
+					</Capa>
+					<Capa>
+						<Material>FU Entrevigado cer&#225;mico -Canto 250 mm</Material>
+						<Espesor>0.2500</Espesor>
+						<ConductividadTermica>0.937</ConductividadTermica>
+						<Densidad>1110.00</Densidad>
+						<FactorResistenciaVapor>10.00</FactorResistenciaVapor>
+						<CalorEspecifico>1000.00</CalorEspecifico>
+					</Capa>
+					<Capa>
+						<Material>MW Lana mineral [0.04 W/[mK]]</Material>
+						<Espesor>0.1100</Espesor>
+						<ConductividadTermica>0.041</ConductividadTermica>
+						<Densidad>40.00</Densidad>
+						<FactorResistenciaVapor>1.00</FactorResistenciaVapor>
+						<CalorEspecifico>1000.00</CalorEspecifico>
+					</Capa>
+					<Capa>
+						<Material>Enlucido de yeso 1000 &lt; d &lt; 1300</Material>
+						<Espesor>0.0150</Espesor>
+						<ConductividadTermica>0.570</ConductividadTermica>
+						<Densidad>1150.00</Densidad>
+						<FactorResistenciaVapor>6.00</FactorResistenciaVapor>
+						<CalorEspecifico>1000.00</CalorEspecifico>
+					</Capa>
+				</Capas>
+			</Elemento>
+			<Elemento>
+				<Nombre>Fachada exterior 1</Nombre>
+				<Tipo>Fachada</Tipo>
+				<Superficie>60.50</Superficie>
+				<Transmitancia>0.39</Transmitancia>
+				<ModoDeObtencion>Estimado</ModoDeObtencion>
+				<Capas>
+					<Capa>
+						<Material>Mortero de cemento o cal para alba&#241;iler&#237;a y para revoco/enlucido 1800 &lt; d &lt; 2000</Material>
+						<Espesor>0.0100</Espesor>
+						<ConductividadTermica>1.300</ConductividadTermica>
+						<Densidad>1900.00</Densidad>
+						<FactorResistenciaVapor>10.00</FactorResistenciaVapor>
+						<CalorEspecifico>1000.00</CalorEspecifico>
+					</Capa>
+					<Capa>
+						<Material>EPS Poliestireno Expandido [ 0.037 W/[mK]]</Material>
+						<Espesor>0.0700</Espesor>
+						<ConductividadTermica>0.037</ConductividadTermica>
+						<Densidad>30.00</Densidad>
+						<FactorResistenciaVapor>20.00</FactorResistenciaVapor>
+						<CalorEspecifico>1000.00</CalorEspecifico>
+					</Capa>
+					<Capa>
+						<Material>1/2 pie LM m&#233;trico o catal&#225;n 40 mm &lt; G &lt; 50 mm</Material>
+						<Espesor>0.1150</Espesor>
+						<ConductividadTermica>0.991</ConductividadTermica>
+						<Densidad>2170.00</Densidad>
+						<FactorResistenciaVapor>10.00</FactorResistenciaVapor>
+						<CalorEspecifico>1000.00</CalorEspecifico>
+					</Capa>
+					<Capa>
+						<Material>Mortero de cemento o cal para alba&#241;iler&#237;a y para revoco/enlucido d &gt; 2000</Material>
+						<Espesor>0.0150</Espesor>
+						<ConductividadTermica>1.800</ConductividadTermica>
+						<Densidad>2100.00</Densidad>
+						<FactorResistenciaVapor>10.00</FactorResistenciaVapor>
+						<CalorEspecifico>1000.00</CalorEspecifico>
+					</Capa>
+					<Capa>
+						<Material>EPS Poliestireno Expandido [ 0.046 W/[mK]]</Material>
+						<Espesor>0.0090</Espesor>
+						<ConductividadTermica>0.046</ConductividadTermica>
+						<Densidad>30.00</Densidad>
+						<FactorResistenciaVapor>20.00</FactorResistenciaVapor>
+						<CalorEspecifico>1000.00</CalorEspecifico>
+					</Capa>
+					<Capa>
+						<Material>Tabic&#243;n de LH doble [60 mm &lt; E &lt; 90 mm]</Material>
+						<Espesor>0.0700</Espesor>
+						<ConductividadTermica>0.432</ConductividadTermica>
+						<Densidad>930.00</Densidad>
+						<FactorResistenciaVapor>10.00</FactorResistenciaVapor>
+						<CalorEspecifico>1000.00</CalorEspecifico>
+					</Capa>
+					<Capa>
+						<Material>Enlucido de yeso 1000 &lt; d &lt; 1300</Material>
+						<Espesor>0.0150</Espesor>
+						<ConductividadTermica>0.570</ConductividadTermica>
+						<Densidad>1150.00</Densidad>
+						<FactorResistenciaVapor>6.00</FactorResistenciaVapor>
+						<CalorEspecifico>1000.00</CalorEspecifico>
+					</Capa>
+				</Capas>
+			</Elemento>
+			<Elemento>
+				<Nombre>Fachada exterior 2</Nombre>
+				<Tipo>Fachada</Tipo>
+				<Superficie>55.80</Superficie>
+				<Transmitancia>0.39</Transmitancia>
+				<ModoDeObtencion>Estimado</ModoDeObtencion>
+				<Capas>
+					<Capa>
+						<Material>Mortero de cemento o cal para alba&#241;iler&#237;a y para revoco/enlucido 1800 &lt; d &lt; 2000</Material>
+						<Espesor>0.0100</Espesor>
+						<ConductividadTermica>1.300</ConductividadTermica>
+						<Densidad>1900.00</Densidad>
+						<FactorResistenciaVapor>10.00</FactorResistenciaVapor>
+						<CalorEspecifico>1000.00</CalorEspecifico>
+					</Capa>
+					<Capa>
+						<Material>EPS Poliestireno Expandido [ 0.037 W/[mK]]</Material>
+						<Espesor>0.0700</Espesor>
+						<ConductividadTermica>0.037</ConductividadTermica>
+						<Densidad>30.00</Densidad>
+						<FactorResistenciaVapor>20.00</FactorResistenciaVapor>
+						<CalorEspecifico>1000.00</CalorEspecifico>
+					</Capa>
+					<Capa>
+						<Material>1/2 pie LM m&#233;trico o catal&#225;n 40 mm &lt; G &lt; 50 mm</Material>
+						<Espesor>0.1150</Espesor>
+						<ConductividadTermica>0.991</ConductividadTermica>
+						<Densidad>2170.00</Densidad>
+						<FactorResistenciaVapor>10.00</FactorResistenciaVapor>
+						<CalorEspecifico>1000.00</CalorEspecifico>
+					</Capa>
+					<Capa>
+						<Material>Mortero de cemento o cal para alba&#241;iler&#237;a y para revoco/enlucido d &gt; 2000</Material>
+						<Espesor>0.0150</Espesor>
+						<ConductividadTermica>1.800</ConductividadTermica>
+						<Densidad>2100.00</Densidad>
+						<FactorResistenciaVapor>10.00</FactorResistenciaVapor>
+						<CalorEspecifico>1000.00</CalorEspecifico>
+					</Capa>
+					<Capa>
+						<Material>EPS Poliestireno Expandido [ 0.046 W/[mK]]</Material>
+						<Espesor>0.0090</Espesor>
+						<ConductividadTermica>0.046</ConductividadTermica>
+						<Densidad>30.00</Densidad>
+						<FactorResistenciaVapor>20.00</FactorResistenciaVapor>
+						<CalorEspecifico>1000.00</CalorEspecifico>
+					</Capa>
+					<Capa>
+						<Material>Tabic&#243;n de LH doble [60 mm &lt; E &lt; 90 mm]</Material>
+						<Espesor>0.0700</Espesor>
+						<ConductividadTermica>0.432</ConductividadTermica>
+						<Densidad>930.00</Densidad>
+						<FactorResistenciaVapor>10.00</FactorResistenciaVapor>
+						<CalorEspecifico>1000.00</CalorEspecifico>
+					</Capa>
+					<Capa>
+						<Material>Enlucido de yeso 1000 &lt; d &lt; 1300</Material>
+						<Espesor>0.0150</Espesor>
+						<ConductividadTermica>0.570</ConductividadTermica>
+						<Densidad>1150.00</Densidad>
+						<FactorResistenciaVapor>6.00</FactorResistenciaVapor>
+						<CalorEspecifico>1000.00</CalorEspecifico>
+					</Capa>
+				</Capas>
+			</Elemento>
+			<Elemento>
+				<Nombre>Fachada adiab&#225;tica 1</Nombre>
+				<Tipo>Fachada</Tipo>
+				<Superficie>55.70</Superficie>
+				<Transmitancia>1.49</Transmitancia>
+				<ModoDeObtencion>Usuario</ModoDeObtencion>
+			</Elemento>
+			<Elemento>
+				<Nombre>Suelo a vacio sanitario 1</Nombre>
+				<Tipo>Suelo</Tipo>
+				<Superficie>64.70</Superficie>
+				<Transmitancia>1.65</Transmitancia>
+				<ModoDeObtencion>Usuario</ModoDeObtencion>
+			</Elemento>
+		</CerramientosOpacos>
+		<HuecosyLucernarios>
+			<Elemento>
+				<Nombre>G1</Nombre>
+				<Tipo>Hueco</Tipo>
+				<Superficie>2.18</Superficie>
+				<Transmitancia>2.00</Transmitancia>
+				<FactorSolar>0.57</FactorSolar>
+				<ModoDeObtencionTransmitancia>Estimado</ModoDeObtencionTransmitancia>
+				<ModoDeObtencionFactorSolar>Estimado</ModoDeObtencionFactorSolar>
+			</Elemento>
+			<Elemento>
+				<Nombre>G2</Nombre>
+				<Tipo>Hueco</Tipo>
+				<Superficie>2.46</Superficie>
+				<Transmitancia>2.08</Transmitancia>
+				<FactorSolar>0.57</FactorSolar>
+				<ModoDeObtencionTransmitancia>Estimado</ModoDeObtencionTransmitancia>
+				<ModoDeObtencionFactorSolar>Estimado</ModoDeObtencionFactorSolar>
+			</Elemento>
+			<Elemento>
+				<Nombre>G3</Nombre>
+				<Tipo>Hueco</Tipo>
+				<Superficie>2.18</Superficie>
+				<Transmitancia>2.00</Transmitancia>
+				<FactorSolar>0.57</FactorSolar>
+				<ModoDeObtencionTransmitancia>Estimado</ModoDeObtencionTransmitancia>
+				<ModoDeObtencionFactorSolar>Estimado</ModoDeObtencionFactorSolar>
+			</Elemento>
+			<Elemento>
+				<Nombre>G4</Nombre>
+				<Tipo>Hueco</Tipo>
+				<Superficie>2.18</Superficie>
+				<Transmitancia>2.00</Transmitancia>
+				<FactorSolar>0.57</FactorSolar>
+				<ModoDeObtencionTransmitancia>Estimado</ModoDeObtencionTransmitancia>
+				<ModoDeObtencionFactorSolar>Estimado</ModoDeObtencionFactorSolar>
+			</Elemento>
+			<Elemento>
+				<Nombre>G5</Nombre>
+				<Tipo>Hueco</Tipo>
+				<Superficie>4.77</Superficie>
+				<Transmitancia>2.03</Transmitancia>
+				<FactorSolar>0.57</FactorSolar>
+				<ModoDeObtencionTransmitancia>Estimado</ModoDeObtencionTransmitancia>
+				<ModoDeObtencionFactorSolar>Estimado</ModoDeObtencionFactorSolar>
+			</Elemento>
+			<Elemento>
+				<Nombre>G6</Nombre>
+				<Tipo>Hueco</Tipo>
+				<Superficie>1.56</Superficie>
+				<Transmitancia>2.02</Transmitancia>
+				<FactorSolar>0.57</FactorSolar>
+				<ModoDeObtencionTransmitancia>Estimado</ModoDeObtencionTransmitancia>
+				<ModoDeObtencionFactorSolar>Estimado</ModoDeObtencionFactorSolar>
+			</Elemento>
+			<Elemento>
+				<Nombre>G7</Nombre>
+				<Tipo>Hueco</Tipo>
+				<Superficie>2.18</Superficie>
+				<Transmitancia>2.00</Transmitancia>
+				<FactorSolar>0.57</FactorSolar>
+				<ModoDeObtencionTransmitancia>Estimado</ModoDeObtencionTransmitancia>
+				<ModoDeObtencionFactorSolar>Estimado</ModoDeObtencionFactorSolar>
+			</Elemento>
+		</HuecosyLucernarios>
+	</DatosEnvolventeTermica>
+	<InstalacionesTermicas>
+		<GeneradoresDeCalefaccion>
+			<Generador>
+				<Nombre>Radiadores el&#233;ctricos</Nombre>
+				<Tipo>Termo</Tipo>
+				<PotenciaNominal>12.00</PotenciaNominal>
+				<RendimientoNominal>1.00</RendimientoNominal>
+				<RendimientoEstacional>1.00</RendimientoEstacional>
+				<VectorEnergetico>ElectricidadPeninsular</VectorEnergetico>
+				<ModoDeObtencion>Usuario</ModoDeObtencion>
+			</Generador>
+		</GeneradoresDeCalefaccion>
+		<InstalacionesACS>
+			<Instalacion>
+				<Nombre>1 Termo electrico</Nombre>
+				<Tipo>Termo</Tipo>
+				<PotenciaNominal>1.50</PotenciaNominal>
+				<RendimientoNominal>1.00</RendimientoNominal>
+				<RendimientoEstacional>1.00</RendimientoEstacional>
+				<VectorEnergetico>ElectricidadPeninsular</VectorEnergetico>
+				<ModoDeObtencion>Usuario</ModoDeObtencion>
+			</Instalacion>
+		</InstalacionesACS>
+	</InstalacionesTermicas>
+	<CondicionesFuncionamientoyOcupacion>
+		<Espacio>
+			<Nombre>Unico</Nombre>
+			<Superficie>129.50</Superficie>
+			<NivelDeAcondicionamiento>Acondicionado</NivelDeAcondicionamiento>
+			<PerfilDeUso>residencial-24h-baja</PerfilDeUso>
+		</Espacio>
+	</CondicionesFuncionamientoyOcupacion>
+	<EnergiasRenovables/>
+	<Demanda>
+		<EdificioObjeto>
+			<Global>46.26</Global>
+			<Calefaccion>9.59</Calefaccion>
+			<Refrigeracion>19.44</Refrigeracion>
+			<ACS>17.23</ACS>
+			<Conjunta>24.17</Conjunta>
+		</EdificioObjeto>
+		<Exigencias>
+			<LimiteCalefaccionVivienda>15.00</LimiteCalefaccionVivienda>
+			<LimiteRefrigeracionVivienda>20.00</LimiteRefrigeracionVivienda>
+		</Exigencias>
+	</Demanda>
+	<Consumo>
+		<FactoresdePaso>
+			<FinalAPrimariaNoRenovable>
+				<GasNatural>1.195</GasNatural>
+				<GasoleoC>1.182</GasoleoC>
+				<GLP>1.204</GLP>
+				<Carbon>1.084</Carbon>
+				<BiomasaPellet>1.113</BiomasaPellet>
+				<BiomasaOtros>1.037</BiomasaOtros>
+				<ElectricidadPeninsular>2.368</ElectricidadPeninsular>
+				<ElectricidadBaleares>3.049</ElectricidadBaleares>
+				<ElectricidadCanarias>2.994</ElectricidadCanarias>
+				<ElectricidadCeutayMelilla>2.790</ElectricidadCeutayMelilla>
+			</FinalAPrimariaNoRenovable>
+			<FinalAEmisiones>
+				<GasNatural>0.252</GasNatural>
+				<GasoleoC>0.311</GasoleoC>
+				<GLP>0.254</GLP>
+				<Carbon>0.472</Carbon>
+				<BiomasaPellet>0.018</BiomasaPellet>
+				<BiomasaOtros>0.018</BiomasaOtros>
+				<ElectricidadPeninsular>0.331</ElectricidadPeninsular>
+				<ElectricidadBaleares>0.932</ElectricidadBaleares>
+				<ElectricidadCanarias>0.932</ElectricidadCanarias>
+				<ElectricidadCeutayMelilla>0.721</ElectricidadCeutayMelilla>
+			</FinalAEmisiones>
+		</FactoresdePaso>
+		<EnergiaFinalVectores>
+			<GasNatural>
+				<Global>0.00</Global>
+				<Calefaccion>0.00</Calefaccion>
+				<Refrigeracion>0.00</Refrigeracion>
+				<ACS>0.00</ACS>
+			</GasNatural>
+			<ElectricidadPeninsular>
+				<Global>37.35</Global>
+				<Calefaccion>9.59</Calefaccion>
+				<Refrigeracion>7.71</Refrigeracion>
+				<ACS>20.05</ACS>
+			</ElectricidadPeninsular>
+			<GasoleoC>
+				<Global>0.00</Global>
+				<Calefaccion>0.00</Calefaccion>
+				<Refrigeracion>0.00</Refrigeracion>
+				<ACS>0.00</ACS>
+			</GasoleoC>
+			<GLP>
+				<Global>0.00</Global>
+				<Calefaccion>0.00</Calefaccion>
+				<Refrigeracion>0.00</Refrigeracion>
+				<ACS>0.00</ACS>
+			</GLP>
+			<Carbon>
+				<Global>0.00</Global>
+				<Calefaccion>0.00</Calefaccion>
+				<Refrigeracion>0.00</Refrigeracion>
+				<ACS>0.00</ACS>
+			</Carbon>
+			<BiomasaPellet>
+				<Global>0.00</Global>
+				<Calefaccion>0.00</Calefaccion>
+				<Refrigeracion>0.00</Refrigeracion>
+				<ACS>0.00</ACS>
+			</BiomasaPellet>
+			<BiomasaOtros>
+				<Global>0.00</Global>
+				<Calefaccion>0.00</Calefaccion>
+				<Refrigeracion>0.00</Refrigeracion>
+				<ACS>0.00</ACS>
+			</BiomasaOtros>
+		</EnergiaFinalVectores>
+		<EnergiaPrimariaNoRenovable>
+			<Global>72.98</Global>
+			<Calefaccion>18.73</Calefaccion>
+			<Refrigeracion>15.07</Refrigeracion>
+			<ACS>39.17</ACS>
+		</EnergiaPrimariaNoRenovable>
+		<Exigencias>
+			<LimiteViviendaGlobalEPNR>55.00</LimiteViviendaGlobalEPNR>
+		</Exigencias>
+	</Consumo>
+	<EmisionesCO2>
+		<Global>12.36</Global>
+		<Calefaccion>3.17</Calefaccion>
+		<Refrigeracion>2.55</Refrigeracion>
+		<ACS>6.64</ACS>
+	</EmisionesCO2>
+	<Calificacion>
+		<EmisionesCO2>
+			<Global>C</Global>
+			<Calefaccion>B</Calefaccion>
+			<Refrigeracion>A</Refrigeracion>
+			<ACS>F</ACS>
+			<EscalaGlobal>
+				<A>6.70</A>
+				<B>11.60</B>
+				<C>19.00</C>
+				<D>29.80</D>
+				<E>58.40</E>
+				<F>71.80</F>
+			</EscalaGlobal>
+		</EmisionesCO2>
+		<Demanda>
+			<Calefaccion>A</Calefaccion>
+			<Refrigeracion>B</Refrigeracion>
+			<EscalaCalefaccion>
+				<A>9.70</A>
+				<B>18.40</B>
+				<C>31.10</C>
+				<D>49.90</D>
+				<E>83.60</E>
+				<F>102.80</F>
+			</EscalaCalefaccion>
+			<EscalaRefrigeracion>
+				<A>13.90</A>
+				<B>20.00</B>
+				<C>28.40</C>
+				<D>41.40</D>
+				<E>50.90</E>
+				<F>62.60</F>
+			</EscalaRefrigeracion>
+		</Demanda>
+		<EnergiaPrimariaNoRenovable>
+			<Global>C</Global>
+			<Calefaccion>B</Calefaccion>
+			<Refrigeracion>B</Refrigeracion>
+			<ACS>G</ACS>
+			<EscalaGlobal>
+				<A>29.10</A>
+				<B>50.20</B>
+				<C>81.90</C>
+				<D>128.60</D>
+				<E>243.70</E>
+				<F>292.50</F>
+			</EscalaGlobal>
+		</EnergiaPrimariaNoRenovable>
+	</Calificacion>
+	<PruebasComprobacionesInspecciones>
+		<Visita>
+			<FechaVisita>06/02/2023</FechaVisita>
+			<Datos>
+				<![CDATA[<br></b>]]>
+			</Datos>
+		</Visita>
+	</PruebasComprobacionesInspecciones>
+	<DatosPersonalizados>
+		<Cerma>
+			<Version name="CERMAPLUS v5.11"/>
+			<Datos_Generales>
+				<Tipologia_edificio name="0"/>
+				<Modo_trabajo name="Existente"/>
+				<Equipos_Defecto name="SI"/>
+				<TipoCalculoHE name="Reforma &gt;25&#37; envolvente + Clima + ACS"/>
+				<Modo_Vision name="Simplificado"/>
+				<Fecha name="05/01/2023"/>
+				<Edificio_Titulo name="ES.CA.SFH.04"/>
+				<ReferenciaCatastral name="00000000000000"/>
+				<AnoConstruccion name="[A&#241;o de construccion]"/>
+				<NormativaVigente name="-"/>
+				<Edificio_Direccion name="[Direccion]"/>
+				<Edificio_CP name="00000"/>
+				<Certificador_Nombre name="[Nombre][Apellidos]"/>
+				<Certificador_NIF name="00000000A"/>
+				<Certificador_Empresa name="[Razon Social]"/>
+				<Certificador_CIF name="ES00000000A"/>
+				<Certificador_Direccion name="C/ Ram&#243;n y cajal 351"/>
+				<Certificador_Localidad name="Coru&#241;a (A)"/>
+				<Certificador_Provincia name="A Coru&#241;a"/>
+				<Certificador_CP name="00000"/>
+				<Certificador_email name="[correo]"/>
+				<Certificador_Profesion name="Ingeniero Industrial"/>
+				<Certificador_Movil name="000000000"/>
+				<Imagen>
+					<![CDATA[data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABnoAAAOkBAMAAABzHvdWAAAAD1BMVEX//////9uQOgAAOpDb//9tW3inAAADdklEQVR4AezBAQ0AAADCIPunfg8HDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP7EHhyQAAAAAAj6/7ofoQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMBQ7MEBCQAAAICg/6/7ESoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMxR4ckAAAAAAI+v+6H6ECAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAUOzOAQ0AAAgDoJnFIvZP9RjqBgkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC4rnq2CwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPwT9uCABAAAAEDQ/9f9CBUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACGYg8OSAAAAAAE/X/dj1ABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgqPbgkAAAAABA0P/X3jAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMBTFgQBlhlRf4gAAAABJRU5ErkJggg==]]>
+				</Imagen>
+				<Plano/>
+			</Datos_Generales>
+			<Datos_Uso>
+				<Tipo name="Residencial"/>
+				<Tiposimulacion name="Certificacion"/>
+				<Valores_Maximos Sensibleocupantes="0,00" Latenteocupantes="0,00" Ventilacion="189" Iluminacion="0,00" Equipos="0,00" QOCUPSSimple="0,00" QOCUPLSimple="0,00" Actividad="Certificaci&#243;n" CriterioACS="Oficinas" Nm2_p="1"/>
+				<Iluminacion VEII="0,00" EPotIluMax="0,00" Qescaparates="0" VEIIMax="0,00"/>
+				<Varios WRecuperadorr="50" Teminrec="15,0" Temaxrec="30,0" NEquiposVent="1" ManejoVentilacion="" TipoCO2="Proporci&#243;n caudal definido en coef. operacionales" TminUTAP="20" TmaxUTAP="25" TminFreeCooling="15" CaudalUTA="0"/>
+				<C1Laborable C1="2,15" C2="2,15" C3="2,15" C4="2,15" C5="2,15" C6="2,15" C7="0,54" C8="0,54" C9="0,54" C10="0,54" C11="0,54" C12="0,54" C13="0,54" C14="0,54" C15="1,08" C16="1,08" C17="1,08" C18="1,08" C19="1,08" C20="1,08" C21="1,08" C22="1,08" C23="2,15" C24="2,15"/>
+				<C1Sabado C1="2,15" C2="2,15" C3="2,15" C4="2,15" C5="2,15" C6="2,15" C7="2,15" C8="2,15" C9="2,15" C10="2,15" C11="2,15" C12="2,15" C13="2,15" C14="2,15" C15="2,15" C16="2,15" C17="2,15" C18="2,15" C19="2,15" C20="2,15" C21="2,15" C22="2,15" C23="2,15" C24="2,15"/>
+				<C1Domingo C1="2,15" C2="2,15" C3="2,15" C4="2,15" C5="2,15" C6="2,15" C7="2,15" C8="2,15" C9="2,15" C10="2,15" C11="2,15" C12="2,15" C13="2,15" C14="2,15" C15="2,15" C16="2,15" C17="2,15" C18="2,15" C19="2,15" C20="2,15" C21="2,15" C22="2,15" C23="2,15" C24="2,15"/>
+				<C1E1 C1="0,00" C2="0,00" C3="0,00" C4="0,00" C5="0,00" C6="0,00" C7="0,00" C8="0,00" C9="0,00" C10="0,00" C11="0,00" C12="0,00" C13="0,00" C14="0,00" C15="0,00" C16="0,00" C17="0,00" C18="0,00" C19="0,00" C20="0,00" C21="0,00" C22="0,00" C23="0,00" C24="0,00"/>
+				<C1E2 C1="0,00" C2="0,00" C3="0,00" C4="0,00" C5="0,00" C6="0,00" C7="0,00" C8="0,00" C9="0,00" C10="0,00" C11="0,00" C12="0,00" C13="0,00" C14="0,00" C15="0,00" C16="0,00" C17="0,00" C18="0,00" C19="0,00" C20="0,00" C21="0,00" C22="0,00" C23="0,00" C24="0,00"/>
+				<C1E3 C1="0,00" C2="0,00" C3="0,00" C4="0,00" C5="0,00" C6="0,00" C7="0,00" C8="0,00" C9="0,00" C10="0,00" C11="0,00" C12="0,00" C13="0,00" C14="0,00" C15="0,00" C16="0,00" C17="0,00" C18="0,00" C19="0,00" C20="0,00" C21="0,00" C22="0,00" C23="0,00" C24="0,00"/>
+				<C1E4 C1="0,00" C2="0,00" C3="0,00" C4="0,00" C5="0,00" C6="0,00" C7="0,00" C8="0,00" C9="0,00" C10="0,00" C11="0,00" C12="0,00" C13="0,00" C14="0,00" C15="0,00" C16="0,00" C17="0,00" C18="0,00" C19="0,00" C20="0,00" C21="0,00" C22="0,00" C23="0,00" C24="0,00"/>
+				<C1E5 C1="0,00" C2="0,00" C3="0,00" C4="0,00" C5="0,00" C6="0,00" C7="0,00" C8="0,00" C9="0,00" C10="0,00" C11="0,00" C12="0,00" C13="0,00" C14="0,00" C15="0,00" C16="0,00" C17="0,00" C18="0,00" C19="0,00" C20="0,00" C21="0,00" C22="0,00" C23="0,00" C24="0,00"/>
+				<C1E6 C1="0,00" C2="0,00" C3="0,00" C4="0,00" C5="0,00" C6="0,00" C7="0,00" C8="0,00" C9="0,00" C10="0,00" C11="0,00" C12="0,00" C13="0,00" C14="0,00" C15="0,00" C16="0,00" C17="0,00" C18="0,00" C19="0,00" C20="0,00" C21="0,00" C22="0,00" C23="0,00" C24="0,00"/>
+				<C2Laborable C1="1,36" C2="1,36" C3="1,36" C4="1,36" C5="1,36" C6="1,36" C7="0,34" C8="0,34" C9="0,34" C10="0,34" C11="0,34" C12="0,34" C13="0,34" C14="0,34" C15="0,68" C16="0,68" C17="0,68" C18="0,68" C19="0,68" C20="0,68" C21="0,68" C22="0,68" C23="1,36" C24="1,36"/>
+				<C2Sabado C1="1,36" C2="1,36" C3="1,36" C4="1,36" C5="1,36" C6="1,36" C7="1,36" C8="1,36" C9="1,36" C10="1,36" C11="1,36" C12="1,36" C13="1,36" C14="1,36" C15="1,36" C16="1,36" C17="1,36" C18="1,36" C19="1,36" C20="1,36" C21="1,36" C22="1,36" C23="1,36" C24="1,36"/>
+				<C2Domingo C1="1,36" C2="1,36" C3="1,36" C4="1,36" C5="1,36" C6="1,36" C7="1,36" C8="1,36" C9="1,36" C10="1,36" C11="1,36" C12="1,36" C13="1,36" C14="1,36" C15="1,36" C16="1,36" C17="1,36" C18="1,36" C19="1,36" C20="1,36" C21="1,36" C22="1,36" C23="1,36" C24="1,36"/>
+				<C2E1 C1="0,00" C2="0,00" C3="0,00" C4="0,00" C5="0,00" C6="0,00" C7="0,00" C8="0,00" C9="0,00" C10="0,00" C11="0,00" C12="0,00" C13="0,00" C14="0,00" C15="0,00" C16="0,00" C17="0,00" C18="0,00" C19="0,00" C20="0,00" C21="0,00" C22="0,00" C23="0,00" C24="0,00"/>
+				<C2E2 C1="0,00" C2="0,00" C3="0,00" C4="0,00" C5="0,00" C6="0,00" C7="0,00" C8="0,00" C9="0,00" C10="0,00" C11="0,00" C12="0,00" C13="0,00" C14="0,00" C15="0,00" C16="0,00" C17="0,00" C18="0,00" C19="0,00" C20="0,00" C21="0,00" C22="0,00" C23="0,00" C24="0,00"/>
+				<C2E3 C1="0,00" C2="0,00" C3="0,00" C4="0,00" C5="0,00" C6="0,00" C7="0,00" C8="0,00" C9="0,00" C10="0,00" C11="0,00" C12="0,00" C13="0,00" C14="0,00" C15="0,00" C16="0,00" C17="0,00" C18="0,00" C19="0,00" C20="0,00" C21="0,00" C22="0,00" C23="0,00" C24="0,00"/>
+				<C2E4 C1="0,00" C2="0,00" C3="0,00" C4="0,00" C5="0,00" C6="0,00" C7="0,00" C8="0,00" C9="0,00" C10="0,00" C11="0,00" C12="0,00" C13="0,00" C14="0,00" C15="0,00" C16="0,00" C17="0,00" C18="0,00" C19="0,00" C20="0,00" C21="0,00" C22="0,00" C23="0,00" C24="0,00"/>
+				<C2E5 C1="0,00" C2="0,00" C3="0,00" C4="0,00" C5="0,00" C6="0,00" C7="0,00" C8="0,00" C9="0,00" C10="0,00" C11="0,00" C12="0,00" C13="0,00" C14="0,00" C15="0,00" C16="0,00" C17="0,00" C18="0,00" C19="0,00" C20="0,00" C21="0,00" C22="0,00" C23="0,00" C24="0,00"/>
+				<C2E6 C1="0,00" C2="0,00" C3="0,00" C4="0,00" C5="0,00" C6="0,00" C7="0,00" C8="0,00" C9="0,00" C10="0,00" C11="0,00" C12="0,00" C13="0,00" C14="0,00" C15="0,00" C16="0,00" C17="0,00" C18="0,00" C19="0,00" C20="0,00" C21="0,00" C22="0,00" C23="0,00" C24="0,00"/>
+				<CIluLaborable C1="0,44" C2="0,44" C3="0,44" C4="0,44" C5="0,44" C6="0,44" C7="1,32" C8="1,32" C9="1,32" C10="1,32" C11="1,32" C12="1,32" C13="1,32" C14="1,32" C15="1,32" C16="1,32" C17="1,32" C18="2,20" C19="4,40" C20="4,40" C21="4,40" C22="4,40" C23="2,20" C24="0,44"/>
+				<CIluSabado C1="0,44" C2="0,44" C3="0,44" C4="0,44" C5="0,44" C6="0,44" C7="1,32" C8="1,32" C9="1,32" C10="1,32" C11="1,32" C12="1,32" C13="1,32" C14="1,32" C15="1,32" C16="1,32" C17="1,32" C18="2,20" C19="4,40" C20="4,40" C21="4,40" C22="4,40" C23="2,20" C24="0,44"/>
+				<CIluDomingo C1="0,44" C2="0,44" C3="0,44" C4="0,44" C5="0,44" C6="0,44" C7="1,32" C8="1,32" C9="1,32" C10="1,32" C11="1,32" C12="1,32" C13="1,32" C14="1,32" C15="1,32" C16="1,32" C17="1,32" C18="2,20" C19="4,40" C20="4,40" C21="4,40" C22="4,40" C23="2,20" C24="0,44"/>
+				<CIluE1 C1="0,00" C2="0,00" C3="0,00" C4="0,00" C5="0,00" C6="0,00" C7="0,00" C8="0,00" C9="0,00" C10="0,00" C11="0,00" C12="0,00" C13="0,00" C14="0,00" C15="0,00" C16="0,00" C17="0,00" C18="0,00" C19="0,00" C20="0,00" C21="0,00" C22="0,00" C23="0,00" C24="0,00"/>
+				<CIluE2 C1="0,00" C2="0,00" C3="0,00" C4="0,00" C5="0,00" C6="0,00" C7="0,00" C8="0,00" C9="0,00" C10="0,00" C11="0,00" C12="0,00" C13="0,00" C14="0,00" C15="0,00" C16="0,00" C17="0,00" C18="0,00" C19="0,00" C20="0,00" C21="0,00" C22="0,00" C23="0,00" C24="0,00"/>
+				<CIluE3 C1="0,00" C2="0,00" C3="0,00" C4="0,00" C5="0,00" C6="0,00" C7="0,00" C8="0,00" C9="0,00" C10="0,00" C11="0,00" C12="0,00" C13="0,00" C14="0,00" C15="0,00" C16="0,00" C17="0,00" C18="0,00" C19="0,00" C20="0,00" C21="0,00" C22="0,00" C23="0,00" C24="0,00"/>
+				<CIluE4 C1="0,00" C2="0,00" C3="0,00" C4="0,00" C5="0,00" C6="0,00" C7="0,00" C8="0,00" C9="0,00" C10="0,00" C11="0,00" C12="0,00" C13="0,00" C14="0,00" C15="0,00" C16="0,00" C17="0,00" C18="0,00" C19="0,00" C20="0,00" C21="0,00" C22="0,00" C23="0,00" C24="0,00"/>
+				<CIluE5 C1="0,00" C2="0,00" C3="0,00" C4="0,00" C5="0,00" C6="0,00" C7="0,00" C8="0,00" C9="0,00" C10="0,00" C11="0,00" C12="0,00" C13="0,00" C14="0,00" C15="0,00" C16="0,00" C17="0,00" C18="0,00" C19="0,00" C20="0,00" C21="0,00" C22="0,00" C23="0,00" C24="0,00"/>
+				<CIluE6 C1="0,00" C2="0,00" C3="0,00" C4="0,00" C5="0,00" C6="0,00" C7="0,00" C8="0,00" C9="0,00" C10="0,00" C11="0,00" C12="0,00" C13="0,00" C14="0,00" C15="0,00" C16="0,00" C17="0,00" C18="0,00" C19="0,00" C20="0,00" C21="0,00" C22="0,00" C23="0,00" C24="0,00"/>
+				<CEqLaborable C1="0,44" C2="0,44" C3="0,44" C4="0,44" C5="0,44" C6="0,44" C7="1,32" C8="1,32" C9="1,32" C10="1,32" C11="1,32" C12="1,32" C13="1,32" C14="1,32" C15="1,32" C16="1,32" C17="1,32" C18="2,20" C19="4,40" C20="4,40" C21="4,40" C22="4,40" C23="2,20" C24="0,44"/>
+				<CEqSabado C1="0,44" C2="0,44" C3="0,44" C4="0,44" C5="0,44" C6="0,44" C7="1,32" C8="1,32" C9="1,32" C10="1,32" C11="1,32" C12="1,32" C13="1,32" C14="1,32" C15="1,32" C16="1,32" C17="1,32" C18="2,20" C19="4,40" C20="4,40" C21="4,40" C22="4,40" C23="2,20" C24="0,44"/>
+				<CEqDomingo C1="0,44" C2="0,44" C3="0,44" C4="0,44" C5="0,44" C6="0,44" C7="1,32" C8="1,32" C9="1,32" C10="1,32" C11="1,32" C12="1,32" C13="1,32" C14="1,32" C15="1,32" C16="1,32" C17="1,32" C18="2,20" C19="4,40" C20="4,40" C21="4,40" C22="4,40" C23="2,20" C24="0,44"/>
+				<CEqE1 C1="0,00" C2="0,00" C3="0,00" C4="0,00" C5="0,00" C6="0,00" C7="0,00" C8="0,00" C9="0,00" C10="0,00" C11="0,00" C12="0,00" C13="0,00" C14="0,00" C15="0,00" C16="0,00" C17="0,00" C18="0,00" C19="0,00" C20="0,00" C21="0,00" C22="0,00" C23="0,00" C24="0,00"/>
+				<CEqE2 C1="0,00" C2="0,00" C3="0,00" C4="0,00" C5="0,00" C6="0,00" C7="0,00" C8="0,00" C9="0,00" C10="0,00" C11="0,00" C12="0,00" C13="0,00" C14="0,00" C15="0,00" C16="0,00" C17="0,00" C18="0,00" C19="0,00" C20="0,00" C21="0,00" C22="0,00" C23="0,00" C24="0,00"/>
+				<CEqE3 C1="0,00" C2="0,00" C3="0,00" C4="0,00" C5="0,00" C6="0,00" C7="0,00" C8="0,00" C9="0,00" C10="0,00" C11="0,00" C12="0,00" C13="0,00" C14="0,00" C15="0,00" C16="0,00" C17="0,00" C18="0,00" C19="0,00" C20="0,00" C21="0,00" C22="0,00" C23="0,00" C24="0,00"/>
+				<CEqE4 C1="0,00" C2="0,00" C3="0,00" C4="0,00" C5="0,00" C6="0,00" C7="0,00" C8="0,00" C9="0,00" C10="0,00" C11="0,00" C12="0,00" C13="0,00" C14="0,00" C15="0,00" C16="0,00" C17="0,00" C18="0,00" C19="0,00" C20="0,00" C21="0,00" C22="0,00" C23="0,00" C24="0,00"/>
+				<CEqE5 C1="0,00" C2="0,00" C3="0,00" C4="0,00" C5="0,00" C6="0,00" C7="0,00" C8="0,00" C9="0,00" C10="0,00" C11="0,00" C12="0,00" C13="0,00" C14="0,00" C15="0,00" C16="0,00" C17="0,00" C18="0,00" C19="0,00" C20="0,00" C21="0,00" C22="0,00" C23="0,00" C24="0,00"/>
+				<CEqE6 C1="0,00" C2="0,00" C3="0,00" C4="0,00" C5="0,00" C6="0,00" C7="0,00" C8="0,00" C9="0,00" C10="0,00" C11="0,00" C12="0,00" C13="0,00" C14="0,00" C15="0,00" C16="0,00" C17="0,00" C18="0,00" C19="0,00" C20="0,00" C21="0,00" C22="0,00" C23="0,00" C24="0,00"/>
+				<CNRLaborable C1="100,00" C2="100,00" C3="100,00" C4="100,00" C5="100,00" C6="100,00" C7="100,00" C8="100,00" C9="100,00" C10="100,00" C11="100,00" C12="100,00" C13="100,00" C14="100,00" C15="100,00" C16="100,00" C17="100,00" C18="100,00" C19="100,00" C20="100,00" C21="100,00" C22="100,00" C23="100,00" C24="100,00"/>
+				<CNRSabado C1="100,00" C2="100,00" C3="100,00" C4="100,00" C5="100,00" C6="100,00" C7="100,00" C8="100,00" C9="100,00" C10="100,00" C11="100,00" C12="100,00" C13="100,00" C14="100,00" C15="100,00" C16="100,00" C17="100,00" C18="100,00" C19="100,00" C20="100,00" C21="100,00" C22="100,00" C23="100,00" C24="100,00"/>
+				<CNRDomingo C1="100,00" C2="100,00" C3="100,00" C4="100,00" C5="100,00" C6="100,00" C7="100,00" C8="100,00" C9="100,00" C10="100,00" C11="100,00" C12="100,00" C13="100,00" C14="100,00" C15="100,00" C16="100,00" C17="100,00" C18="100,00" C19="100,00" C20="100,00" C21="100,00" C22="100,00" C23="100,00" C24="100,00"/>
+				<CNRE1 C1="0,00" C2="0,00" C3="0,00" C4="0,00" C5="0,00" C6="0,00" C7="0,00" C8="0,00" C9="0,00" C10="0,00" C11="0,00" C12="0,00" C13="0,00" C14="0,00" C15="0,00" C16="0,00" C17="0,00" C18="0,00" C19="0,00" C20="0,00" C21="0,00" C22="0,00" C23="0,00" C24="0,00"/>
+				<CNRE2 C1="0,00" C2="0,00" C3="0,00" C4="0,00" C5="0,00" C6="0,00" C7="0,00" C8="0,00" C9="0,00" C10="0,00" C11="0,00" C12="0,00" C13="0,00" C14="0,00" C15="0,00" C16="0,00" C17="0,00" C18="0,00" C19="0,00" C20="0,00" C21="0,00" C22="0,00" C23="0,00" C24="0,00"/>
+				<CNRE3 C1="0,00" C2="0,00" C3="0,00" C4="0,00" C5="0,00" C6="0,00" C7="0,00" C8="0,00" C9="0,00" C10="0,00" C11="0,00" C12="0,00" C13="0,00" C14="0,00" C15="0,00" C16="0,00" C17="0,00" C18="0,00" C19="0,00" C20="0,00" C21="0,00" C22="0,00" C23="0,00" C24="0,00"/>
+				<CNRE4 C1="0,00" C2="0,00" C3="0,00" C4="0,00" C5="0,00" C6="0,00" C7="0,00" C8="0,00" C9="0,00" C10="0,00" C11="0,00" C12="0,00" C13="0,00" C14="0,00" C15="0,00" C16="0,00" C17="0,00" C18="0,00" C19="0,00" C20="0,00" C21="0,00" C22="0,00" C23="0,00" C24="0,00"/>
+				<CNRE5 C1="0,00" C2="0,00" C3="0,00" C4="0,00" C5="0,00" C6="0,00" C7="0,00" C8="0,00" C9="0,00" C10="0,00" C11="0,00" C12="0,00" C13="0,00" C14="0,00" C15="0,00" C16="0,00" C17="0,00" C18="0,00" C19="0,00" C20="0,00" C21="0,00" C22="0,00" C23="0,00" C24="0,00"/>
+				<CNRE6 C1="0,00" C2="0,00" C3="0,00" C4="0,00" C5="0,00" C6="0,00" C7="0,00" C8="0,00" C9="0,00" C10="0,00" C11="0,00" C12="0,00" C13="0,00" C14="0,00" C15="0,00" C16="0,00" C17="0,00" C18="0,00" C19="0,00" C20="0,00" C21="0,00" C22="0,00" C23="0,00" C24="0,00"/>
+				<CTRhLaborable C1="27,00" C2="27,00" C3="27,00" C4="27,00" C5="27,00" C6="27,00" C7="0,00" C8="0,00" C9="0,00" C10="0,00" C11="0,00" C12="0,00" C13="0,00" C14="0,00" C15="25,00" C16="25,00" C17="25,00" C18="25,00" C19="25,00" C20="25,00" C21="25,00" C22="25,00" C23="27,00" C24="27,00"/>
+				<CTRhSabado C1="27,00" C2="27,00" C3="27,00" C4="27,00" C5="27,00" C6="27,00" C7="0,00" C8="0,00" C9="0,00" C10="0,00" C11="0,00" C12="0,00" C13="0,00" C14="0,00" C15="25,00" C16="25,00" C17="25,00" C18="25,00" C19="25,00" C20="25,00" C21="25,00" C22="25,00" C23="27,00" C24="27,00"/>
+				<CTRhDomingo C1="27,00" C2="27,00" C3="27,00" C4="27,00" C5="27,00" C6="27,00" C7="0,00" C8="0,00" C9="0,00" C10="0,00" C11="0,00" C12="0,00" C13="0,00" C14="0,00" C15="25,00" C16="25,00" C17="25,00" C18="25,00" C19="25,00" C20="25,00" C21="25,00" C22="25,00" C23="27,00" C24="27,00"/>
+				<CTRhE1 C1="0,00" C2="0,00" C3="0,00" C4="0,00" C5="0,00" C6="0,00" C7="0,00" C8="0,00" C9="0,00" C10="0,00" C11="0,00" C12="0,00" C13="0,00" C14="0,00" C15="0,00" C16="0,00" C17="0,00" C18="0,00" C19="0,00" C20="0,00" C21="0,00" C22="0,00" C23="0,00" C24="0,00"/>
+				<CTRhE2 C1="0,00" C2="0,00" C3="0,00" C4="0,00" C5="0,00" C6="0,00" C7="0,00" C8="0,00" C9="0,00" C10="0,00" C11="0,00" C12="0,00" C13="0,00" C14="0,00" C15="0,00" C16="0,00" C17="0,00" C18="0,00" C19="0,00" C20="0,00" C21="0,00" C22="0,00" C23="0,00" C24="0,00"/>
+				<CTRhE3 C1="0,00" C2="0,00" C3="0,00" C4="0,00" C5="0,00" C6="0,00" C7="0,00" C8="0,00" C9="0,00" C10="0,00" C11="0,00" C12="0,00" C13="0,00" C14="0,00" C15="0,00" C16="0,00" C17="0,00" C18="0,00" C19="0,00" C20="0,00" C21="0,00" C22="0,00" C23="0,00" C24="0,00"/>
+				<CTRhE4 C1="0,00" C2="0,00" C3="0,00" C4="0,00" C5="0,00" C6="0,00" C7="0,00" C8="0,00" C9="0,00" C10="0,00" C11="0,00" C12="0,00" C13="0,00" C14="0,00" C15="0,00" C16="0,00" C17="0,00" C18="0,00" C19="0,00" C20="0,00" C21="0,00" C22="0,00" C23="0,00" C24="0,00"/>
+				<CTRhE5 C1="0,00" C2="0,00" C3="0,00" C4="0,00" C5="0,00" C6="0,00" C7="0,00" C8="0,00" C9="0,00" C10="0,00" C11="0,00" C12="0,00" C13="0,00" C14="0,00" C15="0,00" C16="0,00" C17="0,00" C18="0,00" C19="0,00" C20="0,00" C21="0,00" C22="0,00" C23="0,00" C24="0,00"/>
+				<CTRhE6 C1="0,00" C2="0,00" C3="0,00" C4="0,00" C5="0,00" C6="0,00" C7="0,00" C8="0,00" C9="0,00" C10="0,00" C11="0,00" C12="0,00" C13="0,00" C14="0,00" C15="0,00" C16="0,00" C17="0,00" C18="0,00" C19="0,00" C20="0,00" C21="0,00" C22="0,00" C23="0,00" C24="0,00"/>
+				<CTChLaborable C1="17,00" C2="17,00" C3="17,00" C4="17,00" C5="17,00" C6="17,00" C7="20,00" C8="20,00" C9="20,00" C10="20,00" C11="20,00" C12="20,00" C13="20,00" C14="20,00" C15="20,00" C16="20,00" C17="20,00" C18="20,00" C19="20,00" C20="20,00" C21="20,00" C22="20,00" C23="17,00" C24="17,00"/>
+				<CTChSabado C1="17,00" C2="17,00" C3="17,00" C4="17,00" C5="17,00" C6="17,00" C7="20,00" C8="20,00" C9="20,00" C10="20,00" C11="20,00" C12="20,00" C13="20,00" C14="20,00" C15="20,00" C16="20,00" C17="20,00" C18="20,00" C19="20,00" C20="20,00" C21="20,00" C22="20,00" C23="17,00" C24="17,00"/>
+				<CTChDomingo C1="17,00" C2="17,00" C3="17,00" C4="17,00" C5="17,00" C6="17,00" C7="20,00" C8="20,00" C9="20,00" C10="20,00" C11="20,00" C12="20,00" C13="20,00" C14="20,00" C15="20,00" C16="20,00" C17="20,00" C18="20,00" C19="20,00" C20="20,00" C21="20,00" C22="20,00" C23="17,00" C24="17,00"/>
+				<CTChE1 C1="0,00" C2="0,00" C3="0,00" C4="0,00" C5="0,00" C6="0,00" C7="0,00" C8="0,00" C9="0,00" C10="0,00" C11="0,00" C12="0,00" C13="0,00" C14="0,00" C15="0,00" C16="0,00" C17="0,00" C18="0,00" C19="0,00" C20="0,00" C21="0,00" C22="0,00" C23="0,00" C24="0,00"/>
+				<CTChE2 C1="0,00" C2="0,00" C3="0,00" C4="0,00" C5="0,00" C6="0,00" C7="0,00" C8="0,00" C9="0,00" C10="0,00" C11="0,00" C12="0,00" C13="0,00" C14="0,00" C15="0,00" C16="0,00" C17="0,00" C18="0,00" C19="0,00" C20="0,00" C21="0,00" C22="0,00" C23="0,00" C24="0,00"/>
+				<CTChE3 C1="0,00" C2="0,00" C3="0,00" C4="0,00" C5="0,00" C6="0,00" C7="0,00" C8="0,00" C9="0,00" C10="0,00" C11="0,00" C12="0,00" C13="0,00" C14="0,00" C15="0,00" C16="0,00" C17="0,00" C18="0,00" C19="0,00" C20="0,00" C21="0,00" C22="0,00" C23="0,00" C24="0,00"/>
+				<CTChE4 C1="0,00" C2="0,00" C3="0,00" C4="0,00" C5="0,00" C6="0,00" C7="0,00" C8="0,00" C9="0,00" C10="0,00" C11="0,00" C12="0,00" C13="0,00" C14="0,00" C15="0,00" C16="0,00" C17="0,00" C18="0,00" C19="0,00" C20="0,00" C21="0,00" C22="0,00" C23="0,00" C24="0,00"/>
+				<CTChE5 C1="0,00" C2="0,00" C3="0,00" C4="0,00" C5="0,00" C6="0,00" C7="0,00" C8="0,00" C9="0,00" C10="0,00" C11="0,00" C12="0,00" C13="0,00" C14="0,00" C15="0,00" C16="0,00" C17="0,00" C18="0,00" C19="0,00" C20="0,00" C21="0,00" C22="0,00" C23="0,00" C24="0,00"/>
+				<CTChE6 C1="0,00" C2="0,00" C3="0,00" C4="0,00" C5="0,00" C6="0,00" C7="0,00" C8="0,00" C9="0,00" C10="0,00" C11="0,00" C12="0,00" C13="0,00" C14="0,00" C15="0,00" C16="0,00" C17="0,00" C18="0,00" C19="0,00" C20="0,00" C21="0,00" C22="0,00" C23="0,00" C24="0,00"/>
+				<CCACLaborable C1="0,00" C2="0,00" C3="0,00" C4="0,00" C5="1,00" C6="3,00" C7="10,00" C8="7,00" C9="7,00" C10="6,00" C11="6,00" C12="5,00" C13="5,00" C14="4,00" C15="3,00" C16="4,00" C17="4,00" C18="5,00" C19="7,00" C20="6,00" C21="6,00" C22="5,00" C23="5,00" C24="1,00"/>
+				<CCACSabado C1="0,00" C2="0,00" C3="0,00" C4="0,00" C5="1,00" C6="3,00" C7="10,00" C8="7,00" C9="7,00" C10="6,00" C11="6,00" C12="5,00" C13="5,00" C14="4,00" C15="3,00" C16="4,00" C17="4,00" C18="5,00" C19="7,00" C20="6,00" C21="6,00" C22="5,00" C23="5,00" C24="1,00"/>
+				<CCACDomingo C1="0,00" C2="0,00" C3="0,00" C4="0,00" C5="1,00" C6="3,00" C7="10,00" C8="7,00" C9="7,00" C10="6,00" C11="6,00" C12="5,00" C13="5,00" C14="4,00" C15="3,00" C16="4,00" C17="4,00" C18="5,00" C19="7,00" C20="6,00" C21="6,00" C22="5,00" C23="5,00" C24="1,00"/>
+				<CCACE1 C1="0,00" C2="0,00" C3="0,00" C4="0,00" C5="0,00" C6="0,00" C7="0,00" C8="0,00" C9="0,00" C10="0,00" C11="0,00" C12="0,00" C13="0,00" C14="0,00" C15="0,00" C16="0,00" C17="0,00" C18="0,00" C19="0,00" C20="0,00" C21="0,00" C22="0,00" C23="0,00" C24="0,00"/>
+				<CCACE2 C1="0,00" C2="0,00" C3="0,00" C4="0,00" C5="0,00" C6="0,00" C7="0,00" C8="0,00" C9="0,00" C10="0,00" C11="0,00" C12="0,00" C13="0,00" C14="0,00" C15="0,00" C16="0,00" C17="0,00" C18="0,00" C19="0,00" C20="0,00" C21="0,00" C22="0,00" C23="0,00" C24="0,00"/>
+				<CCACE3 C1="0,00" C2="0,00" C3="0,00" C4="0,00" C5="0,00" C6="0,00" C7="0,00" C8="0,00" C9="0,00" C10="0,00" C11="0,00" C12="0,00" C13="0,00" C14="0,00" C15="0,00" C16="0,00" C17="0,00" C18="0,00" C19="0,00" C20="0,00" C21="0,00" C22="0,00" C23="0,00" C24="0,00"/>
+				<CCACE4 C1="0,00" C2="0,00" C3="0,00" C4="0,00" C5="0,00" C6="0,00" C7="0,00" C8="0,00" C9="0,00" C10="0,00" C11="0,00" C12="0,00" C13="0,00" C14="0,00" C15="0,00" C16="0,00" C17="0,00" C18="0,00" C19="0,00" C20="0,00" C21="0,00" C22="0,00" C23="0,00" C24="0,00"/>
+				<CCACE5 C1="0,00" C2="0,00" C3="0,00" C4="0,00" C5="0,00" C6="0,00" C7="0,00" C8="0,00" C9="0,00" C10="0,00" C11="0,00" C12="0,00" C13="0,00" C14="0,00" C15="0,00" C16="0,00" C17="0,00" C18="0,00" C19="0,00" C20="0,00" C21="0,00" C22="0,00" C23="0,00" C24="0,00"/>
+				<CCACE6 C1="0,00" C2="0,00" C3="0,00" C4="0,00" C5="0,00" C6="0,00" C7="0,00" C8="0,00" C9="0,00" C10="0,00" C11="0,00" C12="0,00" C13="0,00" C14="0,00" C15="0,00" C16="0,00" C17="0,00" C18="0,00" C19="0,00" C20="0,00" C21="0,00" C22="0,00" C23="0,00" C24="0,00"/>
+				<Enero C1="1,00" C2="1,00" C3="1,00" C4="1,00" C5="1,00" C6="2,00" C7="3,00" C8="1,00" C9="1,00" C10="1,00" C11="1,00" C12="1,00" C13="2,00" C14="3,00" C15="1,00" C16="1,00" C17="1,00" C18="1,00" C19="1,00" C20="2,00" C21="3,00" C22="1,00" C23="1,00" C24="1,00" C25="1,00" C26="1,00" C27="2,00" C28="3,00" C29="1,00" C30="1,00" C31="1,00"/>
+				<Febrero C1="1,00" C2="1,00" C3="2,00" C4="3,00" C5="1,00" C6="1,00" C7="1,00" C8="1,00" C9="1,00" C10="2,00" C11="3,00" C12="1,00" C13="1,00" C14="1,00" C15="1,00" C16="1,00" C17="2,00" C18="3,00" C19="1,00" C20="1,00" C21="1,00" C22="1,00" C23="1,00" C24="2,00" C25="3,00" C26="1,00" C27="1,00" C28="1,00"/>
+				<Marzo C1="1,00" C2="1,00" C3="2,00" C4="3,00" C5="1,00" C6="1,00" C7="1,00" C8="1,00" C9="1,00" C10="2,00" C11="3,00" C12="1,00" C13="1,00" C14="1,00" C15="1,00" C16="1,00" C17="2,00" C18="3,00" C19="1,00" C20="1,00" C21="1,00" C22="1,00" C23="1,00" C24="2,00" C25="3,00" C26="1,00" C27="1,00" C28="1,00" C29="1,00" C30="1,00" C31="2,00"/>
+				<Abril C1="3,00" C2="1,00" C3="1,00" C4="1,00" C5="1,00" C6="1,00" C7="2,00" C8="3,00" C9="1,00" C10="1,00" C11="1,00" C12="1,00" C13="1,00" C14="2,00" C15="3,00" C16="1,00" C17="1,00" C18="1,00" C19="1,00" C20="1,00" C21="2,00" C22="3,00" C23="1,00" C24="1,00" C25="1,00" C26="1,00" C27="1,00" C28="2,00" C29="3,00" C30="1,00"/>
+				<Mayo C1="1,00" C2="1,00" C3="1,00" C4="1,00" C5="2,00" C6="3,00" C7="1,00" C8="1,00" C9="1,00" C10="1,00" C11="1,00" C12="2,00" C13="3,00" C14="1,00" C15="1,00" C16="1,00" C17="1,00" C18="1,00" C19="2,00" C20="3,00" C21="1,00" C22="1,00" C23="1,00" C24="1,00" C25="1,00" C26="2,00" C27="3,00" C28="1,00" C29="1,00" C30="1,00" C31="1,00"/>
+				<Junio C1="1,00" C2="2,00" C3="3,00" C4="1,00" C5="1,00" C6="1,00" C7="1,00" C8="1,00" C9="2,00" C10="3,00" C11="1,00" C12="1,00" C13="1,00" C14="1,00" C15="1,00" C16="2,00" C17="3,00" C18="1,00" C19="1,00" C20="1,00" C21="1,00" C22="1,00" C23="2,00" C24="3,00" C25="1,00" C26="1,00" C27="1,00" C28="1,00" C29="1,00" C30="2,00"/>
+				<Julio C1="3,00" C2="1,00" C3="1,00" C4="1,00" C5="1,00" C6="1,00" C7="2,00" C8="3,00" C9="1,00" C10="1,00" C11="1,00" C12="1,00" C13="1,00" C14="2,00" C15="3,00" C16="1,00" C17="1,00" C18="1,00" C19="1,00" C20="1,00" C21="2,00" C22="3,00" C23="1,00" C24="1,00" C25="1,00" C26="1,00" C27="1,00" C28="2,00" C29="3,00" C30="1,00" C31="1,00"/>
+				<Agosto C1="1,00" C2="1,00" C3="1,00" C4="2,00" C5="3,00" C6="1,00" C7="1,00" C8="1,00" C9="1,00" C10="1,00" C11="2,00" C12="3,00" C13="1,00" C14="1,00" C15="1,00" C16="1,00" C17="1,00" C18="2,00" C19="3,00" C20="1,00" C21="1,00" C22="1,00" C23="1,00" C24="1,00" C25="2,00" C26="3,00" C27="1,00" C28="1,00" C29="1,00" C30="1,00" C31="1,00"/>
+				<Septiembre C1="2,00" C2="3,00" C3="1,00" C4="1,00" C5="1,00" C6="1,00" C7="1,00" C8="2,00" C9="3,00" C10="1,00" C11="1,00" C12="1,00" C13="1,00" C14="1,00" C15="2,00" C16="3,00" C17="1,00" C18="1,00" C19="1,00" C20="1,00" C21="1,00" C22="2,00" C23="3,00" C24="1,00" C25="1,00" C26="1,00" C27="1,00" C28="1,00" C29="2,00" C30="3,00"/>
+				<Octubre C1="1,00" C2="1,00" C3="1,00" C4="1,00" C5="1,00" C6="2,00" C7="3,00" C8="1,00" C9="1,00" C10="1,00" C11="1,00" C12="1,00" C13="2,00" C14="3,00" C15="1,00" C16="1,00" C17="1,00" C18="1,00" C19="1,00" C20="2,00" C21="3,00" C22="1,00" C23="1,00" C24="1,00" C25="1,00" C26="1,00" C27="2,00" C28="3,00" C29="1,00" C30="1,00" C31="1,00"/>
+				<Noviembre C1="1,00" C2="1,00" C3="2,00" C4="3,00" C5="1,00" C6="1,00" C7="1,00" C8="1,00" C9="1,00" C10="2,00" C11="3,00" C12="1,00" C13="1,00" C14="1,00" C15="1,00" C16="1,00" C17="2,00" C18="3,00" C19="1,00" C20="1,00" C21="1,00" C22="1,00" C23="1,00" C24="2,00" C25="3,00" C26="1,00" C27="1,00" C28="1,00" C29="1,00" C30="1,00"/>
+				<Diciembre C1="2,00" C2="3,00" C3="1,00" C4="1,00" C5="1,00" C6="1,00" C7="1,00" C8="2,00" C9="3,00" C10="1,00" C11="1,00" C12="1,00" C13="1,00" C14="1,00" C15="2,00" C16="3,00" C17="1,00" C18="1,00" C19="1,00" C20="1,00" C21="1,00" C22="2,00" C23="3,00" C24="1,00" C25="1,00" C26="1,00" C27="1,00" C28="1,00" C29="2,00" C30="3,00" C31="1,00"/>
+				<AccionMes C1="S&#243;lo Cale" C2="S&#243;lo Cale" C3="S&#243;lo Cale" C4="S&#243;lo Cale" C5="S&#243;lo Cale" C6="S&#243;lo Refri" C7="S&#243;lo Refri" C8="S&#243;lo Refri" C9="S&#243;lo Refri" C10="S&#243;lo Cale" C11="S&#243;lo Cale" C12="S&#243;lo Cale"/>
+			</Datos_Uso>
+			<Datos_Geograficos>
+				<Provincia name="Madrid"/>
+				<Ciudad name="Madrid"/>
+				<asnm name="653"/>
+				<latitud name="40,42"/>
+				<zona_temperatura name="B4"/>
+				<Cambio_zona_temperatura name="SI"/>
+				<zona_radiante name="IV"/>
+				<ComunidadAutonoma name="Madrid"/>
+			</Datos_Geograficos>
+			<Datos_Globales>
+				<Suelo_habitable_m2 name="129,5"/>
+				<Volumen_total_m3 name="375,6"/>
+				<NPlantasSobreRasante name="2"/>
+				<NPlantasBajoRasante name="0"/>
+				<nrenovventilacion name="0,63"/>
+				<Calcular_Renov_h_segun_HS3 name="No"/>
+				<Tipologias>
+					<Tipologia>
+						<N_viviendas name="1"/>
+						<N_dormitorios_dobles name="3"/>
+						<N_salas_estar_comedor name="1"/>
+						<N_cuartos_de_banyo name="3"/>
+					</Tipologia>
+				</Tipologias>
+			</Datos_Globales>
+			<Puentes_Termicos>
+				<Espesor_forjado name="0,20"/>
+				<Anchura_pilar name="0,30"/>
+				<Def_Puentes_termicos name="Continuo"/>
+				<Def_Puentes_termicos_pilares name="Pilares aislados ext"/>
+				<Existencia_pilares name="Con pilares"/>
+				<Def_Puentes_termicos_ventanas name="Aislamiento en contacto marco"/>
+				<U_L_Puentes_forjados name="-0,03"/>
+				<U_L_Puentes_cubiertas name="0,19"/>
+				<U_L_Puentes_suelo_exterior name="0,19"/>
+				<U_L_Puentes_esquina_saliente name="0,16"/>
+				<U_L_Puentes_ventanas name="0,02"/>
+				<U_L_Puentes_pilares name="0,04"/>
+				<U_L_Puentes_suelo_terreno name="0,12"/>
+				<fi_Puentes_forjados name="0,88"/>
+				<fi_Puentes_cubiertas name="0,82"/>
+				<fi_Puentes_suelo_exterior name="0,82"/>
+				<fi_Puentes_esquina_saliente name="0,80"/>
+				<fi_Puentes_ventanas name="0,81"/>
+				<fi_Puentes_pilares name="0,87"/>
+				<fi_Puentes_suelo_terreno name="0,70"/>
+				<Clase_de_higrometria name="3"/>
+				<Longitud_puentes_termicos_modo name="Estimados"/>
+			</Puentes_Termicos>
+			<Cubiertas>
+				<NColorCubiertasExt name="1"/>
+				<CubiertasHz>
+					<CubiertaHz>
+						<Cubierta_horiz_sol_m2 name="0,0"/>
+						<Cubierta_horiz_sombra_m2 name="0,0"/>
+						<U_Cubierta_horiz_sol_W_m2K name="0,00"/>
+						<RCubiertaExt1Reh name="0"/>
+					</CubiertaHz>
+				</CubiertasHz>
+				<CubiertasIncl>
+					<CubiertaIncl>
+						<Cubierta_incl_norte_m2 name="32,3"/>
+						<Cubierta_incl_oeste_m2 name="0,0"/>
+						<Cubierta_incl_sur_oeste_m2 name="0,0"/>
+						<Cubierta_incl_sur_m2 name="0,0"/>
+						<Cubierta_incl_sur_este_m2 name="32,3"/>
+						<Cubierta_incl_este_m2 name="0,0"/>
+						<Cubierta_incl_norte_Sombra_m2 name="0,0"/>
+						<Cubierta_incl_oeste_Sombra_m2 name="0,0"/>
+						<Cubierta_incl_sur_oeste_Sombra_m2 name="0,0"/>
+						<Cubierta_incl_sur_Sombra_m2 name="0,0"/>
+						<Cubierta_incl_sur_este_Sombra_m2 name="0,0"/>
+						<Cubierta_incl_este_Sombra_m2 name="0,0"/>
+						<U_Cubierta_incl_W_m2K name="0,32"/>
+						<RCubiertaExtInc1Reh name="1"/>
+					</CubiertaIncl>
+				</CubiertasIncl>
+				<CubiertasOtras>
+					<CubiertaOtras>
+						<Cubierta_techo_ventilado_m2 name="0,0"/>
+						<Cubierta_buhardilla_ext_m2 name="0,0"/>
+						<Cubierta_adiabatico_m2 name="0,0"/>
+						<Cubierta_terreno_m2 name="0,0"/>
+						<U_Cubierta_techo_ventilado_W_m2K name="0,00"/>
+						<U_Cubierta_buhardilla_ext_W_m2K name="0,00"/>
+						<Renovacion_Buhardilla name="renovh=0."/>
+						<U_Cubierta_adiabatico_W_m2K name="0,00"/>
+						<U_Cubierta_terreno_W_m2K name="0,00"/>
+						<U_Cubierta_Particion_Interna_W_m2K name="0,00"/>
+						<U_Cubierta_Particion_InternaD_W_m2K name="0,00"/>
+						<RCubiertaOLocal1Reh name="0"/>
+						<RCubiertaTerreno1Reh name="0"/>
+						<RCubiertaDUsoMedianera1Reh name="0"/>
+						<RCubiertaInteriorMUso1Reh name="0"/>
+						<RCubiertaInteriorDUso1Reh name="0"/>
+					</CubiertaOtras>
+				</CubiertasOtras>
+			</Cubiertas>
+			<Muros>
+				<NColorMurosExt name="1"/>
+				<MurosExt>
+					<MuroExt>
+						<Muro_ext_norte_m2 name="30,9"/>
+						<Muro_ext_oeste_m2 name="0,0"/>
+						<Muro_ext_sur_oeste_m2 name="0,0"/>
+						<Muro_ext_sur_m2 name="0,0"/>
+						<Muro_ext_sur_este_m2 name="29,6"/>
+						<Muro_ext_este_m2 name="0,0"/>
+						<Muro_ext_Var_oeste_m2 name="0,0"/>
+						<Muro_ext_Var_sur_oeste_m2 name="0,0"/>
+						<Muro_ext_Var_sur_m2 name="0,0"/>
+						<Muro_ext_Var_sur_este_m2 name="0,0"/>
+						<Muro_ext_Var_este_m2 name="0,0"/>
+						<U_Muro_ext_W_m2K name="0,39"/>
+						<RMuroExt1Reh name="1"/>
+					</MuroExt>
+					<MuroExt>
+						<Muro_ext_norte_m2 name="55,8"/>
+						<Muro_ext_oeste_m2 name="0,0"/>
+						<Muro_ext_sur_oeste_m2 name="0,0"/>
+						<Muro_ext_sur_m2 name="0,0"/>
+						<Muro_ext_sur_este_m2 name="0,0"/>
+						<Muro_ext_este_m2 name="0,0"/>
+						<Muro_ext_Var_oeste_m2 name="0,0"/>
+						<Muro_ext_Var_sur_oeste_m2 name="0,0"/>
+						<Muro_ext_Var_sur_m2 name="0,0"/>
+						<Muro_ext_Var_sur_este_m2 name="0,0"/>
+						<Muro_ext_Var_este_m2 name="0,0"/>
+						<U_Muro_ext_W_m2K name="0,39"/>
+						<RMuroExt2Reh name="0"/>
+					</MuroExt>
+				</MurosExt>
+				<MurosOtros>
+					<Muro_otro>
+						<Muro_otro_local_m2 name="0,0"/>
+						<Muro_otro_local_ext_m2 name="0,0"/>
+						<Muro_al_terreno_m2 name="0,0"/>
+						<Muro_adiabatico_m2 name="55,7"/>
+						<U_Muro_otro_local_W_m2K name="0,00"/>
+						<U_Muro_otro_local_ext_W_m2K name="0,00"/>
+						<Renovacion_Otro_Local name="renovh=0."/>
+						<Orientacion_Otro_Local name="Norte"/>
+						<U_Muro_terreno_W_m2K name="0,00"/>
+						<Profundidad_muro_enterrado_m name="1,0"/>
+						<U_Muro_adiabatico_W_m2K name="1,49"/>
+						<U_Muro_interior_W_m2K name="0,00"/>
+						<U_Muro_interiorD_W_m2K name="0,00"/>
+						<RMuroOLocal1Reh name="0"/>
+						<RMuroTerreno1Reh name="0"/>
+						<RMuroDusoMedianera1Reh name="0"/>
+						<RMuroInteriorDUso1Reh name="0"/>
+						<RMuroInteriorMUso1Reh name="0"/>
+					</Muro_otro>
+				</MurosOtros>
+			</Muros>
+			<Suelos>
+				<SuelosTerreno>
+					<Suelo_terreno>
+						<Suelo_al_terreno_m2 name="0,0"/>
+						<Perimetro_Ext_Suelo_Terreno_m name="0,0"/>
+						<U_Suelo_terreno_W_m2K name="0,00"/>
+						<Profundidad_suelo_enterrado_m name="0,0"/>
+						<Tipo_aislamiento_suelo name="SinAislamiento"/>
+						<D_Longitud_aislamiento_m name="0,00"/>
+						<Ra_Resitencia_aislante_m2K_W name="0,00"/>
+						<RSueloTerreno1Reh name="0"/>
+					</Suelo_terreno>
+				</SuelosTerreno>
+				<SuelosOtros>
+					<Suelo_otro>
+						<Suelo_ext_m2 name="0,0"/>
+						<Suelo_otro_local_m2 name="0,0"/>
+						<Suelo_otro_local_ext_m2 name="0,0"/>
+						<Suelo_vacio_sanitario_m2 name="64,7"/>
+						<Suelo_adiabatico_m2 name="0,0"/>
+						<Perimetro_Ext_Vacio_Sanitario_m name="32,7"/>
+						<U_Suelo_ext_W_m2K name="0,00"/>
+						<U_Suelo_otro_local_W_m2K name="0,00"/>
+						<U_Suelo_otro_local_ext_W_m2K name="0,00"/>
+						<Renovacion_Otro_Local_suelo name="renovh=0."/>
+						<U_Suelo_vacio_sanitario_W_m2K name="1,27"/>
+						<U_Suelo_adiabatico_W_m2K name="0,00"/>
+						<U_Suelo_particion_interior_W_m2K name="0,00"/>
+						<U_Suelo_particion_interiorD_W_m2K name="0,00"/>
+						<RSueloOLocal1Reh name="0"/>
+						<RSueloVacio1Reh name="0"/>
+						<RSueloExterior1Reh name="0"/>
+						<RSueloDUsoMedianera1Reh name="0"/>
+						<RSueloInteriorMUso1Reh name="0"/>
+						<RSueloInteriorDUso1Reh name="0"/>
+					</Suelo_otro>
+				</SuelosOtros>
+			</Suelos>
+			<Huecos>
+				<Hueco>
+					<Nombre_hueco name="G1"/>
+					<Ancho_m name="1,68"/>
+					<Alto_m name="1,30"/>
+					<Retranqueo_m name="0,22"/>
+					<Distancia_alero_m name="0,00"/>
+					<Longitud_alero_m name="0,00"/>
+					<Indice_tipo_cristal name="3"/>
+					<Indice_cristal_concreto name="7"/>
+					<Indice_marco name="6"/>
+					<Indice_tipo_junta name="8"/>
+					<Indice_tipo_sombra_fija name="0"/>
+					<Indice_tipo_sombra_movil name="1"/>
+					<Indice_tipo_control_Verano name="0"/>
+					<Indice_tipo_control_Invierno name="0"/>
+					<U_cristal_W_m2K name="2,10"/>
+					<HuecoReh name="1"/>
+					<FS_cristal_tanto_por_uno name="0,70"/>
+					<U_marco_W_m2K name="1,80"/>
+					<Fraccion_marco_tanto_por_cien name="20,00"/>
+					<Valor_multiplicativo_FS_verano name="1,00"/>
+					<Valor_multiplicativo_FS_invierno name="1,00"/>
+					<Valor_multiplicativo_U_verano name="1,00"/>
+					<Valor_multiplicativo_U_invierno name="1,00"/>
+					<U_Caja_de_persiana_W_m2K name="0,80"/>
+					<Altura_Caja_de_persiana_m name="0,25"/>
+					<Vinf_Caja_de_persiana_m3_h name="0,00"/>
+					<Permeabilidad_Ventanas name="27,00"/>
+					<Existe_Caja_persiana name="Existe"/>
+					<Tipo_de_U_Caja_persiana name="2-4 cm aislamiento"/>
+					<Tipo_de_Vinf_Caja_persiana name="Estanco"/>
+					<Tipo_de_hueco name="Ventana"/>
+					<Numero_ventanas_norte name="0"/>
+					<Numero_ventanas_oeste name="0"/>
+					<Separacion_ventanas_vertical_oeste name="3,00"/>
+					<Ventana_oeste_altura_obstaculo_oeste name="0,00"/>
+					<Ventana_oeste_distancia_obstaculo_oeste name="0,00"/>
+					<Ventana_oeste_altura_obstaculo_sur_oeste name="0,00"/>
+					<Ventana_oeste_distancia_obstaculo_sur_oeste name="0,00"/>
+					<Numero_ventanas_sur_oeste name="0"/>
+					<Separacion_ventanas_vertical_sur_oeste name="3,00"/>
+					<Ventana_sur_oeste_altura_obstaculo_oeste name="0,00"/>
+					<Ventana_sur_oeste_distancia_obstaculo_oeste name="0,00"/>
+					<Ventana_sur_oeste_altura_obstaculo_sur_oeste name="0,00"/>
+					<Ventana_sur_oeste_distancia_obstaculo_sur_oeste name="0,00"/>
+					<Ventana_sur_oeste_altura_obstaculo_sur name="0,00"/>
+					<Ventana_sur_oeste_distancia_obstaculo_sur name="0,00"/>
+					<Numero_ventanas_sur name="0"/>
+					<Separacion_ventanas_vertical_sur name="3,00"/>
+					<Ventana_sur_altura_obstaculo_sur_oeste name="0,00"/>
+					<Ventana_sur_distancia_obstaculo_sur_oeste name="0,00"/>
+					<Ventana_sur_altura_obstaculo_sur name="0,00"/>
+					<Ventana_sur_distancia_obstaculo_sur name="0,00"/>
+					<Ventana_sur_altura_obstaculo_sur_este name="0,00"/>
+					<Ventana_sur_distancia_obstaculo_sur_este name="0,00"/>
+					<Numero_ventanas_sur_este name="1"/>
+					<Separacion_ventanas_vertical_sur_este name="3,00"/>
+					<Ventana_sur_este_altura_obstaculo_sur name="0,00"/>
+					<Ventana_sur_este_distancia_obstaculo_sur name="0,00"/>
+					<Ventana_sur_este_altura_obstaculo_sur_este name="0,00"/>
+					<Ventana_sur_este_distancia_obstaculo_sur_este name="0,00"/>
+					<Ventana_sur_este_altura_obstaculo_este name="0,00"/>
+					<Ventana_sur_este_distancia_obstaculo_este name="0,00"/>
+					<Numero_ventanas_este name="0"/>
+					<Separacion_ventanas_vertical_este name="3,00"/>
+					<Ventana_este_altura_obstaculo_sur_este name="0,00"/>
+					<Ventana_este_distancia_obstaculo_sur_este name="0,00"/>
+					<Ventana_este_altura_obstaculo_este name="0,00"/>
+					<Ventana_este_distancia_obstaculo_este name="0,00"/>
+					<Numero_lucernarios_Hz name="0"/>
+				</Hueco>
+				<Hueco>
+					<Nombre_hueco name="G2"/>
+					<Ancho_m name="1,17"/>
+					<Alto_m name="2,10"/>
+					<Retranqueo_m name="0,22"/>
+					<Distancia_alero_m name="0,00"/>
+					<Longitud_alero_m name="0,00"/>
+					<Indice_tipo_cristal name="3"/>
+					<Indice_cristal_concreto name="7"/>
+					<Indice_marco name="6"/>
+					<Indice_tipo_junta name="8"/>
+					<Indice_tipo_sombra_fija name="0"/>
+					<Indice_tipo_sombra_movil name="1"/>
+					<Indice_tipo_control_Verano name="0"/>
+					<Indice_tipo_control_Invierno name="0"/>
+					<U_cristal_W_m2K name="2,10"/>
+					<HuecoReh name="1"/>
+					<FS_cristal_tanto_por_uno name="0,70"/>
+					<U_marco_W_m2K name="1,80"/>
+					<Fraccion_marco_tanto_por_cien name="20,00"/>
+					<Valor_multiplicativo_FS_verano name="1,00"/>
+					<Valor_multiplicativo_FS_invierno name="1,00"/>
+					<Valor_multiplicativo_U_verano name="1,00"/>
+					<Valor_multiplicativo_U_invierno name="1,00"/>
+					<U_Caja_de_persiana_W_m2K name="0,80"/>
+					<Altura_Caja_de_persiana_m name="0,25"/>
+					<Vinf_Caja_de_persiana_m3_h name="0,00"/>
+					<Permeabilidad_Ventanas name="27,00"/>
+					<Existe_Caja_persiana name="Existe"/>
+					<Tipo_de_U_Caja_persiana name="2-4 cm aislamiento"/>
+					<Tipo_de_Vinf_Caja_persiana name="Estanco"/>
+					<Tipo_de_hueco name="Puerta"/>
+					<Numero_ventanas_norte name="0"/>
+					<Numero_ventanas_oeste name="0"/>
+					<Separacion_ventanas_vertical_oeste name="3,00"/>
+					<Ventana_oeste_altura_obstaculo_oeste name="0,00"/>
+					<Ventana_oeste_distancia_obstaculo_oeste name="0,00"/>
+					<Ventana_oeste_altura_obstaculo_sur_oeste name="0,00"/>
+					<Ventana_oeste_distancia_obstaculo_sur_oeste name="0,00"/>
+					<Numero_ventanas_sur_oeste name="0"/>
+					<Separacion_ventanas_vertical_sur_oeste name="3,00"/>
+					<Ventana_sur_oeste_altura_obstaculo_oeste name="0,00"/>
+					<Ventana_sur_oeste_distancia_obstaculo_oeste name="0,00"/>
+					<Ventana_sur_oeste_altura_obstaculo_sur_oeste name="0,00"/>
+					<Ventana_sur_oeste_distancia_obstaculo_sur_oeste name="0,00"/>
+					<Ventana_sur_oeste_altura_obstaculo_sur name="0,00"/>
+					<Ventana_sur_oeste_distancia_obstaculo_sur name="0,00"/>
+					<Numero_ventanas_sur name="0"/>
+					<Separacion_ventanas_vertical_sur name="3,00"/>
+					<Ventana_sur_altura_obstaculo_sur_oeste name="0,00"/>
+					<Ventana_sur_distancia_obstaculo_sur_oeste name="0,00"/>
+					<Ventana_sur_altura_obstaculo_sur name="0,00"/>
+					<Ventana_sur_distancia_obstaculo_sur name="0,00"/>
+					<Ventana_sur_altura_obstaculo_sur_este name="0,00"/>
+					<Ventana_sur_distancia_obstaculo_sur_este name="0,00"/>
+					<Numero_ventanas_sur_este name="1"/>
+					<Separacion_ventanas_vertical_sur_este name="3,00"/>
+					<Ventana_sur_este_altura_obstaculo_sur name="0,00"/>
+					<Ventana_sur_este_distancia_obstaculo_sur name="0,00"/>
+					<Ventana_sur_este_altura_obstaculo_sur_este name="0,00"/>
+					<Ventana_sur_este_distancia_obstaculo_sur_este name="0,00"/>
+					<Ventana_sur_este_altura_obstaculo_este name="0,00"/>
+					<Ventana_sur_este_distancia_obstaculo_este name="0,00"/>
+					<Numero_ventanas_este name="0"/>
+					<Separacion_ventanas_vertical_este name="3,00"/>
+					<Ventana_este_altura_obstaculo_sur_este name="0,00"/>
+					<Ventana_este_distancia_obstaculo_sur_este name="0,00"/>
+					<Ventana_este_altura_obstaculo_este name="0,00"/>
+					<Ventana_este_distancia_obstaculo_este name="0,00"/>
+					<Numero_lucernarios_Hz name="0"/>
+				</Hueco>
+				<Hueco>
+					<Nombre_hueco name="G3"/>
+					<Ancho_m name="1,68"/>
+					<Alto_m name="1,30"/>
+					<Retranqueo_m name="0,22"/>
+					<Distancia_alero_m name="0,00"/>
+					<Longitud_alero_m name="0,00"/>
+					<Indice_tipo_cristal name="3"/>
+					<Indice_cristal_concreto name="7"/>
+					<Indice_marco name="6"/>
+					<Indice_tipo_junta name="8"/>
+					<Indice_tipo_sombra_fija name="0"/>
+					<Indice_tipo_sombra_movil name="1"/>
+					<Indice_tipo_control_Verano name="0"/>
+					<Indice_tipo_control_Invierno name="0"/>
+					<U_cristal_W_m2K name="2,10"/>
+					<HuecoReh name="0"/>
+					<FS_cristal_tanto_por_uno name="0,70"/>
+					<U_marco_W_m2K name="1,80"/>
+					<Fraccion_marco_tanto_por_cien name="20,00"/>
+					<Valor_multiplicativo_FS_verano name="1,00"/>
+					<Valor_multiplicativo_FS_invierno name="1,00"/>
+					<Valor_multiplicativo_U_verano name="1,00"/>
+					<Valor_multiplicativo_U_invierno name="1,00"/>
+					<U_Caja_de_persiana_W_m2K name="0,80"/>
+					<Altura_Caja_de_persiana_m name="0,25"/>
+					<Vinf_Caja_de_persiana_m3_h name="0,00"/>
+					<Permeabilidad_Ventanas name="27,00"/>
+					<Existe_Caja_persiana name="Existe"/>
+					<Tipo_de_U_Caja_persiana name="2-4 cm aislamiento"/>
+					<Tipo_de_Vinf_Caja_persiana name="Estanco"/>
+					<Tipo_de_hueco name="Ventana"/>
+					<Numero_ventanas_norte name="1"/>
+					<Numero_ventanas_oeste name="0"/>
+					<Separacion_ventanas_vertical_oeste name="3,00"/>
+					<Ventana_oeste_altura_obstaculo_oeste name="0,00"/>
+					<Ventana_oeste_distancia_obstaculo_oeste name="0,00"/>
+					<Ventana_oeste_altura_obstaculo_sur_oeste name="0,00"/>
+					<Ventana_oeste_distancia_obstaculo_sur_oeste name="0,00"/>
+					<Numero_ventanas_sur_oeste name="0"/>
+					<Separacion_ventanas_vertical_sur_oeste name="3,00"/>
+					<Ventana_sur_oeste_altura_obstaculo_oeste name="0,00"/>
+					<Ventana_sur_oeste_distancia_obstaculo_oeste name="0,00"/>
+					<Ventana_sur_oeste_altura_obstaculo_sur_oeste name="0,00"/>
+					<Ventana_sur_oeste_distancia_obstaculo_sur_oeste name="0,00"/>
+					<Ventana_sur_oeste_altura_obstaculo_sur name="0,00"/>
+					<Ventana_sur_oeste_distancia_obstaculo_sur name="0,00"/>
+					<Numero_ventanas_sur name="0"/>
+					<Separacion_ventanas_vertical_sur name="3,00"/>
+					<Ventana_sur_altura_obstaculo_sur_oeste name="0,00"/>
+					<Ventana_sur_distancia_obstaculo_sur_oeste name="0,00"/>
+					<Ventana_sur_altura_obstaculo_sur name="0,00"/>
+					<Ventana_sur_distancia_obstaculo_sur name="0,00"/>
+					<Ventana_sur_altura_obstaculo_sur_este name="0,00"/>
+					<Ventana_sur_distancia_obstaculo_sur_este name="0,00"/>
+					<Numero_ventanas_sur_este name="0"/>
+					<Separacion_ventanas_vertical_sur_este name="3,00"/>
+					<Ventana_sur_este_altura_obstaculo_sur name="0,00"/>
+					<Ventana_sur_este_distancia_obstaculo_sur name="0,00"/>
+					<Ventana_sur_este_altura_obstaculo_sur_este name="0,00"/>
+					<Ventana_sur_este_distancia_obstaculo_sur_este name="0,00"/>
+					<Ventana_sur_este_altura_obstaculo_este name="0,00"/>
+					<Ventana_sur_este_distancia_obstaculo_este name="0,00"/>
+					<Numero_ventanas_este name="0"/>
+					<Separacion_ventanas_vertical_este name="3,00"/>
+					<Ventana_este_altura_obstaculo_sur_este name="0,00"/>
+					<Ventana_este_distancia_obstaculo_sur_este name="0,00"/>
+					<Ventana_este_altura_obstaculo_este name="0,00"/>
+					<Ventana_este_distancia_obstaculo_este name="0,00"/>
+					<Numero_lucernarios_Hz name="0"/>
+				</Hueco>
+				<Hueco>
+					<Nombre_hueco name="G4"/>
+					<Ancho_m name="1,68"/>
+					<Alto_m name="1,30"/>
+					<Retranqueo_m name="0,22"/>
+					<Distancia_alero_m name="0,00"/>
+					<Longitud_alero_m name="0,00"/>
+					<Indice_tipo_cristal name="3"/>
+					<Indice_cristal_concreto name="7"/>
+					<Indice_marco name="6"/>
+					<Indice_tipo_junta name="8"/>
+					<Indice_tipo_sombra_fija name="0"/>
+					<Indice_tipo_sombra_movil name="1"/>
+					<Indice_tipo_control_Verano name="0"/>
+					<Indice_tipo_control_Invierno name="0"/>
+					<U_cristal_W_m2K name="2,10"/>
+					<HuecoReh name="0"/>
+					<FS_cristal_tanto_por_uno name="0,70"/>
+					<U_marco_W_m2K name="1,80"/>
+					<Fraccion_marco_tanto_por_cien name="20,00"/>
+					<Valor_multiplicativo_FS_verano name="1,00"/>
+					<Valor_multiplicativo_FS_invierno name="1,00"/>
+					<Valor_multiplicativo_U_verano name="1,00"/>
+					<Valor_multiplicativo_U_invierno name="1,00"/>
+					<U_Caja_de_persiana_W_m2K name="0,80"/>
+					<Altura_Caja_de_persiana_m name="0,25"/>
+					<Vinf_Caja_de_persiana_m3_h name="0,00"/>
+					<Permeabilidad_Ventanas name="27,00"/>
+					<Existe_Caja_persiana name="Existe"/>
+					<Tipo_de_U_Caja_persiana name="2-4 cm aislamiento"/>
+					<Tipo_de_Vinf_Caja_persiana name="Estanco"/>
+					<Tipo_de_hueco name="Ventana"/>
+					<Numero_ventanas_norte name="1"/>
+					<Numero_ventanas_oeste name="0"/>
+					<Separacion_ventanas_vertical_oeste name="3,00"/>
+					<Ventana_oeste_altura_obstaculo_oeste name="0,00"/>
+					<Ventana_oeste_distancia_obstaculo_oeste name="0,00"/>
+					<Ventana_oeste_altura_obstaculo_sur_oeste name="0,00"/>
+					<Ventana_oeste_distancia_obstaculo_sur_oeste name="0,00"/>
+					<Numero_ventanas_sur_oeste name="0"/>
+					<Separacion_ventanas_vertical_sur_oeste name="3,00"/>
+					<Ventana_sur_oeste_altura_obstaculo_oeste name="0,00"/>
+					<Ventana_sur_oeste_distancia_obstaculo_oeste name="0,00"/>
+					<Ventana_sur_oeste_altura_obstaculo_sur_oeste name="0,00"/>
+					<Ventana_sur_oeste_distancia_obstaculo_sur_oeste name="0,00"/>
+					<Ventana_sur_oeste_altura_obstaculo_sur name="0,00"/>
+					<Ventana_sur_oeste_distancia_obstaculo_sur name="0,00"/>
+					<Numero_ventanas_sur name="0"/>
+					<Separacion_ventanas_vertical_sur name="3,00"/>
+					<Ventana_sur_altura_obstaculo_sur_oeste name="0,00"/>
+					<Ventana_sur_distancia_obstaculo_sur_oeste name="0,00"/>
+					<Ventana_sur_altura_obstaculo_sur name="0,00"/>
+					<Ventana_sur_distancia_obstaculo_sur name="0,00"/>
+					<Ventana_sur_altura_obstaculo_sur_este name="0,00"/>
+					<Ventana_sur_distancia_obstaculo_sur_este name="0,00"/>
+					<Numero_ventanas_sur_este name="0"/>
+					<Separacion_ventanas_vertical_sur_este name="3,00"/>
+					<Ventana_sur_este_altura_obstaculo_sur name="0,00"/>
+					<Ventana_sur_este_distancia_obstaculo_sur name="0,00"/>
+					<Ventana_sur_este_altura_obstaculo_sur_este name="0,00"/>
+					<Ventana_sur_este_distancia_obstaculo_sur_este name="0,00"/>
+					<Ventana_sur_este_altura_obstaculo_este name="0,00"/>
+					<Ventana_sur_este_distancia_obstaculo_este name="0,00"/>
+					<Numero_ventanas_este name="0"/>
+					<Separacion_ventanas_vertical_este name="3,00"/>
+					<Ventana_este_altura_obstaculo_sur_este name="0,00"/>
+					<Ventana_este_distancia_obstaculo_sur_este name="0,00"/>
+					<Ventana_este_altura_obstaculo_este name="0,00"/>
+					<Ventana_este_distancia_obstaculo_este name="0,00"/>
+					<Numero_lucernarios_Hz name="0"/>
+				</Hueco>
+				<Hueco>
+					<Nombre_hueco name="G5"/>
+					<Ancho_m name="2,27"/>
+					<Alto_m name="2,10"/>
+					<Retranqueo_m name="0,22"/>
+					<Distancia_alero_m name="0,00"/>
+					<Longitud_alero_m name="0,00"/>
+					<Indice_tipo_cristal name="3"/>
+					<Indice_cristal_concreto name="7"/>
+					<Indice_marco name="6"/>
+					<Indice_tipo_junta name="8"/>
+					<Indice_tipo_sombra_fija name="0"/>
+					<Indice_tipo_sombra_movil name="1"/>
+					<Indice_tipo_control_Verano name="0"/>
+					<Indice_tipo_control_Invierno name="0"/>
+					<U_cristal_W_m2K name="2,10"/>
+					<HuecoReh name="0"/>
+					<FS_cristal_tanto_por_uno name="0,70"/>
+					<U_marco_W_m2K name="1,80"/>
+					<Fraccion_marco_tanto_por_cien name="20,00"/>
+					<Valor_multiplicativo_FS_verano name="1,00"/>
+					<Valor_multiplicativo_FS_invierno name="1,00"/>
+					<Valor_multiplicativo_U_verano name="1,00"/>
+					<Valor_multiplicativo_U_invierno name="1,00"/>
+					<U_Caja_de_persiana_W_m2K name="0,80"/>
+					<Altura_Caja_de_persiana_m name="0,25"/>
+					<Vinf_Caja_de_persiana_m3_h name="0,00"/>
+					<Permeabilidad_Ventanas name="27,00"/>
+					<Existe_Caja_persiana name="Existe"/>
+					<Tipo_de_U_Caja_persiana name="2-4 cm aislamiento"/>
+					<Tipo_de_Vinf_Caja_persiana name="Estanco"/>
+					<Tipo_de_hueco name="Ventana"/>
+					<Numero_ventanas_norte name="0"/>
+					<Numero_ventanas_oeste name="0"/>
+					<Separacion_ventanas_vertical_oeste name="3,00"/>
+					<Ventana_oeste_altura_obstaculo_oeste name="0,00"/>
+					<Ventana_oeste_distancia_obstaculo_oeste name="0,00"/>
+					<Ventana_oeste_altura_obstaculo_sur_oeste name="0,00"/>
+					<Ventana_oeste_distancia_obstaculo_sur_oeste name="0,00"/>
+					<Numero_ventanas_sur_oeste name="0"/>
+					<Separacion_ventanas_vertical_sur_oeste name="3,00"/>
+					<Ventana_sur_oeste_altura_obstaculo_oeste name="0,00"/>
+					<Ventana_sur_oeste_distancia_obstaculo_oeste name="0,00"/>
+					<Ventana_sur_oeste_altura_obstaculo_sur_oeste name="0,00"/>
+					<Ventana_sur_oeste_distancia_obstaculo_sur_oeste name="0,00"/>
+					<Ventana_sur_oeste_altura_obstaculo_sur name="0,00"/>
+					<Ventana_sur_oeste_distancia_obstaculo_sur name="0,00"/>
+					<Numero_ventanas_sur name="0"/>
+					<Separacion_ventanas_vertical_sur name="3,00"/>
+					<Ventana_sur_altura_obstaculo_sur_oeste name="0,00"/>
+					<Ventana_sur_distancia_obstaculo_sur_oeste name="0,00"/>
+					<Ventana_sur_altura_obstaculo_sur name="0,00"/>
+					<Ventana_sur_distancia_obstaculo_sur name="0,00"/>
+					<Ventana_sur_altura_obstaculo_sur_este name="0,00"/>
+					<Ventana_sur_distancia_obstaculo_sur_este name="0,00"/>
+					<Numero_ventanas_sur_este name="1"/>
+					<Separacion_ventanas_vertical_sur_este name="3,00"/>
+					<Ventana_sur_este_altura_obstaculo_sur name="0,00"/>
+					<Ventana_sur_este_distancia_obstaculo_sur name="0,00"/>
+					<Ventana_sur_este_altura_obstaculo_sur_este name="0,00"/>
+					<Ventana_sur_este_distancia_obstaculo_sur_este name="0,00"/>
+					<Ventana_sur_este_altura_obstaculo_este name="0,00"/>
+					<Ventana_sur_este_distancia_obstaculo_este name="0,00"/>
+					<Numero_ventanas_este name="0"/>
+					<Separacion_ventanas_vertical_este name="3,00"/>
+					<Ventana_este_altura_obstaculo_sur_este name="0,00"/>
+					<Ventana_este_distancia_obstaculo_sur_este name="0,00"/>
+					<Ventana_este_altura_obstaculo_este name="0,00"/>
+					<Ventana_este_distancia_obstaculo_este name="0,00"/>
+					<Numero_lucernarios_Hz name="0"/>
+				</Hueco>
+				<Hueco>
+					<Nombre_hueco name="G6"/>
+					<Ancho_m name="1,30"/>
+					<Alto_m name="1,20"/>
+					<Retranqueo_m name="0,22"/>
+					<Distancia_alero_m name="0,00"/>
+					<Longitud_alero_m name="0,00"/>
+					<Indice_tipo_cristal name="3"/>
+					<Indice_cristal_concreto name="7"/>
+					<Indice_marco name="6"/>
+					<Indice_tipo_junta name="8"/>
+					<Indice_tipo_sombra_fija name="0"/>
+					<Indice_tipo_sombra_movil name="1"/>
+					<Indice_tipo_control_Verano name="0"/>
+					<Indice_tipo_control_Invierno name="0"/>
+					<U_cristal_W_m2K name="2,10"/>
+					<HuecoReh name="0"/>
+					<FS_cristal_tanto_por_uno name="0,70"/>
+					<U_marco_W_m2K name="1,80"/>
+					<Fraccion_marco_tanto_por_cien name="20,00"/>
+					<Valor_multiplicativo_FS_verano name="1,00"/>
+					<Valor_multiplicativo_FS_invierno name="1,00"/>
+					<Valor_multiplicativo_U_verano name="1,00"/>
+					<Valor_multiplicativo_U_invierno name="1,00"/>
+					<U_Caja_de_persiana_W_m2K name="0,80"/>
+					<Altura_Caja_de_persiana_m name="0,25"/>
+					<Vinf_Caja_de_persiana_m3_h name="0,00"/>
+					<Permeabilidad_Ventanas name="27,00"/>
+					<Existe_Caja_persiana name="Existe"/>
+					<Tipo_de_U_Caja_persiana name="2-4 cm aislamiento"/>
+					<Tipo_de_Vinf_Caja_persiana name="Estanco"/>
+					<Tipo_de_hueco name="Ventana"/>
+					<Numero_ventanas_norte name="1"/>
+					<Numero_ventanas_oeste name="0"/>
+					<Separacion_ventanas_vertical_oeste name="3,00"/>
+					<Ventana_oeste_altura_obstaculo_oeste name="0,00"/>
+					<Ventana_oeste_distancia_obstaculo_oeste name="0,00"/>
+					<Ventana_oeste_altura_obstaculo_sur_oeste name="0,00"/>
+					<Ventana_oeste_distancia_obstaculo_sur_oeste name="0,00"/>
+					<Numero_ventanas_sur_oeste name="0"/>
+					<Separacion_ventanas_vertical_sur_oeste name="3,00"/>
+					<Ventana_sur_oeste_altura_obstaculo_oeste name="0,00"/>
+					<Ventana_sur_oeste_distancia_obstaculo_oeste name="0,00"/>
+					<Ventana_sur_oeste_altura_obstaculo_sur_oeste name="0,00"/>
+					<Ventana_sur_oeste_distancia_obstaculo_sur_oeste name="0,00"/>
+					<Ventana_sur_oeste_altura_obstaculo_sur name="0,00"/>
+					<Ventana_sur_oeste_distancia_obstaculo_sur name="0,00"/>
+					<Numero_ventanas_sur name="0"/>
+					<Separacion_ventanas_vertical_sur name="3,00"/>
+					<Ventana_sur_altura_obstaculo_sur_oeste name="0,00"/>
+					<Ventana_sur_distancia_obstaculo_sur_oeste name="0,00"/>
+					<Ventana_sur_altura_obstaculo_sur name="0,00"/>
+					<Ventana_sur_distancia_obstaculo_sur name="0,00"/>
+					<Ventana_sur_altura_obstaculo_sur_este name="0,00"/>
+					<Ventana_sur_distancia_obstaculo_sur_este name="0,00"/>
+					<Numero_ventanas_sur_este name="0"/>
+					<Separacion_ventanas_vertical_sur_este name="3,00"/>
+					<Ventana_sur_este_altura_obstaculo_sur name="0,00"/>
+					<Ventana_sur_este_distancia_obstaculo_sur name="0,00"/>
+					<Ventana_sur_este_altura_obstaculo_sur_este name="0,00"/>
+					<Ventana_sur_este_distancia_obstaculo_sur_este name="0,00"/>
+					<Ventana_sur_este_altura_obstaculo_este name="0,00"/>
+					<Ventana_sur_este_distancia_obstaculo_este name="0,00"/>
+					<Numero_ventanas_este name="0"/>
+					<Separacion_ventanas_vertical_este name="3,00"/>
+					<Ventana_este_altura_obstaculo_sur_este name="0,00"/>
+					<Ventana_este_distancia_obstaculo_sur_este name="0,00"/>
+					<Ventana_este_altura_obstaculo_este name="0,00"/>
+					<Ventana_este_distancia_obstaculo_este name="0,00"/>
+					<Numero_lucernarios_Hz name="0"/>
+				</Hueco>
+				<Hueco>
+					<Nombre_hueco name="G7"/>
+					<Ancho_m name="1,68"/>
+					<Alto_m name="1,30"/>
+					<Retranqueo_m name="0,22"/>
+					<Distancia_alero_m name="0,00"/>
+					<Longitud_alero_m name="0,00"/>
+					<Indice_tipo_cristal name="3"/>
+					<Indice_cristal_concreto name="7"/>
+					<Indice_marco name="6"/>
+					<Indice_tipo_junta name="8"/>
+					<Indice_tipo_sombra_fija name="0"/>
+					<Indice_tipo_sombra_movil name="1"/>
+					<Indice_tipo_control_Verano name="0"/>
+					<Indice_tipo_control_Invierno name="0"/>
+					<U_cristal_W_m2K name="2,10"/>
+					<HuecoReh name="0"/>
+					<FS_cristal_tanto_por_uno name="0,70"/>
+					<U_marco_W_m2K name="1,80"/>
+					<Fraccion_marco_tanto_por_cien name="20,00"/>
+					<Valor_multiplicativo_FS_verano name="1,00"/>
+					<Valor_multiplicativo_FS_invierno name="1,00"/>
+					<Valor_multiplicativo_U_verano name="1,00"/>
+					<Valor_multiplicativo_U_invierno name="1,00"/>
+					<U_Caja_de_persiana_W_m2K name="0,80"/>
+					<Altura_Caja_de_persiana_m name="0,25"/>
+					<Vinf_Caja_de_persiana_m3_h name="0,00"/>
+					<Permeabilidad_Ventanas name="27,00"/>
+					<Existe_Caja_persiana name="Existe"/>
+					<Tipo_de_U_Caja_persiana name="2-4 cm aislamiento"/>
+					<Tipo_de_Vinf_Caja_persiana name="Estanco"/>
+					<Tipo_de_hueco name="Ventana"/>
+					<Numero_ventanas_norte name="1"/>
+					<Numero_ventanas_oeste name="0"/>
+					<Separacion_ventanas_vertical_oeste name="3,00"/>
+					<Ventana_oeste_altura_obstaculo_oeste name="0,00"/>
+					<Ventana_oeste_distancia_obstaculo_oeste name="0,00"/>
+					<Ventana_oeste_altura_obstaculo_sur_oeste name="0,00"/>
+					<Ventana_oeste_distancia_obstaculo_sur_oeste name="0,00"/>
+					<Numero_ventanas_sur_oeste name="0"/>
+					<Separacion_ventanas_vertical_sur_oeste name="3,00"/>
+					<Ventana_sur_oeste_altura_obstaculo_oeste name="0,00"/>
+					<Ventana_sur_oeste_distancia_obstaculo_oeste name="0,00"/>
+					<Ventana_sur_oeste_altura_obstaculo_sur_oeste name="0,00"/>
+					<Ventana_sur_oeste_distancia_obstaculo_sur_oeste name="0,00"/>
+					<Ventana_sur_oeste_altura_obstaculo_sur name="0,00"/>
+					<Ventana_sur_oeste_distancia_obstaculo_sur name="0,00"/>
+					<Numero_ventanas_sur name="0"/>
+					<Separacion_ventanas_vertical_sur name="3,00"/>
+					<Ventana_sur_altura_obstaculo_sur_oeste name="0,00"/>
+					<Ventana_sur_distancia_obstaculo_sur_oeste name="0,00"/>
+					<Ventana_sur_altura_obstaculo_sur name="0,00"/>
+					<Ventana_sur_distancia_obstaculo_sur name="0,00"/>
+					<Ventana_sur_altura_obstaculo_sur_este name="0,00"/>
+					<Ventana_sur_distancia_obstaculo_sur_este name="0,00"/>
+					<Numero_ventanas_sur_este name="0"/>
+					<Separacion_ventanas_vertical_sur_este name="3,00"/>
+					<Ventana_sur_este_altura_obstaculo_sur name="0,00"/>
+					<Ventana_sur_este_distancia_obstaculo_sur name="0,00"/>
+					<Ventana_sur_este_altura_obstaculo_sur_este name="0,00"/>
+					<Ventana_sur_este_distancia_obstaculo_sur_este name="0,00"/>
+					<Ventana_sur_este_altura_obstaculo_este name="0,00"/>
+					<Ventana_sur_este_distancia_obstaculo_este name="0,00"/>
+					<Numero_ventanas_este name="0"/>
+					<Separacion_ventanas_vertical_este name="3,00"/>
+					<Ventana_este_altura_obstaculo_sur_este name="0,00"/>
+					<Ventana_este_distancia_obstaculo_sur_este name="0,00"/>
+					<Ventana_este_altura_obstaculo_este name="0,00"/>
+					<Ventana_este_distancia_obstaculo_este name="0,00"/>
+					<Numero_lucernarios_Hz name="0"/>
+				</Hueco>
+			</Huecos>
+			<Capas_materiales>
+				<Material>
+					<Indice_capa_material name="1"/>
+					<Material name="Mortero de cemento o cal para alba&#241;iler&#237;a y para revoco/enlucido d &gt; 2000"/>
+					<Nombre_material name="Mortero de cemento o cal para alba&#241;iler&#237;a y para revoco/enlucido d &gt; 2000"/>
+					<Espesor name="0,015"/>
+					<Conductividad name="1,800"/>
+					<Densidad name="2100,000"/>
+					<CalorEspecifico name="1000,000"/>
+					<Iniciales name="MC"/>
+					<Resistencia_termica name="0,008"/>
+					<Resisvidad_relativa_vapor name="10,000"/>
+					<Grupo name="Morteros"/>
+					<Pertenece_a_base_de_datos_CTE name="SI"/>
+					<Aplicacion name="M"/>
+				</Material>
+				<Material>
+					<Indice_capa_material name="2"/>
+					<Material name="Tabic&#243;n de LH doble [60 mm &lt; E &lt; 90 mm]"/>
+					<Nombre_material name="Tabic&#243;n de LH doble [60 mm &lt; E &lt; 90 mm]"/>
+					<Espesor name="0,070"/>
+					<Conductividad name="0,432"/>
+					<Densidad name="930,000"/>
+					<CalorEspecifico name="1000,000"/>
+					<Iniciales name="LH"/>
+					<Resistencia_termica name="0,162"/>
+					<Resisvidad_relativa_vapor name="10,000"/>
+					<Grupo name="F&#225;bricas de ladrillo"/>
+					<Pertenece_a_base_de_datos_CTE name="SI"/>
+					<Aplicacion name="M"/>
+				</Material>
+				<Material>
+					<Indice_capa_material name="3"/>
+					<Material name="Mortero de cemento o cal para alba&#241;iler&#237;a y para revoco/enlucido 1800 &lt; d &lt; 2000"/>
+					<Nombre_material name="Mortero de cemento o cal para alba&#241;iler&#237;a y para revoco/enlucido 1800 &lt; d &lt; 2000"/>
+					<Espesor name="0,010"/>
+					<Conductividad name="1,300"/>
+					<Densidad name="1900,000"/>
+					<CalorEspecifico name="1000,000"/>
+					<Iniciales name="MC"/>
+					<Resistencia_termica name="0,008"/>
+					<Resisvidad_relativa_vapor name="10,000"/>
+					<Grupo name="Morteros"/>
+					<Pertenece_a_base_de_datos_CTE name="SI"/>
+					<Aplicacion name="M"/>
+				</Material>
+				<Material>
+					<Indice_capa_material name="4"/>
+					<Material name="EPS Poliestireno Expandido [ 0.037 W/[mK]]"/>
+					<Nombre_material name="EPS Poliestireno Expandido [ 0.037 W/[mK]]"/>
+					<Espesor name="0,070"/>
+					<Conductividad name="0,037"/>
+					<Densidad name="30,000"/>
+					<CalorEspecifico name="1000,000"/>
+					<Iniciales name="EP"/>
+					<Resistencia_termica name="1,892"/>
+					<Resisvidad_relativa_vapor name="20,000"/>
+					<Grupo name="Aislantes"/>
+					<Pertenece_a_base_de_datos_CTE name="SI"/>
+					<Aplicacion name="M"/>
+				</Material>
+				<Material>
+					<Indice_capa_material name="5"/>
+					<Material name="1/2 pie LM m&#233;trico o catal&#225;n 40 mm &lt; G &lt; 50 mm"/>
+					<Nombre_material name="1/2 pie LM m&#233;trico o catal&#225;n 40 mm &lt; G &lt; 50 mm"/>
+					<Espesor name="0,115"/>
+					<Conductividad name="0,991"/>
+					<Densidad name="2170,000"/>
+					<CalorEspecifico name="1000,000"/>
+					<Iniciales name="LM"/>
+					<Resistencia_termica name="0,116"/>
+					<Resisvidad_relativa_vapor name="10,000"/>
+					<Grupo name="F&#225;bricas de ladrillo"/>
+					<Pertenece_a_base_de_datos_CTE name="SI"/>
+					<Aplicacion name="M"/>
+				</Material>
+				<Material>
+					<Indice_capa_material name="6"/>
+					<Material name="EPS Poliestireno Expandido [ 0.046 W/[mK]]"/>
+					<Nombre_material name="EPS Poliestireno Expandido [ 0.046 W/[mK]]"/>
+					<Espesor name="0,009"/>
+					<Conductividad name="0,046"/>
+					<Densidad name="30,000"/>
+					<CalorEspecifico name="1000,000"/>
+					<Iniciales name="EP"/>
+					<Resistencia_termica name="0,196"/>
+					<Resisvidad_relativa_vapor name="20,000"/>
+					<Grupo name="Aislantes"/>
+					<Pertenece_a_base_de_datos_CTE name="SI"/>
+					<Aplicacion name="M"/>
+				</Material>
+				<Material>
+					<Indice_capa_material name="7"/>
+					<Material name="Enlucido de yeso 1000 &lt; d &lt; 1300"/>
+					<Nombre_material name="Enlucido de yeso 1000 &lt; d &lt; 1300"/>
+					<Espesor name="0,015"/>
+					<Conductividad name="0,570"/>
+					<Densidad name="1150,000"/>
+					<CalorEspecifico name="1000,000"/>
+					<Iniciales name="EY"/>
+					<Resistencia_termica name="0,026"/>
+					<Resisvidad_relativa_vapor name="6,000"/>
+					<Grupo name="Enlucidos"/>
+					<Pertenece_a_base_de_datos_CTE name="SI"/>
+					<Aplicacion name="M"/>
+				</Material>
+				<Material>
+					<Indice_capa_material name="8"/>
+					<Material name="Teja de arcilla cocida"/>
+					<Nombre_material name="Teja de arcilla cocida"/>
+					<Espesor name="0,020"/>
+					<Conductividad name="1,000"/>
+					<Densidad name="2000,000"/>
+					<CalorEspecifico name="800,000"/>
+					<Iniciales name="TD"/>
+					<Resistencia_termica name="0,020"/>
+					<Resisvidad_relativa_vapor name="30,000"/>
+					<Grupo name="Cer&#225;micos"/>
+					<Pertenece_a_base_de_datos_CTE name="SI"/>
+					<Aplicacion name="F"/>
+				</Material>
+				<Material>
+					<Indice_capa_material name="9"/>
+					<Material name="Bet&#250;n fieltro o l&#225;mina"/>
+					<Nombre_material name="Bet&#250;n fieltro o l&#225;mina"/>
+					<Espesor name="0,001"/>
+					<Conductividad name="0,230"/>
+					<Densidad name="1100,000"/>
+					<CalorEspecifico name="1000,000"/>
+					<Iniciales name="BE"/>
+					<Resistencia_termica name="0,004"/>
+					<Resisvidad_relativa_vapor name="50000,000"/>
+					<Grupo name="Bituminosos"/>
+					<Pertenece_a_base_de_datos_CTE name="SI"/>
+					<Aplicacion name="F"/>
+				</Material>
+				<Material>
+					<Indice_capa_material name="10"/>
+					<Material name="FU Entrevigado cer&#225;mico -Canto 250 mm"/>
+					<Nombre_material name="FU Entrevigado cer&#225;mico -Canto 250 mm"/>
+					<Espesor name="0,250"/>
+					<Conductividad name="0,937"/>
+					<Densidad name="1110,000"/>
+					<CalorEspecifico name="1000,000"/>
+					<Iniciales name="FC"/>
+					<Resistencia_termica name="0,267"/>
+					<Resisvidad_relativa_vapor name="10,000"/>
+					<Grupo name="Forjados unidireccionales"/>
+					<Pertenece_a_base_de_datos_CTE name="SI"/>
+					<Aplicacion name="F"/>
+				</Material>
+				<Material>
+					<Indice_capa_material name="11"/>
+					<Material name="MW Lana mineral [0.04 W/[mK]]"/>
+					<Nombre_material name="MW Lana mineral [0.04 W/[mK]]"/>
+					<Espesor name="0,110"/>
+					<Conductividad name="0,041"/>
+					<Densidad name="40,000"/>
+					<CalorEspecifico name="1000,000"/>
+					<Iniciales name="MW"/>
+					<Resistencia_termica name="2,683"/>
+					<Resisvidad_relativa_vapor name="1,000"/>
+					<Grupo name="Aislantes"/>
+					<Pertenece_a_base_de_datos_CTE name="SI"/>
+					<Aplicacion name="F"/>
+				</Material>
+			</Capas_materiales>
+			<Composiciones>
+				<Aplicacion name="MuroExt1">
+					<NombreComposicion name="ES.CB.SFH.04_MURO.rEn"/>
+					<IndiceMaterial name="3"/>
+					<IndiceMaterial name="4"/>
+					<IndiceMaterial name="5"/>
+					<IndiceMaterial name="1"/>
+					<IndiceMaterial name="6"/>
+					<IndiceMaterial name="2"/>
+					<IndiceMaterial name="7"/>
+				</Aplicacion>
+				<Aplicacion name="MuroExt2">
+					<NombreComposicion name="ES.CB.SFH.04_MURO.rEn"/>
+					<IndiceMaterial name="3"/>
+					<IndiceMaterial name="4"/>
+					<IndiceMaterial name="5"/>
+					<IndiceMaterial name="1"/>
+					<IndiceMaterial name="6"/>
+					<IndiceMaterial name="2"/>
+					<IndiceMaterial name="7"/>
+				</Aplicacion>
+				<Aplicacion name="MuroExt3"/>
+				<Aplicacion name="MuroExt4"/>
+				<Aplicacion name="MuroExt5"/>
+				<Aplicacion name="MuroTerr1"/>
+				<Aplicacion name="MuroTerr2"/>
+				<Aplicacion name="MuroOtro1"/>
+				<Aplicacion name="MuroOtro5"/>
+				<Aplicacion name="MuroOtro2"/>
+				<Aplicacion name="MuroOtro6"/>
+				<Aplicacion name="MuroOtro3"/>
+				<Aplicacion name="MuroExt6"/>
+				<Aplicacion name="MuroOtro7"/>
+				<Aplicacion name="MuroExt7"/>
+				<Aplicacion name="TechoExt1"/>
+				<Aplicacion name="TechoExt2"/>
+				<Aplicacion name="TechoExt3"/>
+				<Aplicacion name="TechoInc1">
+					<NombreComposicion name="ES.CB.SFH.04.CUBIERTA.rEN"/>
+					<IndiceMaterial name="8"/>
+					<IndiceMaterial name="9"/>
+					<IndiceMaterial name="10"/>
+					<IndiceMaterial name="11"/>
+					<IndiceMaterial name="7"/>
+				</Aplicacion>
+				<Aplicacion name="TechoInc2"/>
+				<Aplicacion name="TechoInc3"/>
+				<Aplicacion name="TechoTerr1"/>
+				<Aplicacion name="TechoTerr2"/>
+				<Aplicacion name="TechoOtro1"/>
+				<Aplicacion name="TechoOtro2"/>
+				<Aplicacion name="TechoInt1"/>
+				<Aplicacion name="TechoInt2"/>
+				<Aplicacion name="TechoVent1"/>
+				<Aplicacion name="TechoVent2"/>
+				<Aplicacion name="TechoVent3"/>
+				<Aplicacion name="TechoVent4"/>
+				<Aplicacion name="SueloTerr1"/>
+				<Aplicacion name="SueloTerr2"/>
+				<Aplicacion name="SueloTerr3"/>
+				<Aplicacion name="SueloExt1"/>
+				<Aplicacion name="SueloExt2"/>
+				<Aplicacion name="SueloVent1"/>
+				<Aplicacion name="MuroExt8"/>
+				<Aplicacion name="SueloVent3"/>
+				<Aplicacion name="MuroExt9"/>
+				<Aplicacion name="SueloOtro1"/>
+				<Aplicacion name="SueloOtro3"/>
+				<Aplicacion name="SueloOtro2"/>
+				<Aplicacion name="SueloOtro4"/>
+				<Aplicacion name="SueloInt1"/>
+				<Aplicacion name="SueloInt2"/>
+				<Aplicacion name="MuroOtro8"/>
+				<Aplicacion name="MuroOtro9"/>
+				<Aplicacion name="TechoInt3"/>
+				<Aplicacion name="TechoInt4"/>
+				<Aplicacion name="SueloInt3"/>
+				<Aplicacion name="SueloInt4"/>
+			</Composiciones>
+			<Instalaciones>
+				<Aporte_fotovoltaico_kwh_ano name="0,00"/>
+				<Existe_fotovoltaica name=""/>
+				<Uso_fotovoltaico name="Refrigeracion"/>
+				<PotPico_FV name="0,00"/>
+				<Super_FV name="0,00"/>
+				<Az_FV name="0"/>
+				<Incli_FV name="0"/>
+				<PSuciedad_FV name="6"/>
+				<PTcelula_FV name="9"/>
+				<PConversor_FV name="4"/>
+				<Aporte_solar_tanto_por_cien name="0,00"/>
+				<N_colec_term name="0"/>
+				<Sup_colec_term name="2,00"/>
+				<Incli_colec_term name="0"/>
+				<Azimut_colec_term name="0"/>
+				<AA_colec_term name="0,6700"/>
+				<BB_colec_term name="3,8100"/>
+				<CC_colec_term name="0,0100"/>
+				<Tipo_Inst_ST name="0"/>
+				<Volumen_Dep_ST name="0"/>
+				<LD_Dep_ST name="0"/>
+				<UA_Dep_ST name="0"/>
+				<Caudal_Col_ST name="0"/>
+				<PerdP_Col_ST name="4,00"/>
+				<Caudal_Dep_ST name="0"/>
+				<PerdP_Dep_ST name="2,00"/>
+				<Caudal_Rec_ST name="0"/>
+				<PerdP_Rec_ST name="0,00"/>
+				<Efi_Inter_ST name="70"/>
+				<Long_Tub_ST name="60"/>
+				<PerdCalor_Tub_ST name="0,20"/>
+				<Control_Tmin_ST name="2"/>
+				<Area_Serp_ST name="0,00"/>
+				<Tipon50 name="Teorico"/>
+				<Valorn50 name="0,00"/>
+				<TipoVentilacion2 name="Hibrida"/>
+				<ManejoVentanas2 name="Abiertas"/>
+				<Recuperador name="No"/>
+				<ERelaMasa name="1,00"/>
+				<NVBloqueF name="1"/>
+				<WRecuperador name="25,00"/>
+				<WRecuperadorr name="50,00"/>
+				<Teminrec name="15,0"/>
+				<Temaxrec name="30,0"/>
+				<RendVentiladorRecuperador name="0,60"/>
+				<Eficiencia_recuperador name="75"/>
+				<ConsumoAgua_litros_dia name="112,00"/>
+				<Tipo_sistema>
+					<Tipo_sistema name="ACS"/>
+					<Nombre_sistema name="ACS"/>
+					<Sup_ACS name="129,50"/>
+					<Sup_Calefaccion name="0,00"/>
+					<Sup_Refrigeracion name="0,00"/>
+					<Seleccion name="1 Termo electrico"/>
+					<TipoInstalacionesG name="Individual/Vivienda"/>
+					<TipoGenerador1 name="Condensacion"/>
+					<TipoBC1 name="Monoblock"/>
+					<TipoGenerador2 name="Condensacion"/>
+					<TipoBC12 name="Monoblock"/>
+					<Distribucion name="Intercamb+Dep&#243;sito"/>
+					<Distribucion2 name="Directo"/>
+					<Retorno name="Sin retorno"/>
+					<Alimentacion name="Alimentaci&#243;n agua red"/>
+					<Alimentacion2 name="Recirculado solar"/>
+					<Alimentacion3 name="Recirculado solar intercambiador"/>
+					<Alimentacion4 name="Alimentaci&#243;n agua red"/>
+					<EControlTe name="7,0"/>
+					<NEmisores name="0"/>
+					<Emisor name=""/>
+					<ConsumoEmisor name=""/>
+					<NEquipos name="1"/>
+					<Long_tuberias name="34,00"/>
+					<Pot_perdida_m_tub name="0,20"/>
+					<NHretorno name="0"/>
+					<Distanciaext_int name="1,00"/>
+					<Perdida_m_tub_ext_int name="0,30"/>
+					<Volumen name="100,00"/>
+					<UA_deposito name="1,30"/>
+					<LD_deposito name="2,0"/>
+					<TaltaD name="53,00"/>
+					<TbajaD name="45,00"/>
+					<AintermbD name="0,70"/>
+					<AintermbD2 name="0,70"/>
+					<EfiIntercamb name="75,00"/>
+					<CaudalSBZ name="1000,00"/>
+					<DTSBZ name="0,0"/>
+					<PSBZ name="0,00"/>
+					<RendSBZ name="0,55"/>
+					<controlSBZ name="Cte"/>
+					<CaudalGEN1 name="0,00"/>
+					<DTGEN1 name="0,0"/>
+					<PGEN1 name="2,00"/>
+					<RendGEN1 name="0,55"/>
+					<controlGEN1 name="Cte"/>
+					<CaudalGEN2 name="504,00"/>
+					<DTGEN2 name="0,0"/>
+					<PGEN2 name="2,00"/>
+					<RendGEN2 name="0,55"/>
+					<controlGEN2 name="Cte"/>
+					<CaudalDEP name="0,00"/>
+					<DTDEP name="0,0"/>
+					<PDEP name="2,00"/>
+					<RendDEP name="0,55"/>
+					<controlDEP name="Cte"/>
+					<CaudalINT name="0,00"/>
+					<DTINT name="0,0"/>
+					<PINT name="2,00"/>
+					<RendINT name="0,55"/>
+					<controlINT name="Cte"/>
+					<CaudalRET name="250,00"/>
+					<DTRET name="0"/>
+					<PRET name="2,00"/>
+					<RendRET name="0,55"/>
+					<controlRET name="Cte"/>
+					<TimpCalor name="55"/>
+					<saltoGenerador name="5"/>
+					<TimpACS name="60"/>
+					<TimpFrio name="0"/>
+					<saltoZona name="5"/>
+					<CaudalVent name="0"/>
+					<SaltoPVent name="0"/>
+					<rendVent name="0,60"/>
+					<QcalorCaldera1 name="2,93"/>
+					<RendCalor1 name="0,95"/>
+					<CombCalor1 name="Electricidad"/>
+					<CombCalorBio1 name="Biomasa_Pellet"/>
+					<RadiadorElectrico name="0,00"/>
+					<Nradiadores name="0"/>
+					<QcalorCaldera2 name="2,93"/>
+					<RendCalor2 name="0,95"/>
+					<CombCalor2 name="GasNatural"/>
+					<CombCalorBio2 name="Biomasa_Pellet"/>
+					<QcalorBC1 name="2,93"/>
+					<WeCalor1 name="0,98"/>
+					<QcalorBC2 name="6,00"/>
+					<WeCalor2 name="2,00"/>
+					<RendCalorEst name="3,60"/>
+					<RendFrioEst name="0,00"/>
+					<RendACSEst name="0,90"/>
+					<SCOP name="2,65"/>
+					<QFrioSen1 name="0,00"/>
+					<QFrioTot1 name="0,00"/>
+					<WeFrio1 name="0,00"/>
+					<QFrioSen2 name="0,00"/>
+					<QFrioTot2 name="0,00"/>
+					<WeFrio2 name="0,00"/>
+					<QApoyoEquipo name="1,50"/>
+					<QApoyoTermo name="2,00"/>
+					<CombEst name="Electricidad"/>
+					<Fabricante name="Defecto"/>
+					<Modelo name=""/>
+					<aaQ0 name="0,00000000"/>
+					<aaQ1 name="0,00000000"/>
+					<aaQ2 name="0,00000000"/>
+					<aaQ3 name="0,00000000"/>
+					<aaQ4 name="0,00000000"/>
+					<aaQ5 name="0,00000000"/>
+					<abQ0 name="0,00000000"/>
+					<abQ1 name="0,00000000"/>
+					<abQ2 name="0,00000000"/>
+					<abQ3 name="0,00000000"/>
+					<abQ4 name="0,00000000"/>
+					<abQ5 name="0,00000000"/>
+					<baQ0 name="0,00000000"/>
+					<baQ1 name="0,00000000"/>
+					<baQ2 name="0,00000000"/>
+					<baQ3 name="0,00000000"/>
+					<baQ4 name="0,00000000"/>
+					<baQ5 name="0,00000000"/>
+					<bbQ0 name="0,00000000"/>
+					<bbQ1 name="0,00000000"/>
+					<bbQ2 name="0,00000000"/>
+					<bbQ3 name="0,00000000"/>
+					<bbQ4 name="0,00000000"/>
+					<bbQ5 name="0,00000000"/>
+					<cQ0 name="0,00000000"/>
+					<cQ1 name="0,00000000"/>
+					<cQ2 name="0,00000000"/>
+					<cQ3 name="0,00000000"/>
+					<aR0 name="0,00000000"/>
+					<aR1 name="0,00000000"/>
+					<aR2 name="0,00000000"/>
+					<aR3 name="0,00000000"/>
+					<aR4 name="0,00000000"/>
+					<aR5 name="0,00000000"/>
+					<eR0 name="0,00000000"/>
+					<eR1 name="0,00000000"/>
+					<eR2 name="0,00000000"/>
+					<eR3 name="0,00000000"/>
+					<eR4 name="0,00000000"/>
+					<eR5 name="0,00000000"/>
+					<eR6 name="0,00000000"/>
+					<bR0 name="0,00000000"/>
+					<bR1 name="0,00000000"/>
+					<bR2 name="0,00000000"/>
+					<bR3 name="0,00000000"/>
+					<bR4 name="0,00000000"/>
+					<bR5 name="0,00000000"/>
+					<cR0 name="0,00000000"/>
+					<cR1 name="0,00000000"/>
+					<cR2 name="0,00000000"/>
+					<cR3 name="0,00000000"/>
+					<cC0 name="0,00000000"/>
+					<cC1 name="0,00000000"/>
+					<cC2 name="0,00000000"/>
+					<cC3 name="0,00000000"/>
+					<gC0 name="1,00000000"/>
+					<gC1 name="0,00000000"/>
+					<gC2 name="0,00000000"/>
+					<gC3 name="0,00000000"/>
+					<TeCambio name="0,00000000"/>
+				</Tipo_sistema>
+				<Tipo_sistema>
+					<Tipo_sistema name="Calefaccion"/>
+					<Nombre_sistema name="Calefacci&#243;n"/>
+					<Sup_ACS name="0,00"/>
+					<Sup_Calefaccion name="129,50"/>
+					<Sup_Refrigeracion name="0,00"/>
+					<Seleccion name="Radiadores el&#233;ctricos"/>
+					<TipoInstalacionesG name="Individual/Vivienda"/>
+					<TipoGenerador1 name="Condensacion"/>
+					<TipoBC1 name="Monoblock"/>
+					<TipoGenerador2 name="Condensacion"/>
+					<TipoBC12 name="Monoblock"/>
+					<Distribucion name="Con colector"/>
+					<Distribucion2 name=""/>
+					<Retorno name=""/>
+					<Alimentacion name=""/>
+					<Alimentacion2 name=""/>
+					<Alimentacion3 name=""/>
+					<Alimentacion4 name=""/>
+					<EControlTe name="7,0"/>
+					<NEmisores name="1"/>
+					<Emisor name="Fancoil"/>
+					<ConsumoEmisor name="Consumo vent. unidad int. incluido"/>
+					<NEquipos name="1"/>
+					<Long_tuberias name="0,00"/>
+					<Pot_perdida_m_tub name="0,00"/>
+					<NHretorno name="1"/>
+					<Distanciaext_int name="1,00"/>
+					<Perdida_m_tub_ext_int name="0,30"/>
+					<Volumen name="0,00"/>
+					<UA_deposito name="0,00"/>
+					<LD_deposito name="2,0"/>
+					<TaltaD name="0,00"/>
+					<TbajaD name="0,00"/>
+					<AintermbD name="0,00"/>
+					<AintermbD2 name="0,00"/>
+					<EfiIntercamb name="0,00"/>
+					<CaudalSBZ name="1000,00"/>
+					<DTSBZ name="0,0"/>
+					<PSBZ name="3,37"/>
+					<RendSBZ name="0,55"/>
+					<controlSBZ name="Cte"/>
+					<CaudalGEN1 name="1000,00"/>
+					<DTGEN1 name="0,0"/>
+					<PGEN1 name="2,00"/>
+					<RendGEN1 name="0,55"/>
+					<controlGEN1 name="Cte"/>
+					<CaudalGEN2 name="1000,00"/>
+					<DTGEN2 name="0,0"/>
+					<PGEN2 name="2,00"/>
+					<RendGEN2 name="0,55"/>
+					<controlGEN2 name="Cte"/>
+					<CaudalDEP name="1000,00"/>
+					<DTDEP name="0,0"/>
+					<PDEP name="2,00"/>
+					<RendDEP name="0,55"/>
+					<controlDEP name="Cte"/>
+					<CaudalINT name="1000,00"/>
+					<DTINT name="0,0"/>
+					<PINT name="2,00"/>
+					<RendINT name="0,55"/>
+					<controlINT name="Cte"/>
+					<CaudalRET name="1000,00"/>
+					<DTRET name="0"/>
+					<PRET name="2,00"/>
+					<RendRET name="0,55"/>
+					<controlRET name="Cte"/>
+					<TimpCalor name="60"/>
+					<saltoGenerador name="5"/>
+					<TimpACS name="0"/>
+					<TimpFrio name="0"/>
+					<saltoZona name="5"/>
+					<CaudalVent name="0"/>
+					<SaltoPVent name="125"/>
+					<rendVent name="0,60"/>
+					<QcalorCaldera1 name="16,00"/>
+					<RendCalor1 name="0,95"/>
+					<CombCalor1 name="Electricidad"/>
+					<CombCalorBio1 name="Biomasa_Pellet"/>
+					<RadiadorElectrico name="12,00"/>
+					<Nradiadores name="0"/>
+					<QcalorCaldera2 name="16,00"/>
+					<RendCalor2 name="0,90"/>
+					<CombCalor2 name="GasNatural"/>
+					<CombCalorBio2 name="Biomasa_Pellet"/>
+					<QcalorBC1 name="0,00"/>
+					<WeCalor1 name="0,00"/>
+					<QcalorBC2 name="16,00"/>
+					<WeCalor2 name="1,00"/>
+					<RendCalorEst name="3,60"/>
+					<RendFrioEst name="0,00"/>
+					<RendACSEst name="0,00"/>
+					<SCOP name="0,00"/>
+					<QFrioSen1 name="0,00"/>
+					<QFrioTot1 name="0,00"/>
+					<WeFrio1 name="0,00"/>
+					<QFrioSen2 name="0,00"/>
+					<QFrioTot2 name="0,00"/>
+					<WeFrio2 name="0,00"/>
+					<QApoyoEquipo name="0,00"/>
+					<QApoyoTermo name="0,00"/>
+					<CombEst name="Electricidad"/>
+					<Fabricante name="Defecto"/>
+					<Modelo name=""/>
+					<aaQ0 name="0,00000000"/>
+					<aaQ1 name="0,00000000"/>
+					<aaQ2 name="0,00000000"/>
+					<aaQ3 name="0,00000000"/>
+					<aaQ4 name="0,00000000"/>
+					<aaQ5 name="0,00000000"/>
+					<abQ0 name="0,00000000"/>
+					<abQ1 name="0,00000000"/>
+					<abQ2 name="0,00000000"/>
+					<abQ3 name="0,00000000"/>
+					<abQ4 name="0,00000000"/>
+					<abQ5 name="0,00000000"/>
+					<baQ0 name="0,00000000"/>
+					<baQ1 name="0,00000000"/>
+					<baQ2 name="0,00000000"/>
+					<baQ3 name="0,00000000"/>
+					<baQ4 name="0,00000000"/>
+					<baQ5 name="0,00000000"/>
+					<bbQ0 name="0,00000000"/>
+					<bbQ1 name="0,00000000"/>
+					<bbQ2 name="0,00000000"/>
+					<bbQ3 name="0,00000000"/>
+					<bbQ4 name="0,00000000"/>
+					<bbQ5 name="0,00000000"/>
+					<cQ0 name="0,00000000"/>
+					<cQ1 name="0,00000000"/>
+					<cQ2 name="0,00000000"/>
+					<cQ3 name="0,00000000"/>
+					<aR0 name="0,00000000"/>
+					<aR1 name="0,00000000"/>
+					<aR2 name="0,00000000"/>
+					<aR3 name="0,00000000"/>
+					<aR4 name="0,00000000"/>
+					<aR5 name="0,00000000"/>
+					<eR0 name="0,00000000"/>
+					<eR1 name="0,00000000"/>
+					<eR2 name="0,00000000"/>
+					<eR3 name="0,00000000"/>
+					<eR4 name="0,00000000"/>
+					<eR5 name="0,00000000"/>
+					<eR6 name="0,00000000"/>
+					<bR0 name="0,00000000"/>
+					<bR1 name="0,00000000"/>
+					<bR2 name="0,00000000"/>
+					<bR3 name="0,00000000"/>
+					<bR4 name="0,00000000"/>
+					<bR5 name="0,00000000"/>
+					<cR0 name="0,00000000"/>
+					<cR1 name="0,00000000"/>
+					<cR2 name="0,00000000"/>
+					<cR3 name="0,00000000"/>
+					<cC0 name="0,00000000"/>
+					<cC1 name="0,00000000"/>
+					<cC2 name="0,00000000"/>
+					<cC3 name="0,00000000"/>
+					<gC0 name="1,00000000"/>
+					<gC1 name="0,00000000"/>
+					<gC2 name="0,00000000"/>
+					<gC3 name="0,00000000"/>
+					<TeCambio name="0,00000000"/>
+				</Tipo_sistema>
+			</Instalaciones>
+			<MedidasMejora/>
+			<Pruebas>
+				<Visita>
+					<Fecha>06/02/2023</Fecha>
+					<Datos>
+						<Linea1 name=""/>
+						<Linea2 name=""/>
+						<Linea3 name=""/>
+						<Linea4 name=""/>
+						<Linea5 name=""/>
+						<Linea6 name=""/>
+						<Linea7 name=""/>
+						<Linea8 name=""/>
+						<Linea9 name=""/>
+						<Linea10 name=""/>
+					</Datos>
+				</Visita>
+			</Pruebas>
+			<Mejoras>
+				<Mejora1>
+					<Datos1>
+						<Linea1 name=""/>
+						<Linea2 name=""/>
+						<Linea3 name=""/>
+						<Linea4 name=""/>
+						<Linea5 name=""/>
+						<Linea6 name=""/>
+						<Linea7 name=""/>
+						<Linea8 name=""/>
+						<Linea9 name=""/>
+						<Linea10 name=""/>
+					</Datos1>
+				</Mejora1>
+				<Mejora2>
+					<Datos1>
+						<Linea1 name=""/>
+						<Linea2 name=""/>
+						<Linea3 name=""/>
+						<Linea4 name=""/>
+						<Linea5 name=""/>
+						<Linea6 name=""/>
+						<Linea7 name=""/>
+						<Linea8 name=""/>
+						<Linea9 name=""/>
+						<Linea10 name=""/>
+					</Datos1>
+				</Mejora2>
+				<Mejora3>
+					<Datos1>
+						<Linea1 name=""/>
+						<Linea2 name=""/>
+						<Linea3 name=""/>
+						<Linea4 name=""/>
+						<Linea5 name=""/>
+						<Linea6 name=""/>
+						<Linea7 name=""/>
+						<Linea8 name=""/>
+						<Linea9 name=""/>
+						<Linea10 name=""/>
+					</Datos1>
+				</Mejora3>
+			</Mejoras>
+		</Cerma>
+	</DatosPersonalizados>
+</DatosEnergeticosDelEdificio>

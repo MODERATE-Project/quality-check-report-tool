@@ -1,0 +1,7 @@
+services:
+
+  app:
+    build: .
+    container_name: moderate-epc-harmonization-app
+    ports:
+      - "1883:5000" # <---- <host>:<container>

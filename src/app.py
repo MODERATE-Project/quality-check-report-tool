@@ -1,8 +1,10 @@
 from flask import Flask, request, render_template_string
+from flask_cors import CORS
+
 import xml.etree.ElementTree as ET
 
 app = Flask(__name__)
-
+CORS(app)
 
 def create_html_section(element, section_title, is_full_width=False):
     class_name = "full-width" if is_full_width else "column"

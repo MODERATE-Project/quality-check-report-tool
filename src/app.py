@@ -1,9 +1,8 @@
 from flask import Flask, request, render_template_string
 import xml.etree.ElementTree as ET
-import base64
-import re
 
 app = Flask(__name__)
+
 
 def create_html_section(element, section_title, is_full_width=False):
     class_name = "full-width" if is_full_width else "column"
@@ -13,9 +12,11 @@ def create_html_section(element, section_title, is_full_width=False):
     section_html += '</div>'
     return section_html
 
+
 @app.route('/')
 def index():
     return render_template_string(open('index.html').read())
+
 
 @app.route('/upload', methods=['POST'])
 def upload():
@@ -24,7 +25,7 @@ def upload():
     root = tree.getroot()
 
     html_content = '<div class="columns">'
-    
+
     sections = [
         ('DatosDelCertificador', 'Datos del Certificador'),
         ('IdentificacionEdificio', 'Identificación del Edificio'),
@@ -40,11 +41,8 @@ def upload():
     imagen_element = root.find('.//Imagen')
     if imagen_element is not None and imagen_element.text is not None:
         base64_data = imagen_element.text.strip()
-        base64_data = re.sub(r'[^A-Za-z0-9+/=]', '', base64_data)
-        missing_padding = len(base64_data) % 4
-        if missing_padding != 0:
-            base64_data += '=' * (4 - missing_padding)
-        
+        base64_data = base64_data.split(',')[1]
+
         try:
             img_tag = f'<div class="section full-width"><h2>Imagen</h2><img src="data:image/png;base64,{base64_data}" alt="Imagen"></div>'
             html_content += img_tag
@@ -54,5 +52,6 @@ def upload():
     html_content += '</div>'
     return html_content
 
+
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0', port=5000)

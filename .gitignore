@@ -1,0 +1,6 @@
+/.vscode
+/datos_energeticos_del_edificio.html
+/displayer.py
+/nuevo_certificado.xml
+/reader.py
+*.zip

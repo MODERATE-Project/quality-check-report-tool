@@ -1,10 +1,11 @@
 from flask import Flask, request, render_template_string
 from flask_cors import CORS
+from asgiref.wsgi import WsgiToAsgi
 
 import xml.etree.ElementTree as ET
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={r"/*": {"origins": "*", "methods": ["GET", "POST", "PUT", "DELETE"]}})
 
 def create_html_section(element, section_title, is_full_width=False):
     class_name = "full-width" if is_full_width else "column"
@@ -53,6 +54,8 @@ def upload():
 
     html_content += '</div>'
     return html_content
+
+asgi_app = WsgiToAsgi(app)
 
 
 if __name__ == '__main__':

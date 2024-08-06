@@ -7,5 +7,8 @@ RUN pip install -r requirements.txt
   
 COPY src/ .
 
+ENV FLASK_APP=app:app
+
 # -u to force stdout and stderr streams to be unbuffered
-ENTRYPOINT python -u app.py
+# CMD ["flask", "run", "--host=0.0.0.0"]
+CMD ["uvicorn", "app:asgi_app", "--host", "0.0.0.0", "--port", "5000"]

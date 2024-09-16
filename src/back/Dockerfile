@@ -5,7 +5,8 @@ WORKDIR /src
 COPY requirements.txt requirements.txt
 RUN pip install -r requirements.txt
   
-COPY src/ .
+# COPY src/ .
+COPY app.py app.py
 
 ENV FLASK_APP=app:app
 

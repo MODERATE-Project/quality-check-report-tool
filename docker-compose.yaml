@@ -1,7 +1,13 @@
 services:
 
   app:
-    build: .
-    container_name: moderate-epc-harmonization-app
+    build: ./src/back
+    container_name: moderate-epc-harmonization-back
     ports:
       - "7504:5000" # <---- <host>:<container>
+
+  front:
+    build: ./src/front
+    container_name: moderate-epc-harmonization-front
+    ports:
+      - "7505:80"

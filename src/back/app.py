@@ -15,10 +15,10 @@ def create_html_section(element, section_title, is_full_width=False):
     section_html += '</div>'
     return section_html
 
+# @app.route('/')
+# def index():
+#     return render_template_string(open('index.html').read()) QUÉ PONGO AQUI PARA QUE ME USE EL FRONT DESPLEGADO EN NGINX
 
-@app.route('/')
-def index():
-    return render_template_string(open('index.html').read())
 
 
 @app.route('/upload', methods=['POST'])

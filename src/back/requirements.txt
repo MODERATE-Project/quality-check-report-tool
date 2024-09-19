@@ -1,4 +1,3 @@
-Flask
-flask-cors
-uvicorn
-asgiref
+Flask==3.0.0
+Flask-Cors==4.0.0
+gunicorn

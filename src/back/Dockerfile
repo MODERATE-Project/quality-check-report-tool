@@ -10,6 +10,4 @@ COPY app.py app.py
 
 ENV FLASK_APP=app:app
 
-# -u to force stdout and stderr streams to be unbuffered
-# CMD ["flask", "run", "--host=0.0.0.0"]
-CMD ["uvicorn", "app:asgi_app", "--host", "0.0.0.0", "--port", "5000"]
+CMD ["gunicorn", "--bind", "0.0.0.0:5000", "app:app"]

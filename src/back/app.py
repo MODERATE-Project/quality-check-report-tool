@@ -57,8 +57,6 @@ def parse_xml():
         if element is not None:
             html_content += create_html_section(element, title)
 
-    logger.debug(f"contenido html generado:{html_content}")
-
     imagen_element = root.find('.//Imagen')
     if imagen_element is not None and imagen_element.text is not None:
         base64_data = imagen_element.text.strip()

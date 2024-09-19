@@ -107,13 +107,10 @@
                 formData.append('file', files[0]);
 
                 const url = '/upload';
-                
+
                 fetch(url, {
-                    method: 'POST', // Usamos el método POST
-                    headers: {
-                        'Content-Type': 'application/xml', // Indicamos que enviamos JSON
-                    },
-                    body: formData // Enviamos los datos en el cuerpo de la solicitud
+                    method: 'POST',
+                    body: formData
                 })
                     .then(res => res.text())
                     .then(formData => result.innerHTML = formData)

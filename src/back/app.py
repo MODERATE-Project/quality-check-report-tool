@@ -1,26 +1,78 @@
-from flask import Flask, request
+from flask import Flask, request, jsonify
 from flask_cors import CORS
 import xml.etree.ElementTree as ET
-
+import logging
 
 
 app = Flask(__name__)
 CORS(app)
 
+logging.basicConfig(level=logging.DEBUG,  # Set the logging level
+                    # Log format
+                    format='[%(asctime)s] [%(levelname)s]: %(message)s',
+                    datefmt='%Y-%m-%d %H:%M:%S',  # Date format
+                    # Log output handler (console)
+                    handlers=[logging.StreamHandler()])
+
+logger = logging.getLogger(__name__)  # Create a logger instance for the module
+
+
+def create_html_section(element, section_title, is_full_width=False):
+    class_name = "full-width" if is_full_width else "column"
+    section_html = f'<div class="section {
+        class_name}"><h2>{section_title}</h2>'
+    for child in element:
+        section_html += f'<div class="item"><strong>{
+            child.tag}:</strong> {child.text}</div>'
+    section_html += '</div>'
+    return section_html
+
+
 @app.route('/upload', methods=['POST'])
 def parse_xml():
 
-    if request.content_type == 'application/xml':
-        return "XML Processed", 200
-        # Access the raw request data and parse it as XML
-        xml_data = request.data
-        root = ET.fromstring(xml_data)
-        
-        value = root.find('TipoDeEdificio').text
+    if 'file' not in request.files:
+        return jsonify({"error": "No file part in the request"}), 400
 
-        return f"XML Processed. Value of TipoDeEdificio: {value}", 200
-    else:
-        return "Invalid content type", 400
+    file = request.files['file']
+
+    if file.filename == '':
+        return jsonify({"error": "No selected file"}), 400
+
+    tree = ET.parse(file)
+
+    root = tree.getroot()
+
+    html_content = '<div class="columns">'
+
+    sections = [
+        ('DatosDelCertificador', 'Datos del Certificador'),
+        ('IdentificacionEdificio', 'Identificación del Edificio'),
+        ('DatosGeneralesyGeometria', 'Datos Generales y Geometría'),
+        ('DatosEnvolventeTermica', 'Datos de la Envolvente Térmica')
+    ]
+
+    for tag, title in sections:
+        element = root.find(tag)
+        if element is not None:
+            html_content += create_html_section(element, title)
+
+    logger.debug(f"contenido html generado:{html_content}")
+
+    imagen_element = root.find('.//Imagen')
+    if imagen_element is not None and imagen_element.text is not None:
+        base64_data = imagen_element.text.strip()
+        base64_data = base64_data.split(',')[1]
+
+        try:
+            img_tag = f'<div class="section full-width"><h2>Imagen</h2><img src="data:image/png;base64,{
+                base64_data}" alt="Imagen"></div>'
+            html_content += img_tag
+        except Exception as e:
+            html_content += f'<p>Error al decodificar la imagen: {e}</p>'
+
+    html_content += '</div>'
+    return html_content
 
 
 if __name__ == '__main__':

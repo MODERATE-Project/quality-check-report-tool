@@ -14,8 +14,7 @@ logging.basicConfig(level=logging.DEBUG,  # Set the logging level
                     # Log output handler (console)
                     handlers=[logging.StreamHandler()])
 
-logger = logging.getLogger(__name__)  # Create a logger instance for the module
-
+logger = logging.getLogger(__name__)
 
 def create_html_section(element, section_title, is_full_width=False):
     class_name = "full-width" if is_full_width else "column"
@@ -42,6 +41,8 @@ def parse_xml():
     tree = ET.parse(file)
 
     root = tree.getroot()
+
+    logger.debug("EPC parsed correctlty")
 
     html_content = '<div class="columns">'
 

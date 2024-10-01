@@ -1,0 +1,576 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2006 sp2 U (http://www.altova.com) by MIGUEL MARTIN (DIRECCION GENERAL DEL CATASTRO) -->
+<!--*****************************************************************************************************************-->
+<!--*****************************************************************************************************************-->
+<!--                                               consulta_dnp                                                                            -->
+<!--																																						-->
+<!-- 											Tipo de documento:      Mensaje												     			-->
+<!--*****************************************************************************************************************-->
+<!--*****************************************************************************************************************-->
+<!--**********************************************************-->
+<!--       						23-06-2023                    -->
+<!--**********************************************************-->
+<!--
+Cambios realizados respecto a la versión anterior:
+23-06-2023
+Se incluyen un nuevo valor dtip (denominación de tipología) en dvcons.
+07-09-2009
+Se incluye el domicilio tributario estructurado (dt) en las ramas bico y rcdnp.
+11-05-07
+Se modifican varios tipos para impedir cadenas rellenas unicamente con blancos.
+-->
+<xsd:schema xmlns="http://www.catastro.meh.es/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.catastro.meh.es/" elementFormDefault="qualified" version="1.0">
+	<xsd:include schemaLocation="ldc.xsd"/>
+	<xsd:complexType name="dtdnp">
+		<xsd:annotation>
+			<xsd:documentation>Domicilio tributario</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:restriction base="dt">
+				<xsd:sequence>
+					<xsd:element name="loine" type="loine">
+						<xsd:annotation>
+							<xsd:documentation>Localización del INE</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="cmc" type="cmc">
+						<xsd:annotation>
+							<xsd:documentation>Código de Municipio de la DGC</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="np" type="np">
+						<xsd:annotation>
+							<xsd:documentation>Nombre de Provincia</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="nm" type="nm">
+						<xsd:annotation>
+							<xsd:documentation>Nombre de Municipio</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="nem" type="nem" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Nombre de entidad menor</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="locs" type="locsdnp">
+						<xsd:annotation>
+							<xsd:documentation>Localización Municipal</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:restriction>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="locsdnp">
+		<xsd:complexContent>
+			<xsd:restriction base="locs">
+				<xsd:choice>
+					<xsd:element name="lous">
+						<xsd:annotation>
+							<xsd:documentation>Localización Municipal del bien urbano</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:complexContent>
+								<xsd:restriction base="lous">
+									<xsd:sequence>
+										<xsd:element name="lourb" type="lourbdnp">
+											<xsd:annotation>
+												<xsd:documentation>Localización urbana</xsd:documentation>
+											</xsd:annotation>
+										</xsd:element>
+										<xsd:element name="lorus" type="lorusdnp" minOccurs="0">
+											<xsd:annotation>
+												<xsd:documentation>Localización rústica adicional</xsd:documentation>
+											</xsd:annotation>
+										</xsd:element>
+									</xsd:sequence>
+								</xsd:restriction>
+							</xsd:complexContent>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="lors">
+						<xsd:annotation>
+							<xsd:documentation>Localización Municipal del Bien Rústico</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:complexContent>
+								<xsd:restriction base="lors">
+									<xsd:sequence>
+										<xsd:element name="lorus" type="lorusrdnp">
+											<xsd:annotation>
+												<xsd:documentation>Localización rústica </xsd:documentation>
+											</xsd:annotation>
+										</xsd:element>
+										<xsd:element name="lourb" type="lourbrdnp" minOccurs="0">
+											<xsd:annotation>
+												<xsd:documentation>Localización urbana adicional</xsd:documentation>
+											</xsd:annotation>
+										</xsd:element>
+									</xsd:sequence>
+								</xsd:restriction>
+							</xsd:complexContent>
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:choice>
+			</xsd:restriction>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="lourbdnp">
+		<xsd:complexContent>
+			<xsd:restriction base="lourb">
+				<xsd:sequence>
+					<xsd:element name="dir">
+						<xsd:annotation>
+							<xsd:documentation>Dirección</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:complexContent>
+								<xsd:restriction base="dir">
+									<xsd:sequence>
+										<xsd:element name="cv" type="cv">
+											<xsd:annotation>
+												<xsd:documentation>Código de vía</xsd:documentation>
+											</xsd:annotation>
+										</xsd:element>
+										<xsd:element name="tv" type="tv">
+											<xsd:annotation>
+												<xsd:documentation>Tipo de vía</xsd:documentation>
+											</xsd:annotation>
+										</xsd:element>
+										<xsd:element name="nv" type="nv">
+											<xsd:annotation>
+												<xsd:documentation>Nombre de vía</xsd:documentation>
+											</xsd:annotation>
+										</xsd:element>
+										<xsd:element name="pnp" type="pnp" minOccurs="0">
+											<xsd:annotation>
+												<xsd:documentation>Primer número de policía</xsd:documentation>
+											</xsd:annotation>
+										</xsd:element>
+										<xsd:element name="plp" type="plp" minOccurs="0">
+											<xsd:annotation>
+												<xsd:documentation>Primera letra asociada al número de policía</xsd:documentation>
+											</xsd:annotation>
+										</xsd:element>
+										<xsd:element name="snp" type="snp" minOccurs="0">
+											<xsd:annotation>
+												<xsd:documentation>Segundo número de policía</xsd:documentation>
+											</xsd:annotation>
+										</xsd:element>
+										<xsd:element name="slp" type="slp" minOccurs="0">
+											<xsd:annotation>
+												<xsd:documentation>Segunda letra asociada al número de policía</xsd:documentation>
+											</xsd:annotation>
+										</xsd:element>
+										<xsd:element name="km" type="km" minOccurs="0">
+											<xsd:annotation>
+												<xsd:documentation>Kilómetro</xsd:documentation>
+											</xsd:annotation>
+										</xsd:element>
+										<xsd:element name="td" type="dne" minOccurs="0">
+											<xsd:annotation>
+												<xsd:documentation>Dirección no estructurada</xsd:documentation>
+											</xsd:annotation>
+										</xsd:element>
+									</xsd:sequence>
+								</xsd:restriction>
+							</xsd:complexContent>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="loint" type="loint" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Localización interna</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="dp" type="dp" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Código Postal</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="dm" type="dm" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Distrito Municipal</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:restriction>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="lourbrdnp">
+		<xsd:complexContent>
+			<xsd:restriction base="lourb">
+				<xsd:sequence>
+					<xsd:element name="dir" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Dirección</xsd:documentation>
+						</xsd:annotation>
+						<xsd:complexType>
+							<xsd:complexContent>
+								<xsd:restriction base="dir">
+									<xsd:sequence>
+										<xsd:element name="cv" type="cv">
+											<xsd:annotation>
+												<xsd:documentation>Código de vía</xsd:documentation>
+											</xsd:annotation>
+										</xsd:element>
+										<xsd:element name="tv" type="tv">
+											<xsd:annotation>
+												<xsd:documentation>Tipo de vía</xsd:documentation>
+											</xsd:annotation>
+										</xsd:element>
+										<xsd:element name="nv" type="nv">
+											<xsd:annotation>
+												<xsd:documentation>Nombre de vía</xsd:documentation>
+											</xsd:annotation>
+										</xsd:element>
+										<xsd:element name="pnp" type="pnp" minOccurs="0">
+											<xsd:annotation>
+												<xsd:documentation>Primer número de policía</xsd:documentation>
+											</xsd:annotation>
+										</xsd:element>
+										<xsd:element name="plp" type="plp" minOccurs="0">
+											<xsd:annotation>
+												<xsd:documentation>Primera letra asociada al número de policía</xsd:documentation>
+											</xsd:annotation>
+										</xsd:element>
+										<xsd:element name="snp" type="snp" minOccurs="0">
+											<xsd:annotation>
+												<xsd:documentation>Segundo número de policía</xsd:documentation>
+											</xsd:annotation>
+										</xsd:element>
+										<xsd:element name="slp" type="slp" minOccurs="0">
+											<xsd:annotation>
+												<xsd:documentation>Segunda letra asociada al número de policía</xsd:documentation>
+											</xsd:annotation>
+										</xsd:element>
+										<xsd:element name="km" type="km" minOccurs="0">
+											<xsd:annotation>
+												<xsd:documentation>Kilómetro</xsd:documentation>
+											</xsd:annotation>
+										</xsd:element>
+										<xsd:element name="td" type="dne" minOccurs="0">
+											<xsd:annotation>
+												<xsd:documentation>Dirección no estructurada</xsd:documentation>
+											</xsd:annotation>
+										</xsd:element>
+									</xsd:sequence>
+								</xsd:restriction>
+							</xsd:complexContent>
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="loint" type="loint" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Localización interna</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="dp" type="dp" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Código Postal</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="dm" type="dm" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Distrito Municipal</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:restriction>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="lorusdnp">
+		<xsd:complexContent>
+			<xsd:restriction base="lorus">
+				<xsd:sequence>
+					<xsd:element name="cma" type="cma" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Código de municipio agregado</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="czc" type="czc" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Código de la zona de concentración</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="cpp" type="cpp">
+						<xsd:annotation>
+							<xsd:documentation>Identificador Polígono-Parcela</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="npa" type="npa" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Nombre del Paraje</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="cpaj" type="cpaj" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Código del paraje</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:restriction>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="lorusrdnp">
+		<xsd:complexContent>
+			<xsd:restriction base="lorus">
+				<xsd:sequence>
+					<xsd:element name="cma" type="cma" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Código de municipio agregado</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="czc" type="czc" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Código de la zona de concentración</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="cpp" type="cpp">
+						<xsd:annotation>
+							<xsd:documentation>Identificador Polígono-Parcela</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="npa" type="npa">
+						<xsd:annotation>
+							<xsd:documentation>Nombre del Paraje</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="cpaj" type="cpaj">
+						<xsd:annotation>
+							<xsd:documentation>Código del Paraje</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:restriction>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="bidnp">
+		<xsd:sequence>
+			<xsd:element name="idbi" type="idbi"/>
+			<xsd:element name="dt" type="dtdnp" minOccurs="0"/>
+			<xsd:element name="ldt" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="debi" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:restriction base="debi">
+							<xsd:sequence>
+								<xsd:element name="luso" type="luso" minOccurs="0"/>
+								<xsd:element name="sfc" type="supg" minOccurs="0"/>
+								<xsd:element name="cpt" type="cpt" minOccurs="0"/>
+								<xsd:element name="ant" type="xsd:gYear" minOccurs="0"/>
+							</xsd:sequence>
+						</xsd:restriction>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="consdnp">
+		<xsd:sequence>
+			<xsd:element name="lcd" type="stringnb" minOccurs="0"/>
+			<xsd:element name="dt" type="domi" minOccurs="0"/>
+			<xsd:element name="dfcons" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:restriction base="dfcons">
+							<xsd:sequence>
+								<xsd:element name="stl" type="supp"/>
+							</xsd:sequence>
+						</xsd:restriction>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="dvcons" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="dtip" type="dtip" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>Denominación de tipología</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="sprdnp">
+		<xsd:complexContent>
+			<xsd:restriction base="spr">
+				<xsd:sequence>
+					<xsd:element name="cspr" type="cspr" minOccurs="0"/>
+					<xsd:element name="dspr" minOccurs="0">
+						<xsd:complexType>
+							<xsd:complexContent>
+								<xsd:restriction base="dspr">
+									<xsd:sequence>
+										<xsd:element name="ccc" type="ccc"/>
+										<xsd:element name="dcc" type="dcc"/>
+										<xsd:element name="ip" type="ip"/>
+										<xsd:element name="ssp" type="supg"/>
+									</xsd:sequence>
+								</xsd:restriction>
+							</xsd:complexContent>
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:restriction>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="lconsdnp">
+		<xsd:sequence>
+			<xsd:element name="cons" type="consdnp" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="lsprdnp">
+		<xsd:sequence>
+			<xsd:element name="spr" type="sprdnp" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="rcdnp">
+		<xsd:sequence>
+			<xsd:element name="rc" type="rc"/>
+			<xsd:element name="dt" type="dtdnp" minOccurs="0"/>
+			<xsd:element name="debi" minOccurs="0">
+				<xsd:complexType>
+					<xsd:complexContent>
+						<xsd:restriction base="debi">
+							<xsd:sequence>
+								<xsd:element name="luso" type="luso" minOccurs="0"/>
+								<xsd:element name="sfc" type="supg" minOccurs="0"/>
+								<xsd:element name="cpt" type="cpt" minOccurs="0"/>
+								<xsd:element name="ant" type="xsd:gYear" minOccurs="0"/>
+							</xsd:sequence>
+						</xsd:restriction>
+					</xsd:complexContent>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="lrcdnp">
+		<xsd:sequence>
+			<xsd:element name="rcdnp" type="rcdnp" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="bico">
+		<xsd:sequence>
+			<xsd:element name="bi" type="bidnp"/>
+			<xsd:element name="lcons" type="lconsdnp" minOccurs="0"/>
+			<xsd:element name="lspr" type="lsprdnp" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="callejerordp">
+		<xsd:complexContent>
+			<xsd:restriction base="callejero">
+				<xsd:sequence>
+					<xsd:element name="calle" type="calledp" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Calle</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:restriction>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="calledp">
+		<xsd:complexContent>
+			<xsd:restriction base="df">
+				<xsd:sequence>
+					<xsd:element name="loine" type="loine">
+						<xsd:annotation>
+							<xsd:documentation>Localización según INE</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="dir" type="dircadp">
+						<xsd:annotation>
+							<xsd:documentation>Dirección</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:restriction>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--Dirección-->
+	<xsd:complexType name="dircadp">
+		<xsd:complexContent>
+			<xsd:restriction base="dir">
+				<xsd:sequence>
+					<xsd:element name="cv" type="cv">
+						<xsd:annotation>
+							<xsd:documentation>Código de vía</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="tv" type="tv">
+						<xsd:annotation>
+							<xsd:documentation>Tipo de vía</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="nv" type="nv">
+						<xsd:annotation>
+							<xsd:documentation>Nombre de vía</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:restriction>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="consulta_dnp">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="control" type="cabrdnp"/>
+				<xsd:sequence>
+					<xsd:choice minOccurs="0">
+						<xsd:element name="municipiero" type="municipiero" minOccurs="0"/>
+						<xsd:element name="callejero" type="callejerordp" minOccurs="0"/>
+						<xsd:element name="numerero" type="numerero" minOccurs="0"/>
+						<xsd:element name="lrcdnp" type="lrcdnp" minOccurs="0"/>
+						<xsd:element name="bico" type="bico" minOccurs="0"/>
+					</xsd:choice>
+					<xsd:element name="lerr" type="lerr" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="cabrdnp">
+		<xsd:complexContent>
+			<xsd:restriction base="cab">
+				<xsd:sequence>
+					<xsd:element name="cumun" type="xsd:int" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Cuenta de municipios</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="cuca" type="xsd:int" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Cuenta de calles</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="cunum" type="xsd:int" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Cuenta de numeros</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="cudnp" type="xsd:int" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Cuenta de elementos de datos no protegidos</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="cucons" type="xsd:int" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Cuenta de construcciones</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="cucul" type="xsd:int" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Cuenta de cultivos</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="cuerr" type="xsd:int" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>Cuenta de errores</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:restriction>
+		</xsd:complexContent>
+	</xsd:complexType>
+</xsd:schema>

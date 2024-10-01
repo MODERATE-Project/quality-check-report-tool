@@ -18,10 +18,12 @@ services:
     ports:
       - 7605:5000 # <---- <host>:<container>
     restart: always
+    volumes:
+      - ./src/back:/src
 
   docx-to-pdf:
     image: moalhaddar/docx-to-pdf:2.1.0-12
-    container_name: qc-docx-to-pdf
+    container_name: moderate-quality-check-tool-docx-to-pdf
     ports:
       - 7612:8080
     environment:

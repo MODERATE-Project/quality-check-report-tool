@@ -57,17 +57,25 @@ def parse_xml():
         if element is not None:
             html_content += create_html_section(element, title)
 
-    imagen_element = root.find('.//Imagen')
-    if imagen_element is not None and imagen_element.text is not None:
-        base64_data = imagen_element.text.strip()
-        base64_data = base64_data.split(',')[1]
+    # imagen_element = root.find('.//Imagen')
+    imagen_elements = root.findall('.//Imagen')
+    plano_elements = root.findall('.//Plano')
+    if len(plano_elements) > 0:
+        imagen_elements.append(*plano_elements)
 
-        try:
-            img_tag = f'<div class="section full-width"><h2>Imagen</h2><img src="data:image/png;base64,{
-                base64_data}" alt="Imagen"></div>'
-            html_content += img_tag
-        except Exception as e:
-            html_content += f'<p>Error al decodificar la imagen: {e}</p>'
+    for imagen_element in imagen_elements:
+        if imagen_element is not None and imagen_element.text is not None:
+            base64_data = imagen_element.text.strip()
+            base64_data_split = base64_data.split(',')
+            if len(base64_data_split) > 1:
+                base64_data = base64_data_split[1]
+
+            try:
+                img_tag = f'<div class="section full-width"><h2>Imagen</h2><img width="400px"; src="data:image/png;base64,{
+                    base64_data}" alt="Imagen"></div>'
+                html_content += img_tag
+            except Exception as e:
+                html_content += f'<p>Error al decodificar la imagen: {e}</p>'
 
     html_content += '</div>'
     return html_content

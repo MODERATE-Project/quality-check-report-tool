@@ -6,6 +6,8 @@ This tool allows users to upload an EPC (Energy Performance Certificate) in its 
 
 The frontend, located in `src/front/`, handles all UI/UX-related functionality. This includes sending the XML document to the backend via a RESTful API and receiving the corresponding response.
 
+![Modules diagram](img/modules-diagram.png)
+
 To run the application, a Taskfile is used. This is an alternative to Makefile, written in YAML syntax. The defined tasks are "start," "stop," "build," and "logs." To execute these tasks, you can run the following command:
 
 ```sh
@@ -15,6 +17,7 @@ task build start logs
 This will build the Docker image, run the system in the background using the docker-compose.yaml file, and finally display the logs in the console.
 
 ## EPC examples
+
 The `epcs/` folder contains some anonymized examples. These can be used for development and testing purpouses.
 
 ## Back
@@ -37,4 +40,3 @@ http://ovc.catastro.meh.es/OVCServWeb/OVCWcfCallejero/COVCCallejero.svc/json/Con
 ```
 
 In the `cadaster/` folder, you can find an example XML response from the API, along with an XML file containing the field names and the XSD schema that defines the XML structure.
-

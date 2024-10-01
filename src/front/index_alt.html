@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificado de Eficiencia Energética</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f7f7f7;
+        }
+
+        .card {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: #3b3b3b;
+            font-weight: 700;
+        }
+
+        .info-title {
+            font-weight: 500;
+            color: #555;
+        }
+
+        .icon {
+            font-size: 1.2rem;
+            color: #007bff;
+        }
+
+        .table th, .table td {
+            vertical-align: middle;
+        }
+
+        #drop-zone {
+            border: 2px dashed #007bff;
+            padding: 20px;
+            text-align: center;
+            background-color: #e9ecef;
+            cursor: pointer;
+        }
+
+        #drop-zone:hover {
+            background-color: #d4e5ff;
+        }
+
+        footer {
+            background-color: #343a40;
+            color: white;
+            padding: 10px 0;
+        }
+
+        footer a {
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container my-5">
+        <!-- Zona de arrastre para cargar el archivo -->
+        <div id="drop-zone" class="mb-4">
+            <h2>Arrastra y suelta aquí tu archivo XML</h2>
+            <p class="text-muted">o haz clic para seleccionar un archivo</p>
+        </div>
+
+        <!-- Encabezado -->
+        <div class="card p-4 mb-4">
+            <div class="row">
+                <div class="col-md-8">
+                    <h1 class="section-title">Certificado de Eficiencia Energética</h1>
+                    <p class="text-muted">Fecha de generación: <strong id="fecha"></strong></p>
+                    <p class="text-muted">Referencia Catastral: <strong id="ref-catastral"></strong></p>
+                </div>
+                <div class="col-md-4 text-end">
+                    <img src="logo.png" alt="Logo" class="img-fluid" style="max-width: 150px;">
+                </div>
+            </div>
+        </div>
+
+        <!-- Identificación del Edificio -->
+        <div class="card p-4 mb-4">
+            <h2 class="section-title mb-3">Identificación del Edificio</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <p class="info-title"><i class="fas fa-building icon"></i> Nombre del edificio: <span id="nombre-edificio"></span></p>
+                </div>
+                <div class="col-md-4">
+                    <p class="info-title"><i class="fas fa-map-marker-alt icon"></i> Dirección: <span id="direccion"></span></p>
+                </div>
+                <div class="col-md-4">
+                    <p class="info-title"><i class="fas fa-city icon"></i> Municipio: <span id="municipio"></span></p>
+                </div>
+                <div class="col-md-4">
+                    <p class="info-title"><i class="fas fa-envelope icon"></i> Código Postal: <span id="codigo-postal"></span></p>
+                </div>
+                <div class="col-md-4">
+                    <p class="info-title"><i class="fas fa-map icon"></i> Provincia: <span id="provincia"></span></p>
+                </div>
+                <div class="col-md-4">
+                    <p class="info-title"><i class="fas fa-thermometer-half icon"></i> Zona Climática: <span id="zona-climatica"></span></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Datos del Certificador -->
+        <div class="card p-4 mb-4">
+            <h2 class="section-title mb-3">Datos del Técnico Certificador</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="info-title"><i class="fas fa-user icon"></i> Nombre del Técnico: <span id="nombre-certificador"></span></p>
+                </div>
+                <div class="col-md-6">
+                    <p class="info-title"><i class="fas fa-id-card icon"></i> NIF: <span id="nif-certificador"></span></p>
+                </div>
+                <div class="col-md-6">
+                    <p class="info-title"><i class="fas fa-graduation-cap icon"></i> Titulación: <span id="titulacion"></span></p>
+                </div>
+                <div class="col-md-6">
+                    <p class="info-title"><i class="fas fa-envelope icon"></i> Email: <span id="email-certificador"></span></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Calificación Energética -->
+        <div class="card p-4 mb-4">
+            <h2 class="section-title mb-3">Calificación Energética</h2>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Indicador</th>
+                        <th>Valor</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Consumo de Energía Primaria no Renovable (kWh/m² año)</td>
+                        <td id="consumo-energia"></td>
+                    </tr>
+                    <tr>
+                        <td>Emisiones de CO2 (kgCO2/m² año)</td>
+                        <td id="emisiones"></td>
+                    </tr>
+                    <tr>
+                        <td>Calificación Global: <span id="calificacion-global"></span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Características Energéticas del Edificio -->
+        <div class="card p-4 mb-4">
+            <h2 class="section-title mb-3">Características Energéticas del Edificio</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <p class="info-title"><i class="fas fa-ruler icon"></i> Superficie Habitable: <span id="superficie"></span> m²</p>
+                </div>
+                <div class="col-md-4">
+                    <p class="info-title"><i class="fas fa-sun icon"></i> Tipo de cerramiento: <span id="cerramientos"></span></p>
+                </div>
+                <div class="col-md-4">
+                    <p class="info-title"><i class="fas fa-window-maximize icon"></i> Superficie de Huecos: <span id="huecos"></span> m²</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sistemas Térmicos -->
+        <div class="card p-4 mb-4">
+            <h2 class="section-title mb-3">Sistemas de Calefacción y Refrigeración</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="info-title"><i class="fas fa-fire icon"></i> Calefacción: <span id="calefaccion"></span></p>
+                </div>
+                <div class="col-md-6">
+                    <p class="info-title"><i class="fas fa-snowflake icon"></i> Refrigeración: <span id="refrigeracion"></span></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recomendaciones para la Mejora -->
+        <div class="card p-4 mb-4">
+            <h2 class="section-title mb-3">Recomendaciones para la Mejora</h2>
+            <div class="alert alert-info" role="alert">
+                <i class="fas fa-lightbulb icon"></i> <span id="mejora"></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center">
+        <div class="container">
+            <p>© 2024 Certificado de Eficiencia Energética</p>
+            <a href="#">Política de Privacidad</a> | <a href="#">Términos de Uso</a>
+        </div>
+    </footer>
+
+    <script>
+        // Obtener la referencia al contenedor de arrastre
+        const dropZone = document.getElementById("drop-zone");
+
+        // Evento para arrastrar y soltar archivos
+        dropZone.addEventListener("dragover", (e) => {
+            e.preventDefault();
+            dropZone.style.backgroundColor = "#d4e5ff";
+        });
+
+        dropZone.addEventListener("dragleave", () => {
+            dropZone.style.backgroundColor = "#e9ecef";
+        });
+
+        dropZone.addEventListener("drop", (e) => {
+            e.preventDefault();
+            dropZone.style.backgroundColor = "#e9ecef";
+
+            const file = e.dataTransfer.files[0];
+            if (file && file.name.endsWith(".xml")) {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    const xmlContent = e.target.result;
+                    parseXML(xmlContent);
+                };
+                reader.readAsText(file);
+            } else {
+                alert("Por favor, arrastra un archivo XML válido.");
+            }
+        });
+
+        // Función para procesar el archivo XML
+        function parseXML(xmlContent) {
+            const parser = new DOMParser();
+            const xmlDoc = parser.parseFromString(xmlContent, "text/xml");
+
+            // Cargar datos del edificio
+            document.getElementById('nombre-edificio').textContent = xmlDoc.getElementsByTagName('NombreDelEdificio')[0].textContent;
+            document.getElementById('direccion').textContent = xmlDoc.getElementsByTagName('Direccion')[0].textContent;
+            document.getElementById('municipio').textContent = xmlDoc.getElementsByTagName('Municipio')[0].textContent;
+            document.getElementById('codigo-postal').textContent = xmlDoc.getElementsByTagName('CodigoPostal')[0].textContent;
+            document.getElementById('provincia').textContent = xmlDoc.getElementsByTagName('Provincia')[0].textContent;
+            document.getElementById('zona-climatica').textContent = xmlDoc.getElementsByTagName('ZonaClimatica')[0].textContent;
+
+            // Datos del certificador
+            document.getElementById('nombre-certificador').textContent = xmlDoc.getElementsByTagName('NombreyApellidos')[0].textContent;
+            document.getElementById('nif-certificador').textContent = xmlDoc.getElementsByTagName('NIF')[0].textContent;
+            document.getElementById('email-certificador').textContent = xmlDoc.getElementsByTagName('Email')[0].textContent;
+            document.getElementById('titulacion').textContent = xmlDoc.getElementsByTagName('Titulacion')[0].textContent;
+
+            // Calificación energética
+            document.getElementById('consumo-energia').textContent = xmlDoc.getElementsByTagName('ConsumoEnergia')[0].textContent;
+            document.getElementById('emisiones').textContent = xmlDoc.getElementsByTagName('EmisionesCO2')[0].textContent;
+            document.getElementById('calificacion-global').textContent = xmlDoc.getElementsByTagName('Global')[0].textContent;
+
+            // Características energéticas
+            document.getElementById('superficie').textContent = xmlDoc.getElementsByTagName('SuperficieHabitable')[0].textContent;
+            document.getElementById('cerramientos').textContent = xmlDoc.getElementsByTagName('Cerramientos')[0].textContent;
+            document.getElementById('huecos').textContent = xmlDoc.getElementsByTagName('Huecos')[0].textContent;
+
+            // Sistemas de calefacción y refrigeración
+            document.getElementById('calefaccion').textContent = xmlDoc.getElementsByTagName('Nombre')[0].textContent;
+            document.getElementById('refrigeracion').textContent = xmlDoc.getElementsByTagName('Nombre')[1].textContent;
+
+            // Recomendaciones de mejora
+            document.getElementById('mejora').textContent = xmlDoc.getElementsByTagName('Nombre')[2].textContent;
+        }
+
+        // Permitir clic para seleccionar un archivo
+        dropZone.addEventListener("click", () => {
+            const input = document.createElement("input");
+            input.type = "file";
+            input.accept = ".xml";
+            input.onchange = (e) => {
+                const file = e.target.files[0];
+                if (file && file.name.endsWith(".xml")) {
+                    const reader = new FileReader();
+                    reader.onload = (e) => {
+                        const xmlContent = e.target.result;
+                        parseXML(xmlContent);
+                    };
+                    reader.readAsText(file);
+                } else {
+                    alert("Por favor, selecciona un archivo XML válido.");
+                }
+            };
+            input.click();
+        });
+    </script>
+</body>
+</html>

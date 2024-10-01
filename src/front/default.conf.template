@@ -9,6 +9,12 @@ server {
     try_files $uri /index.html;
   }
 
+  location /alt {
+    root /usr/share/nginx/html;
+    index index_alt.html index_alt.htm;
+    try_files $uri /index_alt.html;
+  }
+
   location /upload {
     proxy_pass ${MODERATE_REPORT_SVC_PROXY_PASS_URL};
     proxy_set_header Host $host;

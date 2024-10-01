@@ -1,0 +1,138 @@
+<consulta_dnp>
+    <control>
+        <cudnp>NÚMERO DE INMUEBLES DE LOS QUE SE PROPORCIONAN DATOS</cudnp>
+        <cucons>NÚMERO DE UNIDADES CONSTRUCTIVAS (INCLUYENDO ELEMENTOS COMUNES)</cucons>
+        <cucul>NÚMERODE SUBPARCELAS (CULTIVOS)</cucul>
+    </control>
+    <bico>
+        <bi>
+            <idbi>
+                <cn>TIPO DE BIEN INMUEBLE</cn>
+                <rc>"REFERENCIA CATASTRAL" 
+                    <pc1>"POSICIONES 1-7 DE LA REFERENCIA CATASTRAL (RC) DELINMUEBLE"</pc1>
+                    <pc2>"POSICIONES 8-14 DE LA RC DEL INMUEBLE"</pc2>
+                    <car>POSICIONES 15-19 DE LA RC (CARGO)</car>
+                    <cc1>PRIMER DÍGITO DE CONTROL DE LA RC</cc1>
+                    <cc2>SEGUNDO DÍGITO DE CONTROL DE LA RC </cc2>
+                </rc>
+            </idbi>
+            <dt>DOMICILIO TRIBUTARIO DEL INMUEBLE (SI EXISTE) 
+                <loine>LOCALIZACIÓN DEL INE 
+                    <cp>CÓDIGO DE PROVINCIA INE</cp>
+                    <cm>CÓDIGO DE MUNICIPIO INE</cm>
+                </loine>
+                <cmc>CÓDIGO DE MUNICIPIO DGC</cmc>
+                <np>NOMBRE DE PROVINCIA</np>
+                <nm>NOMBRE DE MUNICIPIO</nm>
+                <nem>NOMBRE ENTIDAD MENOR (SI EXISTE)</nem>
+                <locs>
+                    <lous>LOCALIZACIÓN MUNICIPAL DEL BIEN URBANO (SI EXISTE) 
+                        <lourb>LOCALIZACIÓN URBANA 
+                            <dir>DIRECCIÓN 
+                                <cv>CÓDIGO DE LA VÍA</cv>
+                                <tv>TIPO DE VÍA</tv>
+                                <nv>NOMBRE DE VÍA</nv>
+                                <pnp>PRIMER NÚMERO DE POLICÍA (SI EXISTE)</pnp>
+                                <plp>PRIMERA LETRA ASOCIADA AL NÚMERO DE POLICÍA (SI EXISTE)</plp>
+                                <snp>SEGUNDO NÚMERO DE POLICÍA (SI EXISTE)</snp>
+                                <slp>SEGUNDA LETRA ASOCIADA AL NÚMERO DE POLICÍA (SI EXISTE)</slp>
+                                <km>KILÓMETRO (SI EXISTE)</km>
+                                <td>DIRECCIÓN NO ESTRUCTURADA (SI EXISTE)</td>
+                            </dir>
+                            <loint>LOCALIZACIÓN INTERNA (SI EXISTE) 
+                                <bq>BLOQUE (SI EXISTE)</bq>
+                                <es>ESCALERA (SI EXISTE)</es>
+                                <pt>PLANTA (SI EXISTE)</pt>
+                                <pu>PUERTA (SI EXISTE)</pu>
+                            </loint>
+                            <dp>CÓDIGO POSTAL (SI EXISTE)</dp>
+                            <dm>DISTRITO MUNICIPAL (SI EXISTE)</dm>
+                        </lourb>
+                        <lorus>LOCALIZACIÓN RÚSTICA ADICCIONAL (SI EXISTE) 
+                            <cma>CÓDIGO DE MUNICIPIO AGREGADO (SI EXISTE)</cma>
+                            <czc>CÓDIGO DE LA ZONA DE CONCENTRACIÓN (SI EXISTE)</czc>
+                            <cpp>
+                                <cpo>CÓDIGO DE POLÍGONO</cpo>
+                                <cpa>CÓDIGO DE PARCELA</cpa>
+                            </cpp>
+                            <npa>NOMBRE DEL PARAJE (SI EXISTE)</npa>
+                            <cpaj>CÓDIGO DEL PARAJE (SI EXISTE)</cpaj>
+                        </lorus>
+                    </lous>
+                    <lors>LOCALIZACIÓN MUNICIPAL EL BIEN RÚSTICO (SI EXISTE) 
+                        <lorus>LOCALIZACIÓN RÚSTICA ADICCIONAL (SI EXISTE) 
+                            <cma>CÓDIGO DE MUNICIPIO AGREGADO (SI EXISTE)</cma>
+                            <czc>CÓDIGO DE LA ZONA DE CONCENTRACIÓN (SI EXISTE)</czc>
+                            <cpp>
+                                <cpo>CÓDIGO DE POLÍGONO</cpo>
+                                <cpa>CÓDIGO DE PARCELA</cpa>
+                            </cpp>
+                            <npa>NOMBRE DEL PARAJE</npa>
+                            <cpaj>CÓDIGO DEL PARAJE</cpaj>
+                        </lorus>
+                        <lourb>LOCALIZACIÓN URBANA ADICCIONAL (SI EXISTE) 
+                            <dir>DIRECCIÓN (SI EXISTE) 
+                                <cv>CÓDIGO DE LA VÍA</cv>
+                                <tv>TIPO DE VÍA</tv>
+                                <nv>NOMBRE DE VÍA</nv>
+                                <pnp>PRIMER NÚMERO DE POLICÍA (SI EXISTE)</pnp>
+                                <plp>PRIMERA LETRA ASOCIADA AL NÚMERO DE POLICÍA (SI EXISTE)</plp>
+                                <snp>SEGUNDO NÚMERO DE POLICÍA (SI EXISTE)</snp>
+                                <slp>SEGUNDA LETRA ASOCIADA AL NÚMERO DE POLICÍA (SI EXISTE)</slp>
+                                <km>KILÓMETRO (SI EXISTE)</km>
+                                <td>DIRECCIÓN NO ESTRUCTURADA (SI EXISTE)</td>
+                            </dir>
+                            <loint>LOCALIZACIÓN INTERNA (SI EXISTE) 
+                                <bq>BLOQUE (SI EXISTE)</bq>
+                                <es>ESCALERA (SI EXISTE)</es>
+                                <pt>PLANTA (SI EXISTE)</pt>
+                                <pu>PUERTA (SI EXISTE)</pu>
+                            </loint>
+                            <dp>CÓDIGO POSTAL (SI EXISTE)</dp>
+                            <dm>DISTRITO MUNICIPAL (SI EXISTE)</dm>
+                        </lourb>
+                    </lors>
+                </locs>
+            </dt>
+            <ldt>DOMICILIO TRIBUTARIO NO ESTRUCTURADO (TEXTO)</ldt>
+            <debi> DATOS ECONÓMICOS DEL INMUEBLE 
+                <luso>Residencial</luso>
+                <sfc>SUPERFICIE</sfc>
+                <cpt>COEFICIENTE DE PARTICIPACIÓN</cpt>
+                <ant>ANTIGUEDAD</ant>
+            </debi>
+        </bi>
+        <lcons>LISTA DE UNIDADES CONSTRUCTIVAS 
+            <cons>UNIDAD CONSTRUCTIVA 
+                <lcd>USO DE LA UNIDAD CONSTRUCTIVA</lcd>
+                <dt>
+                    <lourb>
+                        <loint>
+                            <bq>BLOQUE</bq>
+                            <es>ESCALERA</es>
+                            <pu>PUERTA</pu>
+                            <pt>PLANTA</pt>
+                        </loint>
+                    </lourb>
+                </dt>
+                <dfcons>
+                    <stl>SUPERFICIE DE LA UNIDAD CONSTRUCTIVA</stl>
+                </dfcons>
+                <dvcons>
+                    <dtip>DENOMINACIÓN DE TIPOLOGÍA</dtip>
+                </dvcons>
+            </cons>
+        </lcons>
+        <lspr>LISTA DE SUBPARCELAS 
+            <spr>SUBPARCELA 
+                <cspr>CÓDIGO DE SUBPARCELA</cspr>
+                <dspr>DATOS DE LA SUBPARCELA 
+                    <ccc>CALIFICACIÓN CATASTRAL</ccc>
+                    <dcc>DENOMINACIÓN DE LA CLASE DE CULTIVO</dcc>
+                    <ip>INTENSIDAD PRODUCTIVA</ip>
+                    <ssp>SUPERFICIE DE LA SUBPARCELA EN METROS CUADRADOS</ssp>
+                </dspr>
+            </spr>
+        </lspr>
+    </bico>
+</consulta_dnp>

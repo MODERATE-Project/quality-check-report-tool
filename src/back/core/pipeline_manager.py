@@ -1,7 +1,7 @@
 from typing import Dict
-from input.input_layer import InputLayer, XmlInputLayer
+from ..input.input_layer import InputLayer, XmlInputLayer
 from .rules_manager import RuleManager
-from validation.validator_engine import validatorEngine
+from ..validation.validator_engine import validatorEngine
 
 class PipelineManager:
     def __init__(self):

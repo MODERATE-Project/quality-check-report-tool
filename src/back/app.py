@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 import xml.etree.ElementTree as ET
 import logging
+from pipeline_manager import PipelineManager
 
 
 app = Flask(__name__)
@@ -15,6 +16,9 @@ logging.basicConfig(level=logging.DEBUG,  # Set the logging level
                     handlers=[logging.StreamHandler()])
 
 logger = logging.getLogger(__name__)
+
+pipeline_manager = PipelineManager()
+
 
 def create_html_section(element, section_title, is_full_width=False):
     class_name = "full-width" if is_full_width else "column"
@@ -38,49 +42,53 @@ def parse_xml():
     if file.filename == '':
         return jsonify({"error": "No selected file"}), 400
 
-    tree = ET.parse(file)
 
-    root = tree.getroot()
+    pipeline_manager.process_request(file)
 
-    logger.debug("EPC parsed correctlty")
+    # tree = ET.parse(file)
 
-    html_content = '<div class="columns">'
+    # root = tree.getroot()
 
-    sections = [
-        ('DatosDelCertificador', 'Datos del Certificador'),
-        ('IdentificacionEdificio', 'Identificación del Edificio'),
-        ('DatosGeneralesyGeometria', 'Datos Generales y Geometría'),
-        ('DatosEnvolventeTermica', 'Datos de la Envolvente Térmica')
-    ]
+    # logger.debug("EPC parsed correctlty")
 
-    for tag, title in sections:
-        element = root.find(tag)
-        if element is not None:
-            html_content += create_html_section(element, title)
+    # html_content = '<div class="columns">'
 
-    # imagen_element = root.find('.//Imagen')
-    imagen_elements = root.findall('.//Imagen')
-    plano_elements = root.findall('.//Plano')
-    if len(plano_elements) > 0:
-        imagen_elements.append(*plano_elements)
+    # sections = [
+    #     ('DatosDelCertificador', 'Datos del Certificador'),
+    #     ('IdentificacionEdificio', 'Identificación del Edificio'),
+    #     ('DatosGeneralesyGeometria', 'Datos Generales y Geometría'),
+    #     ('DatosEnvolventeTermica', 'Datos de la Envolvente Térmica')
+    # ]
 
-    for imagen_element in imagen_elements:
-        if imagen_element is not None and imagen_element.text is not None:
-            base64_data = imagen_element.text.strip()
-            base64_data_split = base64_data.split(',')
-            if len(base64_data_split) > 1:
-                base64_data = base64_data_split[1]
+    # for tag, title in sections:
+    #     element = root.find(tag)
+    #     if element is not None:
+    #         html_content += create_html_section(element, title)
 
-            try:
-                img_tag = f'<div class="section full-width"><h2>Imagen</h2><img width="400px"; src="data:image/png;base64,{
-                    base64_data}" alt="Imagen"></div>'
-                html_content += img_tag
-            except Exception as e:
-                html_content += f'<p>Error al decodificar la imagen: {e}</p>'
+    # # imagen_element = root.find('.//Imagen')
+    # imagen_elements = root.findall('.//Imagen')
+    # plano_elements = root.findall('.//Plano')
+    # if len(plano_elements) > 0:
+    #     imagen_elements.append(*plano_elements)
 
-    html_content += '</div>'
+    # for imagen_element in imagen_elements:
+    #     if imagen_element is not None and imagen_element.text is not None:
+    #         base64_data = imagen_element.text.strip()
+    #         base64_data_split = base64_data.split(',')
+    #         if len(base64_data_split) > 1:
+    #             base64_data = base64_data_split[1]
+
+    #         try:
+    #             img_tag = f'<div class="section full-width"><h2>Imagen</h2><img width="400px"; src="data:image/png;base64,{
+    #                 base64_data}" alt="Imagen"></div>'
+    #             html_content += img_tag
+    #         except Exception as e:
+    #             html_content += f'<p>Error al decodificar la imagen: {e}</p>'
+
+    # html_content += '</div>'
     return html_content
 
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=6000)
+

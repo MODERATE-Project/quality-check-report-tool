@@ -2,8 +2,10 @@ services:
 
   front:
     container_name: moderate-quality-check-tool-front
-    build: src/front
-    # image: moderate-qc/qc-app
+    build: 
+      context: src/front
+      dockerfile: Dockerfile
+    image: moderate-quality-check-tool/moderate-quality-check-tool-app:$DOCKER_IMAGE_TAG
     environment:
       - WDS_SOCKET_PORT=3000
       - MODERATE_REPORT_SVC_PROXY_PASS_URL=http://back:5000
@@ -13,8 +15,10 @@ services:
   
   back:
     container_name: moderate-quality-check-tool-back
-    build: src/back
-    # image: moderate-qc/report-svc:$DOCKER_IMAGE_TAG
+    build: 
+      context: src/back
+      dockerfile: Dockerfile.dev
+    image: moderate-quality-check-tool/moderate-quality-check-tool-report-svc:$DOCKER_IMAGE_TAG
     ports:
       - 7605:5000 # <---- <host>:<container>
     restart: always

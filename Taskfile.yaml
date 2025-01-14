@@ -1,15 +1,39 @@
 version: "3"
 
+vars:
+  ENV:
+    default: "dev" 
+  compose_file:
+    sh: |
+      if [ "{{.ENV}}" = "prod" ]; then
+        echo "docker-compose.prod.yaml"
+      else
+        echo "docker-compose.dev.yaml"
+      fi
+
 tasks:
 
   build:
-    - docker compose -f docker-compose.yaml build --no-cache
+    desc: "Builds Docker images based on the selected environment (dev or prod)."
+    cmds:
+      - docker compose -f {{.compose_file}} build --no-cache
 
   start:
-      - docker compose -f ${PWD}/docker-compose.yaml up -d --remove-orphans
+    desc: "Starts containers in the background using the selected environment (dev or prod), removing orphan containers."
+    cmds:
+      - docker compose -f ${PWD}/{{.compose_file}} up -d --remove-orphans
 
   logs:
-    - docker compose -f ${PWD}/docker-compose.yaml logs -f back front
+    desc: "Displays real-time logs for the 'back' and 'front' services in the selected environment (dev or prod)."
+    cmds:
+      - docker compose -f ${PWD}/{{.compose_file}} logs -f back front
 
   stop:
-    - docker compose  -f ${PWD}/docker-compose.yaml down
+    desc: "Stops and removes containers, networks, and orphan volumes in the selected environment (dev or prod)."
+    cmds:
+      - docker compose -f ${PWD}/{{.compose_file}} down --remove-orphans
+
+  clear:
+    desc: "Stops and removes containers, networks, images, and volumes in the selected environment (dev or prod)."
+    cmds:
+      - docker compose -f ${PWD}/{{.compose_file}} down --remove-orphans --rmi all --volumes

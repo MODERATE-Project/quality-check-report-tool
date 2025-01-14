@@ -16,7 +16,7 @@ class RuleManager:
             # Atributos internos
             self.common_rules = []
             self.models = {}
-            self.RULES_PATH = getenv('RULES_PATH', 'rules_repository.json')
+            self.RULES_PATH = getenv('RULES_PATH', 'core/rules_repository.json')
             self._initialized = True  # Evitamos inicializar más de una vez
 
     def load_rules(self) -> None:

@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 import xml.etree.ElementTree as ET
 import logging
-from pipeline_manager import PipelineManager
+from .core.pipeline_manager import PipelineManager
 
 
 app = Flask(__name__)
@@ -43,7 +43,7 @@ def parse_xml():
         return jsonify({"error": "No selected file"}), 400
 
 
-    pipeline_manager.process_request(file)
+    html_content = pipeline_manager.process_request(file)
 
     # tree = ET.parse(file)
 
@@ -86,7 +86,7 @@ def parse_xml():
     #             html_content += f'<p>Error al decodificar la imagen: {e}</p>'
 
     # html_content += '</div>'
-    return html_content
+    return str(html_content)
 
 
 if __name__ == '__main__':

@@ -1,8 +1,8 @@
 version: "3"
 
 vars:
-  ENV:
-    default: "dev" 
+  ENV: "dev" 
+
   compose_file:
     sh: |
       if [ "{{.ENV}}" = "prod" ]; then

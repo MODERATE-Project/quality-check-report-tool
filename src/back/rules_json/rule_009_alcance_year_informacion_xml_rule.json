@@ -1,0 +1,33 @@
+{
+  "id": "rule_009",
+  "type": "business_rule",
+  "category": "common_rules",
+  "class": "AlcanceYearInformacionXMLRule",
+  "parameters": {
+    "xpath": "//IdentificacionEdificio/AlcanceInformacionXML",
+    "conditions": [
+      {
+        "values": [
+          "CertificacionExistente",
+          "VerificacionExistente",
+          "CertificacionVerificacionExistente"
+        ],
+        "year_range": {
+          "max": 2007
+        },
+        "prompt_on_error": "¿Se trata de una actualización de un certificado de eficiencia energética ya registrado?"
+      },
+      {
+        "values": [
+          "CertificacionNuevo",
+          "VerificacionNuevo",
+          "CertificacionVerificacionNuevo"
+        ],
+        "year_range": {
+          "min": 2008
+        }
+      }
+    ]
+  }
+}
+

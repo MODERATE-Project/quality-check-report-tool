@@ -1,0 +1,10 @@
+{
+  "id": "rule_003",
+  "type": "data_validation",
+  "category": "common_rules",
+  "class": "FieldCheckByRegExRule",
+  "parameters": {
+    "xpath": "//IdentificacionEdificio/AnoConstruccion",
+    "regex": "^\\d{4}$"
+  }
+}

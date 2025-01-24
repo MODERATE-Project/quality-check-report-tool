@@ -1,0 +1,17 @@
+{
+  "id": "rule_007",
+  "type": "business_rule",
+  "category": "common_rules",
+  "class": "ProcedimientoVersionCheckRule",
+  "parameters": {
+    "xpath": "//IdentificacionEdificio/Procedimiento",
+    "valid_versions": {
+      "CYPETHERM HE PLUS": "2025a",
+      "SG SAVE": "3502",
+      "TEKTON 3D": "1180",
+      "CERMA": "v.5.11",
+      "CE3X": "2.3",
+      "CE3": "20160906"
+    }
+  }
+}

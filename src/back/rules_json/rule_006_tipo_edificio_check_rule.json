@@ -1,0 +1,17 @@
+{
+  "id": "rule_006",
+  "type": "data_validation",
+  "category": "common_rules",
+  "class": "TipoDeEdificioCheckRule",
+  "parameters": {
+    "xpath": "//IdentificacionEdificio/TipoDeEdificio",
+    "valid_values": [
+      "ViviendaUnifamiliar",
+      "BloqueDeViviendaCompleto",
+      "ViviendaIndividualEnBloque",
+      "EdificioUsoTerciario",
+      "LocalUsoTerciario"
+    ]
+  }
+}
+

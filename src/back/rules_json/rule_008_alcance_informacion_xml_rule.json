@@ -1,0 +1,18 @@
+{
+  "id": "rule_008",
+  "type": "data_validation",
+  "category": "common_rules",
+  "class": "AlcanceInformacionXMLRule",
+  "parameters": {
+    "xpath": "//IdentificacionEdificio/AlcanceInformacionXML",
+    "valid_values": [
+      "CertificacionExistente",
+      "VerificacionExistente",
+      "CertificacionVerificacionExistente",
+      "CertificacionNuevo",
+      "VerificacionNuevo",
+      "CertificacionVerificacionNuevo"
+    ]
+  }
+}
+

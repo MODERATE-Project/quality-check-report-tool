@@ -1,0 +1,17 @@
+{
+  "id": "rule_005",
+  "type": "data_validation",
+  "category": "common_rules",
+  "class": "ReferenciaCatastralTipoDeEdificioRule",
+  "parameters": {
+    "xpath": "//IdentificacionEdificio/ReferenciaCatastral",
+    "dependent_field": "//IdentificacionEdificio/TipoDeEdificio",
+    "lengths": {
+      "ViviendaUnifamiliar": [13, 18],
+      "BloqueDeViviendaCompleto": [13],
+      "ViviendaIndividualEnBloque": [18],
+      "EdificioUsoTerciario": [13, 18],
+      "LocalUsoTerciario": [13, 18]
+    }
+  }
+}

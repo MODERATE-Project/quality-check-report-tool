@@ -1,0 +1,40 @@
+import json
+import sys, os
+path = os.path.abspath(os.path.join(os.path.dirname(__file__), '../src/back'))
+sys.path.insert(0, path)
+from rules.rule_005_referencia_catastral_tipo_de_edificio_check_rule import ReferenciaCatastralTipoDeEdificioRule
+from core.epc_dto import EpcDto
+
+# Rutas a los directorios y archivos
+DATA_DIR = os.path.join(path,"data")
+CACHE_JSON_PATH = os.path.join(path,os.path.join("core","rules_cache.json"))
+EPC_FILE_PATH = os.path.join(DATA_DIR, "1 Bloque de viviendas.xml")
+
+# Cargar el archivo EPC
+with open(EPC_FILE_PATH, "r", encoding="utf-8") as epc_file:
+    epc_content = epc_file.read()
+
+# Crear una instancia de EpcDto
+epc = EpcDto(epc_content)
+
+# Cargar las reglas desde el JSON de caché
+with open(CACHE_JSON_PATH, "r", encoding="utf-8") as cache_file:
+    cache_data = json.load(cache_file)
+
+# Buscar la regla de tipo 'ReferenciaCatastralTipoDeEdificioRule'
+rule_data = next(
+    (rule for rule in cache_data["rules"]["common_rules"] if rule["class"] == "ReferenciaCatastralTipoDeEdificioRule"),
+    None
+)
+
+if not rule_data:
+    raise ValueError("No se encontró una regla de tipo 'ReferenciaCatastralTipoDeEdificioRule' en el JSON de caché.")
+
+# Instanciar la regla
+rule = ReferenciaCatastralTipoDeEdificioRule(rule_data)
+
+# Validar el documento EPC
+result = rule.validate(epc)
+
+# Imprimir el resultado
+print(result)

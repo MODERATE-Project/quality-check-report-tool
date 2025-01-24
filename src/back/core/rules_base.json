@@ -1,0 +1,10 @@
+{
+  "rule_types": {
+    "data_validation": {
+      "description": "Reglas que validan datos específicos."
+    },
+    "business_rule": {
+      "description": "Reglas que aplican lógica de negocio."
+    }
+  }
+}

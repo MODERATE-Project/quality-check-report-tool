@@ -1,0 +1,44 @@
+{
+  "id": "rule_004",
+  "type": "business_rule",
+  "category": "common_rules",
+  "class": "NormativaVigenteCheckRule",
+  "parameters": {
+    "xpath": "//IdentificacionEdificio/NormativaVigente",
+    "conditions": [
+      {
+        "range": {
+          "max": 1980
+        },
+        "expected_value": "Anterior/No aplicable"
+      },
+      {
+        "range": {
+          "min": 1981,
+          "max": 2007
+        },
+        "expected_value": "NBE-CT-79"
+      },
+      {
+        "range": {
+          "min": 2007,
+          "max": 2014
+        },
+        "expected_value": "CTE 2006"
+      },
+      {
+        "range": {
+          "min": 2014,
+          "max": 2019
+        },
+        "expected_value": "CTE 2013"
+      },
+      {
+        "range": {
+          "min": 2019
+        },
+        "expected_value": "CTE 2019"
+      }
+    ]
+  }
+}

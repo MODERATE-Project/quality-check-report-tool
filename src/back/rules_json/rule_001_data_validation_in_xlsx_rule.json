@@ -1,0 +1,12 @@
+{
+  "id": "rule_001",
+  "type": "data_validation",
+  "category": "common_rules",
+  "class": "DataValidationInXlsxRule",
+  "parameters": {
+    "xpath": "//IdentificacionEdificio/Municipio",
+	"column_in_source": "MUNICIPIO",
+    "valid_values_source": "data/Listado Poblaciones Zonificación Climática Comunidad Valenciana.xlsx",
+    "allow_multiple_languages": true
+  }
+}

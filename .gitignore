@@ -3,6 +3,7 @@
 /displayer.py
 /nuevo_certificado.xml
 /reader.py
+src/back/core/rules_cache.json
 *.zip
 **/__pycache__/
 **/__pycache__/

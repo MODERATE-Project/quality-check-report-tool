@@ -19,6 +19,7 @@ logging.basicConfig(level=logging.DEBUG,  # Set the logging level
 logger = logging.getLogger(__name__)
 
 pipeline_manager = PipelineManager()
+pipeline_manager.ruleManager.load_rules()
 
 
 def create_html_section(element, section_title, is_full_width=False):

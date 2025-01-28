@@ -25,7 +25,7 @@ class PipelineManager:
         )
         # Construir las reglas (usará el caché "rules_cache.json" si no hay cambios)
         rules = self.builder.build_rules()
-
+        self.ruleManager.load_rules()
         # Mostrar las reglas ensambladas
         print(json.dumps(rules, indent=4, ensure_ascii=False))
         
@@ -43,7 +43,7 @@ class PipelineManager:
         epc = self.inputLayer.process_input(file)
 
 
-        self.ruleManager.load_rules()
+        
 
         # Comprobación de reglas cargadas
         print("Common rules:")

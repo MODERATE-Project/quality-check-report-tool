@@ -3,6 +3,7 @@
   "type": "data_validation",
   "category": "common_rules",
   "class": "ReferenciaCatastralTipoDeEdificioRule",
+  "description": "En función de <TipoDeEdificio>, variará el número de caracteres que debe tener:\\n- ViviendaUnifamiliar: 13 ó 18 dígitos\\n- BloqueDeViviendaCompleto: 13 dígitos\\n- ViviendaIndividualEnBloque: 18 dígitos\\n- EdificioUsoTerciario: 13 ó 18 dígitos\\n- LocalUsoTerciario: 13 ó 18 dígitos",
   "parameters": {
     "xpath": "//IdentificacionEdificio/ReferenciaCatastral",
     "dependent_field": "//IdentificacionEdificio/TipoDeEdificio",

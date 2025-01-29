@@ -3,6 +3,7 @@
   "type": "business_rule",
   "category": "common_rules",
   "class": "ProcedimientoVersionCheckRule",
+  "description": "Documento “202405_Historial Versiones Procedimientos de certificación energética”. Para cada programa, debe figurar esta versión o posteriores:\n- CYPETHERM HE PLUS: versión 2025a\n- SG SAVE: versión 3502\n- TEKTON 3D: versión 1180\n- CERMA: versión v.5.11\n- CE3X: versión 2.3\n- CE3: versión 20160906",
   "parameters": {
     "xpath": "//IdentificacionEdificio/Procedimiento",
     "valid_versions": {

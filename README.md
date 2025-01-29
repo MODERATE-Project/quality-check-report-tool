@@ -173,22 +173,22 @@ Below is a simplified diagram illustrating the rule addition workflow:
 
 ```plaintext
 +--------------------+
-|  Create JSON File |
+|  Create JSON File  |
 +--------------------+
           |
           v
 +-------------------------+
-|  Implement Rule in Py  |
+|  Implement Rule in Py   |
 +-------------------------+
           |
           v
 +---------------------------+
-|  Register & Load Rule    |
+|  Register & Load Rule     |
 +---------------------------+
           |
           v
 +--------------------+
-|  Run & Test Rule  |
+|  Run & Test Rule   |
 +--------------------+
 ```
 

@@ -3,6 +3,7 @@
   "type": "data_validation",
   "category": "common_rules",
   "class": "AlcanceInformacionXMLRule",
+  "description": "Debe indicarse uno de estos nombres:\n- CertificacionExistente\n- VerificacionExistente\n- CertificacionVerificacionExistente\n- CertificacionNuevo\n- VerificacionNuevo\n- CertificacionVerificacionNuevo\n\n",
   "parameters": {
     "xpath": "//IdentificacionEdificio/AlcanceInformacionXML",
     "valid_values": [

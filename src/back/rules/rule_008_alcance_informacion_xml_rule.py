@@ -13,28 +13,36 @@ class AlcanceInformacionXMLRule(BaseRule):
         """
         Valida que el valor del campo especificado esté en la lista de valores permitidos.
         """
+        # Crear el resultado inicial
+        validation_result = {
+            "status": "error",
+            "rule_id": self.id,
+            "message": "",
+            "description": self.description,
+            "details": {}
+        }
+
         # Obtener el valor del campo desde el EPC
         alcance_value = epc.get_value_by_xpath(self.xpath)
 
         if alcance_value is None:
-            return {
-                "status": "error",
-                "rule_id": self.id,
-                "message": f"No se encontró valor para el XPath: {self.xpath}"
-            }
+            validation_result["message"] = f"No se encontró valor para el XPath: {self.xpath}"
+            return validation_result
 
         # Validar si el valor está dentro de los valores permitidos
         if alcance_value not in self.valid_values:
-            return {
-                "status": "error",
-                "rule_id": self.id,
-                "message": f"El valor '{alcance_value}' no es válido para el campo '{self.xpath}'. "
-                           f"Valores válidos: {', '.join(self.valid_values)}."
+            validation_result["message"] = (
+                f"El valor '{alcance_value}' no es válido para el campo '{self.xpath}'. "
+                f"Valores válidos: {', '.join(self.valid_values)}."
+            )
+            validation_result["details"] = {
+                "provided_value": alcance_value,
+                "allowed_values": self.valid_values
             }
+            return validation_result
 
         # Si pasa la validación
-        return {
-            "status": "success",
-            "rule_id": self.id,
-            "message": f"El valor '{alcance_value}' es válido para el campo '{self.xpath}'."
-        }
+        validation_result["status"] = "success"
+        validation_result["message"] = f"El valor '{alcance_value}' es válido para el campo '{self.xpath}'."
+        validation_result["details"] = {"validated_value": alcance_value}
+        return validation_result

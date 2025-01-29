@@ -165,6 +165,7 @@ class RulesFactory:
                 "rule_id": rule.id,
                 "status": result.get("status"),
                 "message": result.get("message", ""),
+                "description": result.get("description"),
                 "details": result.get("details", {})  # Información adicional si está disponible
             })
 
@@ -177,6 +178,7 @@ class RulesFactory:
                     "rule_id": rule.id,
                     "status": result.get("status"),
                     "message": result.get("message", ""),
+                    "description": result.get("description"),
                     "details": result.get("details", {})  # Información adicional si está disponible
                 })
             validation_results["model_rules"][model_name] = model_results

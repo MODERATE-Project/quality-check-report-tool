@@ -7,6 +7,9 @@ import json
 import os.path
 import logging
 from ..config import RULES_JASON_PATH, RULES_BASE_PATH, RULES_CACHE_PATH, RULES_CLASS_PATH
+from .prepare_output import validation_results_to_html
+
+
 
 logger = logging.getLogger(__name__)
 
@@ -64,6 +67,6 @@ class PipelineManager:
         logger.debug("Resultados de las validaciones:")
         logger.debug(json.dumps(validation_results, indent=4, ensure_ascii=False))
 
-        return epc
+        return validation_results
 
 

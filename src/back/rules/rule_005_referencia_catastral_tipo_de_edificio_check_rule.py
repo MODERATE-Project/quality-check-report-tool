@@ -14,45 +14,42 @@ class ReferenciaCatastralTipoDeEdificioRule(BaseRule):
         """
         Valida que la longitud de 'ReferenciaCatastral' coincida con los valores permitidos para el tipo de edificio.
         """
+        validation_result = {
+            "status": "error",
+            "rule_id": self.id,
+            "message": "",
+            "description": self.description,
+        }
+
         # Obtener los valores desde el EPC
         referencia_catastral = epc.get_value_by_xpath(self.xpath)
         tipo_de_edificio = epc.get_value_by_xpath(self.dependent_field)
 
         if referencia_catastral is None:
-            return {
-                "status": "error",
-                "rule_id": self.id,
-                "message": f"No se encontró valor para el XPath: {self.xpath}"
-            }
+            validation_result["message"] = f"No se encontró valor para el XPath: {self.xpath}"
+            return validation_result
 
         if tipo_de_edificio is None:
-            return {
-                "status": "error",
-                "rule_id": self.id,
-                "message": f"No se encontró valor para el campo dependiente: {self.dependent_field}"
-            }
+            validation_result["message"] = f"No se encontró valor para el campo dependiente: {self.dependent_field}"
+            return validation_result
 
         # Verificar si el tipo de edificio tiene longitudes definidas
         valid_lengths = self.lengths.get(tipo_de_edificio)
         if valid_lengths is None:
-            return {
-                "status": "error",
-                "rule_id": self.id,
-                "message": f"No se encontraron longitudes válidas para el tipo de edificio '{tipo_de_edificio}'."
-            }
+            validation_result["message"] = f"No se encontraron longitudes válidas para el tipo de edificio '{tipo_de_edificio}'."
+            return validation_result
 
         # Validar la longitud de la referencia catastral
         if len(referencia_catastral) not in valid_lengths:
-            return {
-                "status": "error",
-                "rule_id": self.id,
-                "message": f"La longitud de la referencia catastral '{len(referencia_catastral)}' no es válida para el tipo de edificio '{tipo_de_edificio}'. "
-                           f"Longitudes permitidas: {valid_lengths}."
-            }
+            validation_result["message"] = (
+                f"La longitud de la referencia catastral '{len(referencia_catastral)}' no es válida para el tipo de edificio '{tipo_de_edificio}'. "
+                f"Longitudes permitidas: {valid_lengths}."
+            )
+            return validation_result
 
         # Si pasa todas las validaciones
-        return {
-            "status": "success",
-            "rule_id": self.id,
-            "message": f"La referencia catastral '{referencia_catastral}' es válida para el tipo de edificio '{tipo_de_edificio}'."
-        }
+        validation_result["status"] = "success"
+        validation_result["message"] = (
+            f"La referencia catastral '{referencia_catastral}' es válida para el tipo de edificio '{tipo_de_edificio}'."
+        )
+        return validation_result

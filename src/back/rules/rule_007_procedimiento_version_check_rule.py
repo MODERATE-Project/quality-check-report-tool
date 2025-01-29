@@ -13,15 +13,21 @@ class ProcedimientoVersionCheckRule(BaseRule):
         """
         Valida que el procedimiento especificado en el EPC tiene una versión válida.
         """
+        # Crear resultado inicial común para incluir campos adicionales
+        validation_result = {
+            "status": "error",
+            "rule_id": self.id,
+            "message": "",
+            "description": self.description,
+            "details": {}
+        }
+
         # Obtener el valor del procedimiento desde el EPC
         procedimiento_value = epc.get_value_by_xpath(self.xpath)
 
         if procedimiento_value is None:
-            return {
-                "status": "error",
-                "rule_id": self.id,
-                "message": f"No se encontró valor para el XPath: {self.xpath}"
-            }
+            validation_result["message"] = f"No se encontró valor para el XPath: {self.xpath}"
+            return validation_result
 
         # Normalizar el valor del procedimiento
         procedimiento_value = procedimiento_value.strip()
@@ -37,11 +43,10 @@ class ProcedimientoVersionCheckRule(BaseRule):
                 break
 
         if not procedimiento_name:
-            return {
-                "status": "error",
-                "rule_id": self.id,
-                "message": f"El procedimiento '{procedimiento_value}' no está definido en las versiones válidas."
-            }
+            validation_result["message"] = (
+                f"El procedimiento '{procedimiento_value}' no está definido en las versiones válidas."
+            )
+            return validation_result
 
         # Extraer la versión de la parte restante
         parts = remaining_text.split()
@@ -57,16 +62,24 @@ class ProcedimientoVersionCheckRule(BaseRule):
 
         # Validar si la versión coincide
         if procedimiento_version_normalized != expected_version_normalized:
-            return {
-                "status": "error",
-                "rule_id": self.id,
-                "message": f"La versión '{procedimiento_version}' del procedimiento '{procedimiento_name}' no es válida. "
-                           f"Se esperaba la versión '{self.valid_versions[procedimiento_name]}'."
+            validation_result["message"] = (
+                f"La versión '{procedimiento_version}' del procedimiento '{procedimiento_name}' no es válida. "
+                f"Se esperaba la versión '{self.valid_versions[procedimiento_name]}'."
+            )
+            validation_result["details"] = {
+                "provided_procedure": procedimiento_name,
+                "provided_version": procedimiento_version,
+                "expected_version": self.valid_versions[procedimiento_name]
             }
+            return validation_result
 
         # Si pasa todas las validaciones
-        return {
-            "status": "success",
-            "rule_id": self.id,
-            "message": f"El procedimiento '{procedimiento_name}' con la versión '{procedimiento_version}' es válido."
+        validation_result["status"] = "success"
+        validation_result["message"] = (
+            f"El procedimiento '{procedimiento_name}' con la versión '{procedimiento_version}' es válido."
+        )
+        validation_result["details"] = {
+            "validated_procedure": procedimiento_name,
+            "validated_version": procedimiento_version
         }
+        return validation_result

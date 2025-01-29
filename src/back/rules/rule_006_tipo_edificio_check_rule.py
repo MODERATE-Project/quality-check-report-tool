@@ -13,27 +13,29 @@ class TipoDeEdificioCheckRule(BaseRule):
         """
         Valida que el valor en el campo 'TipoDeEdificio' esté dentro de los valores permitidos.
         """
+        validation_result = {
+            "status": "error",
+            "rule_id": self.id,
+            "message": "",
+            "description": self.description,
+        }
+
         # Obtener el valor desde el EPC
         tipo_de_edificio = epc.get_value_by_xpath(self.xpath)
 
         if tipo_de_edificio is None:
-            return {
-                "status": "error",
-                "rule_id": self.id,
-                "message": f"No se encontró valor para el XPath: {self.xpath}"
-            }
+            validation_result["message"] = f"No se encontró valor para el XPath: {self.xpath}"
+            return validation_result
 
         # Validar si el valor está en los valores permitidos
         if tipo_de_edificio not in self.valid_values:
-            return {
-                "status": "error",
-                "rule_id": self.id,
-                "message": f"El tipo de edificio '{tipo_de_edificio}' no es válido. Valores permitidos: {self.valid_values}."
-            }
+            validation_result["message"] = (
+                f"El tipo de edificio '{tipo_de_edificio}' no es válido. "
+                f"Valores permitidos: {', '.join(self.valid_values)}."
+            )
+            return validation_result
 
         # Si pasa todas las validaciones
-        return {
-            "status": "success",
-            "rule_id": self.id,
-            "message": f"El tipo de edificio '{tipo_de_edificio}' es válido."
-        }
+        validation_result["status"] = "success"
+        validation_result["message"] = f"El tipo de edificio '{tipo_de_edificio}' es válido."
+        return validation_result

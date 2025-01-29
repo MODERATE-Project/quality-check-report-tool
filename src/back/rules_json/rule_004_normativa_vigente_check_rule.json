@@ -3,6 +3,7 @@
   "type": "business_rule",
   "category": "common_rules",
   "class": "NormativaVigenteCheckRule",
+  "description": "En función del año de construcción (<AnoConstruccion>), debe contener la etiqueta:\n- Antes de 1981: Anterior/No aplicable\n- Entre 1981 y 2007: NBE-CT-79\n- Entre 2007 y 2014: CTE 2006\n- Entre 2014 y 2019: CTE 2013\n- De 2019 en adelante: CTE 2019\n\nNota: Es un parámetro no acotado en el documento que define el XML, por eso la información que contenga este parámetro debe incluir esas palabras, pero no tiene por qué ser exactamente esas palabras únicamente.\nPor ejemplo, es posible que una vivienda construida en 2009 incluya 'CTE-2006'. Esto debería considerarse como correcto.", 
   "parameters": {
     "xpath": "//IdentificacionEdificio/NormativaVigente",
     "conditions": [

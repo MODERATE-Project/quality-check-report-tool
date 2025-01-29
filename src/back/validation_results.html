@@ -1,0 +1,118 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Validation Results</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                line-height: 1.6;
+                margin: 20px;
+            }
+            h2 {
+                color: #2c3e50;
+            }
+            h3 {
+                color: #34495e;
+                margin-top: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>Validation Results</h2>
+        <h3>Common Rules</h3>
+        
+        <div style="margin-bottom: 10px; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
+            <p><b>Rule ID:</b> rule_001</p>
+            <p><b>Status:</b> <span style="color: green;">
+                success</span></p>
+            <p><b>Message:</b> El valor &#x27;agost&#x27; es válido.</p>
+            <p><b>Description:</b> El municipio debe coincidir con los indicados en la lista “Listado Poblaciones Zonificación Climática Comunidad Valenciana.xlsx”. Algunos pueblos están indicados en castellano y valenciano. Todas las versiones son válidas para cada uno.</p>
+            
+        </div>
+        
+        <div style="margin-bottom: 10px; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
+            <p><b>Rule ID:</b> rule_002</p>
+            <p><b>Status:</b> <span style="color: green;">
+                success</span></p>
+            <p><b>Message:</b> El valor &#x27;B3&#x27; es válido para el municipio &#x27;Agost&#x27;.</p>
+            <p><b>Description:</b> Con &lt;Municipio&gt; como entrada, debe tener una de las dos zonas climáticas indicadas en el Excel “Listado Poblaciones Zonificación Climática Comunidad Valenciana.xlsx”. Si es diferente, es incorrecta.</p>
+            
+        </div>
+        
+        <div style="margin-bottom: 10px; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
+            <p><b>Rule ID:</b> rule_003</p>
+            <p><b>Status:</b> <span style="color: green;">
+                success</span></p>
+            <p><b>Message:</b> El valor &#x27;1960&#x27; es válido.</p>
+            <p><b>Description:</b> Ano de construccion debe tener 4 digitos indicando un año concreto. Por ejemplo, no puede contener una franja de tiempo (1988-1990).</p>
+            
+        </div>
+        
+        <div style="margin-bottom: 10px; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
+            <p><b>Rule ID:</b> rule_004</p>
+            <p><b>Status:</b> <span style="color: red;">
+                error</span></p>
+            <p><b>Message:</b> La normativa &#x27;Anterior&#x27; no coincide con la esperada &#x27;Anterior/No aplicable&#x27; para el año de construcción &#x27;1960&#x27;.</p>
+            <p><b>Description:</b> En función del año de construcción (&lt;AnoConstruccion&gt;), debe contener la etiqueta:
+- Antes de 1981: Anterior/No aplicable
+- Entre 1981 y 2007: NBE-CT-79
+- Entre 2007 y 2014: CTE 2006
+- Entre 2014 y 2019: CTE 2013
+- De 2019 en adelante: CTE 2019
+
+Nota: Es un parámetro no acotado en el documento que define el XML, por eso la información que contenga este parámetro debe incluir esas palabras, pero no tiene por qué ser exactamente esas palabras únicamente.
+Por ejemplo, es posible que una vivienda construida en 2009 incluya &#x27;CTE-2006&#x27;. Esto debería considerarse como correcto.</p>
+            <p><b>Details:</b></p><ul><li><b>provided_normativa:</b> Anterior</li><li><b>validated_ano_construccion:</b> 1960</li><li><b>expected_normativa:</b> Anterior/No aplicable</li></ul>
+        </div>
+        
+        <div style="margin-bottom: 10px; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
+            <p><b>Rule ID:</b> rule_005</p>
+            <p><b>Status:</b> <span style="color: red;">
+                error</span></p>
+            <p><b>Message:</b> La longitud de la referencia catastral &#x27;3&#x27; no es válida para el tipo de edificio &#x27;BloqueDeViviendaCompleto&#x27;. Longitudes permitidas: [13].</p>
+            <p><b>Description:</b> En función de &lt;TipoDeEdificio&gt;, variará el número de caracteres que debe tener:\n- ViviendaUnifamiliar: 13 ó 18 dígitos\n- BloqueDeViviendaCompleto: 13 dígitos\n- ViviendaIndividualEnBloque: 18 dígitos\n- EdificioUsoTerciario: 13 ó 18 dígitos\n- LocalUsoTerciario: 13 ó 18 dígitos</p>
+            
+        </div>
+        
+        <div style="margin-bottom: 10px; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
+            <p><b>Rule ID:</b> rule_006</p>
+            <p><b>Status:</b> <span style="color: green;">
+                success</span></p>
+            <p><b>Message:</b> El tipo de edificio &#x27;BloqueDeViviendaCompleto&#x27; es válido.</p>
+            <p><b>Description:</b> Indicado en el documento “20200311 - Informe de evaluación energética del edificio en formato electrónico (XML) - Version 2.1”. Debe figurar uno de estos nombres:\n- ViviendaUnifamiliar\n- BloqueDeViviendaCompleto\n- ViviendaIndividualEnBloque\n- EdificioUsoTerciario\n- LocalUsoTerciario</p>
+            
+        </div>
+        
+        <div style="margin-bottom: 10px; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
+            <p><b>Rule ID:</b> rule_007</p>
+            <p><b>Status:</b> <span style="color: red;">
+                error</span></p>
+            <p><b>Message:</b> El procedimiento &#x27;CYPETHERMHEPLUSv2025a&#x27; no está definido en las versiones válidas.</p>
+            <p><b>Description:</b> Documento “202405_Historial Versiones Procedimientos de certificación energética”. Para cada programa, debe figurar esta versión o posteriores:\n- CYPETHERM HE PLUS: versión 2025a\n- SG SAVE: versión 3502\n- TEKTON 3D: versión 1180\n- CERMA: versión v.5.11\n- CE3X: versión 2.3\n- CE3: versión 20160906</p>
+            
+        </div>
+        
+        <div style="margin-bottom: 10px; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
+            <p><b>Rule ID:</b> rule_008</p>
+            <p><b>Status:</b> <span style="color: green;">
+                success</span></p>
+            <p><b>Message:</b> El valor &#x27;CertificacionExistente&#x27; es válido para el campo &#x27;//IdentificacionEdificio/AlcanceInformacionXML&#x27;.</p>
+            <p><b>Description:</b> Debe indicarse uno de estos nombres:\n- CertificacionExistente\n- VerificacionExistente\n- CertificacionVerificacionExistente\n- CertificacionNuevo\n- VerificacionNuevo\n- CertificacionVerificacionNuevo\n\n</p>
+            <p><b>Details:</b></p><ul><li><b>validated_value:</b> CertificacionExistente</li></ul>
+        </div>
+        
+        <div style="margin-bottom: 10px; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
+            <p><b>Rule ID:</b> rule_009</p>
+            <p><b>Status:</b> <span style="color: red;">
+                error</span></p>
+            <p><b>Message:</b> El valor &#x27;CertificacionExistente&#x27; no es válido para el campo &#x27;//IdentificacionEdificio/AlcanceInformacionXML&#x27;. Valores válidos: .</p>
+            <p><b>Description:</b> Debe indicarse uno de estos nombres:\n- CertificacionExistente\n- VerificacionExistente\n- CertificacionVerificacionExistente\n- CertificacionNuevo\n- VerificacionNuevo\n- CertificacionVerificacionNuevo\n\nPara cada uno de ellos, se debe cumplir que:\n- CertificacionExistente/VerificacionExistente/CertificacionVerificacionExistente:\n  El año de construcción (&lt;AnoConstruccion&gt;) debe ser 2007 o anterior.\n  Si es posterior, preguntar por pantalla “¿Se trata de una actualización de un certificado de eficiencia energética ya registrado?”.\n  En caso afirmativo, no hay error.\n  Si la respuesta es no, es incorrecto.\n- CertificacionNuevo/VerificacionNuevo/CertificacionVerificacionNuevo:\n  El año de construcción debe ser 2008 o posterior.</p>
+            <p><b>Details:</b></p><ul><li><b>provided_value:</b> CertificacionExistente</li><li><b>allowed_values:</b> []</li></ul>
+        </div>
+        
+        <h3>Model Rules</h3>
+        
+    </body>
+    </html>
+    

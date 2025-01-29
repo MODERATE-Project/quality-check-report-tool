@@ -3,6 +3,7 @@ from flask_cors import CORS
 import xml.etree.ElementTree as ET
 import logging
 from .core.pipeline_manager import PipelineManager
+from .core.prepare_output import validation_results_to_html
 
 
 
@@ -19,8 +20,6 @@ logging.basicConfig(level=logging.DEBUG,  # Set the logging level
 logger = logging.getLogger(__name__)
 
 pipeline_manager = PipelineManager()
-pipeline_manager.ruleManager.load_rules()
-
 
 def create_html_section(element, section_title, is_full_width=False):
     class_name = "full-width" if is_full_width else "column"
@@ -88,7 +87,11 @@ def parse_xml():
     #             html_content += f'<p>Error al decodificar la imagen: {e}</p>'
 
     # html_content += '</div>'
-    return str(html_content)
+    
+    html_output = validation_results_to_html(html_content)
+    with open("validation_results.html", "w", encoding="utf-8") as file:
+        file.write(html_output)
+    return html_output
 
 
 if __name__ == '__main__':

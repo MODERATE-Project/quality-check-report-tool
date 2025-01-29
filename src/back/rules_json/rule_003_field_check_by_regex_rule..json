@@ -3,6 +3,7 @@
   "type": "data_validation",
   "category": "common_rules",
   "class": "FieldCheckByRegExRule",
+  "description": "Ano de construccion debe tener 4 digitos indicando un año concreto. Por ejemplo, no puede contener una franja de tiempo (1988-1990).",
   "parameters": {
     "xpath": "//IdentificacionEdificio/AnoConstruccion",
     "regex": "^\\d{4}$"

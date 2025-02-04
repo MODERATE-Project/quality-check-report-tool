@@ -2,15 +2,15 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 import xml.etree.ElementTree as ET
 import logging
-from .core.pipeline_manager import PipelineManager
-from .core.prepare_output import validation_results_to_html
-
+from core.pipeline_manager import PipelineManager
+from core.prepare_output import validation_results_to_html
+import config
 
 
 app = Flask(__name__)
 CORS(app)
 
-logging.basicConfig(level=logging.DEBUG,  # Set the logging level
+logging.basicConfig(level=config.LOG_LEVEL,  # Set the logging level
                     # Log format
                     format='[%(asctime)s] [%(levelname)s]: %(message)s',
                     datefmt='%Y-%m-%d %H:%M:%S',  # Date format

@@ -1,8 +1,10 @@
-import os
+import os, logging
 import json
 import hashlib
 from typing import Dict, List
-from ..config import RULES_JASON_PATH, RULES_BASE_PATH, RULES_CACHE_PATH
+from config import RULES_JASON_PATH, RULES_BASE_PATH, RULES_CACHE_PATH
+
+logger = logging.getLogger(__name__)
 
 
 class RuleJsonBuilder:
@@ -64,11 +66,11 @@ class RuleJsonBuilder:
 
         # Si no hay cambios, devuelve el caché existente
         if cache_data.get("hash") == current_hash:
-            print("No hay cambios en las reglas. Usando caché.")
+            logger.info("No hay cambios en las reglas. Usando caché.")
             return cache_data["rules"]
 
         # Leer y ensamblar reglas
-        print("Cambios detectados en las reglas. Reconstruyendo.")
+        logger.info("Cambios detectados en las reglas. Reconstruyendo.")
         rules = self._assemble_rules()
 
         # Guardar en caché
@@ -89,7 +91,7 @@ class RuleJsonBuilder:
     #     # Leer reglas individuales
     #     for file in os.listdir(self.rule_directory):
     #         if file.endswith(".json"):
-    #             print(f"Json a cargar: {file}")
+    #             logger.debug(f"Json a cargar: {file}")
     #             rule_path = os.path.join(self.rule_directory, file)
     #             with open(rule_path, 'r', encoding='utf-8') as f:
     #                 rule_data = json.load(f)
@@ -123,7 +125,7 @@ class RuleJsonBuilder:
         # Leer reglas individuales
         for file in os.listdir(self.rule_directory):
             if file.endswith(".json"):
-                print(f"Json a cargar: {file}")
+                logger.debug(f"Json a cargar: {file}")
                 rule_path = os.path.join(self.rule_directory, file)
                 with open(rule_path, 'r', encoding='utf-8') as f:
                     rule_data = json.load(f)

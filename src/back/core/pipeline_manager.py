@@ -1,13 +1,13 @@
 from typing import Dict
-from ..input.input_layer import InputLayer, XmlInputLayer
-from .rules_factory import RulesFactory
-from ..validation.validator_engine import validatorEngine
-from .rule_json_builder import RuleJsonBuilder
+from input.input_layer import InputLayer, XmlInputLayer
+from core.rules_factory import RulesFactory
+from validation.validator_engine import validatorEngine
+from core.rule_json_builder import RuleJsonBuilder
 import json
 import os.path
 import logging
-from ..config import RULES_JASON_PATH, RULES_BASE_PATH, RULES_CACHE_PATH, RULES_CLASS_PATH
-from .prepare_output import validation_results_to_html
+from config import RULES_JASON_PATH, RULES_BASE_PATH, RULES_CACHE_PATH, RULES_CLASS_PATH
+from core.prepare_output import validation_results_to_html
 
 
 

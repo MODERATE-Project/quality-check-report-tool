@@ -4,7 +4,7 @@ from typing import Dict
 import xml.etree.ElementTree as ET
 from xml.etree.ElementTree import Element
 import logging
-from ..core.epc_dto import EpcDto
+from core.epc_dto import EpcDto
 
 logger = logging.getLogger(__name__)
 

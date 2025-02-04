@@ -1,13 +1,14 @@
 import json
 import inspect
-import os
+import os, logging
 from os import getenv, listdir, path
 from typing import Dict, List, Type
-from ..rules import base_rule
-from ..rules.base_rule import class_registry, register_rule_class, BaseRule
-from ..config import RULES_JASON_PATH, RULES_BASE_PATH, RULES_CACHE_PATH, RULES_CLASS_PATH
+from rules import base_rule
+from rules.base_rule import class_registry, register_rule_class, BaseRule
+from config import RULES_JASON_PATH, RULES_BASE_PATH, RULES_CACHE_PATH, RULES_CLASS_PATH
 
 
+logger = logging.getLogger(__name__)
 
 
 class RulesFactory:
@@ -27,39 +28,45 @@ class RulesFactory:
             self.RULES_CLASS_PATH = RULES_CLASS_PATH
             self.RULES_CACHE_JSON = RULES_CACHE_PATH
             self._initialized = True  # Evitamos inicializar más de una vez
-            print("Registrando")
+            logger.info("Registrando")
             self._register_rule_classes()
 
 
 
     def _register_rule_classes(self):
-            """
-            importa dinámicamente todos los módulos del paquete 'rules' para registrar las clases.
-            """
-            import importlib
-            import pkgutil
+        """
+        Importa dinámicamente todos los módulos del paquete 'rules' para registrar las clases.
+        """
+        import importlib
+        import pkgutil
 
-            # Nombre del paquete lógico (usado para importaciones)
-            if self.RULES_CLASS_PATH[0] == "/" :
-                package_name = self.RULES_CLASS_PATH[1:].replace("/",".")
-            else:
-                package_name = self.RULES_CLASS_PATH.replace("/",".") #"src.rules"
-            print ("package_name: ", package_name)
-            # Ruta física al directorio del paquete
-            package_path = self.RULES_CLASS_PATH #os.path.join(project_root, "src", "rules")
-            print("Package_path en register_rule_classes:", package_path)
+        # Nombre del paquete lógico (usado para importaciones)
+        if self.RULES_CLASS_PATH[0] == "/":
+            package_name = self.RULES_CLASS_PATH[1:].replace("/", ".")
+        else:
+            package_name = self.RULES_CLASS_PATH.replace("/", ".")
 
-            for _, module_name, _ in pkgutil.iter_modules([package_path]):
-                module_full_name = f"{package_name}.{module_name}"
-                print(f"importando módulo: {module_full_name}")
-                importlib.import_module(module_full_name)
+        # Eliminar 'src.' del package_name si está presente
+        if package_name.startswith("src."):
+            package_name = package_name[4:]
 
-            # verifica que las clases estén registradas
-            print("clases registradas en class_registry:")
-            for name, cls in class_registry.items():
-                print(f"- {name}: {cls}")
-                
-                             
+        logger.debug(f"package_name: {package_name}")
+
+        # Ruta física al directorio del paquete
+        package_path = self.RULES_CLASS_PATH
+        logger.debug(f"Package_path en register_rule_classes: {package_path}")
+
+        for _, module_name, _ in pkgutil.iter_modules([package_path]):
+            module_full_name = f"{package_name}.{module_name}"
+            logger.debug(f"importando módulo: {module_full_name}")
+            importlib.import_module(module_full_name)
+
+        # Verifica que las clases estén registradas
+        logger.info("clases registradas en class_registry:")
+        for name, cls in class_registry.items():
+            logger.debug(f"- {name}: {cls}")
+
+                                
 
     # def load_rules(self) -> None:
     #     """Carga reglas comunes y específicas de modelos desde el archivo ensamblado."""

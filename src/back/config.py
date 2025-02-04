@@ -1,4 +1,5 @@
 import os
+import logging
 
 # Rutas base del proyecto
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -10,4 +11,4 @@ RULES_JASON_PATH= os.path.join(BASE_DIR, "rules_json")  # Archivo base de reglas
 RULES_CACHE_PATH = os.path.join(BASE_DIR, "core", "rules_cache.json")  # Archivo de caché de reglas
 
 # Otros parámetros globales pueden agregarse aquí
-LOG_LEVEL = "DEBUG"  # Nivel de logging global
+LOG_LEVEL = logging.DEBUG  # Nivel de logging global

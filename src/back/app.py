@@ -44,56 +44,15 @@ def parse_xml():
         return jsonify({"error": "No selected file"}), 400
 
 
-    html_content = pipeline_manager.process_request(file)
+    json_response = pipeline_manager.process_request(file)
 
-    # tree = ET.parse(file)
-
-    # root = tree.getroot()
-
-    # logger.debug("EPC parsed correctlty")
-
-    # html_content = '<div class="columns">'
-
-    # sections = [
-    #     ('DatosDelCertificador', 'Datos del Certificador'),
-    #     ('IdentificacionEdificio', 'Identificación del Edificio'),
-    #     ('DatosGeneralesyGeometria', 'Datos Generales y Geometría'),
-    #     ('DatosEnvolventeTermica', 'Datos de la Envolvente Térmica')
-    # ]
-
-    # for tag, title in sections:
-    #     element = root.find(tag)
-    #     if element is not None:
-    #         html_content += create_html_section(element, title)
-
-    # # imagen_element = root.find('.//Imagen')
-    # imagen_elements = root.findall('.//Imagen')
-    # plano_elements = root.findall('.//Plano')
-    # if len(plano_elements) > 0:
-    #     imagen_elements.append(*plano_elements)
-
-    # for imagen_element in imagen_elements:
-    #     if imagen_element is not None and imagen_element.text is not None:
-    #         base64_data = imagen_element.text.strip()
-    #         base64_data_split = base64_data.split(',')
-    #         if len(base64_data_split) > 1:
-    #             base64_data = base64_data_split[1]
-
-    #         try:
-    #             img_tag = f'<div class="section full-width"><h2>Imagen</h2><img width="400px"; src="data:image/png;base64,{
-    #                 base64_data}" alt="Imagen"></div>'
-    #             html_content += img_tag
-    #         except Exception as e:
-    #             html_content += f'<p>Error al decodificar la imagen: {e}</p>'
-
-    # html_content += '</div>'
-    
-    html_output = validation_results_to_html(html_content)
-    with open("validation_results.html", "w", encoding="utf-8") as file:
-        file.write(html_output)
-    return html_output
+    # html_output = validation_results_to_html(json_response)
+    # with open("validation_results.html", "w", encoding="utf-8") as file:
+    #     file.write(html_output)
+    # return html_output
+    return json_response
 
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=6000)
+    app.run(debug=True, host='0.0.0.0', port=5000)
 

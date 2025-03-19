@@ -8,3 +8,5 @@ src/back/core/rules_cache.json
 **/__pycache__/
 **/__pycache__/
 .env
+.idea/
+*venv*/

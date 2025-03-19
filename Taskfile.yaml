@@ -1,7 +1,9 @@
 version: "3"
 
+dotenv: [".env"]
+
 vars:
-  ENV: "prod" 
+  ENV: "{{.ENV | default `prod`}}"
 
   compose_file:
     sh: |
@@ -26,7 +28,12 @@ tasks:
   logs:
     desc: "Displays real-time logs for the 'back' and 'front' services in the selected environment (dev or prod)."
     cmds:
-      - docker compose -f ${PWD}/{{.compose_file}} logs -f back front
+      - |
+        if [ -n "{{.CLI_ARGS}}" ]; then
+          docker compose -f ${PWD}/{{.compose_file}} logs {{.CLI_ARGS}}
+        else
+          docker compose -f ${PWD}/{{.compose_file}} logs -f back front
+        fi
 
   stop:
     desc: "Stops and removes containers, networks, and orphan volumes in the selected environment (dev or prod)."

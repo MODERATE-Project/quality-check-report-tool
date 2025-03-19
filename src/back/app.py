@@ -1,10 +1,11 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_file
 from flask_cors import CORS
 import xml.etree.ElementTree as ET
 import logging
 from core.pipeline_manager import PipelineManager
-from core.prepare_output import validation_results_to_html
+from core.prepare_output import validation_results_to_html, generate_pdf_report
 import config
+import io
 
 
 app = Flask(__name__)
@@ -51,6 +52,32 @@ def parse_xml():
     #     file.write(html_output)
     # return html_output
     return json_response
+
+
+@app.route('/report', methods=['POST'])
+def generate_report():
+    try:
+        data = request.get_json()
+        if not data:
+            return jsonify({"error": "No data provided"}), 400
+
+        # Generar el PDF
+        pdf_content = generate_pdf_report(data, "ruta_del_pdf.pdf")
+        
+        # Crear un buffer en memoria para el PDF
+        pdf_buffer = io.BytesIO(pdf_content)
+        
+        # Enviar el PDF como respuesta
+        return send_file(
+            pdf_buffer,
+            mimetype='application/pdf',
+            as_attachment=True,
+            download_name='informe.pdf'
+        )
+        
+    except Exception as e:
+        logger.error(f"Error al generar el informe: {str(e)}")
+        return jsonify({"error": "Error al generar el informe"}), 500
 
 
 if __name__ == '__main__':

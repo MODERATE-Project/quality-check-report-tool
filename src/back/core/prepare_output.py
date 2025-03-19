@@ -1,49 +1,36 @@
 import html
+import requests
+import logging
+from typing import Dict, Any
+from flask import send_file
+
+logger = logging.getLogger(__name__)
+
+def format_rule(rule: Dict[str, Any]) -> str:
+    """
+    Formatea una regla individual para su visualización en HTML
+    """
+    return f"""
+    <div class="rule">
+        <p><b>Regla ID:</b> {html.escape(rule.get('rule_id', ''))}</p>
+        <p><b>Estado:</b> <span style="color: {'green' if rule.get('status') == 'success' else 'red'}">{html.escape(rule.get('status', ''))}</span></p>
+        <p><b>Mensaje:</b> {html.escape(rule.get('message', ''))}</p>
+        <p><b>Descripción:</b> {html.escape(rule.get('description', ''))}</p>
+    </div>
+    """
 
 def validation_results_to_html(validation_results: dict) -> str:
     """
-    Convierte los resultados de validación en un HTML formateado.
-
-    Args:
-        validation_results (dict): Diccionario con los resultados de validación.
-
-    Returns:
-        str: HTML formateado como cadena.
+    Convierte los resultados de validación a formato HTML
     """
-    def format_rule(rule):
-        """
-        Formatea un resultado de regla individual en HTML.
-        """
-        return f"""
-        <div style="margin-bottom: 10px; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
-            <p><b>Rule ID:</b> {html.escape(str(rule.get("rule_id", "N/A")))}</p>
-            <p><b>Status:</b> <span style="color: {'green' if rule.get('status') == 'success' else 'red'};">
-                {html.escape(str(rule.get("status", "unknown")))}</span></p>
-            <p><b>Message:</b> {html.escape(str(rule.get("message", "No message provided")))}</p>
-            <p><b>Description:</b> {html.escape(str(rule.get("description", "No description provided")))}</p>
-            {format_details(rule.get("details", {}))}
-        </div>
-        """
-
-    def format_details(details):
-        """
-        Formatea los detalles de una regla (si existen) en HTML.
-        """
-        if not details:
-            return ""
-        details_html = "<ul>"
-        for key, value in details.items():
-            details_html += f"<li><b>{html.escape(str(key))}:</b> {html.escape(str(value))}</li>"
-        details_html += "</ul>"
-        return f"<p><b>Details:</b></p>{details_html}"
-
-    # Formatear las reglas comunes
     common_rules_html = ""
+    model_rules_html = ""
+
+    # Procesar reglas comunes
     for rule in validation_results.get("common_rules", []):
         common_rules_html += format_rule(rule)
 
-    # Formatear las reglas por modelo
-    model_rules_html = ""
+    # Procesar reglas por modelo
     for model_name, rules in validation_results.get("model_rules", {}).items():
         model_rules_html += f"<h3>Model: {html.escape(model_name)}</h3>"
         for rule in rules:
@@ -68,6 +55,12 @@ def validation_results_to_html(validation_results: dict) -> str:
                 color: #34495e;
                 margin-top: 20px;
             }}
+            .rule {{
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                margin-bottom: 10px;
+            }}
         </style>
     </head>
     <body>
@@ -80,3 +73,36 @@ def validation_results_to_html(validation_results: dict) -> str:
     </html>
     """
     return html_output
+
+def generate_pdf_report(validation_results: dict, pdf_path: str) -> bytes:
+    """
+    Genera un PDF a partir de los resultados de validación usando el servicio docx-to-pdf
+    """
+    try:
+        # Generar el HTML a partir de los resultados de validación
+        html_content = validation_results_to_html(validation_results)
+
+        # Enviar el HTML al servicio de conversión
+        response = requests.post(
+            "http://docx-to-pdf:8080/pdf",
+            files={"document": html_content}
+        )
+
+        if response.ok:
+            with open(pdf_path, 'wb') as result_file:
+                result_file.write(response.content)
+
+            return response.content
+            # return send_file(
+            #     pdf_path,
+            #     as_attachment=True,
+            #     download_name="report.pdf",
+            #     mimetype='application/pdf'
+            # )
+        else:
+            logger.error(f"Error in processing: {response.status_code}", exc_info=True)
+            raise Exception(f"Error in processing: {response.status_code}")
+
+    except Exception as e:
+        logger.error(f"Error en la generación del PDF: {str(e)}")
+        raise

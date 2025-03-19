@@ -4,24 +4,12 @@ import { REPORT_SERVICE_URL, RULES_SERVICE_URL } from "./constants"
 
 export default function XMLUploader() {
   const [file, setFile] = useState(null);
-  const [results, setResults] = useState([]);
+  const [results, setResults] = useState({});
   const [error, setError] = useState(null);
 
-  const handleDrop = (event) => {
-    event.preventDefault();
-    const droppedFile = event.dataTransfer.files[0];
-    if (droppedFile && droppedFile.type === "text/xml") {
-      setFile(droppedFile);
-      setError(null);
-    } else {
-      setError("Por favor, sube un archivo XML válido.");
-    }
-  };
-
-  const handleUpload = async () => {
-    if (!file) return;
+  const validateXML = async (xmlFile) => {
     const formData = new FormData();
-    formData.append("file", file);
+    formData.append("file", xmlFile);
 
     try {
       const response = await fetch(RULES_SERVICE_URL, {
@@ -32,6 +20,18 @@ export default function XMLUploader() {
       setResults(data);
     } catch (err) {
       setError("Error al validar el XML");
+    }
+  };
+
+  const handleDrop = async (event) => {
+    event.preventDefault();
+    const droppedFile = event.dataTransfer.files[0];
+    if (droppedFile && droppedFile.type === "text/xml") {
+      setFile(droppedFile);
+      setError(null);
+      await validateXML(droppedFile);
+    } else {
+      setError("Por favor, sube un archivo XML válido.");
     }
   };
 
@@ -75,9 +75,11 @@ export default function XMLUploader() {
         {file ? file.name : "Arrastra y suelta el archivo XML aquí"}
       </div>
       {error && <p style={{ color: "red" }}>{error}</p>}
-      <button style={{ padding: "10px", backgroundColor: "#4CAF50", color: "white", border: "none", cursor: "pointer", marginTop: "10px" }} onClick={handleUpload}>
-        Validar XML
-      </button>
+      {results && Object.keys(results).length > 0 && (
+        <button style={{ padding: "10px", backgroundColor: "#4CAF50", color: "white", border: "none", cursor: "pointer", marginTop: "10px" }} onClick={handleDownloadReport}>
+          Generar Informe
+        </button>
+      )}
       <div style={{
         margin: "20px auto",
         padding: "20px",
@@ -115,11 +117,6 @@ export default function XMLUploader() {
           </div>
         ))}
       </div>
-      {results.length > 0 && (
-        <button style={{ padding: "10px", backgroundColor: "#008CBA", color: "white", border: "none", cursor: "pointer", marginTop: "10px" }} onClick={handleDownloadReport}>
-          Generar y descargar informe
-        </button>
-      )}
     </div>
   );
 }

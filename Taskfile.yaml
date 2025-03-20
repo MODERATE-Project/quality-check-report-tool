@@ -1,7 +1,7 @@
 version: "3"
 
 vars:
-  ENV: "dev" 
+  ENV: "prod" 
 
   compose_file:
     sh: |

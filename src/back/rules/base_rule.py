@@ -18,6 +18,8 @@ class BaseRule:
         self.type = rule_data.get("type")
         self.parameters = rule_data.get("parameters", {})
         self.description = rule_data.get("description")
+        self.name = rule_data.get("name")
+        self.severity = rule_data.get("severity")
 
     def validate(self, epc: "EpcDto") -> Dict:
         raise NotImplementedError("Debe implementarse en subclases.")

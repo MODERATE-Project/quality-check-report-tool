@@ -1,0 +1,15 @@
+{
+  "id": "rule_009",
+  "type": "business_rule",
+  "category": "common_rules",
+  "name": "Fecha de emisión del certificado",
+  "severity": "Error",
+  "class": "FechaEmisionCertificadoRule",
+  "description": "La fecha de registro del certificado no puede superar los 30 días posteriores a su emisión.",
+  "parameters": {
+    "xpath_fecha": "//DatosDelCertificador/Fecha",
+    "max_days_difference": 30
+  }
+}
+
+

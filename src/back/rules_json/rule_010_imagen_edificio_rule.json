@@ -1,0 +1,15 @@
+{
+  "id": "rule_010",
+  "type": "business_rule",
+  "category": "common_rules",
+  "name": "Imagen del edificio",
+  "severity": "Error",
+  "class": "ImagenEdificioRule",
+  "description": "Debe adjuntarse imagen del edificio.",
+  "parameters": {
+    "xpath_imagen": "//DatosGeneralesyGeometria/Imagen"
+  }
+}
+
+
+

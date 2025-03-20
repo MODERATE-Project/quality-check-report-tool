@@ -1,0 +1,17 @@
+{
+  "id": "rule_012",
+  "type": "business_rule",
+  "category": "common_rules",
+  "name": "Plano del edificio",
+  "severity": "Error",
+  "class": "PlanoImagen64EdificioRule",
+  "description": "Debe adjuntarse un plano del edificio en formato de imagen.",
+  "parameters": {
+    "xpath_plano": "//DatosGeneralesyGeometria/Plano",
+    "valid_extensions": [".jpg", ".jpeg", ".png", ".bmp", ".gif"]
+  }
+}
+
+
+
+

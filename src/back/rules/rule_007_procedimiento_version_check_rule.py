@@ -1,5 +1,42 @@
+import re
+import unicodedata
 from .base_rule import BaseRule, register_rule_class
 from typing import Dict
+
+
+def normalize_text(text: str) -> str:
+    """
+    Normaliza un texto eliminando acentos, espacios extra y caracteres especiales.
+    """
+    if not text:
+        return ""
+    
+    # Convertir a ASCII eliminando acentos
+    text = unicodedata.normalize('NFKD', text).encode('ASCII', 'ignore').decode('utf-8')
+    
+    # Convertir a minúsculas
+    text = text.lower().strip()
+    
+    # Remover espacios, saltos de línea y caracteres especiales no alfanuméricos (excepto letras, números y puntos)
+    text = re.sub(r'[^a-z0-9.]', '', text)
+    
+    return text
+
+
+def normalize_version(version: str) -> str:
+    """
+    Normaliza una versión eliminando abreviaturas como 'v.', 'ver.', 'ver', etc.
+    """
+    if not version:
+        return ""
+
+    # Convertir a minúsculas y eliminar espacios
+    version = version.lower().strip()
+
+    # Remover variantes de "versión"
+    version = re.sub(r'\bv(er|er\.|\.|v|v\.)\s*', '', version)
+    
+    return version
 
 
 @register_rule_class
@@ -13,7 +50,6 @@ class ProcedimientoVersionCheckRule(BaseRule):
         """
         Valida que el procedimiento especificado en el EPC tiene una versión válida.
         """
-        # Crear resultado inicial común para incluir campos adicionales
         validation_result = {
             "status": "error",
             "rule_id": self.id,
@@ -29,17 +65,19 @@ class ProcedimientoVersionCheckRule(BaseRule):
             validation_result["message"] = f"No se encontró valor para el XPath: {self.xpath}"
             return validation_result
 
-        # Normalizar el valor del procedimiento
-        procedimiento_value = procedimiento_value.strip()
+        # Normalizar el procedimiento recibido
+        procedimiento_value_norm = normalize_text(procedimiento_value)
 
-        # Buscar el nombre del procedimiento en el valor del EPC
+        # Buscar coincidencia con los procedimientos esperados
         procedimiento_name = None
         procedimiento_version = None
 
         for valid_procedimiento in self.valid_versions.keys():
-            if procedimiento_value.lower().startswith(valid_procedimiento.lower()):
+            valid_procedimiento_norm = normalize_text(valid_procedimiento)
+
+            if valid_procedimiento_norm in procedimiento_value_norm:
                 procedimiento_name = valid_procedimiento
-                remaining_text = procedimiento_value[len(valid_procedimiento):].strip()
+                remaining_text = procedimiento_value_norm.replace(valid_procedimiento_norm, "").strip()
                 break
 
         if not procedimiento_name:
@@ -49,19 +87,21 @@ class ProcedimientoVersionCheckRule(BaseRule):
             return validation_result
 
         # Extraer la versión de la parte restante
-        parts = remaining_text.split()
-        if parts:
-            procedimiento_version = parts[0]
+        match = re.search(r'(\d+(?:\.\d+)*[a-z]?)$', remaining_text)
+        if match:
+            procedimiento_version = match.group(1)
+
+        if not procedimiento_version:
+            validation_result["message"] = f"No se encontró una versión válida en '{procedimiento_value}'."
+            validation_result["details"] = {"provided_procedure": procedimiento_name}
+            return validation_result
 
         # Normalizar versiones para comparación
-        def normalize_version(version: str) -> str:
-            return version.lower().replace("v.", "").replace("v", "").strip()
-
-        procedimiento_version_normalized = normalize_version(procedimiento_version)
-        expected_version_normalized = normalize_version(self.valid_versions[procedimiento_name])
+        procedimiento_version_norm = normalize_version(procedimiento_version)
+        expected_version_norm = normalize_version(self.valid_versions[procedimiento_name])
 
         # Validar si la versión coincide
-        if procedimiento_version_normalized != expected_version_normalized:
+        if procedimiento_version_norm != expected_version_norm:
             validation_result["message"] = (
                 f"La versión '{procedimiento_version}' del procedimiento '{procedimiento_name}' no es válida. "
                 f"Se esperaba la versión '{self.valid_versions[procedimiento_name]}'."

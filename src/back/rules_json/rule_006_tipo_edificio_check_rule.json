@@ -2,6 +2,8 @@
   "id": "rule_006",
   "type": "data_validation",
   "category": "common_rules",
+  "name": "Tipo de edificio o parte del edificio certificado",
+  "severity": "Error",
   "class": "TipoDeEdificioCheckRule",
   "description": "Indicado en el documento “20200311 - Informe de evaluación energética del edificio en formato electrónico (XML) - Version 2.1”. Debe figurar uno de estos nombres:\n- ViviendaUnifamiliar\n- BloqueDeViviendaCompleto\n- ViviendaIndividualEnBloque\n- EdificioUsoTerciario\n- LocalUsoTerciario",
   "parameters": {

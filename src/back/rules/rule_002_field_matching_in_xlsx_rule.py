@@ -25,6 +25,7 @@ class FieldMatchingInXlsxRule(BaseRule):
             "rule_id": self.id,
             "message": "",
             "description": self.description,
+            "details": {}
         }
 
         # Leer los valores desde el documento EPC utilizando XPath
@@ -63,7 +64,8 @@ class FieldMatchingInXlsxRule(BaseRule):
 
         # Validar si el valor actual está en las zonas válidas
         if value_to_validate.strip().lower() not in valid_zones:
-            validation_result["message"] = f"El valor '{value_to_validate}' no es válido para el municipio '{dependent_value}'."
+            validation_result["details"] = f"El valor '{value_to_validate}' no es válido para el municipio '{dependent_value}'."
+            validation_result["message"] = f"Dada la localidad ('{dependent_value}'), la zona climática no concuerda con CTE ('{value_to_validate}')ni con la actualización realizada por la Generalitat en 2022."
             return validation_result
 
         # Si pasa todas las validaciones

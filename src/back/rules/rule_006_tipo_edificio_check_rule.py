@@ -18,6 +18,7 @@ class TipoDeEdificioCheckRule(BaseRule):
             "rule_id": self.id,
             "message": "",
             "description": self.description,
+            "details": "",
         }
 
         # Obtener el valor desde el EPC
@@ -29,10 +30,11 @@ class TipoDeEdificioCheckRule(BaseRule):
 
         # Validar si el valor está en los valores permitidos
         if tipo_de_edificio not in self.valid_values:
-            validation_result["message"] = (
+            validation_result["details"] = (
                 f"El tipo de edificio '{tipo_de_edificio}' no es válido. "
                 f"Valores permitidos: {', '.join(self.valid_values)}."
             )
+            validation_result["message"] = f"No concuerda el tipo de edificio indicado con la lista de categorías admitidas:\n -ViviendaUnifamiliar \n -BloqueDeViviendaCompleto \n -ViviendaIndividualEnBloque \n -EdificioUsoTerciario \n -LocalUsoTerciario"
             return validation_result
 
         # Si pasa todas las validaciones

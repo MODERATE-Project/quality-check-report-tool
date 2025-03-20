@@ -7,6 +7,9 @@ from rules import base_rule
 from rules.base_rule import class_registry, register_rule_class, BaseRule
 from config import RULES_JASON_PATH, RULES_BASE_PATH, RULES_CACHE_PATH, RULES_CLASS_PATH
 
+import importlib
+import pkgutil
+import sys
 
 logger = logging.getLogger(__name__)
 
@@ -33,40 +36,118 @@ class RulesFactory:
 
 
 
+    # def _register_rule_classes(self):
+    #     """
+    #     Importa dinámicamente todos los módulos del paquete 'rules' para registrar las clases.
+    #     """
+    #     import importlib
+    #     import pkgutil
+
+    #     # Nombre del paquete lógico (usado para importaciones)
+    #     if self.RULES_CLASS_PATH[0] == "/":
+    #         package_name = self.RULES_CLASS_PATH[1:].replace("/", ".")
+    #     else:
+    #         package_name = self.RULES_CLASS_PATH.replace("/", ".")
+
+    #     # Eliminar 'src.' del package_name si está presente
+    #     if package_name.startswith("src."):
+    #         package_name = package_name[4:]
+
+    #     logger.debug(f"package_name: {package_name}")
+
+    #     # Ruta física al directorio del paquete
+    #     package_path = self.RULES_CLASS_PATH
+    #     logger.debug(f"Package_path en register_rule_classes: {package_path}")
+
+    #     for _, module_name, _ in pkgutil.iter_modules([package_path]):
+    #         module_full_name = f"{package_name}.{module_name}"
+    #         logger.debug(f"importando módulo: {module_full_name}")
+    #         print ("importando módulo: ", module_full_name)
+    #         importlib.import_module(module_full_name)
+
+    #     # Verifica que las clases estén registradas
+    #     logger.info("clases registradas en class_registry:")
+    #     for name, cls in class_registry.items():
+    #         logger.debug(f"- {name}: {cls}")
+
+
+    # def _register_rule_classes(self):
+    #     """
+    #     Importa dinámicamente todos los módulos del paquete 'rules' para registrar las clases.
+    #     """
+    #     package_path = self.RULES_CLASS_PATH  # Ruta absoluta al directorio de reglas
+
+    #     if not os.path.exists(package_path):
+    #         raise FileNotFoundError(f"No se encontró la ruta del paquete de reglas: {package_path}")
+
+    #     # Asegurar que la ruta esté en sys.path
+    #     if package_path not in sys.path:
+    #         sys.path.append(package_path)
+
+    #     # Convertir la ruta en un nombre de paquete Python
+    #     package_name = os.path.relpath(package_path, start=os.getcwd()).replace(os.sep, ".")
+
+    #     # Si el paquete está dentro de 'src', ajustarlo
+    #     if package_name.startswith("src."):
+    #         package_name = package_name[4:]
+
+    #     logger.debug(f"package_name: {package_name}")
+    #     logger.debug(f"Package_path en register_rule_classes: {package_path}")
+
+    #     # Importar dinámicamente los módulos dentro de rules/
+    #     for _, module_name, _ in pkgutil.iter_modules([package_path]):
+    #         module_full_name = f"{package_name}.{module_name}"
+    #         logger.debug(f"Importando módulo: {module_full_name}")
+
+    #         try:
+    #             importlib.import_module(module_full_name)
+    #         except ModuleNotFoundError as e:
+    #             logger.error(f"Error al importar {module_full_name}: {e}")
+    #             continue
+
+    #     # Verificar que las clases estén registradas
+    #     logger.info("Clases registradas en class_registry:")
+    #     for name, cls in class_registry.items():
+    #         logger.debug(f"- {name}: {cls}")
+
+
+
     def _register_rule_classes(self):
         """
         Importa dinámicamente todos los módulos del paquete 'rules' para registrar las clases.
         """
-        import importlib
-        import pkgutil
+        package_path = self.RULES_CLASS_PATH  # Ruta absoluta al directorio de reglas
 
-        # Nombre del paquete lógico (usado para importaciones)
-        if self.RULES_CLASS_PATH[0] == "/":
-            package_name = self.RULES_CLASS_PATH[1:].replace("/", ".")
-        else:
-            package_name = self.RULES_CLASS_PATH.replace("/", ".")
+        if not os.path.exists(package_path):
+            raise FileNotFoundError(f"No se encontró la ruta del paquete de reglas: {package_path}")
 
-        # Eliminar 'src.' del package_name si está presente
-        if package_name.startswith("src."):
-            package_name = package_name[4:]
+        # Asegurar que la ruta está en sys.path para permitir importaciones
+        if package_path not in sys.path:
+            sys.path.append(os.path.dirname(package_path))  # Añadir la carpeta "src" sin incluir "rules"
+
+        # Obtener el nombre del paquete sin incluir "src"
+        base_dir = os.path.dirname(self.RULES_CLASS_PATH)  # Obtiene la ruta de "src"
+        package_name = os.path.relpath(package_path, start=base_dir).replace(os.sep, ".")
 
         logger.debug(f"package_name: {package_name}")
-
-        # Ruta física al directorio del paquete
-        package_path = self.RULES_CLASS_PATH
         logger.debug(f"Package_path en register_rule_classes: {package_path}")
 
+        # Importar dinámicamente los módulos dentro de rules/
         for _, module_name, _ in pkgutil.iter_modules([package_path]):
             module_full_name = f"{package_name}.{module_name}"
-            logger.debug(f"importando módulo: {module_full_name}")
-            importlib.import_module(module_full_name)
+            logger.debug(f"Importando módulo: {module_full_name}")
 
-        # Verifica que las clases estén registradas
-        logger.info("clases registradas en class_registry:")
+            try:
+                importlib.import_module(module_full_name)
+            except ModuleNotFoundError as e:
+                logger.error(f"Error al importar {module_full_name}: {e}")
+                continue
+
+        # Verificar que las clases estén registradas
+        logger.info("Clases registradas en class_registry:")
         for name, cls in class_registry.items():
             logger.debug(f"- {name}: {cls}")
-
-                                
+                            
 
     # def load_rules(self) -> None:
     #     """Carga reglas comunes y específicas de modelos desde el archivo ensamblado."""

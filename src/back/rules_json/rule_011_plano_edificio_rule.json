@@ -1,0 +1,16 @@
+{
+  "id": "rule_011",
+  "type": "business_rule",
+  "category": "common_rules",
+  "name": "Plano del edificio",
+  "severity": "Error",
+  "class": "PlanoEdificioRule",
+  "description": "Debe adjuntarse plano del edificio.",
+  "parameters": {
+    "xpath_plano": "//DatosGeneralesyGeometria/Plano"
+  }
+}
+
+
+
+

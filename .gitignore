@@ -10,3 +10,4 @@ src/back/core/rules_cache.json
 .env
 .idea/
 *venv*/
+src/front/.vite/

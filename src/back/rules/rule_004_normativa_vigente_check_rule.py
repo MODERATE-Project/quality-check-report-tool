@@ -42,16 +42,22 @@ class NormativaVigenteCheckRule(BaseRule):
             validation_result["details"] = {"provided_ano_construccion": ano_construccion}
             return validation_result
 
+        # Normalizar la normativa actual
+        normativa_value_normalized = normativa_value.strip().lower()
+
         # Validar la normativa vigente
         for condition in self.conditions:
             range_ = condition.get("range", {})
-            expected_value = condition.get("expected_value")
+            expected_value = condition.get("expected_value", "")
 
             min_year = range_.get("min")
             max_year = range_.get("max")
 
+            # Convertir los valores esperados en una lista y normalizarlos
+            expected_values = [v.strip().lower() for v in expected_value.split("/")]
+
             if (min_year is None or ano_construccion >= min_year) and (max_year is None or ano_construccion <= max_year):
-                if normativa_value.strip().lower() == expected_value.strip().lower():
+                if normativa_value_normalized in expected_values:
                     validation_result["status"] = "success"
                     validation_result["message"] = (
                         f"La normativa '{normativa_value}' es válida para el año de construcción '{ano_construccion}'."
@@ -64,8 +70,7 @@ class NormativaVigenteCheckRule(BaseRule):
                     return validation_result
                 else:
                     validation_result["message"] = (
-                        f"La normativa '{normativa_value}' no coincide con la esperada '{expected_value}' "
-                        f"para el año de construcción '{ano_construccion}'."
+                        f"La normativa aplicada no concuerda con la correspondiente al año de construcción de la edificación."
                     )
                     validation_result["details"] = {
                         "provided_normativa": normativa_value,

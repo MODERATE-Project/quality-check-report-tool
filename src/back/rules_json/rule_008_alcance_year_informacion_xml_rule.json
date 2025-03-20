@@ -1,10 +1,13 @@
 {
-  "id": "rule_009",
+  "id": "rule_008",
   "type": "business_rule",
   "category": "common_rules",
+  "name": "Alcance del certificado",
+  "severity": "Error",
   "class": "AlcanceYearInformacionXMLRule",
   "description": "Debe indicarse uno de estos nombres:\n- CertificacionExistente\n- VerificacionExistente\n- CertificacionVerificacionExistente\n- CertificacionNuevo\n- VerificacionNuevo\n- CertificacionVerificacionNuevo\n\nPara cada uno de ellos, se debe cumplir que:\n- CertificacionExistente/VerificacionExistente/CertificacionVerificacionExistente:\n  El año de construcción (<AnoConstruccion>) debe ser 2007 o anterior.\n  Si es posterior, preguntar por pantalla “¿Se trata de una actualización de un certificado de eficiencia energética ya registrado?”.\n  En caso afirmativo, no hay error.\n  Si la respuesta es no, es incorrecto.\n- CertificacionNuevo/VerificacionNuevo/CertificacionVerificacionNuevo:\n  El año de construcción debe ser 2008 o posterior.",
   "parameters": {
+	"xpath_anno": "//IdentificacionEdificio/AnoConstruccion",
     "xpath": "//IdentificacionEdificio/AlcanceInformacionXML",
     "conditions": [
       {

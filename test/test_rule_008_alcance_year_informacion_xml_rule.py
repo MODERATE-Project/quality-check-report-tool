@@ -3,7 +3,7 @@ import sys, os
 path = os.path.abspath(os.path.join(os.path.dirname(__file__), '../src/back'))
 sys.path.insert(0, path)
 
-from rules.rule_009_alcance_year_informacion_xml_rule import AlcanceYearInformacionXMLRule
+from rules.rule_008_alcance_year_informacion_xml_rule import AlcanceYearInformacionXMLRule
 from core.epc_dto import EpcDto
 
 # Rutas a los directorios y archivos
@@ -37,5 +37,14 @@ rule = AlcanceYearInformacionXMLRule(rule_data)
 # Validar el documento EPC
 result = rule.validate(epc)
 
-# Imprimir el resultado
-print(result)
+# Imprimir el resultado de manera legible
+if isinstance(result, dict):  # Verificar que el resultado es un diccionario
+    for key, value in result.items():
+        if isinstance(value, dict):  # Si hay diccionarios anidados, imprimirlos también
+            print(f"{key}:")
+            for sub_key, sub_value in value.items():
+                print(f"  - {sub_key}: {sub_value}")
+        else:
+            print(f"{key}: {value}")
+else:
+    print(result)  # En caso de que la salida no sea un diccionario

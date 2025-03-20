@@ -1,6 +1,10 @@
-from rule_json_builder import RuleJsonBuilder
+
 import json
-import os.path
+import os.path, sys
+path = os.path.abspath(os.path.join(os.path.dirname(__file__), '../src/back'))
+sys.path.insert(0, path)
+from core.rule_json_builder import RuleJsonBuilder
+
 
 builder = RuleJsonBuilder(
     rule_directory="rules_json",

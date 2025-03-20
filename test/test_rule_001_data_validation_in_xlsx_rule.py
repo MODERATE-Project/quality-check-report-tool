@@ -41,5 +41,14 @@ rule = DataValidationInXlsxRule(rule_data)
 # Validar el documento EPC
 result = rule.validate(epc)
 
-# Imprimir el resultado
-print(result)
+# Imprimir el resultado de manera legible
+if isinstance(result, dict):  # Verificar que el resultado es un diccionario
+    for key, value in result.items():
+        if isinstance(value, dict):  # Si hay diccionarios anidados, imprimirlos también
+            print(f"{key}:")
+            for sub_key, sub_value in value.items():
+                print(f"  - {sub_key}: {sub_value}")
+        else:
+            print(f"{key}: {value}")
+else:
+    print(result)  # En caso de que la salida no sea un diccionario

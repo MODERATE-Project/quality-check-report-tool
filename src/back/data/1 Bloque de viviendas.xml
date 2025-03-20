@@ -4,7 +4,7 @@
     <NIFEntidad>-</NIFEntidad>
     <ComunidadAutonoma>Comunidad Foral de Navarra</ComunidadAutonoma>
     <Titulacion>-</Titulacion>
-    <Fecha>26/07/2012</Fecha>
+    <Fecha>17/02/2025</Fecha>
     <NIF>-</NIF>
     <NombreyApellidos>CENER - EFINOVATIC</NombreyApellidos>
     <RazonSocial>CENER - EFINOVATIC</RazonSocial>
@@ -24,11 +24,11 @@
     <NormativaVigente>Anterior</NormativaVigente>
     <Direccion>C/ Don Quijote de la Mancha  nº 14-16</Direccion>
     <NombreDelEdificio>Zaragoza, Bloque de viviendas</NombreDelEdificio>
-    <Procedimiento>CYPETHERMHEPLUSv2025a</Procedimiento>
+    <Procedimiento> CE3 20160906</Procedimiento>
     <CodigoPostal>50002</CodigoPostal>
     <AlcanceInformacionXML>CertificacionExistente</AlcanceInformacionXML>
     <Municipio>Agost</Municipio>
-    <AnoConstruccion>1960</AnoConstruccion>
+    <AnoConstruccion>2008</AnoConstruccion>
   </IdentificacionEdificio>
   <DatosGeneralesyGeometria>
     <VentilacionUsoResidencial>0.63</VentilacionUsoResidencial>
@@ -646,7 +646,7 @@
   <PruebasComprobacionesInspecciones>
     <Visita>
       <Datos>Se plantean cinco medidas de mejora combinadas en tres paquetes de medida para analizar los diferentes ahorros energéticos.</Datos>
-      <FechaVisita>15/07/2012</FechaVisita>
+      <FechaVisita>15/01/2025</FechaVisita>
     </Visita>
   </PruebasComprobacionesInspecciones>
   <DatosPersonalizados>

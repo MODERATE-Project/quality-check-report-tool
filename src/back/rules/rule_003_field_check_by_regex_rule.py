@@ -20,6 +20,7 @@ class FieldCheckByRegExRule(BaseRule):
             "rule_id": self.id,
             "message": "",
             "description": self.description,
+            "details": {}
         }
 
         # Obtener el valor del campo especificado por XPath
@@ -31,7 +32,7 @@ class FieldCheckByRegExRule(BaseRule):
 
         # Validar el valor utilizando la expresión regular
         if not re.match(self.regex, value_to_validate):
-            validation_result["message"] = f"El valor '{value_to_validate}' no cumple con el formato."
+            validation_result["message"] = f"El valor '{value_to_validate}' no cumple con el formato (el año de construcción deben ser 4 dígitos)."
             return validation_result
 
         # Si pasa la validación

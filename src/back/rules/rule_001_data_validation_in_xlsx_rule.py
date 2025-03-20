@@ -1,6 +1,7 @@
 from .base_rule import BaseRule, register_rule_class
 import pandas as pd
 from typing import Dict
+from unidecode import unidecode
 
 @register_rule_class
 class DataValidationInXlsxRule(BaseRule):
@@ -20,6 +21,7 @@ class DataValidationInXlsxRule(BaseRule):
             "rule_id": self.id,
             "message": "",
             "description": self.description,
+            "details": {}
         }
 
         # Leer el valor desde el documento EPC utilizando XPath
@@ -46,11 +48,12 @@ class DataValidationInXlsxRule(BaseRule):
 
         if self.allow_multiple_languages:
             # Convertir todo a minúsculas para permitir coincidencias más flexibles
-            valid_values = [val.lower() for val in valid_values]
-            value_to_validate = value_to_validate.lower()
+            valid_values = [unidecode(val.lower()) for val in valid_values]
+            value_to_validate = unidecode(value_to_validate.lower())
 
         if value_to_validate not in valid_values:
-            validation_result["message"] = f"El valor '{value_to_validate}' no se encuentra en la columna '{self.column_in_source}'."
+            validation_result["details"] = f"El valor '{value_to_validate}' no se encuentra en la columna '{self.column_in_source}'."
+            validation_result["message"] = f"El nombre de la población ('{value_to_validate}' ) no figura en la listado de poblaciones de la Comunidad Valenciana que figura en Catastro."
             return validation_result
 
         # Si pasa todas las validaciones

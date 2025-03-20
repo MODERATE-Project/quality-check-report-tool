@@ -19,6 +19,7 @@ class ReferenciaCatastralTipoDeEdificioRule(BaseRule):
             "rule_id": self.id,
             "message": "",
             "description": self.description,
+            "details": "",
         }
 
         # Obtener los valores desde el EPC
@@ -41,9 +42,12 @@ class ReferenciaCatastralTipoDeEdificioRule(BaseRule):
 
         # Validar la longitud de la referencia catastral
         if len(referencia_catastral) not in valid_lengths:
-            validation_result["message"] = (
+            validation_result["details"] = (
                 f"La longitud de la referencia catastral '{len(referencia_catastral)}' no es válida para el tipo de edificio '{tipo_de_edificio}'. "
                 f"Longitudes permitidas: {valid_lengths}."
+            )
+            validation_result["message"] = (
+                f"No concuerda el número de dígitos de la referencia catastral con el Tipo de Edificio considerado, en este caso '{tipo_de_edificio}'."
             )
             return validation_result
 

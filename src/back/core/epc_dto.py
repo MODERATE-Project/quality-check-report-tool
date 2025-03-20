@@ -1,5 +1,6 @@
 import xml.etree.ElementTree as ET
-from typing import Union
+from typing import Union, List
+
 
 class EpcDto:
 
@@ -68,3 +69,23 @@ class EpcDto:
             if element is None:
                 return None
         return element.text if element is not None else None
+    
+
+    def get_nodes_by_xpath(self, xpath: str) -> List[ET.Element]:
+        """
+        Obtiene una lista de nodos que coinciden con el XPath dado.
+
+        Args:
+            xpath (str): XPath del nodo contenedor (por ejemplo, "/DatosEnvolventeTermica/PuentesTermicos/PuenteTermico").
+
+        Returns:
+            List[ET.Element]: Lista de nodos encontrados.
+        """
+        path_parts = xpath.strip("/").split("/")
+        element = self.root
+        for part in path_parts:
+            element = element.find(part)
+            if element is None:
+                return []  # Si en cualquier punto la ruta es inválida, devolvemos una lista vacía
+
+        return list(element) if element is not None else []

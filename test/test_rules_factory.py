@@ -1,4 +1,7 @@
-import rules_factory
+import sys, os
+path = os.path.abspath(os.path.join(os.path.dirname(__file__), '../src/back'))
+sys.path.insert(0, path)
+from core import rules_factory
 
 # Instanciar la factoría
 factory = rules_factory.RulesFactory() #rule_file="rules_json")

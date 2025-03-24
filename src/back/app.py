@@ -35,23 +35,28 @@ def create_html_section(element, section_title, is_full_width=False):
 
 @app.route('/upload', methods=['POST'])
 def parse_xml():
+    try:
+        if 'file' not in request.files:
+            return jsonify({"error": "No file part in the request"}), 400
 
-    if 'file' not in request.files:
-        return jsonify({"error": "No file part in the request"}), 400
+        file = request.files['file']
 
-    file = request.files['file']
-
-    if file.filename == '':
-        return jsonify({"error": "No selected file"}), 400
+        if file.filename == '':
+            return jsonify({"error": "No selected file"}), 400
 
 
-    json_response = pipeline_manager.process_request(file)
+        json_response = pipeline_manager.process_request(file)
 
-    # html_output = validation_results_to_html(json_response)
-    # with open("validation_results.html", "w", encoding="utf-8") as file:
-    #     file.write(html_output)
-    # return html_output
-    return json_response
+        return jsonify(json_response)
+
+        # html_output = validation_results_to_html(json_response)
+        # with open("validation_results.html", "w", encoding="utf-8") as file:
+        #     file.write(html_output)
+        # return html_output
+        # return json_response
+    except Exception as e:
+        logger.error(f"Error al procesar el archivo: {str(e)}", exc_info=True)
+        return jsonify({"error": "Error al procesar el archivo"}), 500
 
 
 @app.route('/report', methods=['POST'])

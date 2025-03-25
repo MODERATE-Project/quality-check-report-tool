@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import { REPORT_SERVICE_URL, RULES_SERVICE_URL } from "./constants"
+import Footer from "./components/Footer";
 
 export default function XMLUploader() {
   const [file, setFile] = useState(null);
@@ -36,27 +37,30 @@ export default function XMLUploader() {
   };
 
   const handleDownloadReport = async () => {
-    try {
-      const response = await fetch(REPORT_SERVICE_URL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(results),
-      });
-      const blob = await response.blob();
-      const url = window.URL.createObjectURL(blob);
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = "informe.pdf";
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
-    } catch (err) {
-      setError("Error al generar el informe");
-    }
+    // try {
+    //   const response = await fetch(REPORT_SERVICE_URL, {
+    //     method: "POST",
+    //     headers: { "Content-Type": "application/json" },
+    //     body: JSON.stringify(results),
+    //   });
+    //   const blob = await response.blob();
+    //   const url = window.URL.createObjectURL(blob);
+    //   const a = document.createElement("a");
+    //   a.href = url;
+    //   a.download = "informe.pdf";
+    //   document.body.appendChild(a);
+    //   a.click();
+    //   a.remove();
+    // } catch (err) {
+    //   setError("Error al generar el informe");
+    // }
+    window.print();
   };
 
+
   return (
-    <div style={{ color: "#333", textAlign: "center", padding: "20px" }}>
+    <>
+    <div className="content" style={{ color: "#333", textAlign: "center", padding: "20px" }}>
       <h1 style={{ color: "#4CAF50" }}>Datos Energéticos del Edificio</h1>
       <div
         style={{
@@ -71,16 +75,19 @@ export default function XMLUploader() {
         }}
         onDragOver={(e) => e.preventDefault()}
         onDrop={handleDrop}
+        className="drag-xml-box"
       >
         {file ? file.name : "Arrastra y suelta el archivo XML aquí"}
       </div>
       {error && <p style={{ color: "red" }}>{error}</p>}
       {results && Object.keys(results).length > 0 && (
-        <button style={{ padding: "10px", backgroundColor: "#4CAF50", color: "white", border: "none", cursor: "pointer", marginTop: "10px" }} onClick={handleDownloadReport}>
-          Generar Informe
-        </button>
+        <>
+          <button style={{ padding: "10px", backgroundColor: "#4CAF50", color: "white", border: "none", cursor: "pointer", marginTop: "10px" }} onClick={handleDownloadReport}>
+            Generar Informe
+          </button>
+        </>
       )}
-      <div style={{
+      <div className="results" style={{
         margin: "20px auto",
         padding: "20px",
         backgroundColor: "#fff",
@@ -118,5 +125,7 @@ export default function XMLUploader() {
         ))}
       </div>
     </div>
+      <Footer/>
+      </>
   );
 }

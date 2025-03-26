@@ -28,6 +28,17 @@ const Footer = () => {
           />
         </div>
 
+          <div className="footer-col">
+            <img
+              // className="footer-img"
+              // src="https://www.five.es/wp-content/uploads/GVA-IVE_2025.svg"
+              src="https://www.fiebdc.es/web2/datos/uploads/IVE-logo-500x500-1-500x321.png"
+              style={{ filter: "brightness(0) invert(1)", width: "70%" }}
+              alt="IVE"
+            // className="footer-img"
+            />
+          </div>
+
         <div className="footer-col">
           <img
             src="https://www.fundacionctic.org/sites/default/files/inline-images/logoblancocabecera.png"
@@ -36,16 +47,6 @@ const Footer = () => {
           />
         </div>
 
-        <div className="footer-col">
-          <img
-            // className="footer-img"
-            // src="https://www.five.es/wp-content/uploads/GVA-IVE_2025.svg"
-            src="https://www.fiebdc.es/web2/datos/uploads/IVE-logo-500x500-1-500x321.png"
-            style={{ filter: "brightness(0) invert(1)", width: "70%" }}
-            alt="IVE"
-          // className="footer-img"
-          />
-        </div>
 
         <p className="footer-text"><i>
           Horizon Europe research and innovation programme under grant agreement No 101069834. Views and opinions expressed are however those of the author(s) only and do not necessarily reflect those of the European Union or CINEA. Neither the European Union nor the granting authority can be held responsible for.

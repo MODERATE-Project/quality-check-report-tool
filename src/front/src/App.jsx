@@ -57,6 +57,15 @@ export default function XMLUploader() {
     window.print();
   };
 
+  const getStatusColor = (status, severity) => {
+    if (status === 'success') return 'green';
+    if (status === 'error') {
+      if (severity === 'suspected') return 'orange';
+      return 'red';
+    }
+    return 'black'; // fallback por si acaso
+  };
+  
 
   return (
     <>
@@ -103,7 +112,7 @@ export default function XMLUploader() {
             {results.common_rules.map((rule, idx) => (
               <div key={idx} style={{ padding: "10px", border: "1px solid #ccc", borderRadius: "5px", marginBottom: "10px" }}>
                 <p><b>Regla ID:</b> {rule.rule_id}</p>
-                <p><b>Estado:</b> <span style={{ color: rule.status === 'success' ? 'green' : 'red' }}>{rule.status}</span></p>
+                <p><b>Estado:</b> <span style={{ color: getStatusColor(rule.status, rule.severity) }}>{rule.status}</span></p>
                 <p><b>Mensaje:</b> {rule.message}</p>
                 <p><b>Descripción:</b> {rule.description}</p>
               </div>
@@ -116,7 +125,7 @@ export default function XMLUploader() {
             {rules.map((rule, i) => (
               <div key={i} style={{ padding: "10px", border: "1px solid #ccc", borderRadius: "5px", marginBottom: "10px" }}>
                 <p><b>Regla ID:</b> {rule.rule_id}</p>
-                <p><b>Estado:</b> <span style={{ color: rule.status === 'success' ? 'green' : 'red' }}>{rule.status}</span></p>
+                <p><b>Estado:</b> <span style={{ color: getStatusColor(rule.status, rule.severity) }}>{rule.status}</span></p>
                 <p><b>Mensaje:</b> {rule.message}</p>
                 <p><b>Descripción:</b> {rule.description}</p>
               </div>

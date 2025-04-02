@@ -1,4 +1,5 @@
-from typing import Dict, Type
+from typing import Dict, Type, Any, Tuple
+from core.epc_dto import EpcDto
 
 # Diccionario para registrar dinámicamente las clases de reglas
 class_registry = {}
@@ -20,7 +21,10 @@ class BaseRule:
         self.description = rule_data.get("description")
         self.name = rule_data.get("name")
         self.severity = rule_data.get("severity")
+        self.need_question = "false"
 
     def validate(self, epc: "EpcDto") -> Dict:
         raise NotImplementedError("Debe implementarse en subclases.")
-        
+    
+    def get_question(self,epc) -> Tuple[str, Dict[str , str]]:
+         return None

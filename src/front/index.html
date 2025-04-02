@@ -111,19 +111,9 @@
                 fetch(url, {
                     method: 'POST',
                     body: formData
-                })
-                    <!-- .then(res => res.text()) -->
-					<!-- .then(html => { -->
-						<!-- const newWindow = window.open(); -->
-						<!-- newWindow.document.write(html); -->
-						<!-- newWindow.document.close(); -->
-					<!-- }) -->
-					<!-- .catch(error => console.error('Error:', error)); -->
-					
-					.then(res => res.text())
+                })	.then(res => res.text())
 					.then(html => result.innerHTML = html.replace(/\n/g, "<br>"))
 					.catch(error => console.error('Error:', error));
-
 
             }
         });

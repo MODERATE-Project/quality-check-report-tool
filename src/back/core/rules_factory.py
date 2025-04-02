@@ -231,7 +231,7 @@ class RulesFactory:
         return "model1"
 
 
-    def apply_rules(self, epc: "EpcDto") -> Dict:
+    def apply_rules(self, epc: "EpcDto", questions) -> Dict:
         """
         Aplica las reglas cargadas al documento EPC.
 
@@ -248,13 +248,14 @@ class RulesFactory:
 
         # Aplicar reglas comunes
         for rule in self.common_rules:
-            result = rule.validate(epc)
+            result = rule.validate(epc, questions[rule.id])
             validation_results["common_rules"].append({
                 "rule_id": rule.id,
                 "status": result.get("status"),
                 "message": result.get("message", ""),
                 "description": result.get("description"),
-                "details": result.get("details", {})  # Información adicional si está disponible
+                "details": result.get("details", {}),  # Información adicional si está disponible
+                "severity": result.get("severity")
             })
 
         # Aplicar reglas específicas de modelos
@@ -267,8 +268,37 @@ class RulesFactory:
                     "status": result.get("status"),
                     "message": result.get("message", ""),
                     "description": result.get("description"),
-                    "details": result.get("details", {})  # Información adicional si está disponible
+                    "details": result.get("details", {}),  # Información adicional si está disponible
+                    "severity": result.get("severity")
                 })
             validation_results["model_rules"][model_name] = model_results
 
         return validation_results
+    #comprobar todas las reglas y aquellas que tengan campo question, se añaden a la lista de preguntas
+    def get_questions(self) -> Dict[str,Dict[str, str]]:
+        """
+        Obtiene las preguntas que deben hacerse al usuario basadas en las reglas cargadas.
+
+        Args:
+            epc (EpcDto): Objeto que representa el documento a validar.
+
+        Returns:
+            List[str]: Lista de preguntas a realizar al usuario.
+        """
+        questions = Dict[str,Dict[str, str]]
+
+        # Comprobar reglas comunes
+        for rule in self.common_rules:
+            if rule.has_question:
+                if rule.get_question() is not None:
+                    id,pregunta,tipo = rule.get_question()
+                    questions[id] = [pregunta,tipo]
+                questions.append(rule.get_question())
+
+        # Comprobar reglas específicas de modelos
+        for model_name, rules in self.models.items():
+            for rule in rules:
+                if rule.has_question:
+                    questions.append(rule.get_question())
+
+        return questions

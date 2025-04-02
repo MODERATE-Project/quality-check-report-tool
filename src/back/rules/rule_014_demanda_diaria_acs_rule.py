@@ -37,7 +37,7 @@ class DemandaDiariaACSRule(BaseRule):
         """
         validation_result = {
             "rule_id": self.id,
-            "status": "info",
+            "status": "error", #aquí tenia info, porque esta regla necesita interacción con el usuario
             "message": "",
             "description": self.description,
             "details": {}

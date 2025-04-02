@@ -32,7 +32,7 @@ class PipelineManager:
         # Mostrar las reglas ensambladas
         print(json.dumps(rules, indent=4, ensure_ascii=False))
         
-    def process_request(self, file) -> Dict:
+    def process_request(self, file, questions) -> Dict:
         """
         Processes an XML file and applies the loaded rules.
 
@@ -62,11 +62,45 @@ class PipelineManager:
         # self.validatorEngine.execute_validations(epc, self.ruleManager.common_rules)
 
         logger.debug("Vamos a aplicar las reglas al documento: ")
-        validation_results = self.ruleManager.apply_rules(epc)
+        validation_results = self.ruleManager.apply_rules(epc,questions)
         # Imprimir resultados (para depuración)
         logger.debug("Resultados de las validaciones:")
         logger.debug(json.dumps(validation_results, indent=4, ensure_ascii=False))
 
         return validation_results
+    
+    def prepare_questions_to_user(self, file) -> Dict:
+        """
+        Prepares the questions to be asked to the user based on the validation results.
+
+        Args:
+            validation_results (Dict): Validation results after applying rules.
+
+        Returns:
+            Dict: Questions to be asked to the user.
+
+        """
+
+        epc = self.inputLayer.process_input(file)
+        # Comprobación de reglas cargadas
+        print("Common rules:")
+        for rule in self.ruleManager.common_rules:
+            print(rule)
+        print("\nModel rules:")
+        for model, rules in self.ruleManager.models.items():
+            print(f"Model: {model}")
+            for rule in rules:
+                print(rule)
+
+        # self.validatorEngine.execute_validations(epc, self.ruleManager.common_rules)
+
+        logger.debug("Vamos buscar reglas con pregunta hacia el usuario ")
+        questions = self.ruleManager.get_questions(epc)
+        # Imprimir resultados (para depuración)
+        logger.debug("Preguntas para el usuario:")
+        #recorrer y mostar las preguntas
+        logger.debug(questions)
+
+        return questions
 
 

@@ -5,7 +5,7 @@ import sys, os
 path = os.path.abspath(os.path.join(os.path.dirname(__file__), "../src/back"))
 sys.path.insert(0, path)
 
-from rules.rule_012_plano_imagen_edificio_rule import PlanoImagen64EdificioRule
+from rules.rule_012_plano_imagen_base64_edificio_rule import PlanoImagenBase64EdificioRule
 from core.epc_dto import EpcDto
 
 # Rutas a los directorios y archivos
@@ -34,7 +34,7 @@ if not rule_data:
     raise ValueError("No se encontró una regla de tipo 'PlanoEdificioRule' en el JSON de caché.")
 
 # Instanciar la regla
-rule = PlanoImagen64EdificioRule(rule_data)
+rule = PlanoImagenBase64EdificioRule(rule_data)
 
 # Validar el documento EPC
 result = rule.validate(epc)

@@ -6,7 +6,7 @@ from typing import Dict
 from .base_rule import BaseRule, register_rule_class
 
 @register_rule_class
-class PlanoImagen64EdificioRule(BaseRule):
+class PlanoImagenBase64EdificioRule(BaseRule):
     def __init__(self, rule_data: Dict):
         super().__init__(rule_data)
         self.xpath_plano = self.parameters.get("xpath_plano")  # XPath para obtener el plano

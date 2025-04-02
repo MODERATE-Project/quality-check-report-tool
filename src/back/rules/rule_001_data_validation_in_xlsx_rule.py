@@ -1,7 +1,8 @@
 from .base_rule import BaseRule, register_rule_class
 import pandas as pd
-from typing import Dict
+from typing import Dict, Tuple
 from unidecode import unidecode
+from core.epc_dto import EpcDto
 
 @register_rule_class
 class DataValidationInXlsxRule(BaseRule):
@@ -11,6 +12,7 @@ class DataValidationInXlsxRule(BaseRule):
         self.column_in_source = self.parameters.get("column_in_source")
         self.valid_values_source = self.parameters.get("valid_values_source")
         self.allow_multiple_languages = self.parameters.get("allow_multiple_languages", False)
+
 
     def validate(self, epc: "EpcDto") -> Dict:
         """

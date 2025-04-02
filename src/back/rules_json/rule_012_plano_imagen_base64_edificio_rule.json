@@ -4,7 +4,7 @@
   "category": "common_rules",
   "name": "Plano del edificio",
   "severity": "Error",
-  "class": "PlanoImagen64EdificioRule",
+  "class": "PlanoImagenBase64EdificioRule", 
   "description": "Debe adjuntarse un plano del edificio en formato de imagen.",
   "parameters": {
     "xpath_plano": "//DatosGeneralesyGeometria/Plano",

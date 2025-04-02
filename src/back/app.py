@@ -31,10 +31,33 @@ def create_html_section(element, section_title, is_full_width=False):
     section_html += '</div>'
     return section_html
 
+@app.route('/upload', methods=['POST'])
+def upload_xml(): #para obtener las posibles preguntas para el usuario
+    try:
+        logger.debug("*************** upload_xml ***************")
+        if 'file' not in request.files:
+            return jsonify({"error": "No file part in the request"}), 400
+
+        file = request.files['file']
+
+        if file.filename == '':
+            return jsonify({"error": "No selected file"}), 400
+    except Exception as e:
+        logger.error(f"Error al procesar el archivo: {str(e)}", exc_info=True)
+        return jsonify({"error": "Error al procesar el archivo"}), 500
+
+    questions = pipeline_manager.prepare_questions_to_user(file)
+    
+    json_string = json.dumps(questions, ensure_ascii=False, indent=4)
+    print(json_string)
+
+    with open('questions.json', 'w', encoding='utf-8') as archivo:
+        json.dump(questions, archivo, ensure_ascii=False, indent=4)
+
+    return json_string
 
 @app.route('/parse', methods=['POST'])
 def parse_xml(): #para obtener las posibles preguntas para el usuario
-    logger.info("*************** upload_xml ***************")
     try:
         logger.debug("*************** parse_xml ***************")
         if 'file' not in request.files:
@@ -46,7 +69,7 @@ def parse_xml(): #para obtener las posibles preguntas para el usuario
             return jsonify({"error": "No selected file"}), 400
 
         questions_answers = json.loads(request.form['questions_answers'])
-
+        logger.debug("*************** parse_xml ***************")
         html_content = pipeline_manager.process_request(file, questions_answers)
         
         html_output = validation_results_to_html(html_content)
@@ -58,18 +81,6 @@ def parse_xml(): #para obtener las posibles preguntas para el usuario
         logger.error(f"Error al procesar el archivo: {str(e)}", exc_info=True)
         return jsonify({"error": "Error al procesar el archivo"}), 500
     
-
-@app.route('/upload', methods=['POST'])
-def upload_xml(): #para obtener las posibles preguntas para el usuario
-    questions = pipeline_manager.prepare_questions_to_user(file)
-    
-    json_string = json.dumps(questions, ensure_ascii=False, indent=4)
-    print(json_string)
-
-    with open('questions.json', 'w', encoding='utf-8') as archivo:
-        json.dump(questions, archivo, ensure_ascii=False, indent=4)
-
-    return json_string
 
 
 @app.route('/report', methods=['POST'])

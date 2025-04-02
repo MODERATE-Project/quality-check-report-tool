@@ -4,14 +4,20 @@ services:
     container_name: moderate-quality-check-tool-front
     build: 
       context: src/front
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.dev
     image: moderate-quality-check-tool/moderate-quality-check-tool-app:$DOCKER_IMAGE_TAG
     environment:
+      - NODE_ENV=development
+      - CHOKIDAR_USEPOLLING=true
+      - WATCHPACK_POLLING=true
       - WDS_SOCKET_PORT=3000
-      - MODERATE_REPORT_SVC_PROXY_PASS_URL=http://back:5000
+      - VITE_API_BASE_URL=http://${HOSTNAME}:5501
     restart: always
     ports:
-      - ${SERVICE_PORT_FRONTEND}:80
+      - ${SERVICE_PORT_FRONTEND}:5173
+    volumes:
+      - ./src/front:/app
+      - /app/node_modules
   
   back:
     container_name: moderate-quality-check-tool-back
@@ -19,8 +25,8 @@ services:
       context: src/back
       dockerfile: Dockerfile.dev
     image: moderate-quality-check-tool/moderate-quality-check-tool-report-svc:$DOCKER_IMAGE_TAG
-    # ports:
-      # - 55001:5000 # <---- <host>:<container>
+    ports:
+      - 5501:5000 # <---- <host>:<container>
     restart: always
     volumes:
       - ./src/back:/src

@@ -4,24 +4,24 @@ from typing import Dict
 
 # Tabla de demanda de ACS en función del número de dormitorios (en litros/día)
 DEMANDA_POR_DORMITORIOS = {
-    1: 42,   # 1,5 personas * 28 L/día
-    2: 84,   # 3 personas * 28 L/día
-    3: 112,  # 4 personas * 28 L/día
-    4: 140,  # 5 personas * 28 L/día
-    5: 168,  # 6 personas * 28 L/día
-    6: 196,  # 7 personas * 28 L/día
+    "1": 42,   # 1,5 personas * 28 L/día
+    "2": 84,   # 3 personas * 28 L/día
+    "3": 112,  # 4 personas * 28 L/día
+    "4": 140,  # 5 personas * 28 L/día
+    "5": 168,  # 6 personas * 28 L/día
+    "6": 196,  # 7 personas * 28 L/día
     "6+": 196 # Más de 6 dormitorios, mismo valor que 6
 }
 
 # Factores de descentralización según el CTE
 FACTOR_DESCENTRALIZACION = {
-    3: 1.00,
-    10: 0.95,
-    20: 0.90,
-    50: 0.85,
-    75: 0.80,
-    100: 0.75,
-    101: 0.70
+    "3": 1.00,
+    "10": 0.95,
+    "20": 0.90,
+    "50": 0.85,
+    "75": 0.80,
+    "100": 0.75,
+    "101": 0.70
 }
 
 @register_rule_class

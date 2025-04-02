@@ -5,30 +5,21 @@ services:
     build: src/front
     image: moderate-quality-check-tool/moderate-quality-check-tool-app:$DOCKER_IMAGE_TAG
     environment:
-      - WDS_SOCKET_PORT=3000
-      - MODERATE_REPORT_SVC_PROXY_PASS_URL=http://back:5000
+      - MODERATE_RULES_SVC_PROXY_PASS_URL=http://back:5000
+      # - MODERATE_REPORT_SVC_PROXY_PASS_URL=http://back:5000
     restart: always
     ports:
       - ${SERVICE_PORT_FRONTEND}:80
-    #network_mode: "host"
   
   back:
     container_name: moderate-quality-check-tool-back
     build: src/back
     image: moderate-quality-check-tool/moderate-quality-check-tool-report-svc:$DOCKER_IMAGE_TAG
-    # ports:
-      # - 55001:5000 # <---- <host>:<container>
     restart: always
-    # environment:
-      # - name=value
 
   docx-to-pdf:
     image: moalhaddar/docx-to-pdf:2.1.0-12
     container_name: moderate-quality-check-tool-docx-to-pdf
-    # ports:
-      # - 55002:8080
     environment:
       - pool.size=2
-    # volumes:
-    #   - ./fonts:/usr/share/fonts/custom
     restart: always

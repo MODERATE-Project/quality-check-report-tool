@@ -262,7 +262,7 @@ class RulesFactory:
         for model_name, rules in self.models.items():
             model_results = []
             for rule in rules:
-                result = rule.validate(epc)
+                result = rule.validate(epc,questions[rule.id])
                 model_results.append({
                     "rule_id": rule.id,
                     "status": result.get("status"),
@@ -274,8 +274,12 @@ class RulesFactory:
             validation_results["model_rules"][model_name] = model_results
 
         return validation_results
+    
+
+
+
     #comprobar todas las reglas y aquellas que tengan campo question, se añaden a la lista de preguntas
-    def get_questions(self) -> Dict[str,Dict[str, str]]:
+    def get_questions(self, epc) -> Dict[str,Dict[str, str]]:
         """
         Obtiene las preguntas que deben hacerse al usuario basadas en las reglas cargadas.
 
@@ -285,20 +289,43 @@ class RulesFactory:
         Returns:
             List[str]: Lista de preguntas a realizar al usuario.
         """
-        questions = Dict[str,Dict[str, str]]
-
-        # Comprobar reglas comunes
+        questions = {}
+    
         for rule in self.common_rules:
-            if rule.has_question:
-                if rule.get_question() is not None:
-                    id,pregunta,tipo = rule.get_question()
-                    questions[id] = [pregunta,tipo]
-                questions.append(rule.get_question())
+            logger.debug(f"Comprobando regla común: {rule.id}")
+
+            auxiliame = rule.get_question(epc)
+            logger.debug(f"Pregunta obtenida: {auxiliame}")
+
+            if auxiliame is not None:
+                rule_id, preguntas = auxiliame
+
+                for pregunta_id, contenido in preguntas.items():
+                    questions.setdefault(pregunta_id, {})
+                    questions[pregunta_id]["text"] = contenido["text"]
+                    questions[pregunta_id]["type"] = contenido["type"]
+
+
 
         # Comprobar reglas específicas de modelos
         for model_name, rules in self.models.items():
-            for rule in rules:
-                if rule.has_question:
-                    questions.append(rule.get_question())
+            logger.debug(f"Comprobando regla común: {rule.id}")
 
+            # Llamar a la función get_question de la regla
+            auxiliame = rule.get_question(epc)
+            logger.debug(f"Pregunta obtenida: {auxiliame}")
+
+            if auxiliame is not None:
+                rule_id, preguntas = auxiliame
+
+                for pregunta_id, contenido in preguntas.items():
+                    questions.setdefault(pregunta_id, {})
+                    questions[pregunta_id]["text"] = contenido["text"]
+                    questions[pregunta_id]["type"] = contenido["type"]
+
+
+        # Al final, si 'questions' está vacío, devolvemos None
+        if not questions:
+            return None
+        
         return questions

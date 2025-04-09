@@ -18,7 +18,7 @@
   <IdentificacionEdificio>
     <ReferenciaCatastral>xxx</ReferenciaCatastral>
     <Provincia>Zaragoza</Provincia>
-    <ComunidadAutonoma>Aragón</ComunidadAutonoma>
+    <ComunidadAutonoma>Aragon</ComunidadAutonoma>
     <ZonaClimatica>D3</ZonaClimatica>
     <TipoDeEdificio>BloqueDeViviendaCompleto</TipoDeEdificio>
     <NormativaVigente>Anterior</NormativaVigente>
@@ -28,7 +28,7 @@
     <CodigoPostal>50002</CodigoPostal>
     <AlcanceInformacionXML>CertificacionExistente</AlcanceInformacionXML>
     <Municipio>Zaragoza</Municipio>
-    <AnoConstruccion>1960</AnoConstruccion>
+    <AnoConstruccion>2008</AnoConstruccion>
   </IdentificacionEdificio>
   <DatosGeneralesyGeometria>
     <VentilacionUsoResidencial>0.63</VentilacionUsoResidencial>

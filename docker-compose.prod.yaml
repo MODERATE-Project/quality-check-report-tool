@@ -17,9 +17,9 @@ services:
     image: moderate-quality-check-tool/moderate-quality-check-tool-report-svc:$DOCKER_IMAGE_TAG
     restart: always
 
-  docx-to-pdf:
-    image: moalhaddar/docx-to-pdf:2.1.0-12
-    container_name: moderate-quality-check-tool-docx-to-pdf
-    environment:
-      - pool.size=2
-    restart: always
+  # docx-to-pdf:
+  #   image: moalhaddar/docx-to-pdf:2.1.0-12
+  #   container_name: moderate-quality-check-tool-docx-to-pdf
+  #   environment:
+  #     - pool.size=2
+  #   restart: always

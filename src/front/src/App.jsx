@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./App.css";
-import { REPORT_SERVICE_URL, RULES_SERVICE_URL } from "./constants"
+import { REPORT_SERVICE_URL, RULES_SERVICE_URL, RULES_EVALUATE_SERVICE_URL } from "./constants"
 import Footer from "./components/Footer";
 
 export default function XMLUploader() {

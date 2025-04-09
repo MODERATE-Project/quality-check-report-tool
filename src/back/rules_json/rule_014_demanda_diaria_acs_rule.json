@@ -6,7 +6,9 @@
   "severity": "Error",
   "class": "DemandaDiariaACSRule",
   "description": "Verifica que la demanda diaria de ACS se corresponda con el número de dormitorios y viviendas según el CTE.",
-  "parameters": {
+  "parameters": 
+  {
+    "DemandaDiariaACS": "/DatosGeneralesyGeometria/DemandaDiariaACS",
     "xpath_tipo_edificio": "/IdentificacionEdificio/TipoDeEdificio",
     "values": ["ViviendaUnifamiliar", "BloqueDeViviendaCompleto", "ViviendaIndividualEnBloque"]
   }

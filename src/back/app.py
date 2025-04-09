@@ -47,7 +47,7 @@ def upload_xml(): #para obtener las posibles preguntas para el usuario
         return jsonify({"error": "Error al procesar el archivo"}), 500
 
     questions = pipeline_manager.prepare_questions_to_user(file)
-    
+    logger.debug("questions: %s", questions)
     json_string = json.dumps(questions, ensure_ascii=False, indent=4)
     print(json_string)
 
@@ -56,26 +56,70 @@ def upload_xml(): #para obtener las posibles preguntas para el usuario
 
     return json_string
 
-@app.route('/parse', methods=['POST'])
-def parse_xml(): #para obtener las posibles preguntas para el usuario
+@app.route('/evaluate', methods=['POST'])
+def evaluate_xml():
+    """
+    Endpoint que:
+      1) Recibe un archivo y respuestas de preguntas previas (opcional).
+      2) Llama a la lógica de pipeline_manager (o similar).
+      3) Devuelve:
+         - El HTML de validación (si aplica).
+         - Las preguntas que resulten de la nueva evaluación (si quedan pendientes).
+    """
     try:
-        logger.debug("*************** parse_xml ***************")
+        logger.debug("*************** evaluate_xml ***************")
+
+        # 1) Verificar que venga un archivo en la petición
         if 'file' not in request.files:
             return jsonify({"error": "No file part in the request"}), 400
 
         file = request.files['file']
-
         if file.filename == '':
             return jsonify({"error": "No selected file"}), 400
-
-        questions_answers = json.loads(request.form['questions_answers'])
-        logger.debug("*************** parse_xml ***************")
-        html_content = pipeline_manager.process_request(file, questions_answers)
         
-        html_output = validation_results_to_html(html_content)
-        with open("validation_results.html", "w", encoding="utf-8") as file:
-            file.write(html_output)
-        return html_output
+        # 2) Cargar las respuestas a preguntas anteriores (si existen)
+        #    - Podrías venir en 'request.form['questions_answers']'
+        #    - O bien en 'request.json' (dependiendo de cómo lo envíe el front)
+        # En este ejemplo, asumimos que se envía en form-data junto con el archivo:
+        questions_answers_str = request.form.get('questions_answers', '{}')
+        try:
+            questions_answers = json.loads(questions_answers_str)
+        except json.JSONDecodeError:
+            questions_answers = {}
+        
+        logger.debug(f"questions_answers = {questions_answers}")
+
+        # 3) Procesar la lógica: parsear y validar, y obtener
+        #    nuevas preguntas (si las reglas así lo requieren).
+        resultado_validacion = pipeline_manager.process_request(file, questions_answers)
+        # La forma exacta de pipeline_manager.process_request(...) depende de tu implementación.
+        # Se asume que retorna algo como un dict con:
+        #  {
+        #    "html_content": "...",
+        #    "new_questions": {...}  # dict con las preguntas nuevas, si las hay
+        #    "errors": [...]
+        #  }
+
+        # 4) Generar el HTML final (opcional, si tu pipeline ya no lo hace)
+        #    Supongamos que en 'resultado_validacion' viene la parte "html_content" con tu HTML
+        #    Si no, podemos generarlo con la función que ya usas:
+        html_output = validation_results_to_html(resultado_validacion.get("html_content", ""))
+        
+        # 5) Guardar el HTML en un fichero local (opcional, como en tu ejemplo)
+        with open("validation_results.html", "w", encoding="utf-8") as f:
+            f.write(html_output)
+
+        # 6) Responder con JSON que contenga:
+        #    - El HTML (si lo quieres incrustar)
+        #    - Las nuevas preguntas (si surgen)
+        #    - Cualquier otra info que necesites en el front
+        response_body = {
+            "html_output": html_output,
+            "new_questions": resultado_validacion.get("new_questions", {}),
+            "errors": resultado_validacion.get("errors", []),
+            # ...
+        }
+        return jsonify(response_body)
 
     except Exception as e:
         logger.error(f"Error al procesar el archivo: {str(e)}", exc_info=True)

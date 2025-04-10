@@ -1,12 +1,15 @@
 import { useState } from "react";
 import "./App.css";
-import { REPORT_SERVICE_URL, RULES_SERVICE_URL, RULES_EVALUATE_SERVICE_URL } from "./constants"
+import { RULES_SERVICE_URL, RULES_EVALUATE_SERVICE_URL } from "./constants";
 import Footer from "./components/Footer";
+import ModalForm from "./components/ModalForm";
 
 export default function XMLUploader() {
   const [file, setFile] = useState(null);
   const [results, setResults] = useState({});
   const [error, setError] = useState(null);
+  const [formFields, setFormFields] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const validateXML = async (xmlFile) => {
     const formData = new FormData();
@@ -19,8 +22,31 @@ export default function XMLUploader() {
       });
       const data = await response.json();
       setResults(data);
+
+      const hasFormFields = Object.values(data).some(value => value?.text && value?.type);
+      if (hasFormFields) {
+        setFormFields(data);
+        setIsModalOpen(true);
+      }
     } catch (err) {
       setError("Error al validar el XML");
+    }
+  };
+
+  const handleFormSubmit = async (formData) => {
+    try {
+      const response = await fetch(RULES_EVALUATE_SERVICE_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const evaluationResult = await response.json();
+      setResults((prev) => ({ ...prev, ...evaluationResult }));
+      setFormFields(null);
+      setIsModalOpen(false);
+    } catch (err) {
+      setError("Error al enviar los datos del formulario");
     }
   };
 
@@ -36,105 +62,89 @@ export default function XMLUploader() {
     }
   };
 
-  const handleDownloadReport = async () => {
-    // try {
-    //   const response = await fetch(REPORT_SERVICE_URL, {
-    //     method: "POST",
-    //     headers: { "Content-Type": "application/json" },
-    //     body: JSON.stringify(results),
-    //   });
-    //   const blob = await response.blob();
-    //   const url = window.URL.createObjectURL(blob);
-    //   const a = document.createElement("a");
-    //   a.href = url;
-    //   a.download = "informe.pdf";
-    //   document.body.appendChild(a);
-    //   a.click();
-    //   a.remove();
-    // } catch (err) {
-    //   setError("Error al generar el informe");
-    // }
+  const handleDownloadReport = () => {
     window.print();
   };
 
-  const getStatusColor = (status, severity) => {
-    if (status === 'success') return 'green';
+  const getStatusClass = (status, severity) => {
+    if (status === 'success') return 'status-success';
     if (status === 'error') {
-      if (severity === 'suspected') return 'orange';
-      return 'red';
+      return severity === 'suspected' ? 'status-suspected' : 'status-error';
     }
-    return 'black'; // fallback por si acaso
+    return '';
   };
-  
 
   return (
     <>
-    <div className="content" style={{ color: "#333", textAlign: "center", padding: "20px" }}>
-      <h1 style={{ color: "#4CAF50" }}>Datos Energéticos del Edificio</h1>
-      <div
-        style={{
-          border: "2px dashed #ccc",
-          borderRadius: "20px",
-          width: "300px",
-          height: "200px",
-          textAlign: "center",
-          padding: "20px",
-          margin: "50px auto",
-          backgroundColor: "#fff",
-        }}
-        onDragOver={(e) => e.preventDefault()}
-        onDrop={handleDrop}
-        className="drag-xml-box"
-      >
-        {file ? file.name : "Arrastra y suelta el archivo XML aquí"}
-      </div>
-      {error && <p style={{ color: "red" }}>{error}</p>}
-      {results && Object.keys(results).length > 0 && (
-        <>
-          <button style={{ padding: "10px", backgroundColor: "#4CAF50", color: "white", border: "none", cursor: "pointer", marginTop: "10px" }} onClick={handleDownloadReport}>
+      <div className="content">
+        <h1 className="title">Datos Energéticos del Edificio</h1>
+
+        <div
+          className="drag-xml-box"
+          onDragOver={(e) => e.preventDefault()}
+          onDrop={handleDrop}
+        >
+          {file ? file.name : "Arrastra y suelta el archivo XML aquí"}
+        </div>
+
+        {error && <p style={{ color: "red" }}>{error}</p>}
+
+        <ModalForm
+          isOpen={isModalOpen}
+          fields={formFields || {}}
+          onSubmit={handleFormSubmit}
+        />
+
+        {results && Object.keys(results).length > 0 && (
+          <button className="button" onClick={handleDownloadReport}>
             Generar Informe
           </button>
-        </>
-      )}
-      <div className="results" style={{
-        margin: "20px auto",
-        padding: "20px",
-        backgroundColor: "#fff",
-        borderRadius: "10px",
-        boxShadow: "0 0 10px rgba(0, 0, 0, 0.1)",
-        width: "80%",
-        textAlign: "left",
-      }}>
-        <h2 style={{ borderBottom: "2px solid #4CAF50", paddingBottom: "5px", color: "#4CAF50" }}>Resultados</h2>
-        {results.common_rules && (
-          <>
-            <h3 style={{ color: "#4CAF50" }}>Reglas Comunes</h3>
-            {results.common_rules.map((rule, idx) => (
-              <div key={idx} style={{ padding: "10px", border: "1px solid #ccc", borderRadius: "5px", marginBottom: "10px" }}>
-                <p><b>Regla ID:</b> {rule.rule_id}</p>
-                <p><b>Estado:</b> <span style={{ color: getStatusColor(rule.status, rule.severity) }}>{rule.status}</span></p>
-                <p><b>Mensaje:</b> {rule.message}</p>
-                <p><b>Descripción:</b> {rule.description}</p>
-              </div>
-            ))}
-          </>
         )}
-        {results.model_rules && Object.entries(results.model_rules).map(([model, rules], idx) => (
-          <div key={idx}>
-            <h3 style={{ color: "#4CAF50" }}>Modelo: {model}</h3>
-            {rules.map((rule, i) => (
-              <div key={i} style={{ padding: "10px", border: "1px solid #ccc", borderRadius: "5px", marginBottom: "10px" }}>
-                <p><b>Regla ID:</b> {rule.rule_id}</p>
-                <p><b>Estado:</b> <span style={{ color: getStatusColor(rule.status, rule.severity) }}>{rule.status}</span></p>
-                <p><b>Mensaje:</b> {rule.message}</p>
-                <p><b>Descripción:</b> {rule.description}</p>
-              </div>
-            ))}
-          </div>
-        ))}
+
+        <div className="results">
+          <h2>Resultados</h2>
+
+          {results.common_rules && (
+            <>
+              <h3>Reglas Comunes</h3>
+              {results.common_rules.map((rule, idx) => (
+                <div className="rule-card" key={idx}>
+                  <p><b>Regla ID:</b> {rule.rule_id}</p>
+                  <p>
+                    <b>Estado:</b>{" "}
+                    <span className={getStatusClass(rule.status, rule.severity)}>
+                      {rule.status}
+                    </span>
+                  </p>
+                  <p><b>Mensaje:</b> {rule.message}</p>
+                  <p><b>Descripción:</b> {rule.description}</p>
+                </div>
+              ))}
+            </>
+          )}
+
+          {results.model_rules && Object.entries(results.model_rules).map(([model, rules], idx) => (
+            <div key={idx}>
+              <h3>Modelo: {model}</h3>
+              {rules.map((rule, i) => (
+                <div className="rule-card" key={i}>
+                  <p><b>Regla ID:</b> {rule.rule_id}</p>
+                  <p>
+                    <b>Estado:</b>{" "}
+                    <span className={getStatusClass(rule.status, rule.severity)}>
+                      {rule.status}
+                    </span>
+                  </p>
+                  <p><b>Mensaje:</b> {rule.message}</p>
+                  <p><b>Descripción:</b> {rule.description}</p>
+                </div>
+              ))}
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
-      <Footer/>
-      </>
+
+      <Footer />
+    </>
   );
 }

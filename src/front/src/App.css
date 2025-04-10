@@ -4,4 +4,69 @@
   text-align: center;
   height: 80vh;
   flex: 1;
-} 
+  color: #333;
+  padding: 20px;
+}
+
+.title {
+  color: #4CAF50;
+}
+
+.drag-xml-box {
+  border: 2px dashed #ccc;
+  border-radius: 20px;
+  width: 300px;
+  height: 200px;
+  text-align: center;
+  padding: 20px;
+  margin: 50px auto;
+  background-color: #fff;
+}
+
+.button {
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.results {
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 80%;
+  text-align: left;
+}
+
+.results h2 {
+  border-bottom: 2px solid #4CAF50;
+  padding-bottom: 5px;
+  color: #4CAF50;
+}
+
+.results h3 {
+  color: #4CAF50;
+}
+
+.rule-card {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.status-success {
+  color: green;
+}
+
+.status-error {
+  color: red;
+}
+
+.status-suspected {
+  color: orange;
+}

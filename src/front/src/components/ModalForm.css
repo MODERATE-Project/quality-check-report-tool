@@ -13,9 +13,9 @@
   
   .modal-container {
     background-color: #fff;
-    padding: 20px 30px;
+    padding: 20px 60px;
     border-radius: 10px;
-    width: 600px;
+    width: 500px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
   }
   
@@ -26,7 +26,8 @@
   }
   
   .modal-field {
-    margin-bottom: 15px;
+    margin-top: 30px;
+    margin-bottom: 30px;
     text-align: left;
   }
   
@@ -37,10 +38,18 @@
   }
   
   .modal-field input {
-    width: 40%;
+    /* width: 40%; */
+    width: 100%;
     padding: 8px;
     box-sizing: border-box;
     font-size: 1.1rem;
+  }
+
+  .modal-field select {
+    width: 100%;
+    padding: 8px;
+    font-size: 1rem;
+    box-sizing: border-box;
   }
   
   .modal-buttons {

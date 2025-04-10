@@ -54,7 +54,7 @@ def upload_xml(): #para obtener las posibles preguntas para el usuario
     with open('questions.json', 'w', encoding='utf-8') as archivo:
         json.dump(questions, archivo, ensure_ascii=False, indent=4)
 
-    return json_string
+    return questions
 
 @app.route('/evaluate', methods=['POST'])
 def evaluate_xml():

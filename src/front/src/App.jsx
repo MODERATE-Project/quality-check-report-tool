@@ -10,6 +10,7 @@ export default function XMLUploader() {
   const [error, setError] = useState(null);
   const [formFields, setFormFields] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [formError, setFormError] = useState(null);
 
   const validateXML = async (xmlFile) => {
     const formData = new FormData();
@@ -36,29 +37,29 @@ export default function XMLUploader() {
   const handleFormSubmit = async (formData) => {
     try {
       const payload = new FormData();
-  
-      // Añadir el archivo XML
-      if (file) {
-        payload.append("file", file);
-      }
-  
-      // Añadir el JSON como string
+      if (file) payload.append("file", file);
       payload.append("form_data", JSON.stringify(formData));
   
       const response = await fetch(RULES_EVALUATE_SERVICE_URL, {
         method: "POST",
-        body: payload, // no se pone Content-Type, fetch lo define automáticamente
+        body: payload,
       });
   
+      if (!response.ok) {
+        throw new Error("Error al evaluar los datos. Intenta nuevamente.");
+      }
+  
       const evaluationResult = await response.json();
+  
       setResults((prev) => ({ ...prev, ...evaluationResult }));
       setFormFields(null);
       setIsModalOpen(false);
+      setFormError(null); 
     } catch (err) {
-      setError("Error al enviar los datos del formulario");
+      setFormError(err.message || "Error al enviar los datos del formulario.");
     }
   };
-  
+
   const handleDrop = async (event) => {
     event.preventDefault();
     const droppedFile = event.dataTransfer.files[0];
@@ -102,6 +103,7 @@ export default function XMLUploader() {
           isOpen={isModalOpen}
           fields={formFields || {}}
           onSubmit={handleFormSubmit}
+          error={formError}
         />
 
         {results && Object.keys(results).length > 0 && (

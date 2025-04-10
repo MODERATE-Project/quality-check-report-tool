@@ -63,3 +63,9 @@
     color: white;
   }
   
+  .modal-error.global {
+    color: red;
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+  }
+  

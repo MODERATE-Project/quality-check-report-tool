@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import "./ModalForm.css";
 
-export default function ModalForm({ isOpen, fields, onSubmit, error }) {
+export default function ModalForm({ isOpen, fields, onSubmit, error, onCancel }) {
   const [formValues, setFormValues] = useState({});
 
   const handleChange = (key, value) => {
@@ -11,7 +11,7 @@ export default function ModalForm({ isOpen, fields, onSubmit, error }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit(formValues); // Ahora el modal se cerrará desde el componente padre
+    onSubmit(formValues);
   };
 
   if (!isOpen) return null;
@@ -25,15 +25,32 @@ export default function ModalForm({ isOpen, fields, onSubmit, error }) {
           {Object.entries(fields).map(([key, field]) => (
             <div className="modal-field" key={key}>
               <label>{field.text}</label>
-              <input
-                type={field.type === "integer" ? "number" : "text"}
-                value={formValues[key] || ""}
-                onChange={(e) => handleChange(key, e.target.value)}
-              />
+
+              {field.type === "boolean" ? (
+                <select
+                  value={formValues[key] ?? ""}
+                  onChange={(e) => handleChange(key, e.target.value === "true")}
+                  required
+                >
+                  <option value="">Seleccione una opción</option>
+                  <option value="true">Sí</option>
+                  <option value="false">No</option>
+                </select>
+              ) : (
+                <input
+                  type="number"
+                  step={field.type === "number" ? "any" : "1"}
+                  value={formValues[key] ?? ""}
+                  onChange={(e) => handleChange(key, e.target.value)}
+                  required
+                />
+              )}
+
             </div>
           ))}
           <div className="modal-buttons">
             <button type="submit" className="modal-btn primary">Enviar</button>
+            <button type="button" className="modal-btn" onClick={onCancel}>Cancelar</button>
           </div>
         </form>
       </div>

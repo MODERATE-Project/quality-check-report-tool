@@ -60,6 +60,15 @@ export default function XMLUploader() {
     }
   };
 
+  const handleCancelForm = () => {
+    setFormFields(null);
+    setIsModalOpen(false);
+    setFile(null);
+    setError(null);
+    setResults({});
+  };
+  
+
   const handleDrop = async (event) => {
     event.preventDefault();
     const droppedFile = event.dataTransfer.files[0];
@@ -104,6 +113,7 @@ export default function XMLUploader() {
           fields={formFields || {}}
           onSubmit={handleFormSubmit}
           error={formError}
+          onCancel={handleCancelForm}
         />
 
         {results && Object.keys(results).length > 0 && (

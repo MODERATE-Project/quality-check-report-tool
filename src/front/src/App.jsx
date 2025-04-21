@@ -39,22 +39,22 @@ export default function XMLUploader() {
       const payload = new FormData();
       if (file) payload.append("file", file);
       payload.append("form_data", JSON.stringify(formData));
-  
+
       const response = await fetch(RULES_EVALUATE_SERVICE_URL, {
         method: "POST",
         body: payload,
       });
-  
+
       if (!response.ok) {
         throw new Error("Error al evaluar los datos. Intenta nuevamente.");
       }
-  
+
       const evaluationResult = await response.json();
-  
+
       setResults((prev) => ({ ...prev, ...evaluationResult }));
       setFormFields(null);
       setIsModalOpen(false);
-      setFormError(null); 
+      setFormError(null);
     } catch (err) {
       setFormError(err.message || "Error al enviar los datos del formulario.");
     }
@@ -67,7 +67,7 @@ export default function XMLUploader() {
     setError(null);
     setResults({});
   };
-  
+
 
   const handleDrop = async (event) => {
     event.preventDefault();

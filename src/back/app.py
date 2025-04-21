@@ -119,7 +119,9 @@ def evaluate_xml():
             "errors": resultado_validacion.get("errors", []),
             # ...
         }
-        return jsonify(response_body)
+        response = jsonify(response_body)
+        response.headers['Content-Type'] = 'application/json'
+        return response
 
     except Exception as e:
         logger.error(f"Error al procesar el archivo: {str(e)}", exc_info=True)

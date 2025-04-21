@@ -10,7 +10,38 @@ export default function ModalForm({ isOpen, fields, onSubmit, error, onCancel })
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit(formValues);
+
+    // 1) Convertimos las claves "regla_008_0" en un objeto anidado:
+    //    {
+    //      "regla_008": { "0": valor },
+    //      "regla_014": { "0": valor, "1": valor },
+    //      ...
+    //    }
+    const groupedValues = Object.entries(formValues).reduce((acc, [key, val]) => {
+      // key = "regla_008_0", "regla_008_1", etc.
+      const lastUnderscoreIndex = key.lastIndexOf("_");
+      if (lastUnderscoreIndex === -1) {
+        console.warn(`Clave sin el formato esperado: ${key}`);
+        return acc;
+      }
+
+      // "regla_008" y "0"
+      const ruleId = key.substring(0, lastUnderscoreIndex);       // "regla_008"
+      const questionIndex = key.substring(lastUnderscoreIndex + 1); // "0"
+
+      // Creamos el objeto de la regla si no existe
+      if (!acc[ruleId]) {
+        acc[ruleId] = {};
+      }
+
+      // Añadimos la respuesta bajo su pregunta correspondiente
+      acc[ruleId][questionIndex] = val;
+
+      return acc;
+    }, {});
+
+    // 2) Llamamos a onSubmit con el objeto anidado
+    onSubmit(groupedValues);
   };
 
   if (!isOpen) return null;
@@ -19,6 +50,7 @@ export default function ModalForm({ isOpen, fields, onSubmit, error, onCancel })
     <div className="modal-overlay">
       <div className="modal-container">
         <h2 className="modal-title">Información adicional requerida</h2>
+        
         {error && <p className="modal-error global">{error}</p>}
         <form onSubmit={handleSubmit} className="modal-body">
           {Object.entries(fields).map(([key, field]) => (
@@ -44,7 +76,6 @@ export default function ModalForm({ isOpen, fields, onSubmit, error, onCancel })
                   required
                 />
               )}
-
             </div>
           ))}
         </form>
@@ -56,4 +87,3 @@ export default function ModalForm({ isOpen, fields, onSubmit, error, onCancel })
     </div>
   );
 }
-

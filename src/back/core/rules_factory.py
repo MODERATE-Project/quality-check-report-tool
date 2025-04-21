@@ -248,7 +248,22 @@ class RulesFactory:
 
         # Aplicar reglas comunes
         for rule in self.common_rules:
-            result = rule.validate(epc, questions[rule.id])
+            logger.debug(f"Aplicando regla común: {rule.id}")
+            # Comprobar si la regla tiene preguntas asociadas
+            if rule.id not in questions:
+                logger.debug(f"Regla {rule.id} no tiene preguntas asociadas.")
+                result = rule.validate(epc)
+                logger.debug(f"result: {result}")
+            else:
+                logger.debug("***************************************************************************************")
+                # mostrar el contenido de questions
+                questions_for_rule = questions[rule.id]
+                logger.debug(f"questions: {questions_for_rule}")
+                logger.debug("***************************************************************************************")
+                result = rule.validate(epc, questions_for_rule)
+                logger.debug(f"result: {result}")
+
+                
             validation_results["common_rules"].append({
                 "rule_id": rule.id,
                 "status": result.get("status"),

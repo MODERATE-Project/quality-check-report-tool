@@ -32,6 +32,10 @@ class DataValidationInXlsxRule(BaseRule):
             validation_result["message"] = f"No se encontró valor para el XPath: {self.xpath}"
             return validation_result
 
+
+        # Para ignorar tildes y mayúsculas en el valor a validar
+        normalized_value_to_validate = unidecode(value_to_validate.lower().strip())
+
         # Leer el archivo Excel
         try:
             excel_data = pd.read_excel(self.valid_values_source)
@@ -42,20 +46,33 @@ class DataValidationInXlsxRule(BaseRule):
         # Asegurar que la columna "column_in_source" existe
         print(f"Columnas detectadas: {excel_data.columns.tolist()}")
         if self.column_in_source not in excel_data.columns:
-            validation_result["message"] = f"La columna ('{self.column_in_source}') no está presente en el archivo Excel."
+            validation_result["message"] = (
+                f"La columna ('{self.column_in_source}') no está presente en el archivo Excel."
+            )
             return validation_result
 
-        # Verificar si el valor está presente en la columna "column_in_source"
+        # Lista con todos los valores de la columna (convertidos a str)
         valid_values = excel_data[self.column_in_source].astype(str).tolist()
 
-        if self.allow_multiple_languages:
-            # Convertir todo a minúsculas para permitir coincidencias más flexibles
-            valid_values = [unidecode(val.lower()) for val in valid_values]
-            value_to_validate = unidecode(value_to_validate.lower())
+        # Para cada elemento de la columna, separamos por '/', normalizamos (lower, unidecode) y
+        # verificamos si 'normalized_value_to_validate' está presente en alguno de los "sinónimos".
+        valor_encontrado = False
+        for val in valid_values:
+            # Si la columna contiene varios valores separados por '/', los separamos en una lista
+            posibles_valores = [unidecode(x.lower().strip()) for x in val.split("/")]
+            if normalized_value_to_validate in posibles_valores:
+                valor_encontrado = True
+                break
 
-        if value_to_validate not in valid_values:
-            validation_result["details"] = f"El valor '{value_to_validate}' no se encuentra en la columna '{self.column_in_source}'."
-            validation_result["message"] = f"El nombre de la población ('{value_to_validate}' ) no figura en la listado de poblaciones de la Comunidad Valenciana que figura en Catastro."
+        if not valor_encontrado:
+            validation_result["details"] = (
+                f"El valor '{value_to_validate}' no se encuentra en la columna "
+                f"'{self.column_in_source}' (teniendo en cuenta variaciones por idioma)."
+            )
+            validation_result["message"] = (
+                f"El nombre de la población ('{value_to_validate}') no figura en la lista "
+                f"de poblaciones válidas para la Comunidad Valenciana."
+            )
             return validation_result
 
         # Si pasa todas las validaciones

@@ -5,7 +5,7 @@
   "name": "Municipio",
   "severity": "Error",
   "class": "DataValidationInXlsxRule",
-  "description": "El municipio debe coincidir con los indicados en la lista “Listado Poblaciones Zonificación Climática Comunidad Valenciana.xlsx”. Algunos pueblos están indicados en castellano y valenciano. Todas las versiones son válidas para cada uno.",
+  "description": "El municipio debe coincidir con los indicados en la lista “Listado Poblaciones Zonificación Climática Comunidad Valenciana.xlsx”. Algunos pueblos están indicados en castellano y valenciano. Todas las versiones son válidas para cada uno. Ignorar tildes.",
   "parameters": {
     "xpath": "//IdentificacionEdificio/Municipio",
 	"column_in_source": "MUNICIPIO",

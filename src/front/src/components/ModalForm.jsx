@@ -1,4 +1,3 @@
-// src/components/ModalForm.jsx
 import React, { useState } from "react";
 import "./ModalForm.css";
 
@@ -21,7 +20,7 @@ export default function ModalForm({ isOpen, fields, onSubmit, error, onCancel })
       <div className="modal-container">
         <h2 className="modal-title">Información adicional requerida</h2>
         {error && <p className="modal-error global">{error}</p>}
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="modal-body">
           {Object.entries(fields).map(([key, field]) => (
             <div className="modal-field" key={key}>
               <label>{field.text}</label>
@@ -48,11 +47,11 @@ export default function ModalForm({ isOpen, fields, onSubmit, error, onCancel })
 
             </div>
           ))}
+        </form>
           <div className="modal-buttons">
-            <button type="submit" className="modal-btn primary">Enviar</button>
+            <button type="submit" className="modal-btn primary" onClick={handleSubmit}>Enviar</button>
             <button type="button" className="modal-btn" onClick={onCancel}>Cancelar</button>
           </div>
-        </form>
       </div>
     </div>
   );

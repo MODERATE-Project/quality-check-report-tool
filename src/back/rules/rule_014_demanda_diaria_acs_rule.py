@@ -1,6 +1,7 @@
 from typing import Dict, Tuple, Optional, Any
 from core.epc_dto import EpcDto
 from .base_rule import BaseRule, register_rule_class
+import logging
 
 # Tabla de demanda de ACS en función del número de dormitorios (en litros/día)
 DEMANDA_POR_DORMITORIOS = {
@@ -23,7 +24,7 @@ FACTOR_DESCENTRALIZACION = {
     "100": 0.75,
     "101": 0.70
 }
-
+logger = logging.getLogger(__name__)
 
 @register_rule_class
 class DemandaDiariaACSRule(BaseRule):
@@ -81,7 +82,17 @@ class DemandaDiariaACSRule(BaseRule):
         return (self.id, questions_to_ask)
 
 
-    def validate(self, epc: EpcDto, user_responses: Dict[str, Any]) -> Dict:
+    def validate(self, epc: EpcDto, questions) -> Dict:
+        logging.debug("validate de la regla 014")
+        logging.debug("questions: %s", questions)
+
+        validation_result = {
+            "rule_id": self.id,
+            "status": "error",
+            "message": "",
+            "description": self.description,
+            "details": {}
+        }
         """
         1. Toma la DemandaDiariaACS del XML.
         2. Según building_type, lee la respuesta (nº dormitorios o nº viviendas).
@@ -100,16 +111,23 @@ class DemandaDiariaACSRule(BaseRule):
         except ValueError:
             return {"error": "DemandaDiariaACS no es un valor numérico válido."}
 
-        # La respuesta del usuario: en get_question() usamos f"{self.id}_0"
-        user_response_key = f"{self.id}_0"
-        if user_response_key not in user_responses:
+        # Las respuestas del usuario"
+        user_response_key = "0"
+        if user_response_key not in questions:
             # Si no está la respuesta, no podemos validar
-            return {"error": "No se ha recibido respuesta del usuario para DemandaDiariaACS."}
+            validation_result["status"] = "error"
+            validation_result["message"] = "La demanda de ACS no es válida."
+            validation_result["details"] = "No se ha recibido respuesta del usuario para Demanda Diaria ACS"
+            return validation_result
 
         try:
-            user_value = int(user_responses[user_response_key])
+            user_value = int(questions[user_response_key])
         except ValueError:
-            return {"error": "La respuesta del usuario no es un número entero válido."}
+            validation_result["status"] = "error"
+            validation_result["message"] = "La demanda de ACS no es válida."
+            validation_result["details"] = "La respuesta del usuario no es un número entero válido."
+            return validation_result
+
 
         # Calculamos la demanda 'esperada' según el caso
         if building_type == "BloqueDeViviendaCompleto":
@@ -142,16 +160,17 @@ class DemandaDiariaACSRule(BaseRule):
         inferior = demanda_acs_esperada * (1 - margen_admitido)
         superior = demanda_acs_esperada * (1 + margen_admitido)
 
+        logging.debug("En el if de la demanda")
         if not (inferior <= demanda_acs_real <= superior):
-            return {
-                "error": (
-                    f"La DemandaDiariaACS real ({demanda_acs_real:.2f} L/día) no concuerda con "
-                    f"la esperada ({demanda_acs_esperada:.2f} L/día ±10%)."
-                )
-            }
-
+            validation_result["status"] = "error"
+            validation_result["message"] = "La demanda de ACS no es válida."
+            validation_result["details"] = {f"La DemandaDiariaACS real ({demanda_acs_real:.2f} L/día) no concuerda con la esperada ({demanda_acs_esperada:.2f} L/día ±10%)."}
+            return validation_result
         # Si todo OK
-        return {}
+        logging.debug("En el Todo OK de la regla_014")
+        validation_result["status"] = "sucess"
+        validation_result["message"] = f"La demanda de ACS real es: ({demanda_acs_real:.2f} L/día"
+        return validation_result
 
     def _obtener_factor_descentralizacion(self, num_viviendas: int) -> float:
         """

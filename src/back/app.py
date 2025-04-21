@@ -78,15 +78,17 @@ def evaluate_xml():
             return jsonify({"error": "No selected file"}), 400
         
         # 2) Cargar las respuestas a preguntas anteriores (si existen)
-        #    - Podrías venir en 'request.form['questions_answers']'
+        #    - Podrías venir en 'request.form['form_data']'
         #    - O bien en 'request.json' (dependiendo de cómo lo envíe el front)
         # En este ejemplo, asumimos que se envía en form-data junto con el archivo:
-        questions_answers_str = request.form.get('questions_answers', '{}')
+        questions_answers_str = request.form.get('form_data', '{}')
+        logger.debug("***************************   questions_answers  ***********************************************************")
+        
         try:
             questions_answers = json.loads(questions_answers_str)
         except json.JSONDecodeError:
             questions_answers = {}
-        
+        logger.debug("*****************************************************************************************************************")
         logger.debug(f"questions_answers = {questions_answers}")
 
         # 3) Procesar la lógica: parsear y validar, y obtener
@@ -103,7 +105,9 @@ def evaluate_xml():
         # 4) Generar el HTML final (opcional, si tu pipeline ya no lo hace)
         #    Supongamos que en 'resultado_validacion' viene la parte "html_content" con tu HTML
         #    Si no, podemos generarlo con la función que ya usas:
-        html_output = validation_results_to_html(resultado_validacion.get("html_content", ""))
+        logger.debug("Generando HTML de validación")
+        logger.debug(f"resultado_validacion: {resultado_validacion}")
+        html_output = validation_results_to_html(resultado_validacion)#.get("html_content", ""))
         
         # 5) Guardar el HTML en un fichero local (opcional, como en tu ejemplo)
         with open("validation_results.html", "w", encoding="utf-8") as f:

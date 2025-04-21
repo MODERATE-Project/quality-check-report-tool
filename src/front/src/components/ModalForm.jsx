@@ -1,8 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import "./ModalForm.css";
 
 export default function ModalForm({ isOpen, fields, onSubmit, error, onCancel }) {
   const [formValues, setFormValues] = useState({});
+
+  const handleKeyDown = useCallback(
+    (e) => {
+      if (e.key === "Escape") {
+        onCancel();            // reutilizamos la misma función
+      }
+    },
+    [onCancel]
+  );
+
+  useEffect(() => {
+    if (!isOpen) return;        // sólo añadimos el listener cuando el modal está abierto
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [isOpen, handleKeyDown]);
 
   const handleChange = (key, value) => {
     setFormValues((prev) => ({ ...prev, [key]: value }));
@@ -49,6 +64,16 @@ export default function ModalForm({ isOpen, fields, onSubmit, error, onCancel })
   return (
     <div className="modal-overlay">
       <div className="modal-container">
+
+      <button
+          className="modal-close-btn"
+          aria-label="Cerrar"
+          onClick={onCancel}
+          type="button"
+        >
+          &times;
+        </button>
+
         <h2 className="modal-title">Información adicional requerida</h2>
         
         {error && <p className="modal-error global">{error}</p>}

@@ -65,7 +65,7 @@ class PipelineManager:
         validation_results = self.ruleManager.apply_rules(epc,questions)
         # Imprimir resultados (para depuración)
         logger.debug("Resultados de las validaciones:")
-        logger.debug(json.dumps(validation_results, indent=4, ensure_ascii=False))
+        logger.debug(json.dumps(validation_results, indent=4, ensure_ascii=False,default=lambda o: list(o) if isinstance(o, set) else str(o)))
 
         return validation_results
     

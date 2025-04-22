@@ -46,7 +46,7 @@ class ProcedimientoVersionCheckRule(BaseRule):
         self.xpath = self.parameters.get("xpath")
         self.valid_versions = self.parameters.get("valid_versions", {})
 
-    def validate(self, epc: "EpcDto", questions) -> Dict:
+    def validate(self, epc: "EpcDto") -> Dict:
         """
         Valida que el procedimiento especificado en el EPC tiene una versión válida.
         """

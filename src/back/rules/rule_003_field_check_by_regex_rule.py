@@ -15,13 +15,7 @@ class FieldCheckByRegExRule(BaseRule):
         """
         Valida que el valor en el campo especificado por 'xpath' cumple con el formato descrito por la expresión regular.
         """
-        validation_result = {
-            "status": "error",
-            "rule_id": self.id,
-            "message": "",
-            "description": self.description,
-            "details": {}
-        }
+        validation_result = self._new_result()  # por defecto status="error"
 
         # Obtener el valor del campo especificado por XPath
         value_to_validate = epc.get_value_by_xpath(self.xpath)

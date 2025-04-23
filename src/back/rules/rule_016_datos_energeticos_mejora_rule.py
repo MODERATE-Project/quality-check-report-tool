@@ -14,13 +14,7 @@ class DatosEnergeticosMejoraRule(BaseRule):
         Verifica que en <MedidasDeMejora> haya al menos una <Medida>
         y que ninguna medida tenga los tres campos (<Nombre>, <Descripcion>, <CosteEstimado>) vacíos.
         """
-        validation_result = {
-            "rule_id": self.id,
-            "status": "success",
-            "message": "Las medidas de mejora están correctamente definidas.",
-            "description": self.description,
-            "details": {}
-        }
+        validation_result = self._new_result()  # por defecto status="error"
 
         # Obtener todos los nodos <Medida> dentro de <MedidasDeMejora>
         medidas = epc.get_nodes_by_xpath(self.xpath_medidas_mejora)

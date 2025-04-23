@@ -67,13 +67,7 @@ class ProcedimientoVersionCheckRule(BaseRule):
 
     # -------------------------------------------------------------------------
     def validate(self, epc: "EpcDto") -> Dict:
-        result = {
-            "rule_id":     self.id,
-            "status":      "error",
-            "message":     "",
-            "description": self.description,
-            "details":     {}
-        }
+        result = self._new_result()  # por defecto status="error"
 
         proc_raw = epc.get_value_by_xpath(self.xpath)
         if proc_raw is None:

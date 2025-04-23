@@ -12,13 +12,7 @@ class PruebasComprobacionesInspeccionesRule(BaseRule):
         self.dias_limite = 90  # Número máximo de días permitidos
 
     def validate(self, epc: "EpcDto") -> Dict:
-        validation_result = {
-            "rule_id": self.id,
-            "status": "success",
-            "message": "Validación correcta.",
-            "description": self.description,
-            "details": {}
-        }
+        validation_result = self._new_result()  # por defecto status="error"
 
         # Obtener la fecha de visita y la fecha del certificado
         fecha_visita_str = epc.get_value_by_xpath(self.xpath_fecha_visita)

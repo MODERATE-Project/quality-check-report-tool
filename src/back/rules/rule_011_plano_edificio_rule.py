@@ -11,13 +11,7 @@ class PlanoEdificioRule(BaseRule):
         """
         Valida que el plano del edificio esté presente y no vacío en el XML.
         """
-        validation_result = {
-            "rule_id": self.id,
-            "status": "error",
-            "message": "",
-            "description": self.description,
-            "details": {}
-        }
+        validation_result = self._new_result()  # por defecto status="error"
 
         # Obtener el valor del plano desde el XML
         plano_value = epc.get_value_by_xpath(self.xpath_plano)

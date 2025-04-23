@@ -15,16 +15,17 @@ class DataValidationInXlsxRule(BaseRule):
 
 
     def validate(self, epc: "EpcDto") -> Dict:
+        validation_result = self._new_result()  # por defecto status="error"
         """
         Valida que el valor en el campo especificado por 'xpath' esté en la columna 'column_in_source' del Excel.
         """
-        validation_result = {
-            "status": "error",
-            "rule_id": self.id,
-            "message": "",
-            "description": self.description,
-            "details": {}
-        }
+        # validation_result = {
+        #     "status": "error",
+        #     "rule_id": self.id,
+        #     "message": "",
+        #     "description": self.description,
+        #     "details": {}
+        # }
 
         # Leer el valor desde el documento EPC utilizando XPath
         value_to_validate = epc.get_value_by_xpath(self.xpath)

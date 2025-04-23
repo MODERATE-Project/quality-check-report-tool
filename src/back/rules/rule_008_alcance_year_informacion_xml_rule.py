@@ -90,14 +90,7 @@ class AlcanceYearInformacionXMLRule(BaseRule):
         anno_raw      = epc.get_value_by_xpath(self.xpathAnno)
 
         # Resultado base
-        result = {
-            "rule_id":     self.id,
-            "status":      "error",
-            "message":     "",
-            "description": self.description,
-            "details":     {},
-            "severity":    self.severity
-        }
+        result = self._new_result()  # por defecto status="error"
 
         # Validaciones básicas de existencia y tipo
         if alcance_value is None or anno_raw is None:

@@ -76,47 +76,67 @@ class AlcanceYearInformacionXMLRule(BaseRule):
         logger.debug("get_question %s: no hay pregunta", self.id)
         return None
 
+    # … imports y class AlcanceYearInformacionXMLRule …
 
-    def validate(self, epc: "EpcDto", questions) -> Dict:
-        result = {
-            "rule_id":  self.id,
-            "status":   "error",
-            "message":  "",
-            "description": self.description,
-            "details":  {},
-            "severity": self.severity
-        }
-
-        # 1) Datos brutos ---------------------------------------------------------
+    # ──────────────────────────────────────────────────────────────────────
+    def validate(self, epc: "EpcDto", questions: Dict = None) -> Dict:
+        """
+        • Si no llegan 'questions'  →  asumimos que get_question() no vio conflicto,
+          y devolvemos success inmediato (versión corta original).
+        • Si llegan 'questions'     →  aplicamos la lógica completa
+          (rango + respuesta del usuario).
+        """
         alcance_value = epc.get_value_by_xpath(self.xpath)
         anno_raw      = epc.get_value_by_xpath(self.xpathAnno)
+
+        # Resultado base
+        result = {
+            "rule_id":     self.id,
+            "status":      "error",
+            "message":     "",
+            "description": self.description,
+            "details":     {},
+            "severity":    self.severity
+        }
+
+        # Validaciones básicas de existencia y tipo
         if alcance_value is None or anno_raw is None:
             result["message"] = "Faltan datos de alcance o año."
             return result
-
         try:
             anno_construccion = int(anno_raw)
         except ValueError:
             result["message"] = f"Año no numérico: {anno_raw}"
             return result
 
-        # 2) Recorremos las condiciones ------------------------------------------
+        # ────────────────────────────────────────────────────────────────
+        #  CASO 1: no se pasa 'questions'  →  versión corta
+        # ────────────────────────────────────────────────────────────────
+        if questions is None:
+            result.update({
+                "status":  "success",
+                "message": (f"El alcance '{alcance_value}' es compatible con "
+                            f"el año {anno_construccion}."),
+                "details": {"validated_value": alcance_value,
+                            "validated_ano_construccion": anno_construccion}
+            })
+            return result
+
+        # ────────────────────────────────────────────────────────────────
+        #  CASO 2: se reciben respuestas de usuario  →  versión larga
+        # ────────────────────────────────────────────────────────────────
         for idx, cond in enumerate(self.conditions):
             if alcance_value not in cond.get("values", []):
-                continue                     # esta condición no aplica
+                continue
 
             yr = cond.get("year_range", {})
-            min_y = int(yr["min"]) if yr.get("min") is not None else None
-            max_y = int(yr["max"]) if yr.get("max") is not None else None
+            min_y = yr.get("min")
+            max_y = yr.get("max")
 
-            dentro = True
-            if min_y is not None and anno_construccion < min_y:
-                dentro = False
-            if max_y is not None and anno_construccion > max_y:
-                dentro = False
+            dentro = ((min_y is None or anno_construccion >= min_y) and
+                      (max_y is None or anno_construccion <= max_y))
 
-            # 2a) Compatible → success
-            if dentro:
+            if dentro:                      # success directo
                 result.update({
                     "status": "success",
                     "message": (f"El alcance '{alcance_value}' es compatible con "
@@ -126,19 +146,22 @@ class AlcanceYearInformacionXMLRule(BaseRule):
                 })
                 return result
 
-            # 2b) Fuera de rango → comprobar respuesta del usuario
-            if questions:
-                if self.id in questions and isinstance(questions[self.id], dict):
-                    answers = questions[self.id]   # formato A
-                else:
-                    answers = questions            # formato B
-                user_resp = answers.get(str(idx))
-            else:
-                user_resp = None
+            # --- fuera de rango → consultar respuesta ---
+            answers = (questions.get(self.id) if self.id in questions else questions)
+            user_resp = answers.get(str(idx)) if isinstance(answers, dict) else None
 
-            if user_resp is False:        # respondió "No"
+            if user_resp is True:          # usuario confirmó actualización (sí)
                 result.update({
-                    "status": "error",
+                    "status":  "success",
+                    "message": "Se confirma que se trata de una actualización ya registrada.",
+                    "details": {"validated_value": alcance_value,
+                                "validated_ano_construccion": anno_construccion}
+                })
+                return result
+
+            if user_resp is False:         # usuario dijo que NO
+                result.update({
+                    "status":  "error",
                     "message": ("El alcance indicado no es compatible con el año de "
                                 "construcción de la edificación."),
                     "details": {"provided_value": alcance_value,
@@ -147,132 +170,15 @@ class AlcanceYearInformacionXMLRule(BaseRule):
                 })
                 return result
 
-            if user_resp is True:         # respondió "Sí"
-                result.update({
-                    "status": "success",
-                    "message": "Se confirma que se trata de una actualización ya registrada.",
-                    "details": {"validated_value": alcance_value,
-                                "validated_ano_construccion": anno_construccion}
-                })
-                return result
-
-            # Sin respuesta → error temporal
+            # Aún no hay respuesta
             result.update({
-                "status": "error",
                 "message": "Se requiere confirmación del usuario para validar este alcance.",
                 "details": {"provided_value": alcance_value,
                             "provided_ano_construccion": anno_construccion}
             })
             return result
 
-        # 3) El alcance no coincide con ninguna lista de valores ------------------
+        # El alcance no aparece en ninguna lista de valores
         result["message"] = "El valor de <AlcanceInformacionXML> no está en la lista permitida."
         result["details"] = {"provided_value": alcance_value}
         return result
-
-
-
-    
-    # def validate(self, epc: "EpcDto", questions) -> Dict:
-    #     """
-    #     Valida que el valor del campo 'AlcanceInformacionXML' sea uno de los permitidos y que el año de construcción
-    #     cumpla con las condiciones de validación establecidas.
-    #     """
-    #     validation_result = {
-    #         "rule_id": self.id,
-    #         "status": "error",
-    #         "message": "",
-    #         "description": self.description,
-    #         "details": {},
-    #         "severity": self.severity
-    #     }
-
-    #     # Obtener el valor del alcance desde el EPC
-    #     alcance_value = epc.get_value_by_xpath(self.xpath)
-    #     # Obtener el año de construcción
-    #     anno_construccion = epc.get_value_by_xpath(self.xpathAnno)
-
-    #     if alcance_value is None:
-    #         validation_result["message"] = f"No se encontró valor para el XPath: {self.xpath}"
-    #         return validation_result
-
-    #     if anno_construccion is None:
-    #         validation_result["message"] = f"No se encontró el año de construcción en el XPath: {self.xpathAnno}"
-    #         return validation_result
-
-    #     try:
-    #         anno_construccion = int(anno_construccion)
-    #     except ValueError:
-    #         validation_result["message"] = f"El valor de 'AnoConstruccion' no es un número válido: {anno_construccion}"
-    #         validation_result["details"] = {"provided_ano_construccion": anno_construccion}
-    #         return validation_result
-
-    #     # Validar si el alcance está en la lista permitida y si cumple con el año correspondiente
-    #     for condition in self.conditions:
-    #         valid_values = condition.get("values", [])
-    #         year_range = condition.get("year_range", {})
-
-    #         # Si el alcance está dentro de los valores permitidos en la condición actual
-    #         if alcance_value in valid_values:
-    #             min_year = year_range.get("min")
-    #             max_year = year_range.get("max")
-
-    #             # Evaluar si el año de construcción está dentro del rango esperado
-    #             if (min_year is None or anno_construccion >= min_year) and (max_year is None or anno_construccion <= max_year):
-    #                 validation_result["status"] = "success"
-    #                 validation_result["message"] = (
-    #                     f"El alcance '{alcance_value}' es compatible con el año de construcción '{anno_construccion}'."
-    #                 )
-    #                 validation_result["details"] = {
-    #                     "validated_value": alcance_value,
-    #                     "validated_ano_construccion": anno_construccion
-    #                 }
-    #                 return validation_result
-    #             else: 
-    #                 # Manejar el caso de actualización de certificado
-    #                 # hay que mirar la pregunta que se ha hecho al usuario y si la respuesta es "no" entonces se lanza el error
-    #                 # Si la respuesta es "no", se lanza el error
-    #                 user_response_key = self.id + "_" + str(self.conditions.index(condition))
-    #                 if (questions is not None and self.id + "_" in questions):
-    #                     user_response_key = self.id + "_"
-    #                     user_response = questions.get(user_response_key, {}).get("response")
-    #                     if user_response == "False":
-    #                         validation_result["status"] = "error"
-    #                         validation_result["message"] = (
-    #                             "El alcance del certificado indicado no es compatible con el año de construcción de la edificación."
-    #                         )
-    #                         validation_result["details"] = {
-    #                             "provided_value": alcance_value,
-    #                             "provided_ano_construccion": anno_construccion,
-    #                             "expected_condition": year_range
-    #                         }
-    #                         return validation_result
-    #                 # Si la respuesta es "si", se devuelve un mensaje de éxito  
-
-    #                 validation_result["status"] = "success"
-    #                 validation_result["message"] = (    
-    #                     f"El alcance '{alcance_value}' es compatible con el año de construcción '{anno_construccion}'."
-    #                 )
-    #                 validation_result["details"] = {    
-    #                     "validated_value": alcance_value,
-    #                     "validated_ano_construccion": anno_construccion
-    #                 }
-    #                 return validation_result
-
-    #     # Si no se encontró una condición válida
-    #     validation_result["message"] = (
-    #         f"No concuerda el alcance con la lista de categorías admitidas:\n"
-    #         f"- CertificacionExistente\n"
-    #         f"- VerificacionExistente\n"
-    #         f"- CertificacionVerificacionExistente\n"
-    #         f"- CertificacionNuevo\n"
-    #         f"- VerificacionNuevo\n"
-    #         f"- CertificacionVerificacionNuevo"
-    #     )
-    #     validation_result["details"] = {
-    #         "provided_value": alcance_value
-    #     }
-    #     return validation_result
-
-
-    

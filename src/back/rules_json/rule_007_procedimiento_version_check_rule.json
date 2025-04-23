@@ -11,10 +11,10 @@
     "valid_versions": {
       "CYPETHERM HE PLUS": "2025a",
       "SG SAVE": "3502",
-      "TEKTON 3D": "1180",
+      "TEKTON 3D": "1190",
       "CERMA": "5.11",
-      "CE3X": "2.3",
-	  "Complemento CE3X": "2307", 
+      "CEX": "2.3",
+	  "Complemento CEX": "2307", 
       "CE3": "20160906"
     }
   }

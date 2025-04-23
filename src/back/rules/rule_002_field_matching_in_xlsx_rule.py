@@ -1,6 +1,7 @@
 from .base_rule import BaseRule, register_rule_class
 import pandas as pd
 from typing import Dict
+from unidecode import unidecode
 
 
 @register_rule_class
@@ -11,64 +12,90 @@ class FieldMatchingInXlsxRule(BaseRule):
 
     def __init__(self, rule_data: Dict):
         super().__init__(rule_data)
-        self.xpath = self.parameters.get("xpath")
-        self.dependent_field = self.parameters.get("dependent_field")
+        self.xpath = self.parameters.get("xpath")                 # zona climática a validar
+        self.dependent_field = self.parameters.get("dependent_field")  # municipio
         self.valid_values_source = self.parameters.get("valid_values_source")
 
+    # --------------------------------------------------------------------- #
+    #  Utilidades
+    # --------------------------------------------------------------------- #
+    @staticmethod
+    def _normalize(text: str) -> str:
+        """minúsculas, sin tildes, sin espacios extremos"""
+        return unidecode(text.strip().lower())
+
+    @staticmethod
+    def _split_and_normalize(cell: str):
+        """Divide por '/', normaliza cada fragmento"""
+        return [FieldMatchingInXlsxRule._normalize(p) for p in str(cell).split("/")]
+
+    # --------------------------------------------------------------------- #
+    #  Validación principal
+    # --------------------------------------------------------------------- #
     def validate(self, epc: "EpcDto") -> Dict:
-        """
-        Valida que el valor en el campo especificado por 'xpath' coincide con un valor válido dependiente
-        del valor en 'dependent_field' dentro del archivo Excel.
-        """
-        validation_result = {
-            "status": "error",
-            "rule_id": self.id,
-            "message": "",
+        res = {
+            "rule_id":     self.id,
+            "status":      "error",
+            "message":     "",
             "description": self.description,
-            "details": {}
+            "details":     {}
         }
 
-        # Leer los valores desde el documento EPC utilizando XPath
-        value_to_validate = epc.get_value_by_xpath(self.xpath)
-        dependent_value = epc.get_value_by_xpath(self.dependent_field)
+        # 1) Valores leídos del XML --------------------------------------------------
+        zona_xml_raw = epc.get_value_by_xpath(self.xpath)
+        municipio_raw = epc.get_value_by_xpath(self.dependent_field)
 
-        if value_to_validate is None:
-            validation_result["message"] = f"No se encontró valor para el XPath: {self.xpath}"
-            return validation_result
+        if zona_xml_raw is None:
+            res["message"] = f"No se encontró valor para el XPath: {self.xpath}"
+            return res
+        if municipio_raw is None:
+            res["message"] = f"No se encontró valor para el campo dependiente: {self.dependent_field}"
+            return res
 
-        if dependent_value is None:
-            validation_result["message"] = f"No se encontró valor para el campo dependiente: {self.dependent_field}"
-            return validation_result
+        zona_xml      = self._normalize(zona_xml_raw)
+        municipio_xml = self._normalize(municipio_raw)
 
-        # Leer el archivo Excel
+        # 2) Cargamos el Excel -------------------------------------------------------
         try:
-            excel_data = pd.read_excel(self.valid_values_source)
+            df = pd.read_excel(self.valid_values_source)
         except Exception as e:
-            validation_result["message"] = f"No se pudo leer el archivo Excel '{self.valid_values_source}': {e}"
-            return validation_result
+            res["message"] = f"No se pudo leer el archivo Excel '{self.valid_values_source}': {e}"
+            return res
 
-        # Asegurar que las columnas requeridas existen
-        if self.MUNICIPIO_FIELD_NAME not in excel_data.columns or self.ZONA_CLIMATICA_FIELD_NAME not in excel_data.columns:
-            validation_result["message"] = "El archivo Excel no contiene las columnas 'MUNICIPIO' y 'ZONA_CLIMATICA'."
-            return validation_result
+        for col in (self.MUNICIPIO_FIELD_NAME, self.ZONA_CLIMATICA_FIELD_NAME):
+            if col not in df.columns:
+                res["message"] = f"El Excel no contiene la columna '{col}'."
+                return res
 
-        # Filtrar las zonas climáticas válidas para el municipio
-        valid_values = excel_data[excel_data[self.MUNICIPIO_FIELD_NAME].str.strip().str.lower() == dependent_value.strip().lower()]
+        # 3) Recorremos filas, buscando las que contengan nuestro municipio ----------
+        zonas_validas = set()
 
-        if valid_values.empty:
-            validation_result["message"] = f"No se encontraron valores válidos para el municipio '{dependent_value}'."
-            return validation_result
+        for _, row in df.iterrows():
+            municipios_en_fila = self._split_and_normalize(row[self.MUNICIPIO_FIELD_NAME])
+            if municipio_xml in municipios_en_fila:
+                # añadimos todas las zonas (también pueden venir separadas por '/')
+                zonas_en_fila = self._split_and_normalize(row[self.ZONA_CLIMATICA_FIELD_NAME])
+                zonas_validas.update(zonas_en_fila)
 
-        # Extraer las zonas climáticas válidas
-        valid_zones = valid_values[self.ZONA_CLIMATICA_FIELD_NAME].dropna().astype(str).str.strip().str.lower().tolist()
+        # 4) Si no encontramos ninguna zona para ese municipio -----------------------
+        if not zonas_validas:
+            res["message"] = f"No se encontraron valores válidos para el municipio '{municipio_raw}'."
+            return res
 
-        # Validar si el valor actual está en las zonas válidas
-        if value_to_validate.strip().lower() not in valid_zones:
-            validation_result["details"] = f"El valor '{value_to_validate}' no es válido para el municipio '{dependent_value}'."
-            validation_result["message"] = f"Dada la localidad ('{dependent_value}'), la zona climática no concuerda con CTE ('{value_to_validate}')ni con la actualización realizada por la Generalitat en 2022."
-            return validation_result
+        # 5) Comprobamos si la zona del XML está entre las válidas -------------------
+        if zona_xml not in zonas_validas:
+            res.update({
+                "details": (f"El valor '{zona_xml_raw}' no es válido para el municipio "
+                            f"'{municipio_raw}'. Zonas admitidas: {', '.join(sorted(zonas_validas))}."),
+                "message": (f"Dada la localidad ('{municipio_raw}'), "
+                            f"la zona climática del XML ('{zona_xml_raw}') no concuerda ni con el CTE "
+                            f"ni con la actualización de 2022.")
+            })
+            return res
 
-        # Si pasa todas las validaciones
-        validation_result["status"] = "success"
-        validation_result["message"] = f"El valor '{value_to_validate}' es válido para el municipio '{dependent_value}'."
-        return validation_result
+        # 6) Todo correcto -----------------------------------------------------------
+        res.update({
+            "status":  "success",
+            "message": f"El valor '{zona_xml_raw}' es válido para el municipio '{municipio_raw}'."
+        })
+        return res

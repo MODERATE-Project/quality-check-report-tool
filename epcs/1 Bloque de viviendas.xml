@@ -19,16 +19,16 @@
     <ReferenciaCatastral>xxx</ReferenciaCatastral>
     <Provincia>Zaragoza</Provincia>
     <ComunidadAutonoma>Aragon</ComunidadAutonoma>
-    <ZonaClimatica>D3</ZonaClimatica>
+    <ZonaClimatica>b3</ZonaClimatica>
     <TipoDeEdificio>BloqueDeViviendaCompleto</TipoDeEdificio>
     <NormativaVigente>Anterior</NormativaVigente>
     <Direccion>C/ Don Quijote de la Mancha  nº 14-16</Direccion>
     <NombreDelEdificio>Zaragoza, Bloque de viviendas</NombreDelEdificio>
-    <Procedimiento>CEXv2.3</Procedimiento>
+    <Procedimiento>CE3 20190905</Procedimiento>
     <CodigoPostal>50002</CodigoPostal>
     <AlcanceInformacionXML>CertificacionExistente</AlcanceInformacionXML>
-    <Municipio>Zaragoza</Municipio>
-    <AnoConstruccion>2008</AnoConstruccion>
+    <Municipio>Agost</Municipio>
+    <AnoConstruccion>1967</AnoConstruccion>
   </IdentificacionEdificio>
   <DatosGeneralesyGeometria>
     <VentilacionUsoResidencial>0.63</VentilacionUsoResidencial>

@@ -8,7 +8,9 @@
   "description": "Debe adjuntarse un plano del edificio en formato de imagen.",
   "parameters": {
     "xpath_plano": "//DatosGeneralesyGeometria/Plano",
-    "valid_extensions": [".jpg", ".jpeg", ".png", ".bmp", ".gif"]
+    "valid_extensions": [".jpg", ".jpeg", ".png"],
+    "max_width": 800,
+    "max_height": 600
   }
 }
 

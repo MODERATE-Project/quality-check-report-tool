@@ -13,13 +13,7 @@ class TipoDeEdificioCheckRule(BaseRule):
         """
         Valida que el valor en el campo 'TipoDeEdificio' esté dentro de los valores permitidos.
         """
-        validation_result = {
-            "status": "error",
-            "rule_id": self.id,
-            "message": "",
-            "description": self.description,
-            "details": "",
-        }
+        validation_result = self._new_result()  # por defecto status="error"
 
         # Obtener el valor desde el EPC
         tipo_de_edificio = epc.get_value_by_xpath(self.xpath)

@@ -77,13 +77,7 @@ class PlanoImagenBase64EdificioRule(BaseRule):
 
     # ------------------------------------------------------------------
     def validate(self, epc: "EpcDto") -> Dict:
-        result = {
-            "rule_id":     self.id,
-            "status":      "error",
-            "message":     "",
-            "description": self.description,
-            "details":     {}
-        }
+        result = self._new_result()  # por defecto status="error"
 
         plano_raw = epc.get_value_by_xpath(self.xpath_plano)
         if not plano_raw or plano_raw.strip() == "":

@@ -13,13 +13,7 @@ class FechaEmisionCertificadoRule(BaseRule):
         """
         Valida que la fecha de emisión del certificado no sea superior a 30 días antes de la fecha actual.
         """
-        validation_result = {
-            "rule_id": self.id,
-            "status": "error",
-            "message": "",
-            "description": self.description,
-            "details": {}
-        }
+        validation_result = self._new_result()  # por defecto status="error"
 
         # Obtener la fecha de emisión desde el XML
         fecha_emision_str = epc.get_value_by_xpath(self.xpath_fecha)

@@ -14,13 +14,7 @@ class ReferenciaCatastralTipoDeEdificioRule(BaseRule):
         """
         Valida que la longitud de 'ReferenciaCatastral' coincida con los valores permitidos para el tipo de edificio.
         """
-        validation_result = {
-            "status": "error",
-            "rule_id": self.id,
-            "message": "",
-            "description": self.description,
-            "details": "",
-        }
+        validation_result = self._new_result()  # por defecto status="error"
 
         # Obtener los valores desde el EPC
         referencia_catastral = epc.get_value_by_xpath(self.xpath)

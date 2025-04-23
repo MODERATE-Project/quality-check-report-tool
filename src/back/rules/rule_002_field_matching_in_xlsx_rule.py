@@ -33,13 +33,7 @@ class FieldMatchingInXlsxRule(BaseRule):
     #  Validación principal
     # --------------------------------------------------------------------- #
     def validate(self, epc: "EpcDto") -> Dict:
-        res = {
-            "rule_id":     self.id,
-            "status":      "error",
-            "message":     "",
-            "description": self.description,
-            "details":     {}
-        }
+        res = self._new_result()  # por defecto status="error"
 
         # 1) Valores leídos del XML --------------------------------------------------
         zona_xml_raw = epc.get_value_by_xpath(self.xpath)

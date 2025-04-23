@@ -86,13 +86,7 @@ class DemandaDiariaACSRule(BaseRule):
         logging.debug("validate de la regla 014")
         logging.debug("questions: %s", questions)
 
-        validation_result = {
-            "rule_id": self.id,
-            "status": "error",
-            "message": "",
-            "description": self.description,
-            "details": {}
-        }
+        validation_result = self._new_result()  # por defecto status="error"
         """
         1. Toma la DemandaDiariaACS del XML.
         2. Según building_type, lee la respuesta (nº dormitorios o nº viviendas).

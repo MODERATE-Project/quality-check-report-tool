@@ -13,13 +13,7 @@ class PuentesTermicosRule(BaseRule):
         """
         Verifica que la categoría 'PuentesTermicos' no esté vacía y que ninguna longitud sea 0.
         """
-        validation_result = {
-            "rule_id": self.id,
-            "status": "error",
-            "message": "La definición del edificio debe incluir puentes térmicos.",
-            "description": self.description,
-            "details": {}
-        }
+        validation_result = self._new_result()  # por defecto status="error"
 
         # Obtener todos los nodos PuenteTermico
         puentes_termicos = epc.get_nodes_by_xpath(self.xpath_puentes_termicos)

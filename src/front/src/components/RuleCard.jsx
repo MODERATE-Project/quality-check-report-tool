@@ -2,7 +2,7 @@ import './RuleCard.css';
 
 const VISIBLE_FIELDS = ['status', 'message', 'details'];
 
-export default function RuleCard({ rule, showAllFields }) {
+export default function RuleCard({ rule, showAllFields, showSucceeded }) {
   const { rule_id, status, severity, message, description, details } = rule;
 
   const getStatusClass = () => {
@@ -20,14 +20,18 @@ export default function RuleCard({ rule, showAllFields }) {
   };
 
   const renderDetails = () => {
-    if (!details || (typeof details === 'string' && details.trim() === '')) return null;
+    if ( 
+      !showAllFields && (
+      !details || 
+      (typeof details === 'string' && details.trim() === '') ||
+      (typeof details === 'object' && Object.keys(details).length === 0))
+    ) return null;
 
     if (typeof details === 'string') {
       return (
-        <div>
-          <b>Detalles:</b>
-          <p>{details}</p>
-        </div>
+        <p>
+          <b>Detalles:</b> {details}
+        </p>
       );
     }
 
@@ -64,6 +68,8 @@ export default function RuleCard({ rule, showAllFields }) {
       ));
   };
 
+  if (!showSucceeded && status === "success") return null
+
   return (
     <div className="rule-card">
       <p>
@@ -71,7 +77,7 @@ export default function RuleCard({ rule, showAllFields }) {
         <span className={`status ${getStatusClass()}`}>{getStatusLabel()}</span>
       </p>
       <p><b>Mensaje:</b> {message}</p>
-      
+
       {renderDetails()}
       {renderExtraFields()}
     </div>

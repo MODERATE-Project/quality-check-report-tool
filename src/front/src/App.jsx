@@ -3,6 +3,7 @@ import "./App.css";
 import { RULES_SERVICE_URL, RULES_EVALUATE_SERVICE_URL } from "./constants";
 import Footer from "./components/Footer";
 import ModalForm from "./components/ModalForm";
+import RuleCard from "./components/RuleCard";
 
 export default function XMLUploader() {
   const [file, setFile] = useState(null);
@@ -11,6 +12,7 @@ export default function XMLUploader() {
   const [formFields, setFormFields] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [formError, setFormError] = useState(null);
+  const [debugMode, setDebugMode] = useState(false);
 
   const validateXML = async (xmlFile) => {
     const formData = new FormData();
@@ -85,13 +87,6 @@ export default function XMLUploader() {
     window.print();
   };
 
-  const getStatusClass = (status, severity) => {
-    if (status === 'success') return 'status-success';
-    if (status === 'error') {
-      return severity === 'suspected' ? 'status-suspected' : 'status-error';
-    }
-    return '';
-  };
 
   return (
     <>
@@ -125,21 +120,23 @@ export default function XMLUploader() {
         <div className="results">
           <h2>Resultados</h2>
 
+          {Object.keys(results).length > 0
+            && import.meta.env?.MODE === 'development' && (
+              <label style={{ display: 'block', marginBottom: '20px' }}>
+                <input
+                  type="checkbox"
+                  checked={debugMode}
+                  onChange={(e) => setDebugMode(e.target.checked)}
+                /> Debug
+              </label>
+            )}
+
+
           {results.common_rules && (
             <>
               <h3>Reglas Comunes</h3>
               {results.common_rules.map((rule, idx) => (
-                <div className="rule-card" key={idx}>
-                  <p><b>Regla ID:</b> {rule.rule_id}</p>
-                  <p>
-                    <b>Estado:</b>{" "}
-                    <span className={getStatusClass(rule.status, rule.severity)}>
-                      {rule.status}
-                    </span>
-                  </p>
-                  <p><b>Mensaje:</b> {rule.message}</p>
-                  <p><b>Descripción:</b> {rule.description}</p>
-                </div>
+                <RuleCard key={idx} rule={rule} showAllFields={debugMode} />
               ))}
             </>
           )}
@@ -147,18 +144,8 @@ export default function XMLUploader() {
           {results.model_rules && Object.entries(results.model_rules).map(([model, rules], idx) => (
             <div key={idx}>
               <h3>Modelo: {model}</h3>
-              {rules.map((rule, i) => (
-                <div className="rule-card" key={i}>
-                  <p><b>Regla ID:</b> {rule.rule_id}</p>
-                  <p>
-                    <b>Estado:</b>{" "}
-                    <span className={getStatusClass(rule.status, rule.severity)}>
-                      {rule.status}
-                    </span>
-                  </p>
-                  <p><b>Mensaje:</b> {rule.message}</p>
-                  <p><b>Descripción:</b> {rule.description}</p>
-                </div>
+              {rules.map((rule, idx) => (
+                <RuleCard key={idx} rule={rule} showAllFields={debugMode} />
               ))}
             </div>
           ))}

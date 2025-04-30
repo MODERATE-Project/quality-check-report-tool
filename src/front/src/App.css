@@ -58,15 +58,3 @@
   border-radius: 5px;
   margin-bottom: 10px;
 }
-
-.status-success {
-  color: green;
-}
-
-.status-error {
-  color: red;
-}
-
-.status-suspected {
-  color: orange;
-}

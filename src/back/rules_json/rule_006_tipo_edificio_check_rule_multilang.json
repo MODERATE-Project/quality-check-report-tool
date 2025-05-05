@@ -14,7 +14,32 @@
       "ViviendaIndividualEnBloque",
       "EdificioUsoTerciario",
       "LocalUsoTerciario"
-    ]
+    ],
+    "messages": {
+      "missing_value": {
+        "es": "No se encontró valor para el XPath: {xpath}.",
+        "en": "No value found for XPath: {xpath}."
+      },
+      "invalid": {
+        "es": "El tipo de edificio '{tipo}' no es válido.",
+        "en": "The building type '{tipo}' is not valid."
+      },
+      "valid": {
+        "es": "El tipo de edificio '{tipo}' es válido.",
+        "en": "The building type '{tipo}' is valid."
+      }
+    },
+    "details": {
+      "invalid": {
+        "es": {
+          "valor": "{tipo}",
+          "permitidos": "{validos}"
+        },
+        "en": {
+          "value": "{tipo}",
+          "allowed": "{validos}"
+        }
+      }
+    }
   }
 }
-

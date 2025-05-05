@@ -1,0 +1,46 @@
+{
+  "id": "rule_xxx",
+  "type": "data_validation",
+  "category": "common_rules",
+  "name": "Regla de ejemplo multilingüe",
+  "severity": "Warning",
+  "class": "ExampleMultilangRule",
+  "description": "Plantilla base para reglas con soporte multilenguaje.",
+  "parameters": {
+    "xpath": "/Ruta/Ejemplo",
+    "messages": {
+      "missing_value": {
+        "es": "No se encontró valor para el campo {xpath}.",
+        "en": "No value found for field {xpath}."
+      },
+      "invalid": {
+        "es": "El valor '{value}' no es válido.",
+        "en": "The value '{value}' is not valid."
+      },
+      "valid": {
+        "es": "El valor '{value}' es válido.",
+        "en": "The value '{value}' is valid."
+      }
+    },
+    "details": {
+      "invalid": {
+        "es": {
+          "valor": "{value}",
+          "esperado": "{expected}"
+        },
+        "en": {
+          "value": "{value}",
+          "expected": "{expected}"
+        }
+      },
+      "valid": {
+        "es": {
+          "valor": "{value}"
+        },
+        "en": {
+          "value": "{value}"
+        }
+      }
+    }
+  }
+}

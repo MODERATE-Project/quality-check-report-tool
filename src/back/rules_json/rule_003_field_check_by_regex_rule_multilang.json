@@ -1,0 +1,27 @@
+{
+  "id": "rule_003",
+  "type": "data_validation",
+  "category": "common_rules",
+  "name": "Año construcción",
+  "severity": "Error",
+  "class": "FieldCheckByRegExRule",
+  "description": "Ano de construccion debe tener 4 digitos indicando un año concreto. Por ejemplo, no puede contener una franja de tiempo (1988-1990).",
+  "parameters": {
+    "xpath": "//IdentificacionEdificio/AnoConstruccion",
+    "regex": "^\\d{4}$",
+    "messages": {
+      "missing_value": {
+        "es": "No se encontró valor para el XPath: {xpath}",
+        "en": "No value found for XPath: {xpath}"
+      },
+      "invalid_format": {
+        "es": "El valor '{value}' no cumple con el formato (el año de construcción deben ser 4 dígitos).",
+        "en": "The value '{value}' does not match the required format (construction year must be 4 digits)."
+      },
+      "valid": {
+        "es": "El valor '{value}' es válido.",
+        "en": "The value '{value}' is valid."
+      }
+    }
+  }
+}

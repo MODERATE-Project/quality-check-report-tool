@@ -4,7 +4,7 @@ import xml.etree.ElementTree as ET
 import logging
 import json
 from core.pipeline_manager import PipelineManager
-from core.prepare_output import validation_results_to_html, generate_pdf_report
+from core.prepare_output import generate_pdf_report
 import config
 import io
 
@@ -105,25 +105,25 @@ def evaluate_xml():
         # 4) Generar el HTML final (opcional, si tu pipeline ya no lo hace)
         #    Supongamos que en 'resultado_validacion' viene la parte "html_content" con tu HTML
         #    Si no, podemos generarlo con la función que ya usas:
-        logger.debug("Generando HTML de validación")
+        # logger.debug("Generando HTML de validación")
         logger.debug(f"resultado_validacion: {resultado_validacion}")
-        html_output = validation_results_to_html(resultado_validacion)#.get("html_content", ""))
+        # html_output = validation_results_to_html(resultado_validacion)#.get("html_content", ""))
         
         # 5) Guardar el HTML en un fichero local (opcional, como en tu ejemplo)
-        with open("validation_results.html", "w", encoding="utf-8") as f:
-            f.write(html_output)
+        # with open("validation_results.html", "w", encoding="utf-8") as f:
+            # f.write(html_output)
 
         # 6) Responder con JSON que contenga:
         #    - El HTML (si lo quieres incrustar)
         #    - Las nuevas preguntas (si surgen)
         #    - Cualquier otra info que necesites en el front
-        response_body = {
-            "html_output": html_output,
-            "new_questions": resultado_validacion.get("new_questions", {}),
-            "errors": resultado_validacion.get("errors", []),
-            # ...
-        }
-        response = jsonify(response_body)
+        # response_body = {
+        #     "validation_result": resultado_validacion,
+        #     "new_questions": resultado_validacion.get("new_questions", {}),
+        #     "errors": resultado_validacion.get("errors", []),
+        #     # ...
+        # }
+        response = jsonify(resultado_validacion)
         response.headers['Content-Type'] = 'application/json'
         return response
 

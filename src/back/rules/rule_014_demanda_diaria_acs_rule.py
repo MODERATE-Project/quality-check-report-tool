@@ -158,7 +158,7 @@ class DemandaDiariaACSRule(BaseRule):
         if not (inferior <= demanda_acs_real <= superior):
             validation_result["status"] = "error"
             validation_result["message"] = "La demanda de ACS no es válida."
-            validation_result["details"] = {f"La DemandaDiariaACS real ({demanda_acs_real:.2f} L/día) no concuerda con la esperada ({demanda_acs_esperada:.2f} L/día ±10%)."}
+            validation_result["details"] = f"La DemandaDiariaACS real ({demanda_acs_real:.2f} L/día) no concuerda con la esperada ({demanda_acs_esperada:.2f} L/día ±10%)."
             return validation_result
         # Si todo OK
         logging.debug("En el Todo OK de la regla_014")

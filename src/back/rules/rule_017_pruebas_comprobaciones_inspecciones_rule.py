@@ -12,7 +12,8 @@ class PruebasComprobacionesInspeccionesRule(BaseRule):
         self.dias_limite = 90  # Número máximo de días permitidos
 
     def validate(self, epc: "EpcDto") -> Dict:
-        validation_result = self._new_result()  # por defecto status="error"
+        validation_result = self._new_result(status="success")  # por defecto status="success"
+        validation_result["message"] = "La fecha de la visita es como máximo 90 días antes de la fecha de emisión del certificado y que el campo <Datos> no está vacío ."
 
         # Obtener la fecha de visita y la fecha del certificado
         fecha_visita_str = epc.get_value_by_xpath(self.xpath_fecha_visita)
@@ -25,14 +26,16 @@ class PruebasComprobacionesInspeccionesRule(BaseRule):
             validation_result["message"] = "No se encontró la fecha de visita o la fecha del certificado."
             return validation_result
 
+        validation_result["details"]["FechaVisita"] = fecha_visita_str
+        validation_result["details"]["FechaCertificado"] = fecha_certificado_str            
+        validation_result["details"]["DatosVisita"] = datos_visita
+
         try:
             fecha_visita = datetime.datetime.strptime(fecha_visita_str, "%d/%m/%Y").date()
             fecha_certificado = datetime.datetime.strptime(fecha_certificado_str, "%d/%m/%Y").date()
         except ValueError:
             validation_result["status"] = "error"
             validation_result["message"] = "Formato de fecha incorrecto en la visita o certificado."
-            validation_result["details"]["FechaVisita"] = fecha_visita_str
-            validation_result["details"]["FechaCertificado"] = fecha_certificado_str
             return validation_result
 
         # Verificar si la fecha de visita está dentro del rango permitido
@@ -40,8 +43,6 @@ class PruebasComprobacionesInspeccionesRule(BaseRule):
         if diferencia_dias > self.dias_limite:
             validation_result["status"] = "error"
             validation_result["message"] = "La visita debe ser máximo 90 días previa a la emisión del certificado."
-            validation_result["details"]["FechaVisita"] = fecha_visita_str
-            validation_result["details"]["FechaCertificado"] = fecha_certificado_str
 
         # Verificar que el campo de datos de la visita no esté vacío
         if not datos_visita or not datos_visita.strip():

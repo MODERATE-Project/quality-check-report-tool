@@ -15,12 +15,13 @@
 .drag-xml-box {
   border: 2px dashed #ccc;
   border-radius: 20px;
-  width: 300px;
+  width: 350px;
   height: 200px;
   text-align: center;
-  padding: 20px;
+  padding: 25px;
   margin: 50px auto;
   background-color: #fff;
+  color: rgb(160, 160, 160);
 }
 
 .button {
@@ -57,16 +58,4 @@
   border: 1px solid #ccc;
   border-radius: 5px;
   margin-bottom: 10px;
-}
-
-.status-success {
-  color: green;
-}
-
-.status-error {
-  color: red;
-}
-
-.status-suspected {
-  color: orange;
 }

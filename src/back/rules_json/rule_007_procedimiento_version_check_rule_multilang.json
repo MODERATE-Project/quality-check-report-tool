@@ -1,0 +1,65 @@
+{
+  "id": "rule_007",
+  "type": "business_rule",
+  "category": "common_rules",
+  "name": "Versión del procedimiento de calificación energética utilizado",
+  "severity": "Error",
+  "class": "ProcedimientoVersionCheckRule",
+  "description": "Versión mínima exigida por programa.",
+  "parameters": {
+    "xpath": "//IdentificacionEdificio/Procedimiento",
+    "valid_versions": {
+      "CYPETHERM HE PLUS": "2025a",
+      "SG SAVE": "3502",
+      "TEKTON 3D": "1190",
+      "CERMA": "5.11",
+      "CEX": "2.3",
+      "Complemento CEX": "2307",
+      "CE3": "20160906"
+    },
+    "messages": {
+      "missing_value": {
+        "es": "No se encontró valor para el XPath: {xpath}.",
+        "en": "No value found for XPath: {xpath}."
+      },
+      "unknown_procedure": {
+        "es": "El procedimiento '{raw}' no está definido en las versiones válidas.",
+        "en": "Procedure '{raw}' is not defined in valid versions."
+      },
+      "missing_version": {
+        "es": "No se encontró una versión válida en '{raw}'.",
+        "en": "No valid version found in '{raw}'."
+      },
+      "valid": {
+        "es": "El procedimiento '{procedure}' con la versión '{version}' es válido.",
+        "en": "Procedure '{procedure}' with version '{version}' is valid."
+      },
+      "invalid": {
+        "es": "La versión '{version}' del procedimiento '{procedure}' no es válida. Se esperaba '{expected}' o posterior.",
+        "en": "Version '{version}' of procedure '{procedure}' is invalid. Expected '{expected}' or newer."
+      }
+    },
+    "details": {
+      "missing_version": {
+        "es": { "procedimiento": "{procedure}" },
+        "en": { "procedure": "{procedure}" }
+      },
+      "valid": {
+        "es": { "procedimiento": "{procedure}", "version": "{version}" },
+        "en": { "procedure": "{procedure}", "version": "{version}" }
+      },
+      "invalid": {
+        "es": {
+          "procedimiento": "{procedure}",
+          "version_proporcionada": "{version}",
+          "version_esperada_minima": "{expected}"
+        },
+        "en": {
+          "procedure": "{procedure}",
+          "provided_version": "{version}",
+          "expected_min_version": "{expected}"
+        }
+      }
+    }
+  }
+}

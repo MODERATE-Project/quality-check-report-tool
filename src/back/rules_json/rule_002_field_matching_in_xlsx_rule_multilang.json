@@ -1,0 +1,44 @@
+{
+  "id": "rule_002",
+  "type": "data_validation",
+  "category": "common_rules",
+  "name": "Zona Climática",
+  "severity": "Error",
+  "class": "FieldMatchingInXlsxRule",
+  "description": "Con <Municipio> como entrada, debe tener una de las dos zonas climáticas indicadas en el Excel “Listado Poblaciones Zonificación Climática Comunidad Valenciana.xlsx”. Si es diferente, es incorrecta.",
+  "parameters": {
+    "xpath": "//IdentificacionEdificio/ZonaClimatica",
+    "dependent_field": "//IdentificacionEdificio/Municipio",
+    "valid_values_source": "data/Listado Poblaciones Zonificación Climática Comunidad Valenciana.xlsx",
+    "messages": {
+      "valid": {
+        "es": "El valor '{zona}' es válido para el municipio '{municipio}'.",
+        "en": "The value '{zona}' is valid for the town '{municipio}'."
+      },
+      "missing_value": {
+        "es": "No se encontró valor para el XPath: {field}",
+        "en": "No value found for XPath: {field}"
+      },
+      "missing_dependent": {
+        "es": "No se encontró valor para el campo dependiente: {field}",
+        "en": "No value found for dependent field: {field}"
+      },
+      "excel_error": {
+        "es": "No se pudo leer el archivo Excel '{filename}': {error}",
+        "en": "Could not read Excel file '{filename}': {error}"
+      },
+      "column_missing": {
+        "es": "El Excel no contiene la columna '{column}'.",
+        "en": "The Excel file does not contain the column '{column}'."
+      },
+      "no_zones_found": {
+        "es": "No se encontraron valores válidos para el municipio '{municipio}'.",
+        "en": "No valid zones found for the town '{municipio}'."
+      },
+      "zone_mismatch": {
+        "es": "Dada la localidad ('{municipio}'), la zona climática del XML ('{zona}') no concuerda. Zonas admitidas: {zonas}.",
+        "en": "Given the town ('{municipio}'), the XML climate zone ('{zona}') does not match. Accepted zones: {zonas}."
+      }
+    }
+  }
+}

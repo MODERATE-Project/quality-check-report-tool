@@ -2,7 +2,8 @@ import json
 import sys, os
 path = os.path.abspath(os.path.join(os.path.dirname(__file__), '../src/back'))
 sys.path.insert(0, path)
-from rules.rule_003_field_check_by_regex_rule import FieldCheckByRegExRule
+
+from rules.rule_006_tipo_edificio_check_rule_multilang import TipoDeEdificioCheckRule
 from core.epc_dto import EpcDto
 
 # Rutas a los directorios y archivos
@@ -21,17 +22,17 @@ epc = EpcDto(epc_content)
 with open(CACHE_JSON_PATH, "r", encoding="utf-8") as cache_file:
     cache_data = json.load(cache_file)
 
-# Buscar la regla de tipo 'YearFieldCheckRule'
+# Buscar la regla de tipo 'TipoDeEdificioCheckRule'
 rule_data = next(
-    (rule for rule in cache_data["rules"]["common_rules"] if rule["class"] == "FieldCheckByRegExRule"),
+    (rule for rule in cache_data["rules"]["common_rules"] if rule["class"] == "TipoDeEdificioCheckRule"),
     None
 )
 
 if not rule_data:
-    raise ValueError("No se encontró una regla de tipo 'FieldCheckByRegExRule' en el JSON de caché.")
+    raise ValueError("No se encontró una regla de tipo 'TipoDeEdificioCheckRule' en el JSON de caché.")
 
 # Instanciar la regla
-rule = FieldCheckByRegExRule(rule_data)
+rule = TipoDeEdificioCheckRule(rule_data)
 
 # Validar el documento EPC
 result = rule.validate(epc)
@@ -47,3 +48,6 @@ if isinstance(result, dict):  # Verificar que el resultado es un diccionario
             print(f"{key}: {value}")
 else:
     print(result)  # En caso de que la salida no sea un diccionario
+
+from utils_multilang_test import print_multilang_result
+print_multilang_result(result)

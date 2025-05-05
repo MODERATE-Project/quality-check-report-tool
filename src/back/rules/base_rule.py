@@ -42,3 +42,10 @@ class BaseRule:
     def get_question(self, epc: "EpcDto") -> Tuple[str, Dict[str, Dict[str, str]]]:
         """Por defecto no hay preguntas para el usuario."""
         return None
+
+    def _get_translated_message(self, key: str, lang: str = "es", **kwargs) -> str:
+        try:
+            template = self.parameters.get("messages", {}).get(key, {}).get(lang)
+            return template.format(**kwargs) if template else ""
+        except Exception:
+            return ""

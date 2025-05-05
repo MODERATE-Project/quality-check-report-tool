@@ -1,9 +1,10 @@
 import json
+import os
 import sys, os
 path = os.path.abspath(os.path.join(os.path.dirname(__file__), '../src/back'))
 sys.path.insert(0, path)
 
-from rules.rule_001_data_validation_in_xlsx_rule import DataValidationInXlsxRule
+from rules.rule_002_field_matching_in_xlsx_rule_multilang import FieldMatchingInXlsxRule
 from core.epc_dto import EpcDto
 
 # Rutas a los directorios y archivos
@@ -23,20 +24,20 @@ epc = EpcDto(epc_content)
 with open(CACHE_JSON_PATH, "r", encoding="utf-8") as cache_file:
     cache_data = json.load(cache_file)
 
-# Buscar la regla de tipo 'DataValidationInXlsxRule'
+# Buscar la regla de tipo 'FieldMatchingInXlsxRule'
 rule_data = next(
-    (rule for rule in cache_data["rules"]["common_rules"] if rule["class"] == "DataValidationInXlsxRule"),
+    (rule for rule in cache_data["rules"]["common_rules"] if rule["class"] == "FieldMatchingInXlsxRule"),
     None
 )
 
 if not rule_data:
-    raise ValueError("No se encontró una regla de tipo 'DataValidationInXlsxRule' en el JSON de caché.")
+    raise ValueError("No se encontró una regla de tipo 'FieldMatchingInXlsxRule' en el JSON de caché.")
 
 # Ajustar la ruta del archivo Excel en los parámetros de la regla
 rule_data["parameters"]["valid_values_source"] = EXCEL_FILE_PATH
 
 # Instanciar la regla
-rule = DataValidationInXlsxRule(rule_data)
+rule = FieldMatchingInXlsxRule(rule_data)
 
 # Validar el documento EPC
 result = rule.validate(epc)
@@ -52,3 +53,9 @@ if isinstance(result, dict):  # Verificar que el resultado es un diccionario
             print(f"{key}: {value}")
 else:
     print(result)  # En caso de que la salida no sea un diccionario
+
+# Mostrar los mensajes traducidos si existen
+if "messages" in result:
+    print("\nMensajes por idioma:")
+    for lang, msg in result["messages"].items():
+        print(f"  [{lang}]: {msg}")

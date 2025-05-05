@@ -2,7 +2,7 @@ import json
 import sys, os
 path = os.path.abspath(os.path.join(os.path.dirname(__file__), '../src/back'))
 sys.path.insert(0, path)
-from rules.rule_004_normativa_vigente_check_rule import NormativaVigenteCheckRule
+from rules.rule_003_field_check_by_regex_rule_multilang import FieldCheckByRegExRule
 from core.epc_dto import EpcDto
 
 # Rutas a los directorios y archivos
@@ -21,17 +21,17 @@ epc = EpcDto(epc_content)
 with open(CACHE_JSON_PATH, "r", encoding="utf-8") as cache_file:
     cache_data = json.load(cache_file)
 
-# Buscar la regla de tipo 'NormativaVigenteCheckRule'
+# Buscar la regla de tipo 'YearFieldCheckRule'
 rule_data = next(
-    (rule for rule in cache_data["rules"]["common_rules"] if rule["class"] == "NormativaVigenteCheckRule"),
+    (rule for rule in cache_data["rules"]["common_rules"] if rule["class"] == "FieldCheckByRegExRule"),
     None
 )
 
 if not rule_data:
-    raise ValueError("No se encontró una regla de tipo 'NormativaVigenteCheckRule' en el JSON de caché.")
+    raise ValueError("No se encontró una regla de tipo 'FieldCheckByRegExRule' en el JSON de caché.")
 
 # Instanciar la regla
-rule = NormativaVigenteCheckRule(rule_data)
+rule = FieldCheckByRegExRule(rule_data)
 
 # Validar el documento EPC
 result = rule.validate(epc)
@@ -47,3 +47,9 @@ if isinstance(result, dict):  # Verificar que el resultado es un diccionario
             print(f"{key}: {value}")
 else:
     print(result)  # En caso de que la salida no sea un diccionario
+
+# Mostrar los mensajes traducidos si existen
+if "messages" in result:
+    print("\nMensajes por idioma:")
+    for lang, msg in result["messages"].items():
+        print(f"  [{lang}]: {msg}")

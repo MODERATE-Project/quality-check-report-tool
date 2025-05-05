@@ -19,15 +19,22 @@ class FieldMatchingInXlsxRule(BaseRule):
     # --------------------------------------------------------------------- #
     #  Utilidades
     # --------------------------------------------------------------------- #
-    @staticmethod
-    def _normalize(text: str) -> str:
+
+    def _get_translated_messages(self, key: str, **kwargs) -> dict:
+        messages = self.parameters.get("messages", {}).get(key, {})
+        return {
+            lang: tpl.format(**kwargs) if tpl else ""
+            for lang, tpl in messages.items()
+        }
+
+    def _normalize(self,text: str) -> str:
         """minúsculas, sin tildes, sin espacios extremos"""
         return unidecode(text.strip().lower())
 
-    @staticmethod
-    def _split_and_normalize(cell: str):
+
+    def _split_and_normalize(self, cell: str):
         """Divide por '/', normaliza cada fragmento"""
-        return [FieldMatchingInXlsxRule._normalize(p) for p in str(cell).split("/")]
+        return [self._normalize(p) for p in str(cell).split("/")]
 
     # --------------------------------------------------------------------- #
     #  Validación principal
@@ -35,61 +42,59 @@ class FieldMatchingInXlsxRule(BaseRule):
     def validate(self, epc: "EpcDto") -> Dict:
         res = self._new_result()  # por defecto status="error"
 
-        # 1) Valores leídos del XML --------------------------------------------------
         zona_xml_raw = epc.get_value_by_xpath(self.xpath)
         municipio_raw = epc.get_value_by_xpath(self.dependent_field)
 
         if zona_xml_raw is None:
-            res["message"] = f"No se encontró valor para el XPath: {self.xpath}"
+            res["messages"] = self._get_translated_messages("missing_value", field=self.xpath)
+            res["message"] = res["messages"].get("es", "")
             return res
         if municipio_raw is None:
-            res["message"] = f"No se encontró valor para el campo dependiente: {self.dependent_field}"
+            res["messages"] = self._get_translated_messages("missing_dependent", field=self.dependent_field)
+            res["message"] = res["messages"].get("es", "")
             return res
 
-        zona_xml      = self._normalize(zona_xml_raw)
+        zona_xml = self._normalize(zona_xml_raw)
         municipio_xml = self._normalize(municipio_raw)
 
-        # 2) Cargamos el Excel -------------------------------------------------------
         try:
             df = pd.read_excel(self.valid_values_source)
         except Exception as e:
-            res["message"] = f"No se pudo leer el archivo Excel '{self.valid_values_source}': {e}"
+            res["messages"] = self._get_translated_messages("excel_error", filename=self.valid_values_source, error=str(e))
+            res["message"] = res["messages"].get("es", "")
             return res
 
         for col in (self.MUNICIPIO_FIELD_NAME, self.ZONA_CLIMATICA_FIELD_NAME):
             if col not in df.columns:
-                res["message"] = f"El Excel no contiene la columna '{col}'."
+                res["messages"] = self._get_translated_messages("column_missing", column=col)
+                res["message"] = res["messages"].get("es", "")
                 return res
 
-        # 3) Recorremos filas, buscando las que contengan nuestro municipio ----------
         zonas_validas = set()
-
         for _, row in df.iterrows():
             municipios_en_fila = self._split_and_normalize(row[self.MUNICIPIO_FIELD_NAME])
             if municipio_xml in municipios_en_fila:
-                # añadimos todas las zonas (también pueden venir separadas por '/')
                 zonas_en_fila = self._split_and_normalize(row[self.ZONA_CLIMATICA_FIELD_NAME])
                 zonas_validas.update(zonas_en_fila)
 
-        # 4) Si no encontramos ninguna zona para ese municipio -----------------------
         if not zonas_validas:
-            res["message"] = f"No se encontraron valores válidos para el municipio '{municipio_raw}'."
+            res["messages"] = self._get_translated_messages("no_zones_found", municipio=municipio_raw)
+            res["message"] = res["messages"].get("es", "")
             return res
 
-        # 5) Comprobamos si la zona del XML está entre las válidas -------------------
         if zona_xml not in zonas_validas:
-            res.update({
-                "details": (f"El valor '{zona_xml_raw}' no es válido para el municipio "
-                            f"'{municipio_raw}'. Zonas admitidas: {', '.join(sorted(zonas_validas))}."),
-                "message": (f"Dada la localidad ('{municipio_raw}'), "
-                            f"la zona climática del XML ('{zona_xml_raw}') no concuerda ni con el CTE "
-                            f"ni con la actualización de 2022.")
-            })
+            res["status"] = "error"
+            res["details"] = {
+                "reason": "invalid_zone",
+                "input": zona_xml_raw,
+                "expected": list(zonas_validas)
+            }
+            res["messages"] = self._get_translated_messages("zone_mismatch", zona=zona_xml_raw, municipio=municipio_raw, zonas=", ".join(sorted(zonas_validas)))
+            res["message"] = res["messages"].get("es", "")
             return res
 
-        # 6) Todo correcto -----------------------------------------------------------
-        res.update({
-            "status":  "success",
-            "message": f"El valor '{zona_xml_raw}' es válido para el municipio '{municipio_raw}'."
-        })
+        res["status"] = "success"
+        res["messages"] = self._get_translated_messages("valid", zona=zona_xml_raw, municipio=municipio_raw)
+        res["message"] = res["messages"].get("es", "")
         return res
+ 

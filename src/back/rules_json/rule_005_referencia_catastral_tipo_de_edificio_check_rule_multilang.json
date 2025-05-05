@@ -1,0 +1,69 @@
+{
+  "id": "rule_005",
+  "type": "data_validation",
+  "category": "common_rules",
+  "name": "Referencia catastral",
+  "severity": "Error",
+  "class": "ReferenciaCatastralTipoDeEdificioRule",
+  "description": "En función de <TipoDeEdificio>, variará el número de caracteres que debe tener:\\n- ViviendaUnifamiliar: 13 ó 18 dígitos\\n- BloqueDeViviendaCompleto: 13 dígitos\\n- ViviendaIndividualEnBloque: 18 dígitos\\n- EdificioUsoTerciario: 13 ó 18 dígitos\\n- LocalUsoTerciario: 13 ó 18 dígitos",
+  "parameters": {
+    "xpath": "//IdentificacionEdificio/ReferenciaCatastral",
+    "dependent_field": "//IdentificacionEdificio/TipoDeEdificio",
+    "lengths": {
+      "ViviendaUnifamiliar": [
+        13,
+        18
+      ],
+      "BloqueDeViviendaCompleto": [
+        13
+      ],
+      "ViviendaIndividualEnBloque": [
+        18
+      ],
+      "EdificioUsoTerciario": [
+        13,
+        18
+      ],
+      "LocalUsoTerciario": [
+        13,
+        18
+      ]
+    },
+    "messages": {
+      "missing_value": {
+        "es": "No se encontró valor para el XPath: {xpath}.",
+        "en": "No value found for XPath: {xpath}."
+      },
+      "missing_dependent": {
+        "es": "No se encontró valor para el campo dependiente: {field}.",
+        "en": "No value found for dependent field: {field}."
+      },
+      "no_lengths": {
+        "es": "No se encontraron longitudes válidas para el tipo de edificio '{tipo}'.",
+        "en": "No valid lengths found for building type '{tipo}'."
+      },
+      "invalid_length": {
+        "es": "No concuerda el número de dígitos de la referencia catastral con el tipo de edificio '{tipo}'.",
+        "en": "The number of digits in the cadastral reference does not match the building type '{tipo}'."
+      },
+      "valid": {
+        "es": "La referencia catastral '{referencia}' es válida para el tipo de edificio '{tipo}'.",
+        "en": "The cadastral reference '{referencia}' is valid for the building type '{tipo}'."
+      }
+    },
+    "details": {
+      "invalid_length": {
+        "es": {
+          "tipo": "{tipo}",
+          "longitud": "{longitud}",
+          "permitidas": "{permitidas}"
+        },
+        "en": {
+          "type": "{tipo}",
+          "length": "{longitud}",
+          "allowed_lengths": "{permitidas}"
+        }
+      }
+    }
+  }
+}

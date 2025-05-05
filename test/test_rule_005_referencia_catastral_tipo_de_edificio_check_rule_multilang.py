@@ -2,7 +2,7 @@ import json
 import sys, os
 path = os.path.abspath(os.path.join(os.path.dirname(__file__), '../src/back'))
 sys.path.insert(0, path)
-from rules.rule_005_referencia_catastral_tipo_de_edificio_check_rule_multilang    import ReferenciaCatastralTipoDeEdificioRule
+from rules.rule_005_referencia_catastral_tipo_de_edificio_check_rule_multilang import ReferenciaCatastralTipoDeEdificioRule
 from core.epc_dto import EpcDto
 
 # Rutas a los directorios y archivos
@@ -47,3 +47,6 @@ if isinstance(result, dict):  # Verificar que el resultado es un diccionario
             print(f"{key}: {value}")
 else:
     print(result)  # En caso de que la salida no sea un diccionario
+
+from utils_multilang_test import print_multilang_result
+print_multilang_result(result)

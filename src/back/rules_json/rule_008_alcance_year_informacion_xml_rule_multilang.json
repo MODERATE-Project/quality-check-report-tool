@@ -1,0 +1,97 @@
+{
+  "id": "rule_008",
+  "type": "business_rule",
+  "category": "common_rules",
+  "name": "Validación de año en función del alcance de información",
+  "severity": "Error",
+  "class": "AlcanceYearInformacionXMLRule",
+  "description": "Verifica que el año de construcción sea compatible con el tipo de alcance indicado.",
+  "parameters": {
+    "xpath": "/Datos/AlcanceInformacionXML",
+    "xpath_anno": "/Datos/AnnoConstruccion",
+    "conditions": [
+      {
+        "values": ["Edificio completo"],
+        "year_range": { "min": 1900 },
+        "prompt_on_error": "¿Confirma que se trata de una actualización del edificio completo?"
+      },
+      {
+        "values": ["Parte de edificio"],
+        "year_range": { "min": 2000 },
+        "prompt_on_error": "¿Está seguro de que corresponde solo a parte del edificio?"
+      }
+    ],
+    "messages": {
+      "missing_fields": {
+        "es": "Faltan datos de alcance o año.",
+        "en": "Missing scope or construction year."
+      },
+      "invalid_year": {
+        "es": "El año '{year}' no es numérico.",
+        "en": "Year '{year}' is not numeric."
+      },
+      "valid": {
+        "es": "El alcance '{alcance}' es compatible con el año {ano}.",
+        "en": "Scope '{alcance}' is compatible with year {ano}."
+      },
+      "confirmed": {
+        "es": "Se confirma que se trata de una actualización ya registrada.",
+        "en": "Confirmed as a previously registered update."
+      },
+      "incompatible": {
+        "es": "El alcance indicado no es compatible con el año de construcción.",
+        "en": "The indicated scope is not compatible with the year of construction."
+      },
+      "needs_confirmation": {
+        "es": "Se requiere confirmación del usuario para validar este alcance.",
+        "en": "User confirmation is required to validate this scope."
+      },
+      "not_in_list": {
+        "es": "El valor de <AlcanceInformacionXML> no está en la lista permitida.",
+        "en": "Value of <AlcanceInformacionXML> is not in the allowed list."
+      }
+    },
+    "details": {
+      "valid": {
+        "es": {
+          "alcance": "{alcance}",
+          "ano": "{ano}"
+        },
+        "en": {
+          "scope": "{alcance}",
+          "year": "{ano}"
+        }
+      },
+      "confirmed": {
+        "es": { "estado": "actualizacion confirmada" },
+        "en": { "status": "update confirmed" }
+      },
+      "incompatible": {
+        "es": {
+          "alcance": "{alcance}",
+          "ano": "{ano}",
+          "esperado": "{expected}"
+        },
+        "en": {
+          "scope": "{alcance}",
+          "year": "{ano}",
+          "expected_range": "{expected}"
+        }
+      },
+      "needs_confirmation": {
+        "es": {
+          "alcance": "{alcance}",
+          "ano": "{ano}"
+        },
+        "en": {
+          "scope": "{alcance}",
+          "year": "{ano}"
+        }
+      },
+      "not_in_list": {
+        "es": { "valor_proporcionado": "{alcance}" },
+        "en": { "provided_value": "{alcance}" }
+      }
+    }
+  }
+}

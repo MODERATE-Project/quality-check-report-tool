@@ -1,17 +1,12 @@
 import json
-import sys
-import os
+import sys, os
 
 # Ajustar el path para importar módulos desde la carpeta src/back
 path = os.path.abspath(os.path.join(os.path.dirname(__file__), "../src/back"))
 sys.path.insert(0, path)
 
+from rules.rule_010_imagen_edificio_rule_multilang import ImagenEdificioRule
 from core.epc_dto import EpcDto
-from rules.rule_017_pruebas_comprobaciones_inspecciones_rule import PruebasComprobacionesInspeccionesRule
-
-# Ajustar el path para importar módulos desde la carpeta src/back
-path = os.path.abspath(os.path.join(os.path.dirname(__file__), "../src/back"))
-sys.path.insert(0, path)
 
 # Rutas a los directorios y archivos
 DATA_DIR = os.path.join(path, "data")
@@ -29,20 +24,33 @@ epc = EpcDto(epc_content)
 with open(CACHE_JSON_PATH, "r", encoding="utf-8") as cache_file:
     cache_data = json.load(cache_file)
 
-# Buscar la regla en el JSON de caché
+# Buscar la regla de tipo 'ImagenEdificioRule'
 rule_data = next(
-    (rule for rule in cache_data["rules"]["common_rules"] if rule["class"] == "PruebasComprobacionesInspeccionesRule"),
+    (rule for rule in cache_data["rules"]["common_rules"] if rule["class"] == "ImagenEdificioRule"),
     None
 )
 
 if not rule_data:
-    raise ValueError("No se encontró la regla 'PruebasComprobacionesInspeccionesRule' en el JSON de caché.")
+    raise ValueError("No se encontró una regla de tipo 'ImagenEdificioRule' en el JSON de caché.")
 
 # Instanciar la regla
-rule = PruebasComprobacionesInspeccionesRule(rule_data)
+rule = ImagenEdificioRule(rule_data)
 
 # Validar el documento EPC
 result = rule.validate(epc)
 
 # Imprimir el resultado de manera legible
-print(json.dumps(result, indent=4, ensure_ascii=False))
+if isinstance(result, dict):
+    for key, value in result.items():
+        if isinstance(value, dict):
+            print(f"{key}:")
+            for sub_key, sub_value in value.items():
+                print(f"  - {sub_key}: {sub_value}")
+        else:
+            print(f"{key}: {value}")
+else:
+    print(result)
+
+# Mostrar traducciones
+from utils_multilang_test import print_multilang_result
+print_multilang_result(result)

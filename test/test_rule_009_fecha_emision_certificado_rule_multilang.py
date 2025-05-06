@@ -1,11 +1,12 @@
 import json
 import sys, os
+from datetime import datetime
 
 # Ajustar el path para importar módulos desde la carpeta src/back
 path = os.path.abspath(os.path.join(os.path.dirname(__file__), "../src/back"))
 sys.path.insert(0, path)
 
-from rules.rule_014_demanda_diaria_acs_rule import DemandaDiariaACSRule
+from rules.rule_009_fecha_emision_certificado_rule_multilang import FechaEmisionCertificadoRule
 from core.epc_dto import EpcDto
 
 # Rutas a los directorios y archivos
@@ -24,17 +25,17 @@ epc = EpcDto(epc_content)
 with open(CACHE_JSON_PATH, "r", encoding="utf-8") as cache_file:
     cache_data = json.load(cache_file)
 
-# Buscar la regla de tipo 'DemandaDiariaACSRule'
+# Buscar la regla de tipo 'FechaEmisionCertificadoRule'
 rule_data = next(
-    (rule for rule in cache_data["rules"]["common_rules"] if rule["class"] == "DemandaDiariaACSRule"),
+    (rule for rule in cache_data["rules"]["common_rules"] if rule["class"] == "FechaEmisionCertificadoRule"),
     None
 )
 
 if not rule_data:
-    raise ValueError("No se encontró una regla de tipo 'DemandaDiariaACSRule' en el JSON de caché.")
+    raise ValueError("No se encontró una regla de tipo 'FechaEmisionCertificadoRule' en el JSON de caché.")
 
 # Instanciar la regla
-rule = DemandaDiariaACSRule(rule_data)
+rule = FechaEmisionCertificadoRule(rule_data)
 
 # Validar el documento EPC
 result = rule.validate(epc)

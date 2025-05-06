@@ -1,0 +1,32 @@
+{
+  "id": "rule_011",
+  "type": "business_rule",
+  "category": "common_rules",
+  "name": "Plano del edificio",
+  "severity": "Error",
+  "class": "PlanoEdificioRule",
+  "description": "Debe adjuntarse plano del edificio.",
+  "parameters": {
+    "xpath_plano": "//DatosGeneralesyGeometria/Plano",
+    "messages": {
+      "missing": {
+        "es": "Debe adjuntarse plano del edificio.",
+        "en": "A plan of the building must be attached."
+      },
+      "valid": {
+        "es": "El plano del edificio está correctamente adjunto.",
+        "en": "The building plan is properly attached."
+      }
+    },
+    "details": {
+      "missing": {
+        "es": { "valor_proporcionado": "{value}" },
+        "en": { "provided_value": "{value}" }
+      },
+      "valid": {
+        "es": { "resultado": "{value}" },
+        "en": { "result": "{value}" }
+      }
+    }
+  }
+}

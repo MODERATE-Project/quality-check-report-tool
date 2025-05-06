@@ -1,0 +1,59 @@
+{
+  "id": "rule_017",
+  "type": "business_rule",
+  "category": "common_rules",
+  "name": "Validación de la Fecha de Visita e Inspección",
+  "severity": "Error",
+  "class": "PruebasComprobacionesInspeccionesRule",
+  "description": "Verifica que la fecha de la visita sea con un máximo de días antes de la fecha de emisión del certificado y que el campo <Datos> no esté vacío.",
+  "parameters": {
+    "xpath_fecha_visita": "/PruebasComprobacionesInspecciones/Visita/FechaVisita",
+    "xpath_fecha_certificado": "/DatosDelCertificador/Fecha",
+    "xpath_datos_visita": "/PruebasComprobacionesInspecciones/Visita/Datos",
+    "dias_limite": 90,
+    "messages": {
+      "missing_dates": {
+        "es": "Falta la fecha de visita o la fecha de emisión del certificado.",
+        "en": "Missing visit date or certificate date."
+      },
+      "invalid_date_format": {
+        "es": "Formato de fecha incorrecto en la visita o certificado.",
+        "en": "Incorrect date format in visit or certificate."
+      },
+      "too_old": {
+        "es": "La visita supera los 90 días previos a la emisión del certificado (actual: {dias} días).",
+        "en": "Visit exceeds the 90-day limit before certificate issuance (current: {dias} days)."
+      },
+      "empty_data": {
+        "es": "Debe figurar una descripción de la visita realizada.",
+        "en": "A description of the visit must be provided."
+      },
+      "valid": {
+        "es": "La visita cumple con los requisitos de fecha y descripción.",
+        "en": "The visit meets the date and description requirements."
+      }
+    },
+    "details": {
+      "missing_dates": {
+        "es": { "falta": "FechaVisita o FechaCertificado" },
+        "en": { "missing": "VisitDate or CertificateDate" }
+      },
+      "invalid_date_format": {
+        "es": { "error": "Formato inválido en fechas" },
+        "en": { "error": "Invalid date format" }
+      },
+      "too_old": {
+        "es": { "dias_diferencia": "{dias}" },
+        "en": { "days_difference": "{dias}" }
+      },
+      "empty_data": {
+        "es": { "datos": "vacío" },
+        "en": { "data": "empty" }
+      },
+      "valid": {
+        "es": { "estado": "OK" },
+        "en": { "status": "OK" }
+      }
+    }
+  }
+}

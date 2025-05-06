@@ -39,8 +39,8 @@
         "en": { "value": "{value}" }
       },
       "invalid_data": {
-        "es": { "error": "{error}" },
-        "en": { "error": "{error}" }
+        "es": { "error": "{muestra}" },
+        "en": { "error": "{muestra}" }
       },
       "invalid_ext": {
         "es": { "formato": "{formato}" },

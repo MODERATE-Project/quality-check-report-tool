@@ -8,14 +8,14 @@ export default function RuleCard({ rule, showAllFields, showSucceeded }) {
   const getStatusClass = () => {
     if (status === 'success') return 'status-success';
     if (status === 'error') {
-      return severity?.toLowerCase() === 'suspected' ? 'status-suspected' : 'status-error';
+      return severity?.toLowerCase() === 'warning' ? 'status-suspected' : 'status-error';
     }
     return '';
   };
 
   const getStatusLabel = () => {
     if (status === 'success') return 'correcto';
-    if (severity === 'suspected') return 'sospecha de error';
+    if (severity?.toLowerCase() === 'warning') return 'sospecha de error';
     return 'error';
   };
 

@@ -1,0 +1,56 @@
+{
+  "id": "rule_015",
+  "type": "business_rule",
+  "category": "common_rules",
+  "name": "Puentes térmicos",
+  "severity": "Error",
+  "class": "PuentesTermicosRule",
+  "description": "La definición del edificio debe incluir puentes térmicos y todas las longitudes deben ser mayores a 0.",
+  "parameters": {
+    "xpath_puentes_termicos": "/DatosEnvolventeTermica/PuentesTermicos",
+    "messages": {
+      "missing": {
+        "es": "No se encontraron datos de puentes térmicos.",
+        "en": "Thermal bridges data not found."
+      },
+      "missing_length": {
+        "es": "El puente térmico #{idx} no tiene longitud especificada.",
+        "en": "Thermal bridge #{idx} has no specified length."
+      },
+      "zero_length": {
+        "es": "El puente térmico #{idx} tiene longitud cero.",
+        "en": "Thermal bridge #{idx} has zero length."
+      },
+      "invalid_value": {
+        "es": "El puente térmico #{idx} tiene valor inválido: '{valor}'.",
+        "en": "Thermal bridge #{idx} has invalid value: '{valor}'."
+      },
+      "valid": {
+        "es": "Los puentes térmicos están correctamente definidos.",
+        "en": "Thermal bridges are correctly defined."
+      }
+    },
+    "details": {
+      "missing": {
+        "es": { "detalle": "No hay nodos <PuenteTermico>" },
+        "en": { "detail": "No <PuenteTermico> nodes found" }
+      },
+      "missing_length": {
+        "es": { "puente": "#{idx}", "error": "Longitud no especificada" },
+        "en": { "bridge": "#{idx}", "error": "Length not specified" }
+      },
+      "zero_length": {
+        "es": { "puente": "#{idx}", "error": "Longitud igual a 0" },
+        "en": { "bridge": "#{idx}", "error": "Length equals 0" }
+      },
+      "invalid_value": {
+        "es": { "puente": "#{idx}", "error": "Valor inválido: {valor}" },
+        "en": { "bridge": "#{idx}", "error": "Invalid value: {valor}" }
+      },
+      "valid": {
+        "es": { "estado": "OK" },
+        "en": { "status": "OK" }
+      }
+    }
+  }
+}

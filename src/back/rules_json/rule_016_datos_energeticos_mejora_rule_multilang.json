@@ -1,0 +1,40 @@
+{
+  "id": "rule_016",
+  "type": "business_rule",
+  "category": "common_rules",
+  "name": "Validación de Medidas de Mejora",
+  "severity": "Error",
+  "class": "DatosEnergeticosMejoraRule",
+  "description": "Verifica que las medidas de mejora incluyan nombre, descripción y coste estimado.",
+  "parameters": {
+    "xpath_medidas_mejora": "/MedidasDeMejora",
+    "messages": {
+      "missing": {
+        "es": "Debe indicarse al menos una medida de mejora.",
+        "en": "At least one improvement measure must be included."
+      },
+      "all_empty": {
+        "es": "La medida de mejora #{idx} tiene todos sus campos vacíos.",
+        "en": "Improvement measure #{idx} has all fields empty."
+      },
+      "valid": {
+        "es": "Las medidas de mejora están correctamente definidas.",
+        "en": "Improvement measures are correctly defined."
+      }
+    },
+    "details": {
+      "missing": {
+        "es": { "motivo": "No hay medidas de mejora." },
+        "en": { "reason": "No improvement measures found." }
+      },
+      "all_empty": {
+        "es": { "medida": "#{idx}", "error": "Nombre, Descripción y Coste están vacíos" },
+        "en": { "measure": "#{idx}", "error": "Name, Description, and Cost are empty" }
+      },
+      "valid": {
+        "es": { "estado": "OK" },
+        "en": { "status": "OK" }
+      }
+    }
+  }
+}

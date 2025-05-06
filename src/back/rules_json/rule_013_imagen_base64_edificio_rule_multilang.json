@@ -1,0 +1,77 @@
+{
+  "id": "rule_013",
+  "type": "business_rule",
+  "category": "common_rules",
+  "name": "Imagen del edificio (Base64)",
+  "severity": "Error",
+  "class": "ImagenBase64EdificioRule",
+  "description": "Debe adjuntarse una imagen del edificio en formato de imagen Base64.",
+  "parameters": {
+    "xpath_plano": "//DatosGeneralesyGeometria/Imagen",
+    "valid_extensions": [".jpg", ".jpeg", ".png"],
+    "max_width": 800,
+    "max_height": 600,
+    "messages": {
+      "missing": {
+        "es": "Debe adjuntarse una imagen del edificio en formato Base64.",
+        "en": "A building image in Base64 format must be attached."
+      },
+      "invalid_data": {
+        "es": "La imagen proporcionada no es válida o está dañada.",
+        "en": "The provided image is invalid or corrupted."
+      },
+      "invalid_ext": {
+        "es": "El formato de imagen '{formato}' no es válido. Permitidos: {validos}.",
+        "en": "Image format '{formato}' is not valid. Allowed: {validos}."
+      },
+      "too_big": {
+        "es": "La imagen es demasiado grande ({ancho}×{alto}). Límite: {max_w}×{max_h}.",
+        "en": "Image is too large ({ancho}×{alto}). Limit: {max_w}×{max_h}."
+      },
+      "valid": {
+        "es": "La imagen del edificio es válida.",
+        "en": "The building image is valid."
+      }
+    },
+    "details": {
+      "missing": {
+        "es": { "valor": "{value}" },
+        "en": { "value": "{value}" }
+      },
+      "invalid_data": {
+        "es": { "error": "{error}" },
+        "en": { "error": "{error}" }
+      },
+      "invalid_ext": {
+        "es": { "formato": "{formato}" },
+        "en": { "format": "{formato}" }
+      },
+      "too_big": {
+        "es": {
+          "ancho": "{ancho}",
+          "alto": "{alto}",
+          "limite_ancho": "{max_w}",
+          "limite_alto": "{max_h}"
+        },
+        "en": {
+          "width": "{ancho}",
+          "height": "{alto}",
+          "max_width": "{max_w}",
+          "max_height": "{max_h}"
+        }
+      },
+      "valid": {
+        "es": {
+          "ancho": "{ancho}",
+          "alto": "{alto}",
+          "formato": "{formato}"
+        },
+        "en": {
+          "width": "{ancho}",
+          "height": "{alto}",
+          "format": "{formato}"
+        }
+      }
+    }
+  }
+}

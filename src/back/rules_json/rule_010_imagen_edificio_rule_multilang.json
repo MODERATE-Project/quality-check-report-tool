@@ -1,0 +1,32 @@
+{
+  "id": "rule_010",
+  "type": "business_rule",
+  "category": "common_rules",
+  "name": "Imagen del edificio",
+  "severity": "Error",
+  "class": "ImagenEdificioRule",
+  "description": "Debe adjuntarse imagen del edificio.",
+  "parameters": {
+    "xpath_imagen": "//DatosGeneralesyGeometria/Imagen",
+    "messages": {
+      "missing": {
+        "es": "Debe adjuntarse imagen del edificio.",
+        "en": "An image of the building must be attached."
+      },
+      "valid": {
+        "es": "La imagen del edificio está correctamente adjunta.",
+        "en": "The building image is properly attached."
+      }
+    },
+    "details": {
+      "missing": {
+        "es": { "valor_proporcionado": "{value}" },
+        "en": { "provided_value": "{value}" }
+      },
+      "valid": {
+        "es": { "resultado": "{value}" },
+        "en": { "result": "{value}" }
+      }
+    }
+  }
+}

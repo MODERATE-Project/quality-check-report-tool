@@ -1,0 +1,79 @@
+{
+  "id": "rule_012",
+  "type": "business_rule",
+  "category": "common_rules",
+  "name": "Plano del edificio (Base64)",
+  "severity": "Error",
+  "class": "PlanoImagenBase64EdificioRule",
+  "description": "Debe adjuntarse un plano del edificio en formato de imagen (Base64).",
+  "parameters": {
+    "xpath_plano": "//DatosGeneralesyGeometria/Plano",
+    "valid_extensions": [".jpg", ".jpeg", ".png"],
+    "max_width": 800,
+    "max_height": 600,
+    "messages": {
+      "missing": {
+        "es": "Debe adjuntarse un plano del edificio en formato Base64.",
+        "en": "A building plan in Base64 format must be attached."
+      },
+      "invalid_base64": {
+        "es": "El plano no es una imagen válida en formato Base64.",
+        "en": "The plan is not a valid Base64-encoded image."
+      },
+      "invalid_ext": {
+        "es": "La extensión '{ext}' no es válida. Las permitidas son: {valids}.",
+        "en": "Extension '{ext}' is not valid. Allowed: {valids}."
+      },
+      "too_big": {
+        "es": "El plano supera el tamaño máximo permitido ({max_w}×{max_h}). Imagen de {w}×{h}.",
+        "en": "Image exceeds max size ({max_w}×{max_h}). Received {w}×{h}."
+      },
+      "valid": {
+        "es": "El plano del edificio es válido.",
+        "en": "The building plan is valid."
+      }
+    },
+    "details": {
+      "invalid_base64": {
+        "es": { "muestra": "{muestra}" },
+        "en": { "sample": "{muestra}" }
+      },
+      "invalid_ext": {
+        "es": { "ext": "{ext}" },
+        "en": { "ext": "{ext}" }
+      },
+      "too_big": {
+        "es": {
+          "ancho": "{w}",
+          "alto": "{h}",
+          "limite_ancho": "{max_w}",
+          "limite_alto": "{max_h}",
+          "extension": "{ext}"
+        },
+        "en": {
+          "width": "{w}",
+          "height": "{h}",
+          "max_width": "{max_w}",
+          "max_height": "{max_h}",
+          "extension": "{ext}"
+        }
+      },
+      "valid": {
+        "es": {
+          "ancho": "{w}",
+          "alto": "{h}",
+          "extension": "{ext}"
+        },
+        "en": {
+          "width": "{w}",
+          "height": "{h}",
+          "extension": "{ext}"
+        }
+      },
+      "missing": {
+        "es": { "valor": "ninguno" },
+        "en": { "value": "none" }
+      }
+    }
+  }
+}

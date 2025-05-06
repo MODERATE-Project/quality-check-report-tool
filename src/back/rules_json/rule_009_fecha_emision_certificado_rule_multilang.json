@@ -1,0 +1,61 @@
+{
+  "id": "rule_009",
+  "type": "business_rule",
+  "category": "common_rules",
+  "name": "Fecha de emisión del certificado",
+  "severity": "Error",
+  "class": "FechaEmisionCertificadoRule",
+  "description": "La fecha de registro del certificado no puede superar los 30 días posteriores a su emisión.",
+  "parameters": {
+    "xpath_fecha": "//DatosDelCertificador/Fecha",
+    "max_days_difference": 30,
+    "messages": {
+      "missing": {
+        "es": "No se encontró la fecha de emisión en el XPath: {xpath}.",
+        "en": "Emission date not found at XPath: {xpath}."
+      },
+      "invalid_format": {
+        "es": "Formato de fecha inválido: {value}. Se esperaba DD/MM/YYYY.",
+        "en": "Invalid date format: {value}. Expected DD/MM/YYYY."
+      },
+      "too_old": {
+        "es": "La fecha de emisión ({fecha}) supera los {dias} días permitidos.",
+        "en": "Emission date ({fecha}) exceeds the allowed {dias} days."
+      },
+      "valid": {
+        "es": "La fecha de emisión del certificado ({fecha}) es válida.",
+        "en": "The emission date of the certificate ({fecha}) is valid."
+      }
+    },
+    "details": {
+      "invalid_format": {
+        "es": {
+          "fecha_proporcionada": "{value}"
+        },
+        "en": {
+          "provided_date": "{value}"
+        }
+      },
+      "too_old": {
+        "es": {
+          "fecha_emision": "{fecha}",
+          "fecha_actual": "{hoy}",
+          "fecha_limite": "{limite}"
+        },
+        "en": {
+          "emission_date": "{fecha}",
+          "current_date": "{hoy}",
+          "limit_date": "{limite}"
+        }
+      },
+      "valid": {
+        "es": {
+          "fecha_validada": "{fecha}"
+        },
+        "en": {
+          "validated_date": "{fecha}"
+        }
+      }
+    }
+  }
+}

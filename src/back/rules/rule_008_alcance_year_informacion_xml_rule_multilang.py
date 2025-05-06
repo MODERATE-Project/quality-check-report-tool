@@ -12,8 +12,16 @@ class AlcanceYearInformacionXMLRule(BaseRule):
         self.xpathAnno = self.parameters.get("xpath_anno", "").strip()  # XPath para obtener el año de construcción
         self.conditions = self.parameters.get("conditions", [])  # Condiciones establecidas en la regla
 
+    def _get_translated_messages(self, key: str, **kwargs) -> dict:
+        messages = self.parameters.get("messages", {}).get(key, {})
+        return {lang: tpl.format(**kwargs) for lang, tpl in messages.items()}
 
-
+    def _get_translated_details(self, key: str, **kwargs) -> dict:
+        details = self.parameters.get("details", {}).get(key, {})
+        return {
+            lang: {k: v.format(**kwargs) for k, v in detail.items()}
+            for lang, detail in details.items()
+        }
 
     def get_question(self, epc) -> Optional[Tuple[str, Dict[str, Dict[str, str]]]]:
         """
@@ -76,8 +84,6 @@ class AlcanceYearInformacionXMLRule(BaseRule):
         logger.debug("get_question %s: no hay pregunta", self.id)
         return None
 
-    # … imports y class AlcanceYearInformacionXMLRule …
-
     # ──────────────────────────────────────────────────────────────────────
     def validate(self, epc: "EpcDto", questions: Dict = None) -> Dict:
         """
@@ -94,12 +100,14 @@ class AlcanceYearInformacionXMLRule(BaseRule):
 
         # Validaciones básicas de existencia y tipo
         if alcance_value is None or anno_raw is None:
-            result["message"] = "Faltan datos de alcance o año."
+            result["messages"] = self._get_translated_messages("missing_fields")
+            result["message"] = result["messages"].get("es", "")
             return result
         try:
             anno_construccion = int(anno_raw)
         except ValueError:
-            result["message"] = f"Año no numérico: {anno_raw}"
+            result["messages"] = self._get_translated_messages("invalid_year", year=anno_raw)
+            result["message"] = result["messages"].get("es", "")
             return result
 
         # ────────────────────────────────────────────────────────────────
@@ -108,10 +116,9 @@ class AlcanceYearInformacionXMLRule(BaseRule):
         if questions is None:
             result.update({
                 "status":  "success",
-                "message": (f"El alcance '{alcance_value}' es compatible con "
-                            f"el año {anno_construccion}."),
-                "details": {"validated_value": alcance_value,
-                            "validated_ano_construccion": anno_construccion}
+                "messages": self._get_translated_messages("valid", alcance=alcance_value, ano=anno_construccion),
+                "message": self._get_translated_messages("valid", alcance=alcance_value, ano=anno_construccion).get("es", ""),
+                "details": self._get_translated_details("valid", alcance=alcance_value, ano=anno_construccion)
             })
             return result
 
@@ -132,10 +139,9 @@ class AlcanceYearInformacionXMLRule(BaseRule):
             if dentro:                      # success directo
                 result.update({
                     "status": "success",
-                    "message": (f"El alcance '{alcance_value}' es compatible con "
-                                f"el año {anno_construccion}."),
-                    "details": {"validated_value": alcance_value,
-                                "validated_ano_construccion": anno_construccion}
+                    "messages": self._get_translated_messages("valid", alcance=alcance_value, ano=anno_construccion),
+                    "message": self._get_translated_messages("valid", alcance=alcance_value, ano=anno_construccion).get("es", ""),
+                    "details": self._get_translated_details("valid", alcance=alcance_value, ano=anno_construccion)
                 })
                 return result
 
@@ -146,32 +152,31 @@ class AlcanceYearInformacionXMLRule(BaseRule):
             if user_resp is True:          # usuario confirmó actualización (sí)
                 result.update({
                     "status":  "success",
-                    "message": "Se confirma que se trata de una actualización ya registrada.",
-                    "details": {"validated_value": alcance_value,
-                                "validated_ano_construccion": anno_construccion}
+                    "messages": self._get_translated_messages("confirmed"),
+                    "message": self._get_translated_messages("confirmed").get("es", ""),
+                    "details": self._get_translated_details("confirmed")
                 })
                 return result
 
             if user_resp is False:         # usuario dijo que NO
                 result.update({
                     "status":  "error",
-                    "message": ("El alcance indicado no es compatible con el año de "
-                                "construcción de la edificación."),
-                    "details": {"provided_value": alcance_value,
-                                "provided_ano_construccion": anno_construccion,
-                                "expected_condition": yr}
+                    "messages": self._get_translated_messages("incompatible", alcance=alcance_value),
+                    "message": self._get_translated_messages("incompatible", alcance=alcance_value).get("es", ""),
+                    "details": self._get_translated_details("incompatible", alcance=alcance_value, ano=anno_construccion, expected=yr)
                 })
                 return result
 
             # Aún no hay respuesta
             result.update({
-                "message": "Se requiere confirmación del usuario para validar este alcance.",
-                "details": {"provided_value": alcance_value,
-                            "provided_ano_construccion": anno_construccion}
+                "messages": self._get_translated_messages("needs_confirmation"),
+                "message": self._get_translated_messages("needs_confirmation").get("es", ""),
+                "details": self._get_translated_details("needs_confirmation", alcance=alcance_value, ano=anno_construccion)
             })
             return result
 
         # El alcance no aparece en ninguna lista de valores
-        result["message"] = "El valor de <AlcanceInformacionXML> no está en la lista permitida."
-        result["details"] = {"provided_value": alcance_value}
+        result["messages"] = self._get_translated_messages("not_in_list", alcance=alcance_value)
+        result["message"] = result["messages"].get("es", "")
+        result["details"] = self._get_translated_details("not_in_list", alcance=alcance_value)
         return result

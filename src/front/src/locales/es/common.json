@@ -1,1 +1,5 @@
-{ "Hola mundo": "Hola mundo", "Moderate Quality Check Tool":"Herramienta Moderate - Verificación de calidad" }
+{
+  "Hola mundo": "Hola mundo",
+  "Moderate Quality Check Tool": "Herramienta Moderate - Verificación de calidad",
+  "change_language": "English"
+}

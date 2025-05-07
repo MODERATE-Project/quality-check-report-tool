@@ -3,7 +3,7 @@
   "change_language": "Change language",
   "Acerca de": "About",
   "app_description": "The purpose of this application is to provide a clear and concise review of the anomalies found, in order to facilitate their review and correction prior to uploading the certificate to the registry. This application generates a report detailing the inconsistencies identified in the energy certificate analysis. There are two types of incidents:",
-  "Errores:": "Errors:",
+  "Errores": "Errors:",
   "error_description": "parameters that must be corrected in any case. They include form errors, missing mandatory fields that prevent uploading the certificate to the registry, or non-compliance with deadlines set by regulations.",
   "Sospechas de errores:": "Suspected errors:",
   "suspected_error_description": "parameters whose values deviate from expected logical limits. Although they are not considered definitive errors, there is a high probability that they are, so they require additional review.",

@@ -3,7 +3,7 @@
   "change_language": "Cambiar idioma",
   "Acerca de": "Acerca de",
   "app_description": "El propósito de esta aplicación es proporcionar una revisión clara y concisa de las anomalías encontradas, con el fin de facilitar su revisión y subsanación previa a la subida del certificado al registro. Esta aplicación genera un informe que detalla las inconsistencias identificadas en el análisis realizado del certificado energético. Se distinguen dos tipos de incidencias:",
-  "Errores:": "Errores:",
+  "Errores": "Errores:",
   "error_description": "parámetros que deben subsanarse en cualquier caso. Incluyen errores de forma, falta de campos obligatorios que impiden subir el certificado al registro o el incumplimiento de plazos fijados por la normativa.",
   "Sospechas de errores:": "Sospechas de errores:",
   "suspected_error_description": "parámetros cuyos valores se desvían de los límites lógicos esperados. Aunque no se consideran errores definitivos, hay alta probabilidad de que lo sean, por lo que requieren revisión adicional.",

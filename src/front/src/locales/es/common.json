@@ -17,5 +17,11 @@
   "Error al validar el XML": "Error al validar el XML",
   "Error al evaluar los datos. Intenta nuevamente.": "Error al evaluar los datos. Intenta nuevamente.",
   "Error al enviar los datos del formulario.": "Error al enviar los datos del formulario.",
-  "Por favor, sube un archivo XML válido.": "Por favor, sube un archivo XML válido."
+  "Por favor, sube un archivo XML válido.": "Por favor, sube un archivo XML válido.",
+  "Estado": "Estado",
+  "Mensaje": "Mensaje",
+  "Detalles": "Detalles",
+  "correcto": "correcto",
+  "sospecha de error": "sospecha de error",
+  "error": "error"
 }

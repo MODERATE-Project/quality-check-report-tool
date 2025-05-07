@@ -5,6 +5,8 @@ import Footer from "./components/Footer";
 import ModalForm from "./components/ModalForm";
 import RuleCard from "./components/RuleCard";
 import { useTranslation } from 'react-i18next';
+import esFlag from './assets/es-flag.png';
+import enFlag from './assets/en-flag.png';
 
 export default function XMLUploader() {
   const [file, setFile] = useState(null);
@@ -112,10 +114,15 @@ export default function XMLUploader() {
   return (
     <>
       <div className="content">
-        <button onClick={() =>
-          i18n.changeLanguage(i18n.language === 'es' ? 'en' : 'es')
-        }>
-          {t('change_language')}
+        <button 
+          className="language-button"
+          onClick={() => i18n.changeLanguage(i18n.language === 'es' ? 'en' : 'es')}
+        >
+          <img 
+            src={i18n.language === 'es' ? enFlag : esFlag} 
+            alt={i18n.language === 'es' ? 'English' : 'Español'} 
+            className="flag-icon"
+          />
         </button>
 
         <h1 className="title">{t('Moderate Quality Check Tool')}</h1>

@@ -7,6 +7,7 @@ from core.pipeline_manager import PipelineManager
 from core.prepare_output import generate_pdf_report
 import config
 import io
+from core.reporting import guardar_resultado
 
 
 app = Flask(__name__)
@@ -123,8 +124,10 @@ def evaluate_xml():
         #     "errors": resultado_validacion.get("errors", []),
         #     # ...
         # }
+        guardar_resultado(resultado_validacion)
         response = jsonify(resultado_validacion)
         response.headers['Content-Type'] = 'application/json'
+        logger.debug(f"response_resultado_verificacion: {response}")
         return response
 
     except Exception as e:

@@ -30,7 +30,7 @@ tasks:
     cmds:
       - |
         if [ -n "{{.CLI_ARGS}}" ]; then
-          docker compose -f ${PWD}/{{.compose_file}} logs {{.CLI_ARGS}}
+          docker compose -f ${PWD}/{{.compose_file}} logs -f {{.CLI_ARGS}}
         else
           docker compose -f ${PWD}/{{.compose_file}} logs -f back front
         fi

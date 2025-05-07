@@ -4,6 +4,7 @@ import { RULES_SERVICE_URL, RULES_EVALUATE_SERVICE_URL } from "./constants";
 import Footer from "./components/Footer";
 import ModalForm from "./components/ModalForm";
 import RuleCard from "./components/RuleCard";
+import { useTranslation } from 'react-i18next';
 
 export default function XMLUploader() {
   const [file, setFile] = useState(null);
@@ -14,6 +15,8 @@ export default function XMLUploader() {
   const [formError, setFormError] = useState(null);
   const [debugMode, setDebugMode] = useState(false);
   const [showSucceeded, setShowSucceeded] = useState(false);
+  const { t, i18n } = useTranslation('common');
+
 
   const validateXML = async (xmlFile) => {
     const formData = new FormData();
@@ -109,8 +112,14 @@ export default function XMLUploader() {
   return (
     <>
       <div className="content">
-        <h1 className="title">Moderate Quality Check Tool</h1>
-        <div style={{'text-align':'justify'}}>
+        <button onClick={() =>
+          i18n.changeLanguage(i18n.language === 'es' ? 'en' : 'es')
+        }>
+          {t('change_language')}
+        </button>
+
+        <h1 className="title">{t('Moderate Quality Check Tool')}</h1>
+        <div style={{'textAlign':'justify'}}>
           <h2><b>Acerca de</b></h2>
         <p>
           El propósito de esta aplicación es proporcionar una revisión clara y concisa de las anomalías

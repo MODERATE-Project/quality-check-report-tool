@@ -5,8 +5,8 @@ import Footer from "./components/Footer";
 import ModalForm from "./components/ModalForm";
 import RuleCard from "./components/RuleCard";
 import { useTranslation } from 'react-i18next';
-import esFlag from './assets/es-flag.png';
-import enFlag from './assets/en-flag.png';
+import esFlag from './assets/es-flag.svg';
+import enFlag from './assets/en-flag.svg';
 
 export default function XMLUploader() {
   const [file, setFile] = useState(null);

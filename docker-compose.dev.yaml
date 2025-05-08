@@ -30,6 +30,7 @@ services:
     restart: always
     volumes:
       - ./src/back:/src
+      - ./resultados:/src/resultados
 
   # docx-to-pdf:
   #   image: moalhaddar/docx-to-pdf:2.1.0-12

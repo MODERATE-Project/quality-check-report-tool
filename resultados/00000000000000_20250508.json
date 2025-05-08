@@ -1,0 +1,255 @@
+{
+  "common_rules": [
+    {
+      "rule_id": "rule_xxx",
+      "status": "error",
+      "message": "No se encontró valor para el campo /Ruta/Ejemplo.",
+      "description": "Plantilla base para reglas con soporte multilenguaje.",
+      "details": {},
+      "severity": "Warning"
+    },
+    {
+      "rule_id": "rule_001",
+      "status": "error",
+      "message": "El nombre de la población ('Madrid') no figura en la lista de poblaciones válidas.",
+      "description": "El municipio debe coincidir con los indicados en la lista “Listado Poblaciones Zonificación Climática Comunidad Valenciana.xlsx”. Algunos pueblos están indicados en castellano y valenciano. Todas las versiones son válidas para cada uno. Ignorar tildes.",
+      "details": {
+        "reason": "value_not_found",
+        "input": "Madrid",
+        "column": "MUNICIPIO"
+      },
+      "severity": "Error"
+    },
+    {
+      "rule_id": "rule_002",
+      "status": "error",
+      "message": "No se encontraron valores válidos para el municipio 'Madrid'.",
+      "description": "Con <Municipio> como entrada, debe tener una de las dos zonas climáticas indicadas en el Excel “Listado Poblaciones Zonificación Climática Comunidad Valenciana.xlsx”. Si es diferente, es incorrecta.",
+      "details": {},
+      "severity": "Error"
+    },
+    {
+      "rule_id": "rule_003",
+      "status": "error",
+      "message": "El valor '[Año de construccion]' no cumple con el formato (el año de construcción deben ser 4 dígitos).",
+      "description": "Ano de construccion debe tener 4 digitos indicando un año concreto. Por ejemplo, no puede contener una franja de tiempo (1988-1990).",
+      "details": {},
+      "severity": "Error"
+    },
+    {
+      "rule_id": "rule_004",
+      "status": "error",
+      "message": "'AnoConstruccion' no es numérico: [Año de construccion]",
+      "description": "En función del año de construcción (<AnoConstruccion>), debe contener la etiqueta:\n- Antes de 1981: Anterior/No aplicable\n- Entre 1981 y 2007: NBE-CT-79\n- Entre 2007 y 2014: CTE 2006\n- Entre 2014 y 2019: CTE 2013\n- De 2019 en adelante: CTE 2019\n\nNota: Es un parámetro no acotado en el documento que define el XML, por eso la información que contenga este parámetro debe incluir esas palabras, pero no tiene por qué ser exactamente esas palabras únicamente.\nPor ejemplo, es posible que una vivienda construida en 2009 incluya 'CTE-2006'. Esto debería considerarse como correcto.",
+      "details": {},
+      "severity": "Error"
+    },
+    {
+      "rule_id": "rule_005",
+      "status": "error",
+      "message": "No concuerda el número de dígitos de la referencia catastral con el tipo de edificio 'BloqueDeViviendaCompleto'.",
+      "description": "En función de <TipoDeEdificio>, variará el número de caracteres que debe tener:\\n- ViviendaUnifamiliar: 13 ó 18 dígitos\\n- BloqueDeViviendaCompleto: 13 dígitos\\n- ViviendaIndividualEnBloque: 18 dígitos\\n- EdificioUsoTerciario: 13 ó 18 dígitos\\n- LocalUsoTerciario: 13 ó 18 dígitos",
+      "details": {
+        "es": {
+          "tipo": "BloqueDeViviendaCompleto",
+          "longitud": "14",
+          "permitidas": "13"
+        },
+        "en": {
+          "type": "BloqueDeViviendaCompleto",
+          "length": "14",
+          "allowed_lengths": "13"
+        }
+      },
+      "severity": "Error"
+    },
+    {
+      "rule_id": "rule_006",
+      "status": "success",
+      "message": "El tipo de edificio 'BloqueDeViviendaCompleto' es válido.",
+      "description": "Indicado en el documento “20200311 - Informe de evaluación energética del edificio en formato electrónico (XML) - Version 2.1”. Debe figurar uno de estos nombres:\n- ViviendaUnifamiliar\n- BloqueDeViviendaCompleto\n- ViviendaIndividualEnBloque\n- EdificioUsoTerciario\n- LocalUsoTerciario",
+      "details": {},
+      "severity": "Error"
+    },
+    {
+      "rule_id": "rule_007",
+      "status": "success",
+      "message": "El procedimiento 'CERMA' con la versión '5.11' es válido.",
+      "description": "Versión mínima exigida por programa.",
+      "details": {
+        "es": {
+          "procedimiento": "CERMA",
+          "version": "5.11"
+        },
+        "en": {
+          "procedure": "CERMA",
+          "version": "5.11"
+        }
+      },
+      "severity": "Error"
+    },
+    {
+      "rule_id": "rule_008",
+      "status": "error",
+      "message": "Faltan datos de alcance o año.",
+      "description": "Verifica que el año de construcción sea compatible con el tipo de alcance indicado.",
+      "details": {},
+      "severity": "Error"
+    },
+    {
+      "rule_id": "rule_009",
+      "status": "error",
+      "message": "La fecha de emisión (05/01/2023) supera los 30 días permitidos.",
+      "description": "La fecha de registro del certificado no puede superar los 30 días posteriores a su emisión.",
+      "details": {
+        "es": {
+          "fecha_emision": "05/01/2023",
+          "fecha_actual": "08/05/2025",
+          "fecha_limite": "08/04/2025"
+        },
+        "en": {
+          "emission_date": "05/01/2023",
+          "current_date": "08/05/2025",
+          "limit_date": "08/04/2025"
+        }
+      },
+      "severity": "Error"
+    },
+    {
+      "rule_id": "rule_010",
+      "status": "success",
+      "message": "La imagen del edificio está correctamente adjunta.",
+      "description": "Debe adjuntarse imagen del edificio.",
+      "details": {
+        "es": {
+          "resultado": "imagen adjunta"
+        },
+        "en": {
+          "result": "imagen adjunta"
+        }
+      },
+      "severity": "Error"
+    },
+    {
+      "rule_id": "rule_011",
+      "status": "error",
+      "message": "Debe adjuntarse plano del edificio.",
+      "description": "Debe adjuntarse plano del edificio.",
+      "details": {
+        "es": {
+          "valor_proporcionado": "None"
+        },
+        "en": {
+          "provided_value": "None"
+        }
+      },
+      "severity": "Error"
+    },
+    {
+      "rule_id": "rule_012",
+      "status": "error",
+      "message": "Debe adjuntarse un plano del edificio en formato Base64.",
+      "description": "Debe adjuntarse un plano del edificio en formato de imagen (Base64).",
+      "details": {
+        "es": {
+          "valor": "ninguno"
+        },
+        "en": {
+          "value": "none"
+        }
+      },
+      "severity": "Error"
+    },
+    {
+      "rule_id": "rule_013",
+      "status": "error",
+      "message": "La imagen proporcionada no es válida o está dañada.",
+      "description": "Debe adjuntarse una imagen del edificio en formato de imagen Base64.",
+      "details": {
+        "es": {
+          "error": "\n\t\t\tdata:image/png;base64,iVBORw0KGgoAAA..."
+        },
+        "en": {
+          "error": "\n\t\t\tdata:image/png;base64,iVBORw0KGgoAAA..."
+        }
+      },
+      "severity": "Error"
+    },
+    {
+      "rule_id": "rule_014",
+      "status": "success",
+      "message": "La demanda de ACS real es válida: 1209.6 L/día.",
+      "description": "Verifica que la demanda diaria de ACS se corresponda con el número de dormitorios y viviendas según el CTE.",
+      "details": {
+        "es": {
+          "demanda_validada": "1209.6"
+        },
+        "en": {
+          "validated_demand": "1209.6"
+        }
+      },
+      "severity": "Error"
+    },
+    {
+      "rule_id": "rule_015",
+      "status": "error",
+      "message": "No se encontraron datos de puentes térmicos.",
+      "description": "La definición del edificio debe incluir puentes térmicos y todas las longitudes deben ser mayores a 0.",
+      "details": {
+        "es": {
+          "detalle": "No hay nodos <PuenteTermico>"
+        },
+        "en": {
+          "detail": "No <PuenteTermico> nodes found"
+        }
+      },
+      "severity": "Error"
+    },
+    {
+      "rule_id": "rule_016",
+      "status": "error",
+      "message": "Debe indicarse al menos una medida de mejora.",
+      "description": "Verifica que las medidas de mejora incluyan nombre, descripción y coste estimado.",
+      "details": {
+        "es": {
+          "motivo": "No hay medidas de mejora."
+        },
+        "en": {
+          "reason": "No improvement measures found."
+        }
+      },
+      "severity": "Error"
+    },
+    {
+      "rule_id": "rule_017",
+      "status": "success",
+      "message": "La visita cumple con los requisitos de fecha y descripción.",
+      "description": "Verifica que la fecha de la visita sea con un máximo de días antes de la fecha de emisión del certificado y que el campo <Datos> no esté vacío.",
+      "details": {
+        "es": {
+          "estado": "OK"
+        },
+        "en": {
+          "status": "OK"
+        }
+      },
+      "severity": "Error"
+    },
+    {
+      "rule_id": "rule_018",
+      "status": "success",
+      "message": "La descripción de la visita está presente.",
+      "description": "Debe figurar una descripción de la visita realizada en el campo <PruebasComprobacionesInspecciones>/<Visita>/<Datos>.",
+      "details": {
+        "es": {
+          "estado": "OK"
+        },
+        "en": {
+          "status": "OK"
+        }
+      },
+      "severity": "Error"
+    }
+  ],
+  "model_rules": {}
+}

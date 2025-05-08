@@ -16,6 +16,9 @@ services:
     build: src/back
     image: moderate-quality-check-tool/moderate-quality-check-tool-report-svc:$DOCKER_IMAGE_TAG
     restart: always
+    volumes:
+        - ./resultados:/src/resultados
+
 
   # docx-to-pdf:
   #   image: moalhaddar/docx-to-pdf:2.1.0-12

@@ -263,15 +263,16 @@ class RulesFactory:
                 result = rule.validate(epc, questions_for_rule)
                 logger.debug(f"result: {result}")
 
-                
-            validation_results["common_rules"].append({
-                "rule_id": rule.id,
-                "status": result.get("status"),
-                "message": result.get("message", ""),
-                "description": result.get("description"),
-                "details": result.get("details", {}),  # Información adicional si está disponible
-                "severity": result.get("severity")
-            })
+                result["rule_id"] = rule.id
+            validation_results["common_rules"].append(
+                result
+                # "rule_id": rule.id,
+                # "status": result.get("status"),
+                # "message": result.get("message", ""),
+                # "description": result.get("description"),
+                # "details": result.get("details", {}),  # Información adicional si está disponible
+                # "severity": result.get("severity")
+            )
 
         # Aplicar reglas específicas de modelos
         for model_name, rules in self.models.items():

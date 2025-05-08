@@ -1,8 +1,10 @@
 import os
 import logging
+from pathlib import Path
 
 # Rutas base del proyecto
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+RESULTADOS = Path("/src")
 
 # Rutas comunes
 RULES_CLASS_PATH = os.path.join(BASE_DIR, "rules")  # Ruta al directorio de reglas

@@ -27,7 +27,6 @@ class DataValidationInXlsxRule(BaseRule):
         value_to_validate = epc.get_value_by_xpath(self.xpath)
         if value_to_validate is None:
             validation_result["messages"] = self._get_translated_messages("missing_value", xpath=self.xpath)
-            validation_result["message"] = validation_result["messages"].get("es", "")
             return validation_result
 
         normalized_value_to_validate = unidecode(value_to_validate.lower().strip())
@@ -36,12 +35,10 @@ class DataValidationInXlsxRule(BaseRule):
             excel_data = pd.read_excel(self.valid_values_source)
         except Exception as e:
             validation_result["messages"] = self._get_translated_messages("excel_error", filename=self.valid_values_source, error=str(e))
-            validation_result["message"] = validation_result["messages"].get("es", "")
             return validation_result
 
         if self.column_in_source not in excel_data.columns:
             validation_result["messages"] = self._get_translated_messages("column_missing", column=self.column_in_source)
-            validation_result["message"] = validation_result["messages"].get("es", "")
             return validation_result
 
         valid_values = excel_data[self.column_in_source].astype(str).tolist()
@@ -60,10 +57,8 @@ class DataValidationInXlsxRule(BaseRule):
                 "column": self.column_in_source
             }
             validation_result["messages"] = self._get_translated_messages("not_found", value=value_to_validate)
-            validation_result["message"] = validation_result["messages"].get("es", "")
             return validation_result
 
         validation_result["status"] = "success"
         validation_result["messages"] = self._get_translated_messages("valid", value=value_to_validate)
-        validation_result["message"] = validation_result["messages"].get("es", "")
         return validation_result

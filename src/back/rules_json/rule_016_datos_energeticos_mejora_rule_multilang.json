@@ -2,7 +2,7 @@
   "id": "rule_016",
   "type": "business_rule",
   "category": "common_rules",
-  "name": "Validación de Medidas de Mejora",
+  "name": "Medidas de mejora",
   "severity": "Error",
   "class": "DatosEnergeticosMejoraRule",
   "description": "Verifica que las medidas de mejora incluyan nombre, descripción y coste estimado.",

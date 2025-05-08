@@ -32,6 +32,8 @@ class BaseRule:
             "description": self.description,
             "details":     {},
             "severity":    self.severity,
+            "name"  :     self.name,
+            "type":       self.type
         }
 
     # ───────────────────────── interfaces a implementar ─────────────────

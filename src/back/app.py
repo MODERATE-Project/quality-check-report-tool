@@ -124,7 +124,7 @@ def evaluate_xml():
         #     "errors": resultado_validacion.get("errors", []),
         #     # ...
         # }
-        guardar_resultado(resultado_validacion)
+        guardar_resultado(resultado_validacion, pipeline_manager.epc)
         response = jsonify(resultado_validacion)
         response.headers['Content-Type'] = 'application/json'
         logger.debug(f"response_resultado_verificacion: {response}")

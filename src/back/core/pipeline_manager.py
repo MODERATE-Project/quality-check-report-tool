@@ -14,6 +14,7 @@ from config import RULES_JASON_PATH, RULES_BASE_PATH, RULES_CACHE_PATH, RULES_CL
 logger = logging.getLogger(__name__)
 
 class PipelineManager:
+    epc = None
     def __init__(self):
         """
         Initializes the PipelineManager with its own instances of input layer and rule manager.
@@ -26,6 +27,7 @@ class PipelineManager:
             base_file = RULES_BASE_PATH, #"rules_base.json",
             cache_file = RULES_CACHE_PATH #"rules_cache.json"
         )
+        self.epc = None
         # Construir las reglas (usará el caché "rules_cache.json" si no hay cambios)
         rules = self.builder.build_rules()
         self.ruleManager.load_rules()
@@ -43,7 +45,7 @@ class PipelineManager:
             Dict: Processed data after applying rules.
         """
 
-        epc = self.inputLayer.process_input(file)
+        self.epc = self.inputLayer.process_input(file)
 
 
         
@@ -62,7 +64,7 @@ class PipelineManager:
         # self.validatorEngine.execute_validations(epc, self.ruleManager.common_rules)
 
         logger.debug("Vamos a aplicar las reglas al documento: ")
-        validation_results = self.ruleManager.apply_rules(epc,questions)
+        validation_results = self.ruleManager.apply_rules(self.epc,questions)
         # Imprimir resultados (para depuración)
         logger.debug("Resultados de las validaciones:")
         logger.debug(json.dumps(validation_results, indent=4, ensure_ascii=False,default=lambda o: list(o) if isinstance(o, set) else str(o)))
@@ -81,7 +83,7 @@ class PipelineManager:
 
         """
 
-        epc = self.inputLayer.process_input(file)
+        self.epc = self.inputLayer.process_input(file)
         # Comprobación de reglas cargadas
         print("Common rules:")
         for rule in self.ruleManager.common_rules:
@@ -95,7 +97,7 @@ class PipelineManager:
         # self.validatorEngine.execute_validations(epc, self.ruleManager.common_rules)
 
         logger.debug("Vamos buscar reglas con pregunta hacia el usuario ")
-        questions = self.ruleManager.get_questions(epc)
+        questions = self.ruleManager.get_questions(self.epc)
         # Imprimir resultados (para depuración)
         logger.debug("Preguntas para el usuario:")
         #recorrer y mostar las preguntas

@@ -2,7 +2,7 @@
   "id": "rule_014",
   "type": "business_rule",
   "category": "common_rules",
-  "name": "Validación de DemandaDiariaACS",
+  "name": "Demanda diaria de ACS",
   "severity": "Error",
   "class": "DemandaDiariaACSRule",
   "description": "Verifica que la demanda diaria de ACS se corresponda con el número de dormitorios y viviendas según el CTE.",

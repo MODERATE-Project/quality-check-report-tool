@@ -1,0 +1,32 @@
+{
+  "id": "rule_018",
+  "type": "business_rule",
+  "category": "common_rules",
+  "name": "Descripción de las pruebas realizadas al edificio",
+  "severity": "Error",
+  "class": "DescripcionVisitaRule",
+  "description": "Debe figurar una descripción de la visita realizada en el campo <PruebasComprobacionesInspecciones>/<Visita>/<Datos>.",
+  "parameters": {
+    "xpath": "/PruebasComprobacionesInspecciones/Visita/Datos",
+    "messages": {
+      "empty": {
+        "es": "Debe figurar una descripción de la visita realizada.",
+        "en": "A description of the visit must be provided."
+      },
+      "valid": {
+        "es": "La descripción de la visita está presente.",
+        "en": "The visit description is present."
+      }
+    },
+    "details": {
+      "empty": {
+        "es": { "datos_visita": "vacío" },
+        "en": { "visit_data": "empty" }
+      },
+      "valid": {
+        "es": { "estado": "OK" },
+        "en": { "status": "OK" }
+      }
+    }
+  }
+}

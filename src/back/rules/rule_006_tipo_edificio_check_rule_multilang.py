@@ -39,18 +39,15 @@ class TipoDeEdificioCheckRule(BaseRule):
 
         if tipo_de_edificio is None:
             validation_result["messages"] = self._get_translated_messages("missing_value", xpath=self.xpath)
-            validation_result["message"] = validation_result["messages"].get("es", "")
             return validation_result
 
         # Validar si el valor está en los valores permitidos
         if tipo_de_edificio not in self.valid_values:
             validation_result["details"] = self._get_translated_details("invalid", tipo=tipo_de_edificio, validos=", ".join(self.valid_values))
             validation_result["messages"] = self._get_translated_messages("invalid", tipo=tipo_de_edificio)
-            validation_result["message"] = validation_result["messages"].get("es", "")
             return validation_result
 
         # Si pasa todas las validaciones
         validation_result["status"] = "success"
         validation_result["messages"] = self._get_translated_messages("valid", tipo=tipo_de_edificio)
-        validation_result["message"] = validation_result["messages"].get("es", "")
         return validation_result

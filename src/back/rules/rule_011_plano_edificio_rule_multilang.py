@@ -29,13 +29,11 @@ class PlanoEdificioRule(BaseRule):
 
         if plano_value is None or plano_value.strip() == "":
             validation_result["messages"] = self._get_translated_messages("missing")
-            validation_result["message"] = validation_result["messages"].get("es", "")
             validation_result["details"] = self._get_translated_details("missing", value="None" if plano_value is None else "vacía")
             return validation_result
 
         # Si el plano está presente
         validation_result["status"] = "success"
         validation_result["messages"] = self._get_translated_messages("valid")
-        validation_result["message"] = validation_result["messages"].get("es", "")
         validation_result["details"] = self._get_translated_details("valid", value="Plano Adjunto")
         return validation_result

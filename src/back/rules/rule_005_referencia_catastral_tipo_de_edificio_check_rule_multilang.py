@@ -41,30 +41,25 @@ class ReferenciaCatastralTipoDeEdificioRule(BaseRule):
 
         if referencia_catastral is None:
             validation_result["messages"] = self._get_translated_messages("missing_value", xpath=self.xpath)
-            validation_result["message"] = validation_result["messages"].get("es", "")
             return validation_result
 
         if tipo_de_edificio is None:
             validation_result["messages"] = self._get_translated_messages("missing_dependent", field=self.dependent_field)
-            validation_result["message"] = validation_result["messages"].get("es", "")
             return validation_result
 
         # Verificar si el tipo de edificio tiene longitudes definidas
         valid_lengths = self.lengths.get(tipo_de_edificio)
         if valid_lengths is None:
             validation_result["messages"] = self._get_translated_messages("no_lengths", tipo=tipo_de_edificio)
-            validation_result["message"] = validation_result["messages"].get("es", "")
             return validation_result
 
         # Validar la longitud de la referencia catastral
         if len(referencia_catastral) not in valid_lengths:
             validation_result["details"] = self._get_translated_details("invalid_length", tipo=tipo_de_edificio, longitud=len(referencia_catastral), permitidas=", ".join(map(str, valid_lengths)))
             validation_result["messages"] = self._get_translated_messages("invalid_length", tipo=tipo_de_edificio)
-            validation_result["message"] = validation_result["messages"].get("es", "")
             return validation_result
 
         # Si pasa todas las validaciones
         validation_result["status"] = "success"
         validation_result["messages"] = self._get_translated_messages("invalid_length", tipo=tipo_de_edificio)
-        validation_result["message"] = validation_result["messages"].get("es", "")
         return validation_result

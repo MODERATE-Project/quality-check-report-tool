@@ -29,13 +29,11 @@ class ImagenEdificioRule(BaseRule):
 
         if imagen_value is None or imagen_value.strip() == "":
             validation_result["messages"] = self._get_translated_messages("missing")
-            validation_result["message"] = validation_result["messages"].get("es", "")
             validation_result["details"] = self._get_translated_details("missing", value="None" if imagen_value is None else "vacía")
             return validation_result
 
         # Si la imagen está presente
         validation_result["status"] = "success"
         validation_result["messages"] = self._get_translated_messages("valid")
-        validation_result["message"] = validation_result["messages"].get("es", "")
         validation_result["details"] = self._get_translated_details("valid", value="imagen adjunta")
         return validation_result

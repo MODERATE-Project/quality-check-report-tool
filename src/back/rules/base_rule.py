@@ -28,7 +28,7 @@ class BaseRule:
         return {
             "rule_id":     self.id,
             "status":      status,      # "error" o "success"
-            "message":     "",
+            "messages":     {},
             "description": self.description,
             "details":     {},
             "severity":    self.severity,

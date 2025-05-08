@@ -28,7 +28,6 @@ class DatosEnergeticosMejoraRule(BaseRule):
         medidas = epc.get_nodes_by_xpath(self.xpath_medidas_mejora)
         if not medidas:
             result["messages"] = self._get_translated_messages("missing")
-            result["message"] = result["messages"].get("es", "")
             result["details"] = self._get_translated_details("missing")
             return result
 
@@ -43,12 +42,10 @@ class DatosEnergeticosMejoraRule(BaseRule):
 
             if not nombre_ok and not descripcion_ok and not coste_ok:
                 result["messages"] = self._get_translated_messages("all_empty", idx=idx)
-                result["message"] = result["messages"].get("es", "")
                 result["details"] = self._get_translated_details("all_empty", idx=idx)
                 return result
 
         result["status"] = "success"
         result["messages"] = self._get_translated_messages("valid")
-        result["message"] = result["messages"].get("es", "")
         result["details"] = self._get_translated_details("valid")
         return result

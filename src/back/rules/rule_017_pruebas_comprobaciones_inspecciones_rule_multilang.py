@@ -32,7 +32,6 @@ class PruebasComprobacionesInspeccionesRule(BaseRule):
         if not fecha_visita_str or not fecha_certificado_str:
             result["status"] = "error"
             result["messages"] = self._get_translated_messages("missing_dates")
-            result["message"] = result["messages"].get("es", "")
             result["details"] = self._get_translated_details("missing_dates")
             return result
 
@@ -48,7 +47,6 @@ class PruebasComprobacionesInspeccionesRule(BaseRule):
         except ValueError:
             result["status"] = "error"
             result["messages"] = self._get_translated_messages("invalid_date_format")
-            result["message"] = result["messages"].get("es", "")
             result["details"] = self._get_translated_details("invalid_date_format")
             return result
 
@@ -56,18 +54,15 @@ class PruebasComprobacionesInspeccionesRule(BaseRule):
         if diferencia_dias > self.dias_limite:
             result["status"] = "error"
             result["messages"] = self._get_translated_messages("too_old", dias=diferencia_dias)
-            result["message"] = result["messages"].get("es", "")
             result["details"] = self._get_translated_details("too_old", dias=diferencia_dias)
             return result
 
         if not datos_visita or not datos_visita.strip():
             result["status"] = "error"
             result["messages"] = self._get_translated_messages("empty_data")
-            result["message"] = result["messages"].get("es", "")
             result["details"] = self._get_translated_details("empty_data")
             return result
 
         result["messages"] = self._get_translated_messages("valid")
-        result["message"] = result["messages"].get("es", "")
         result["details"] = self._get_translated_details("valid")
         return result

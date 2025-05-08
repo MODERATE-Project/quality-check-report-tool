@@ -66,14 +66,12 @@ class ImagenBase64EdificioRule(BaseRule):
 
         if not raw_value or raw_value.strip() == "":
             result["messages"] = self._get_translated_messages("missing")
-            result["message"] = result["messages"].get("es", "")
             result["details"] = self._get_translated_details("missing", value="vacía")
             return result
 
         ok, info = _decode_base64_image(raw_value)
         if not ok:
             result["messages"] = self._get_translated_messages("invalid_data")
-            result["message"] = result["messages"].get("es", "")
             result["details"] = self._get_translated_details("invalid_data", muestra=raw_value[:40] + "...")
             return result
 
@@ -82,18 +80,15 @@ class ImagenBase64EdificioRule(BaseRule):
 
         if ext not in self.valid_exts:
             result["messages"] = self._get_translated_messages("invalid_ext", formato=ext, validos=", ".join(self.valid_exts))
-            result["message"] = result["messages"].get("es", "")
             result["details"] = self._get_translated_details("invalid_ext", formato=ext)
             return result
 
         if img.width > self.max_w or img.height > self.max_h:
             result["messages"] = self._get_translated_messages("too_big", ancho=img.width, alto=img.height, max_w=self.max_w, max_h=self.max_h)
-            result["message"] = result["messages"].get("es", "")
             result["details"] = self._get_translated_details("too_big", ancho=img.width, alto=img.height, max_w=self.max_w, max_h=self.max_h)
             return result
 
         result["status"] = "success"
         result["messages"] = self._get_translated_messages("valid")
-        result["message"] = result["messages"].get("es", "")
         result["details"] = self._get_translated_details("valid", ancho=img.width, alto=img.height, formato=ext)
         return result

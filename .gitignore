@@ -11,3 +11,4 @@ src/back/core/rules_cache.json
 .idea/
 *venv*/
 src/front/.vite/
+src/back/resultados/

@@ -1,22 +1,24 @@
 import './RuleCard.css';
+import { useTranslation } from 'react-i18next';
 
 const VISIBLE_FIELDS = ['status', 'message', 'details'];
 
 export default function RuleCard({ rule, showAllFields, showSucceeded }) {
+  const { t, i18n } = useTranslation('common');
   const { rule_id, status, severity, message, description, details } = rule;
 
   const getStatusClass = () => {
     if (status === 'success') return 'status-success';
     if (status === 'error') {
-      return severity?.toLowerCase() === 'suspected' ? 'status-suspected' : 'status-error';
+      return severity?.toLowerCase() === 'warning' ? 'status-suspected' : 'status-error';
     }
     return '';
   };
 
   const getStatusLabel = () => {
-    if (status === 'success') return 'correcto';
-    if (severity === 'suspected') return 'sospecha de error';
-    return 'error';
+    if (status === 'success') return t('correcto');
+    if (severity?.toLowerCase() === 'warning') return t('sospecha de error');
+    return t('error');
   };
 
   const renderDetails = () => {
@@ -30,17 +32,22 @@ export default function RuleCard({ rule, showAllFields, showSucceeded }) {
     if (typeof details === 'string') {
       return (
         <p>
-          <b>Detalles:</b> {details}
+          <b>{t('Detalles')}:</b> {details}
         </p>
       );
     }
 
     if (typeof details === 'object') {
+      // Obtener los detalles en el idioma actual o usar el inglés como fallback
+      const localizedDetails = details[i18n.language] || details.en || details.es;
+      
+      if (!localizedDetails) return null;
+
       return (
         <div>
-          <b>Detalles:</b>
+          <b>{t('Detalles')}:</b>
           <ul>
-            {Object.entries(details).map(([key, value]) => (
+            {Object.entries(localizedDetails).map(([key, value]) => (
               <li key={key}>
                 <b>{key}:</b> {String(value)}
               </li>
@@ -73,10 +80,10 @@ export default function RuleCard({ rule, showAllFields, showSucceeded }) {
   return (
     <div className="rule-card">
       <p>
-        <b>Estado:</b>{" "}
+        <b>{t('Estado')}:</b>{" "}
         <span className={`status ${getStatusClass()}`}>{getStatusLabel()}</span>
       </p>
-      <p><b>Mensaje:</b> {message}</p>
+      <p><b>{t('Mensaje')}:</b> {message}</p>
 
       {renderDetails()}
       {renderExtraFields()}

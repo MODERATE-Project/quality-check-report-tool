@@ -4,6 +4,9 @@ import { RULES_SERVICE_URL, RULES_EVALUATE_SERVICE_URL } from "./constants";
 import Footer from "./components/Footer";
 import ModalForm from "./components/ModalForm";
 import RuleCard from "./components/RuleCard";
+import { useTranslation } from 'react-i18next';
+import esFlag from './assets/es-flag.svg';
+import enFlag from './assets/en-flag.svg';
 
 export default function XMLUploader() {
   const [file, setFile] = useState(null);
@@ -14,6 +17,8 @@ export default function XMLUploader() {
   const [formError, setFormError] = useState(null);
   const [debugMode, setDebugMode] = useState(false);
   const [showSucceeded, setShowSucceeded] = useState(false);
+  const { t, i18n } = useTranslation('common');
+
 
   const validateXML = async (xmlFile) => {
     const formData = new FormData();
@@ -34,7 +39,7 @@ export default function XMLUploader() {
         setIsModalOpen(true);
       }
     } catch (err) {
-      setError("Error al validar el XML");
+      setError(t("Error al validar el XML"));
     }
   };
 
@@ -50,7 +55,7 @@ export default function XMLUploader() {
       });
 
       if (!response.ok) {
-        throw new Error("Error al evaluar los datos. Intenta nuevamente.");
+        throw new Error(t("Error al evaluar los datos. Intenta nuevamente."));
       }
 
       const evaluationResult = await response.json();
@@ -62,7 +67,7 @@ export default function XMLUploader() {
       setIsModalOpen(false);
       setFormError(null);
     } catch (err) {
-      setFormError(err.message || "Error al enviar los datos del formulario.");
+      setFormError(err.message || t("Error al enviar los datos del formulario."));
     }
   };
 
@@ -97,7 +102,7 @@ export default function XMLUploader() {
       setError(null);
       await validateXML(droppedFile);
     } else {
-      setError("Por favor, sube un archivo XML válido.");
+      setError(t("Por favor, sube un archivo XML válido."));
     }
   };
 
@@ -109,26 +114,30 @@ export default function XMLUploader() {
   return (
     <>
       <div className="content">
-        <h1 className="title">Moderate Quality Check Tool</h1>
-        <div style={{'text-align':'justify'}}>
-          <h2><b>Acerca de</b></h2>
+        <button 
+          className="language-button"
+          onClick={() => i18n.changeLanguage(i18n.language === 'es' ? 'en' : 'es')}
+        >
+          <img 
+            src={i18n.language === 'es' ? enFlag : esFlag} 
+            alt={i18n.language === 'es' ? 'English' : 'Español'} 
+            className="flag-icon"
+          />
+        </button>
+
+        <h1 className="title">{t('Moderate Quality Check Tool')}</h1>
+        <div style={{'textAlign':'justify'}}>
+          <h2><b>{t('Acerca de')}</b></h2>
         <p>
-          El propósito de esta aplicación es proporcionar una revisión clara y concisa de las anomalías
-          encontradas, con el fin de facilitar su revisión y subsanación previa a la subida del certificado
-          al registro. Esta aplicación genera un informe que detalla las inconsistencias identificadas en
-          el análisis realizado del certificado energético. Se distinguen dos tipos de incidencias:
+          {t('app_description')}
         </p>
 
         <ul>
           <li>
-            <strong style={{'color':'red'}}>Errores:</strong> parámetros que deben subsanarse en cualquier caso. Incluyen errores de
-            forma, falta de campos obligatorios que impiden subir el certificado al registro o el
-            incumplimiento de plazos fijados por la normativa.
+            <strong style={{'color':'red'}}>{t('Errores')}</strong> {t('error_description')}
           </li>
           <li>
-            <strong style={{'color':'orange'}}>Sospechas de errores:</strong> parámetros cuyos valores se desvían de los límites
-            lógicos esperados. Aunque no se consideran errores definitivos, hay alta probabilidad de que lo
-            sean, por lo que requieren revisión adicional.
+            <strong style={{'color':'orange'}}>{t('Sospechas de errores:')}</strong> {t('suspected_error_description')}
           </li>
         </ul>
           
@@ -139,7 +148,7 @@ export default function XMLUploader() {
           onDragOver={(e) => e.preventDefault()}
           onDrop={handleDrop}
         >
-          {file ? file.name : "Arrastra y suelta el Certificado de Eficiencia Energética en formato XML aquí"}
+          {file ? file.name : t("drag_drop_xml")}
         </div>
 
         {error && <p style={{ color: "red" }}>{error}</p>}
@@ -154,14 +163,14 @@ export default function XMLUploader() {
 
         {results && Object.keys(results).length > 0 && (
           <button className="button" onClick={handleDownloadReport}>
-            Generar Informe
+            {t('Generar Informe')}
           </button>
         )}
 
         {Object.keys(results).length > 0 &&<div className="results">
           
           
-          <h2>Resultados</h2>
+          <h2>{t('Resultados')}</h2>
 
           {/* Filtros */}
           <div style={{'display':'flex', 'gap':'2rem'}}> 
@@ -171,7 +180,7 @@ export default function XMLUploader() {
                 type="checkbox"
                 checked={showSucceeded}
                 onChange={(e) => setShowSucceeded(e.target.checked)}
-              /> Mostrar todas las reglas
+              /> {t('Mostrar todas las reglas')}
             </label>
 
               {import.meta.env?.MODE === 'development' && (
@@ -180,7 +189,7 @@ export default function XMLUploader() {
                     type="checkbox"
                     checked={debugMode}
                     onChange={(e) => setDebugMode(e.target.checked)}
-                  /> Mostrar todos los campos (DEV)
+                  /> {t('Mostrar todos los campos (DEV)')}
                 </label>
               )}
   
@@ -190,7 +199,7 @@ export default function XMLUploader() {
 
           {results.common_rules && (
             <>
-              <h3>Reglas Comunes</h3>
+              <h3>{t('Reglas Comunes')}</h3>
               {results.common_rules.map((rule, idx) => (
                 <RuleCard key={idx} rule={rule} showAllFields={debugMode} showSucceeded={showSucceeded} />
               ))}
@@ -199,7 +208,7 @@ export default function XMLUploader() {
 
           {results.model_rules && Object.entries(results.model_rules).map(([model, rules], idx) => (
             <div key={idx}>
-              <h3>Modelo: {model}</h3>
+              <h3>{t('Modelo')}: {model}</h3>
               {rules.map((rule, idx) => (
                 <RuleCard key={idx} rule={rule} showAllFields={debugMode} showSucceeded={showSucceeded} />
               ))}

@@ -1,11 +1,11 @@
 import './RuleCard.css';
 import { useTranslation } from 'react-i18next';
 
-const VISIBLE_FIELDS = ['status', 'message', 'details'];
+const VISIBLE_FIELDS = ['status', 'messages', 'details'];
 
 export default function RuleCard({ rule, showAllFields, showSucceeded }) {
   const { t, i18n } = useTranslation('common');
-  const { rule_id, status, severity, message, description, details } = rule;
+  const { rule_id, status, severity, messages, description, details } = rule;
 
   const getStatusClass = () => {
     if (status === 'success') return 'status-success';
@@ -83,7 +83,7 @@ export default function RuleCard({ rule, showAllFields, showSucceeded }) {
         <b>{t('Estado')}:</b>{" "}
         <span className={`status ${getStatusClass()}`}>{getStatusLabel()}</span>
       </p>
-      <p><b>{t('Mensaje')}:</b> {message}</p>
+      <p><b>{t('Mensaje')}:</b> {messages[i18n.language] || details.en || details.es}</p>
 
       {renderDetails()}
       {renderExtraFields()}

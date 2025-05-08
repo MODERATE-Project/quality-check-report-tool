@@ -68,14 +68,12 @@ class PlanoImagenBase64EdificioRule(BaseRule):
         plano_raw = epc.get_value_by_xpath(self.xpath_plano)
         if not plano_raw or plano_raw.strip() == "":
             result["messages"] = self._get_translated_messages("missing")
-            result["message"] = result["messages"].get("es", "")
             result["details"] = self._get_translated_details("missing")
             return result
 
         ok, info = _decode_base64_image(plano_raw)
         if not ok:
             result["messages"] = self._get_translated_messages("invalid_base64")
-            result["message"] = result["messages"].get("es", "")
             result["details"] = self._get_translated_details("invalid_base64", muestra=plano_raw[:40] + "...")
             return result
 
@@ -84,18 +82,15 @@ class PlanoImagenBase64EdificioRule(BaseRule):
 
         if ext not in self.valid_exts:
             result["messages"] = self._get_translated_messages("invalid_ext", ext=ext, valids=", ".join(self.valid_exts))
-            result["message"] = result["messages"].get("es", "")
             result["details"] = self._get_translated_details("invalid_ext", ext=ext)
             return result
 
         if img.width > self.max_w or img.height > self.max_h:
             result["messages"] = self._get_translated_messages("too_big", w=img.width, h=img.height, max_w=self.max_w, max_h=self.max_h)
-            result["message"] = result["messages"].get("es", "")
             result["details"] = self._get_translated_details("too_big", w=img.width, h=img.height, max_w=self.max_w, max_h=self.max_h, ext=ext)
             return result
 
         result["status"] = "success"
         result["messages"] = self._get_translated_messages("valid")
-        result["message"] = result["messages"].get("es", "")
         result["details"] = self._get_translated_details("valid", w=img.width, h=img.height, ext=ext)
         return result

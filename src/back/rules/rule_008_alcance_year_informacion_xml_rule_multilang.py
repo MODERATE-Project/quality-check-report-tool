@@ -101,13 +101,11 @@ class AlcanceYearInformacionXMLRule(BaseRule):
         # Validaciones básicas de existencia y tipo
         if alcance_value is None or anno_raw is None:
             result["messages"] = self._get_translated_messages("missing_fields")
-            result["message"] = result["messages"].get("es", "")
             return result
         try:
             anno_construccion = int(anno_raw)
         except ValueError:
             result["messages"] = self._get_translated_messages("invalid_year", year=anno_raw)
-            result["message"] = result["messages"].get("es", "")
             return result
 
         # ────────────────────────────────────────────────────────────────
@@ -117,7 +115,6 @@ class AlcanceYearInformacionXMLRule(BaseRule):
             result.update({
                 "status":  "success",
                 "messages": self._get_translated_messages("valid", alcance=alcance_value, ano=anno_construccion),
-                "message": self._get_translated_messages("valid", alcance=alcance_value, ano=anno_construccion).get("es", ""),
                 "details": self._get_translated_details("valid", alcance=alcance_value, ano=anno_construccion)
             })
             return result
@@ -140,7 +137,6 @@ class AlcanceYearInformacionXMLRule(BaseRule):
                 result.update({
                     "status": "success",
                     "messages": self._get_translated_messages("valid", alcance=alcance_value, ano=anno_construccion),
-                    "message": self._get_translated_messages("valid", alcance=alcance_value, ano=anno_construccion).get("es", ""),
                     "details": self._get_translated_details("valid", alcance=alcance_value, ano=anno_construccion)
                 })
                 return result
@@ -153,7 +149,6 @@ class AlcanceYearInformacionXMLRule(BaseRule):
                 result.update({
                     "status":  "success",
                     "messages": self._get_translated_messages("confirmed"),
-                    "message": self._get_translated_messages("confirmed").get("es", ""),
                     "details": self._get_translated_details("confirmed")
                 })
                 return result
@@ -162,7 +157,6 @@ class AlcanceYearInformacionXMLRule(BaseRule):
                 result.update({
                     "status":  "error",
                     "messages": self._get_translated_messages("incompatible", alcance=alcance_value),
-                    "message": self._get_translated_messages("incompatible", alcance=alcance_value).get("es", ""),
                     "details": self._get_translated_details("incompatible", alcance=alcance_value, ano=anno_construccion, expected=yr)
                 })
                 return result
@@ -170,13 +164,11 @@ class AlcanceYearInformacionXMLRule(BaseRule):
             # Aún no hay respuesta
             result.update({
                 "messages": self._get_translated_messages("needs_confirmation"),
-                "message": self._get_translated_messages("needs_confirmation").get("es", ""),
                 "details": self._get_translated_details("needs_confirmation", alcance=alcance_value, ano=anno_construccion)
             })
             return result
 
         # El alcance no aparece en ninguna lista de valores
         result["messages"] = self._get_translated_messages("not_in_list", alcance=alcance_value)
-        result["message"] = result["messages"].get("es", "")
         result["details"] = self._get_translated_details("not_in_list", alcance=alcance_value)
         return result

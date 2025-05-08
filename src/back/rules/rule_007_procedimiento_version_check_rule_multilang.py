@@ -59,7 +59,6 @@ class ProcedimientoVersionCheckRule(BaseRule):
         proc_raw = epc.get_value_by_xpath(self.xpath)
         if proc_raw is None:
             result["messages"] = self._get_translated_messages("missing_value", xpath=self.xpath)
-            result["message"] = result["messages"].get("es", "")
             return result
 
         proc_norm = _normalize_text(proc_raw)
@@ -73,13 +72,11 @@ class ProcedimientoVersionCheckRule(BaseRule):
 
         if proc_name is None:
             result["messages"] = self._get_translated_messages("unknown_procedure", raw=proc_raw)
-            result["message"] = result["messages"].get("es", "")
             return result
 
         version_found = _clean_version(remaining)
         if not version_found:
             result["messages"] = self._get_translated_messages("missing_version", raw=proc_raw)
-            result["message"] = result["messages"].get("es", "")
             result["details"] = self._get_translated_details("missing_version", procedure=proc_name)
             return result
 
@@ -87,11 +84,9 @@ class ProcedimientoVersionCheckRule(BaseRule):
         if _is_newer_or_equal(version_found, min_version):
             result["status"] = "success"
             result["messages"] = self._get_translated_messages("valid", procedure=proc_name, version=version_found)
-            result["message"] = result["messages"].get("es", "")
             result["details"] = self._get_translated_details("valid", procedure=proc_name, version=version_found)
         else:
             result["messages"] = self._get_translated_messages("invalid", procedure=proc_name, version=version_found, expected=min_version)
-            result["message"] = result["messages"].get("es", "")
             result["details"] = self._get_translated_details("invalid", procedure=proc_name, version=version_found, expected=min_version)
 
         return result

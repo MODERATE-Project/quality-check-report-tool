@@ -30,18 +30,15 @@ class ExampleMultilangRule(BaseRule):
 
         if value is None:
             result["messages"] = self._get_translated_messages("missing_value", xpath=self.xpath)
-            result["message"] = result["messages"].get("es", "")
             return result
 
         if value != "EXPECTED":
             result["status"] = "error"
             result["messages"] = self._get_translated_messages("invalid", value=value)
-            result["message"] = result["messages"].get("es", "")
             result["details"] = self._get_translated_details("invalid", value=value, expected="EXPECTED")
             return result
 
         result["status"] = "success"
         result["messages"] = self._get_translated_messages("valid", value=value)
-        result["message"] = result["messages"].get("es", "")
         result["details"] = self._get_translated_details("valid", value=value)
         return result

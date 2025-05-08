@@ -47,11 +47,9 @@ class FieldMatchingInXlsxRule(BaseRule):
 
         if zona_xml_raw is None:
             res["messages"] = self._get_translated_messages("missing_value", field=self.xpath)
-            res["message"] = res["messages"].get("es", "")
             return res
         if municipio_raw is None:
             res["messages"] = self._get_translated_messages("missing_dependent", field=self.dependent_field)
-            res["message"] = res["messages"].get("es", "")
             return res
 
         zona_xml = self._normalize(zona_xml_raw)
@@ -61,13 +59,11 @@ class FieldMatchingInXlsxRule(BaseRule):
             df = pd.read_excel(self.valid_values_source)
         except Exception as e:
             res["messages"] = self._get_translated_messages("excel_error", filename=self.valid_values_source, error=str(e))
-            res["message"] = res["messages"].get("es", "")
             return res
 
         for col in (self.MUNICIPIO_FIELD_NAME, self.ZONA_CLIMATICA_FIELD_NAME):
             if col not in df.columns:
                 res["messages"] = self._get_translated_messages("column_missing", column=col)
-                res["message"] = res["messages"].get("es", "")
                 return res
 
         zonas_validas = set()
@@ -79,7 +75,6 @@ class FieldMatchingInXlsxRule(BaseRule):
 
         if not zonas_validas:
             res["messages"] = self._get_translated_messages("no_zones_found", municipio=municipio_raw)
-            res["message"] = res["messages"].get("es", "")
             return res
 
         if zona_xml not in zonas_validas:
@@ -90,11 +85,9 @@ class FieldMatchingInXlsxRule(BaseRule):
                 "expected": list(zonas_validas)
             }
             res["messages"] = self._get_translated_messages("zone_mismatch", zona=zona_xml_raw, municipio=municipio_raw, zonas=", ".join(sorted(zonas_validas)))
-            res["message"] = res["messages"].get("es", "")
             return res
 
         res["status"] = "success"
         res["messages"] = self._get_translated_messages("valid", zona=zona_xml_raw, municipio=municipio_raw)
-        res["message"] = res["messages"].get("es", "")
         return res
  

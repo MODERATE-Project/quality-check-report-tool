@@ -31,7 +31,6 @@ class PuentesTermicosRule(BaseRule):
 
         if not puentes_termicos:
             validation_result["messages"] = self._get_translated_messages("missing")
-            validation_result["message"] = validation_result["messages"].get("es", "")
             validation_result["details"] = self._get_translated_details("missing")
             return validation_result
 
@@ -40,7 +39,6 @@ class PuentesTermicosRule(BaseRule):
             longitud_element = puente.find("Longitud")
             if longitud_element is None or not longitud_element.text.strip():
                 validation_result["messages"] = self._get_translated_messages("missing_length", idx=index)
-                validation_result["message"] = validation_result["messages"].get("es", "")
                 validation_result["details"] = self._get_translated_details("missing_length", idx=index)
                 return validation_result
 
@@ -48,19 +46,16 @@ class PuentesTermicosRule(BaseRule):
                 longitud_valor = float(longitud_element.text.strip())
                 if longitud_valor == 0:
                     validation_result["messages"] = self._get_translated_messages("zero_length", idx=index)
-                    validation_result["message"] = validation_result["messages"].get("es", "")
                     validation_result["details"] = self._get_translated_details("zero_length", idx=index)
                     return validation_result
             except ValueError:
                 valor = longitud_element.text.strip()
                 validation_result["messages"] = self._get_translated_messages("invalid_value", idx=index, valor=valor)
-                validation_result["message"] = validation_result["messages"].get("es", "")
                 validation_result["details"] = self._get_translated_details("invalid_value", idx=index, valor=valor)
                 return validation_result
 
         # Si todo está correcto:
         validation_result["status"] = "success"
         validation_result["messages"] = self._get_translated_messages("valid")
-        validation_result["message"] = validation_result["messages"].get("es", "")
         validation_result["details"] = self._get_translated_details("valid")
         return validation_result

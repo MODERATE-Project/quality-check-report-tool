@@ -26,17 +26,14 @@ class FieldCheckByRegExRule(BaseRule):
 
         if value_to_validate is None:
             validation_result["messages"] = self._get_translated_messages("missing_value", xpath=self.xpath)
-            validation_result["message"] = validation_result["messages"].get("es", "")
             return validation_result
 
         if not re.match(self.regex, value_to_validate):
             validation_result["messages"] = self._get_translated_messages("invalid_format", value=value_to_validate)
-            validation_result["message"] = validation_result["messages"].get("es", "")
             return validation_result
 
         validation_result["status"] = "success"
         validation_result["messages"] = self._get_translated_messages("valid", value=value_to_validate)
-        validation_result["message"] = validation_result["messages"].get("es", "")
         return validation_result
 
 

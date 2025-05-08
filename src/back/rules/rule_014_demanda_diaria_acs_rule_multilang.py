@@ -53,26 +53,22 @@ class DemandaDiariaACSRule(BaseRule):
 
         if not demanda_acs_str:
             result["messages"] = self._get_translated_messages("missing_field")
-            result["message"] = result["messages"].get("es", "")
             return result
 
         try:
             demanda_acs_real = float(demanda_acs_str)
         except ValueError:
             result["messages"] = self._get_translated_messages("not_numeric", value=demanda_acs_str)
-            result["message"] = result["messages"].get("es", "")
             return result
 
         if "0" not in questions:
             result["messages"] = self._get_translated_messages("missing_answer")
-            result["message"] = result["messages"].get("es", "")
             return result
 
         try:
             user_value = int(questions["0"])
         except ValueError:
             result["messages"] = self._get_translated_messages("invalid_input")
-            result["message"] = result["messages"].get("es", "")
             return result
 
         if building_type == "BloqueDeViviendaCompleto":
@@ -89,7 +85,6 @@ class DemandaDiariaACSRule(BaseRule):
             result["messages"] = self._get_translated_messages(
                 "invalid", real=demanda_acs_real, expected=demanda_esperada
             )
-            result["message"] = result["messages"].get("es", "")
             result["details"] = self._get_translated_details(
                 "invalid", real=demanda_acs_real, expected=demanda_esperada
             )
@@ -97,7 +92,6 @@ class DemandaDiariaACSRule(BaseRule):
 
         result["status"] = "success"
         result["messages"] = self._get_translated_messages("valid", real=demanda_acs_real)
-        result["message"] = result["messages"].get("es", "")
         result["details"] = self._get_translated_details("valid", real=demanda_acs_real)
         return result
 

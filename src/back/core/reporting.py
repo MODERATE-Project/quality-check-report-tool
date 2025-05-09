@@ -93,7 +93,7 @@ def guardar_resultado(resultado: dict, epc: EpcDto):
                 continue
 
             rule_id = item.get("rule_id")
-            rule_name = item.get("description", rule_id)
+            rule_name = item.get("name", rule_id)
             if not rule_id:
                 continue
 

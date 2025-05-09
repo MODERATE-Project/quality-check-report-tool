@@ -6,7 +6,9 @@ WORKDIR /src
     
 COPY requirements.txt requirements.txt
 RUN pip install -r requirements.txt
-  
+
+RUN mkdir -p /src/resultados/internal
+
 COPY . .
 # COPY app.py app.py
 
@@ -14,6 +16,7 @@ COPY . .
 
 RUN adduser --disabled-password --no-create-home appuser
 RUN chown -R appuser:appuser /src
+RUN chown -R appuser:appuser /src/resultados
 RUN chmod -R u+rwx /src 
 USER appuser
 

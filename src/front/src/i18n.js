@@ -25,7 +25,7 @@ i18n
     nonExplicitSupportedLngs: true,
     ns: ['common'],
     defaultNS: 'common',
-    debug: true,
+    debug: process.env.NODE_ENV === 'development',
     interpolation: { escapeValue: false },
     react: {
       useSuspense: false

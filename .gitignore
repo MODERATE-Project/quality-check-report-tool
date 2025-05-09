@@ -12,3 +12,4 @@ src/back/core/rules_cache.json
 *venv*/
 src/front/.vite/
 src/back/resultados/
+resultados/

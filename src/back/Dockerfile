@@ -17,7 +17,11 @@ COPY . .
 RUN adduser --disabled-password --no-create-home appuser
 RUN chown -R appuser:appuser /src
 RUN chown -R appuser:appuser /src/resultados
+
 RUN chmod -R u+rwx /src 
+RUN chmod -R 775 /src/resultados
+
+
 USER appuser
 
 CMD ["gunicorn", "--bind", "0.0.0.0:5000", "app:app"]

@@ -72,9 +72,9 @@ def guardar_resultado(resultado: dict, epc: EpcDto):
     except ValueError as e:
         logger.error(f"Error al obtener la referencia catastral: {e}")
         return
-
-    fecha_tag = datetime.now().strftime("%Y%m%d")
-    filename = f"{referencia}_{fecha_tag}.json"
+    # ya no usamos fecha para el nombre del archivo. Queremos que sea siempre el mismo y ante nuevas versiones se sobrescriba
+    #fecha_tag = datetime.now().strftime("%Y%m%d")
+    filename = f"{referencia}.json" #_{fecha_tag}.json"
     file_path = RESULTS_DIR / filename
 
     with open(file_path, "w", encoding="utf-8") as f:

@@ -2,95 +2,117 @@
   "id": "rule_008",
   "type": "business_rule",
   "category": "common_rules",
-  "name": "Validación de año en función del alcance de información",
+  "name": "Alcance del certificado",
   "severity": "Error",
   "class": "AlcanceYearInformacionXMLRule",
   "description": "Verifica que el año de construcción sea compatible con el tipo de alcance indicado.",
   "parameters": {
-    "xpath": "/Datos/AlcanceInformacionXML",
-    "xpath_anno": "/Datos/AnnoConstruccion",
+    "xpath": "//IdentificacionEdificio/AlcanceInformacionXML",
+    "xpath_anno": "//IdentificacionEdificio/AnoConstruccion",
     "conditions": [
       {
-        "values": ["Edificio completo"],
-        "year_range": { "min": 1900 },
-        "prompt_on_error": "¿Confirma que se trata de una actualización del edificio completo?"
+        "values": [
+          "CertificacionExistente",
+          "VerificacionExistente",
+          "CertificacionVerificacionExistente"
+        ],
+        "year_range": {
+          "max": 2007
+        },
+        "prompt_on_error": "¿Se trata de una actualización de un certificado de eficiencia energética ya registrado?"
       },
       {
-        "values": ["Parte de edificio"],
-        "year_range": { "min": 2000 },
-        "prompt_on_error": "¿Está seguro de que corresponde solo a parte del edificio?"
+        "values": [
+          "CertificacionNuevo",
+          "VerificacionNuevo",
+          "CertificacionVerificacionNuevo"
+        ],
+        "year_range": {
+          "min": 2008
+        },
+        "prompt_on_error": "El año de construcción no concuerda con el tipo de alcance 'nuevo'."
       }
     ],
     "messages": {
-      "missing_fields": {
-        "es": "Faltan datos de alcance o año.",
-        "en": "Missing scope or construction year."
-      },
-      "invalid_year": {
-        "es": "El año '{year}' no es numérico.",
-        "en": "Year '{year}' is not numeric."
-      },
       "valid": {
-        "es": "El alcance '{alcance}' es compatible con el año {ano}.",
-        "en": "Scope '{alcance}' is compatible with year {ano}."
+        "es": "El alcance '{value}' es compatible con el año {year}.",
+        "en": "Scope '{value}' is compatible with year {year}."
       },
       "confirmed": {
         "es": "Se confirma que se trata de una actualización ya registrada.",
-        "en": "Confirmed as a previously registered update."
+        "en": "Confirmed as an update to an already registered certificate."
       },
       "incompatible": {
-        "es": "El alcance indicado no es compatible con el año de construcción.",
-        "en": "The indicated scope is not compatible with the year of construction."
+        "es": "El alcance del certificado indicado no es compatible con el año de construcción de la edificación.",
+        "en": "Scope is not compatible with construction year."
       },
-      "needs_confirmation": {
+      "invalid_value": {
+        "es": "No concuerda el alcance con la lista de categorías admitidas.",
+        "en": "Scope does not match allowed categories."
+      },
+      "missing_data": {
+        "es": "Faltan datos de alcance o año.",
+        "en": "Missing scope or year."
+      },
+      "invalid_year": {
+        "es": "El valor del año no es numérico: '{raw}'.",
+        "en": "Year is not numeric: '{raw}'."
+      },
+      "pending": {
         "es": "Se requiere confirmación del usuario para validar este alcance.",
         "en": "User confirmation is required to validate this scope."
-      },
-      "not_in_list": {
-        "es": "El valor de <AlcanceInformacionXML> no está en la lista permitida.",
-        "en": "Value of <AlcanceInformacionXML> is not in the allowed list."
       }
     },
     "details": {
       "valid": {
         "es": {
-          "alcance": "{alcance}",
-          "ano": "{ano}"
+          "valor": "{value}",
+          "año": "{year}"
         },
         "en": {
-          "scope": "{alcance}",
-          "year": "{ano}"
+          "value": "{value}",
+          "year": "{year}"
         }
       },
       "confirmed": {
-        "es": { "estado": "actualizacion confirmada" },
-        "en": { "status": "update confirmed" }
+        "es": {
+          "estado": "confirmado",
+          "valor": "{value}",
+          "año": "{year}"
+        },
+        "en": {
+          "status": "confirmed",
+          "value": "{value}",
+          "year": "{year}"
+        }
       },
       "incompatible": {
         "es": {
-          "alcance": "{alcance}",
-          "ano": "{ano}",
-          "esperado": "{expected}"
+          "valor": "{value}",
+          "año": "{year}"
         },
         "en": {
-          "scope": "{alcance}",
-          "year": "{ano}",
-          "expected_range": "{expected}"
+          "value": "{value}",
+          "year": "{year}"
         }
       },
-      "needs_confirmation": {
+      "invalid_value": {
         "es": {
-          "alcance": "{alcance}",
-          "ano": "{ano}"
+          "valor": "{value}"
         },
         "en": {
-          "scope": "{alcance}",
-          "year": "{ano}"
+          "value": "{value}"
         }
       },
-      "not_in_list": {
-        "es": { "valor_proporcionado": "{alcance}" },
-        "en": { "provided_value": "{alcance}" }
+      "pending": {
+        "es": {
+          "valor": "{value}",
+          "año": "{year}"
+        },
+        "en": {
+          "value": "{value}",
+          "year": "{year}"
+        }
       }
     }
   }

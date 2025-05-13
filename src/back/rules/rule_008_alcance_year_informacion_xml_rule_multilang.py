@@ -1,128 +1,36 @@
 from .base_rule import BaseRule, register_rule_class
-from typing import Dict, List, Any, Tuple, Optional
-import logging
-
-logger = logging.getLogger(__name__)
+from typing import Dict, Optional, Tuple
 
 @register_rule_class
 class AlcanceYearInformacionXMLRule(BaseRule):
     def __init__(self, rule_data: Dict):
         super().__init__(rule_data)
-        self.xpath = self.parameters.get("xpath")  # XPath para obtener el valor del alcance
-        self.xpathAnno = self.parameters.get("xpath_anno", "").strip()  # XPath para obtener el año de construcción
-        self.conditions = self.parameters.get("conditions", [])  # Condiciones establecidas en la regla
+        self.xpath = self.parameters.get("xpath")
+        self.xpathAnno = self.parameters.get("xpath_anno", "").strip()
+        self.conditions = self.parameters.get("conditions", [])
+        self.messages = self.parameters.get("messages", {})
+        self.details = self.parameters.get("details", {})
 
     def _get_translated_messages(self, key: str, **kwargs) -> dict:
-        messages = self.parameters.get("messages", {}).get(key, {})
-        return {lang: tpl.format(**kwargs) for lang, tpl in messages.items()}
+        msgs = self.messages.get(key, {})
+        return {lang: tpl.format(**kwargs) for lang, tpl in msgs.items()}
 
     def _get_translated_details(self, key: str, **kwargs) -> dict:
-        details = self.parameters.get("details", {}).get(key, {})
+        dets = self.details.get(key, {})
         return {
-            lang: {k: v.format(**kwargs) for k, v in detail.items()}
-            for lang, detail in details.items()
+            lang: {k: v.format(**kwargs) for k, v in d.items()}
+            for lang, d in dets.items()
         }
 
     def get_question(self, epc) -> Optional[Tuple[str, Dict[str, Dict[str, str]]]]:
-        """
-        Devuelve la pregunta (si procede) para la regla.
-
-        Si no hace falta preguntar nada, devuelve None.
-        """
-
-        logger.debug("get_question  de la regla %s", self.id)
-
-        # ── 1. Datos de entrada ────────────────────────────────────────────────────
         alcance_value = epc.get_value_by_xpath(self.xpath)
-        logger.debug("alcance_value: %s", alcance_value)
-
         try:
-            anno_raw = epc.get_value_by_xpath(self.xpathAnno)
-            anno_construccion = int(anno_raw)
+            anno_construccion = int(epc.get_value_by_xpath(self.xpathAnno))
         except (TypeError, ValueError):
-            logger.warning("Año de construcción no válido: %s", anno_raw)
-            return None                       # sin año no podemos validar
+            return None
 
-        # ── 2. Recorremos las condiciones de la regla ─────────────────────────────
         for idx, cond in enumerate(self.conditions):
-            logger.debug("condition (%d): %s", idx, cond)
-
-            if alcance_value not in cond.get("values", []):
-                continue                      # esta condición no aplica a este alcance
-
-            yr = cond.get("year_range", {})
-            min_ok = yr.get("min")           # puede ser None
-            max_ok = yr.get("max")
-
-            dentro_del_rango = True
-            if min_ok is not None and anno_construccion < int(min_ok):
-                dentro_del_rango = False
-            if max_ok is not None and anno_construccion > int(max_ok):
-                dentro_del_rango = False
-
-            # 2a. Todo encaja ➜ no hay pregunta
-            if dentro_del_rango:
-                return None
-
-            # 2b. Fuera de rango ➜ construimos la pregunta
-            prompt = cond.get("prompt_on_error") or "La información no concuerda, ¿confirmar?"
-            question_key = f"{self.id}_{idx}"
-
-            logger.debug("get_question %s la pregunta es: %s", self.id, prompt)
-
-            return (
-                self.id,
-                {
-                    question_key: {
-                        "text": prompt,
-                        "type": "boolean"
-                    }
-                }
-            )
-
-        # ── 3. No se encontró ninguna condición relevante ─────────────────────────
-        logger.debug("get_question %s: no hay pregunta", self.id)
-        return None
-
-    # ──────────────────────────────────────────────────────────────────────
-    def validate(self, epc: "EpcDto", questions: Dict = None) -> Dict:
-        """
-        • Si no llegan 'questions'  →  asumimos que get_question() no vio conflicto,
-          y devolvemos success inmediato (versión corta original).
-        • Si llegan 'questions'     →  aplicamos la lógica completa
-          (rango + respuesta del usuario).
-        """
-        alcance_value = epc.get_value_by_xpath(self.xpath)
-        anno_raw      = epc.get_value_by_xpath(self.xpathAnno)
-
-        # Resultado base
-        result = self._new_result()  # por defecto status="error"
-
-        # Validaciones básicas de existencia y tipo
-        if alcance_value is None or anno_raw is None:
-            result["messages"] = self._get_translated_messages("missing_fields")
-            return result
-        try:
-            anno_construccion = int(anno_raw)
-        except ValueError:
-            result["messages"] = self._get_translated_messages("invalid_year", year=anno_raw)
-            return result
-
-        # ────────────────────────────────────────────────────────────────
-        #  CASO 1: no se pasa 'questions'  →  versión corta
-        # ────────────────────────────────────────────────────────────────
-        if questions is None:
-            result.update({
-                "status":  "success",
-                "messages": self._get_translated_messages("valid", alcance=alcance_value, ano=anno_construccion),
-                "details": self._get_translated_details("valid", alcance=alcance_value, ano=anno_construccion)
-            })
-            return result
-
-        # ────────────────────────────────────────────────────────────────
-        #  CASO 2: se reciben respuestas de usuario  →  versión larga
-        # ────────────────────────────────────────────────────────────────
-        for idx, cond in enumerate(self.conditions):
+            # Aplicamos solo si el valor pertenece a esta condición
             if alcance_value not in cond.get("values", []):
                 continue
 
@@ -131,44 +39,92 @@ class AlcanceYearInformacionXMLRule(BaseRule):
             max_y = yr.get("max")
 
             dentro = ((min_y is None or anno_construccion >= min_y) and
-                      (max_y is None or anno_construccion <= max_y))
+                    (max_y is None or anno_construccion <= max_y))
 
-            if dentro:                      # success directo
-                result.update({
-                    "status": "success",
-                    "messages": self._get_translated_messages("valid", alcance=alcance_value, ano=anno_construccion),
-                    "details": self._get_translated_details("valid", alcance=alcance_value, ano=anno_construccion)
-                })
-                return result
+            if dentro:
+                return None  # Todo correcto
 
-            # --- fuera de rango → consultar respuesta ---
-            answers = (questions.get(self.id) if self.id in questions else questions)
-            user_resp = answers.get(str(idx)) if isinstance(answers, dict) else None
+            # Si está fuera del rango, generamos la pregunta
+            return (
+                self.id,
+                {
+                    str(idx): {
+                        "text": cond.get("prompt_on_error", "¿Confirmas que es una actualización?"),
+                        "type": "boolean"
+                    }
+                }
+            )
 
-            if user_resp is True:          # usuario confirmó actualización (sí)
-                result.update({
-                    "status":  "success",
-                    "messages": self._get_translated_messages("confirmed"),
-                    "details": self._get_translated_details("confirmed")
-                })
-                return result
+        # Ninguna condición aplicable
+        return None
 
-            if user_resp is False:         # usuario dijo que NO
-                result.update({
-                    "status":  "error",
-                    "messages": self._get_translated_messages("incompatible", alcance=alcance_value),
-                    "details": self._get_translated_details("incompatible", alcance=alcance_value, ano=anno_construccion, expected=yr)
-                })
-                return result
 
-            # Aún no hay respuesta
-            result.update({
-                "messages": self._get_translated_messages("needs_confirmation"),
-                "details": self._get_translated_details("needs_confirmation", alcance=alcance_value, ano=anno_construccion)
-            })
+    def validate(self, epc, questions: Dict = None) -> Dict:
+        alcance_value = epc.get_value_by_xpath(self.xpath)
+        anno_raw = epc.get_value_by_xpath(self.xpathAnno)
+        result = self._new_result()
+
+        if alcance_value is None or anno_raw is None:
+            result["status"] = "error"
+            result["messages"] = self._get_translated_messages("missing_data")
+            result["message"] = result["messages"].get("es", "")
             return result
 
-        # El alcance no aparece en ninguna lista de valores
-        result["messages"] = self._get_translated_messages("not_in_list", alcance=alcance_value)
-        result["details"] = self._get_translated_details("not_in_list", alcance=alcance_value)
+        try:
+            anno_construccion = int(anno_raw)
+        except ValueError:
+            result["status"] = "error"
+            result["messages"] = self._get_translated_messages("invalid_year", raw=anno_raw)
+            result["message"] = result["messages"].get("es", "")
+            return result
+
+        for idx, cond in enumerate(self.conditions):
+            # Evaluamos la condición correspondiente al valor de alcance
+            if alcance_value not in cond.get("values", []):
+                continue
+
+            yr = cond.get("year_range", {})
+            min_y = yr.get("min")
+            max_y = yr.get("max")
+
+            dentro = ((min_y is None or anno_construccion >= min_y) and
+                    (max_y is None or anno_construccion <= max_y))
+
+            if dentro:
+                result["status"] = "success"
+                result["messages"] = self._get_translated_messages("valid", value=alcance_value, year=anno_construccion)
+                result["message"] = result["messages"].get("es", "")
+                result["details"] = self._get_translated_details("valid", value=alcance_value, year=anno_construccion)
+                return result
+
+            # Comprobar si hay respuesta del usuario
+            answers = questions.get(self.id, questions) if questions else {}
+            user_resp = answers.get(str(idx)) if isinstance(answers, dict) else None
+
+            if user_resp is True:
+                result["status"] = "success"
+                result["messages"] = self._get_translated_messages("confirmed")
+                result["message"] = result["messages"].get("es", "")
+                result["details"] = self._get_translated_details("confirmed", value=alcance_value, year=anno_construccion)
+                return result
+
+            if user_resp is False:
+                result["status"] = "error"
+                result["messages"] = self._get_translated_messages("incompatible", value=alcance_value, year=anno_construccion)
+                result["message"] = result["messages"].get("es", "")
+                result["details"] = self._get_translated_details("incompatible", value=alcance_value, year=anno_construccion)
+                return result
+
+            result["status"] = "pending"
+            result["messages"] = self._get_translated_messages("pending")
+            result["message"] = result["messages"].get("es", "")
+            result["details"] = self._get_translated_details("pending", value=alcance_value, year=anno_construccion)
+            return result
+
+        # Si ninguna condición cubre este valor → error por valor no permitido
+        result["status"] = "error"
+        result["messages"] = self._get_translated_messages("invalid_value", value=alcance_value)
+        result["message"] = result["messages"].get("es", "")
+        result["details"] = self._get_translated_details("invalid_value", value=alcance_value)
         return result
+

@@ -19,7 +19,7 @@ tasks:
     desc: "Builds Docker images based on the selected environment (dev or prod)."
     cmds:
       - docker compose -f {{.compose_file}} build --no-cache
-      - chmod -R 777 ./resultados
+      # - chmod -R 777 ./resultados
 
   start:
     desc: "Starts containers in the background using the selected environment (dev or prod), removing orphan containers."

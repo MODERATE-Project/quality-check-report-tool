@@ -1,56 +1,50 @@
 import json
-import sys, os
+import sys
+import os
 
-# Añadir el path al src/back
-path = os.path.abspath(os.path.join(os.path.dirname(__file__), '../src/back'))
-sys.path.insert(0, path)
+# Ajustar sys.path para que encuentre los módulos desde src/back
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../src/back")))
 
 from rules.rule_008_alcance_year_informacion_xml_rule_multilang import AlcanceYearInformacionXMLRule
 from core.epc_dto import EpcDto
-
-# Rutas a los directorios y archivos
-DATA_DIR = os.path.join(path, "data")
-CACHE_JSON_PATH = os.path.join(path, "core", "rules_cache.json")
-EPC_FILE_PATH = os.path.join(DATA_DIR, "1 Bloque de viviendas.xml")
-
-# Cargar el archivo EPC
-with open(EPC_FILE_PATH, "r", encoding="utf-8") as epc_file:
-    epc_content = epc_file.read()
-
-# Crear una instancia de EpcDto
-epc = EpcDto(epc_content)
-
-# Cargar las reglas desde el JSON de caché
-with open(CACHE_JSON_PATH, "r", encoding="utf-8") as cache_file:
-    cache_data = json.load(cache_file)
-
-# Buscar la regla específica por clase
-rule_data = next(
-    (rule for rule in cache_data["rules"]["common_rules"] if rule["class"] == "AlcanceYearInformacionXMLRule"),
-    None
-)
-
-if not rule_data:
-    raise ValueError("No se encontró una regla de tipo 'AlcanceYearInformacionXMLRule' en el JSON de caché.")
-
-# Instanciar la regla
-rule = AlcanceYearInformacionXMLRule(rule_data)
-
-# Validar el documento EPC
-result = rule.validate(epc)
-
-# Imprimir el resultado de forma clara
-if isinstance(result, dict):
-    for key, value in result.items():
-        if isinstance(value, dict):
-            print(f"{key}:")
-            for sub_key, sub_value in value.items():
-                print(f"  - {sub_key}: {sub_value}")
-        else:
-            print(f"{key}: {value}")
-else:
-    print(result)
-
-# Imprimir resultados multilingües
 from utils_multilang_test import print_multilang_result
-print_multilang_result(result)
+
+def cargar_epc(xml_filename):
+    base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "../src/back/data"))
+    path = os.path.join(base_dir, xml_filename)
+    with open(path, "r", encoding="utf-8") as f:
+        return EpcDto(f.read())
+
+def cargar_regla():
+    cache_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "../src/back/core/rules_cache.json"))
+    with open(cache_path, "r", encoding="utf-8") as f:
+        rules = json.load(f)
+    rule_data = next(
+        (r for r in rules["rules"]["common_rules"] if r["id"] == "rule_008"),
+        None
+    )
+    if not rule_data:
+        raise ValueError("No se encontró rule_008 en rules_cache.json")
+    return AlcanceYearInformacionXMLRule(rule_data)
+
+def test_regla(epc, questions=None):
+    regla = cargar_regla()
+    question = regla.get_question(epc)
+    print("🟡 Pregunta generada:", question)
+    result = regla.validate(epc, questions)
+    print_multilang_result(result)
+
+# === CASO 1: Compatible directamente ===
+print("=== CASO 1: VÁLIDO ===")
+epc_valido = cargar_epc("Certificado_008_valido.xml")
+test_regla(epc_valido)
+
+# === CASO 2: Requiere confirmación ===
+print("\n=== CASO 2: CONFIRMADO POR USUARIO ===")
+epc_confirmable = cargar_epc("Certificado_008_confirmable.xml")
+test_regla(epc_confirmable, {"rule_008": {"0": True}})
+
+# === CASO 3: Error sin pregunta (por año incompatible con tipo "nuevo") ===
+print("\n=== CASO 3: ERROR POR AÑO INCOMPATIBLE ===")
+epc_invalido = cargar_epc("Certificado_008_invalido.xml")
+test_regla(epc_invalido)

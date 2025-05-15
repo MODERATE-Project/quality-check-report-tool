@@ -58,10 +58,10 @@ tasks:
     preconditions:
       - sh: '[ "{{.ENV}}" = "dev" ]'
         platforms: [linux, darwin]
-        msg: "Esta tarea solo puede ejecutarse si ENV=dev (Unix)"
+        msg: "Esta tarea solo puede ejecutarse en modo desarrollo"
       - cmd: powershell -Command "if ('{{.ENV}}' -ne 'dev') { exit 1 }"
         platforms: [windows]
-        msg: "Esta tarea solo puede ejecutarse si ENV=dev (Windows)"
+        msg: "Esta tarea solo puede ejecutarse modo desarrollo"
     cmds:
       - cmd: powershell.exe -File ./add-i18n-string.ps1
         platforms: [windows]

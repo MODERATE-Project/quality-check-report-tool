@@ -52,3 +52,6 @@ tasks:
     cmds:
       - echo "Using environment:" {{.ENV}}
       - docker compose -f {{.compose_file}} ps
+
+  historico:
+    - while true; do   clear;   column -s ';' -t < resultados/resumen_errores.csv;   sleep 1; done

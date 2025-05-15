@@ -173,7 +173,7 @@ export default function XMLUploader() {
           <h2>{t('Resultados')}</h2>
 
           {/* Filtros */}
-          <div style={{'display':'flex', 'gap':'2rem'}}> 
+          <div className="filters" style={{'display':'flex', 'gap':'2rem'}}> 
               
             <label style={{ display: 'block', marginBottom: '20px' }}>
               <input

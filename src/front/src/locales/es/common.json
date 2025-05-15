@@ -1,4 +1,4 @@
-{
+﻿{
   "Moderate Quality Check Tool": "Herramienta de Verificación de Calidad Moderate",
   "change_language": "Cambiar idioma",
   "Acerca de": "Acerca de",
@@ -23,5 +23,6 @@
   "Detalles": "Detalles",
   "correcto": "correcto",
   "sospecha de error": "sospecha de error",
-  "error": "error"
+  "error": "error",
+  "Nombre": "Nombre"
 }

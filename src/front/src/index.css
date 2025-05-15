@@ -82,7 +82,7 @@ button:focus-visible {
     display: block;
   }
 
-  button {
+  button, .filters {
     display: none !important; /* Oculta los botones por defecto */
   }
 }

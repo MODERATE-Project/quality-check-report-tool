@@ -67,3 +67,14 @@ tasks:
         platforms: [windows]
       - cmd: bash ./add-i18n-string.sh
         platforms: [linux, darwin]
+
+  historico:
+    desc: Muestra en tiempo real el contenido tabulado de resumen_errores.csv, actualizándose cada segundo.
+    silent: true
+    cmds:
+      - |
+        while true; do
+          clear
+          column -s ';' -t < resultados/resumen_errores.csv
+          sleep 1
+        done

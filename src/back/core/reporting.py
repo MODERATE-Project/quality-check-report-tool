@@ -104,8 +104,9 @@ def guardar_resultado(resultado: dict, epc: EpcDto):
                     "referencias": []
                 }
 
-            resumen[rule_id]["errores"] += 1
+            
             if referencia not in resumen[rule_id]["referencias"]:
                 resumen[rule_id]["referencias"].append(referencia)
+                resumen[rule_id]["errores"] += 1
 
     _save_resumen_csv(resumen)

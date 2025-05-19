@@ -1,7 +1,7 @@
 import './RuleCard.css';
 import { useTranslation } from 'react-i18next';
 
-const VISIBLE_FIELDS = ['status', 'messages', 'details'];
+const VISIBLE_FIELDS = ['status', 'messages', 'details', 'name'];
 
 export default function RuleCard({ rule, showAllFields, showSucceeded }) {
   const { t, i18n } = useTranslation('common');
@@ -79,7 +79,7 @@ export default function RuleCard({ rule, showAllFields, showSucceeded }) {
 
   return (
     <div className="rule-card">
-      <p><b>{t('Nombre')}:</b> {name}</p> {/* Campo 'name' agregado */}
+      <p><b>{t('Nombre')}:</b> {typeof name === 'object' ? name[i18n.language] : name}</p>
       <p>
         <b>{t('Estado')}:</b>{" "}
         <span className={`status ${getStatusClass()}`}>{getStatusLabel()}</span>

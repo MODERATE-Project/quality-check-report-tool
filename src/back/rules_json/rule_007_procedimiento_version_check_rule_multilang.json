@@ -19,8 +19,8 @@
     },
     "messages": {
       "missing_value": {
-        "es": "No se encontró valor para el XPath: {xpath}.",
-        "en": "No value found for XPath: {xpath}."
+        "es": "No se encontró valor para versión del procedimiento: {xpath}.",
+        "en": "No value found for version of the Procedure : {xpath}."
       },
       "unknown_procedure": {
         "es": "El procedimiento '{raw}' no está definido en las versiones válidas.",

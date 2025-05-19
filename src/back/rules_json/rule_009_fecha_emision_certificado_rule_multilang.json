@@ -11,8 +11,8 @@
     "max_days_difference": 30,
     "messages": {
       "missing": {
-        "es": "No se encontró la fecha de emisión en el XPath: {xpath}.",
-        "en": "Emission date not found at XPath: {xpath}."
+        "es": "No se encontró la fecha de emisión en el documento (XPATH): {xpath}.",
+        "en": "Emission date not found at document (XPATH): {xpath}."
       },
       "invalid_format": {
         "es": "Formato de fecha inválido: {value}. Se esperaba DD/MM/YYYY.",

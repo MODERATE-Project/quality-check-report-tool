@@ -11,12 +11,12 @@
     "regex": "^\\d{4}$",
     "messages": {
       "missing_value": {
-        "es": "No se encontró valor para el XPath: {xpath}",
-        "en": "No value found for XPath: {xpath}"
+        "es": "No se encontró valor para Año construcción: {xpath}",
+        "en": "No value found for Year of Construction: {xpath}"
       },
       "invalid_format": {
         "es": "El valor '{value}' no cumple con el formato (el año de construcción deben ser 4 dígitos).",
-        "en": "The value '{value}' does not match the required format (construction year must be 4 digits)."
+        "en": "The value '{value}' does not match the required format (Year of Construction must be 4 digits)."
       },
       "valid": {
         "es": "El valor '{value}' es válido.",

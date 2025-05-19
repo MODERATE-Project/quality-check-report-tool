@@ -2,7 +2,10 @@
   "id": "rule_011",
   "type": "business_rule",
   "category": "common_rules",
-  "name": "Plano del edificio",
+  "name": {
+      "es": "Plano del edificio",
+      "en": "Building Blueprint"
+    }, 
   "severity": "Error",
   "class": "PlanoEdificioRule",
   "description": "Debe adjuntarse plano del edificio.",

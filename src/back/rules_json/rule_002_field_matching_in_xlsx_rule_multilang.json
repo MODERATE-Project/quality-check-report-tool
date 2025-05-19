@@ -2,7 +2,10 @@
   "id": "rule_002",
   "type": "data_validation",
   "category": "common_rules",
-  "name": "Zona Climática",
+  "name": {
+      "es": "Zona Climática",
+      "en": "Climate Zone"
+    },
   "severity": "Error",
   "class": "FieldMatchingInXlsxRule",
   "description": "Con <Municipio> como entrada, debe tener una de las dos zonas climáticas indicadas en el Excel “Listado Poblaciones Zonificación Climática Comunidad Valenciana.xlsx”. Si es diferente, es incorrecta.",

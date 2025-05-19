@@ -2,7 +2,10 @@
   "id": "rule_016",
   "type": "business_rule",
   "category": "common_rules",
-  "name": "Medidas de mejora",
+  "name": {
+      "es": "Medidas de mejora",
+      "en": "Improvement Measures"
+    }, 
   "severity": "Error",
   "class": "DatosEnergeticosMejoraRule",
   "description": "Verifica que las medidas de mejora incluyan nombre, descripción y coste estimado.",

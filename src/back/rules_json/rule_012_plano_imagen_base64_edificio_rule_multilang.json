@@ -2,7 +2,10 @@
   "id": "rule_012",
   "type": "business_rule",
   "category": "common_rules",
-  "name": "Plano del edificio (Base64)",
+  "name": {
+      "es": "Plano del edificio - Formato (Base64)",
+      "en": "Building Blueprint - Format Check (Base64)"
+    }, 
   "severity": "Error",
   "class": "PlanoImagenBase64EdificioRule",
   "description": "Debe adjuntarse un plano del edificio en formato de imagen (Base64).",

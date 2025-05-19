@@ -52,3 +52,29 @@ tasks:
     cmds:
       - echo "Using environment:" {{.ENV}}
       - docker compose -f {{.compose_file}} ps
+
+  add-i18n-string:
+    desc: Añadir un nuevo string a los archivos de i18n (solo en entorno dev)
+    preconditions:
+      - sh: '[ "{{.ENV}}" = "dev" ]'
+        platforms: [linux, darwin]
+        msg: "Esta tarea solo puede ejecutarse en modo desarrollo"
+      - cmd: powershell -Command "if ('{{.ENV}}' -ne 'dev') { exit 1 }"
+        platforms: [windows]
+        msg: "Esta tarea solo puede ejecutarse modo desarrollo"
+    cmds:
+      - cmd: powershell.exe -File ./add-i18n-string.ps1
+        platforms: [windows]
+      - cmd: bash ./add-i18n-string.sh
+        platforms: [linux, darwin]
+
+  historico:
+    desc: Muestra en tiempo real el contenido tabulado de resumen_errores.csv, actualizándose cada segundo.
+    silent: true
+    cmds:
+      - |
+        while true; do
+          clear
+          column -s ';' -t < resultados/resumen_errores.csv
+          sleep 1
+        done

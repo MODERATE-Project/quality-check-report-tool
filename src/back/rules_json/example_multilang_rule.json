@@ -2,7 +2,10 @@
   "id": "rule_xxx",
   "type": "data_validation",
   "category": "common_rules",
-  "name": "Regla de ejemplo multilingüe",
+  "name": {
+    "es": "Regla de ejemplo multilingüe",
+    "en": "Multilingual Example Rule"
+  },
   "severity": "Warning",
   "class": "ExampleMultilangRule",
   "description": "Plantilla base para reglas con soporte multilenguaje.",

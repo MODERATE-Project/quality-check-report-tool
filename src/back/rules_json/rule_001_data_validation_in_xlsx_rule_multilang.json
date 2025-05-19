@@ -13,8 +13,17 @@
     "xpath": "//IdentificacionEdificio/Municipio",
     "column_in_source": "MUNICIPIO",
     "valid_values_source": "data/Listado Poblaciones Zonificación Climática Comunidad Valenciana.xlsx",
+    "xpath_comunidad": "//IdentificacionEdificio/ComunidadAutonoma",
+    "expected_region_values": [
+      "comunidad valenciana",
+      "comunitat valenciana"
+    ],
     "allow_multiple_languages": true,
     "messages": {
+      "invalid_region": {
+        "es": "La comunidad autónoma no es válida para esta regla. Se esperaba Comunidad Valenciana.",
+        "en": "The autonomous community is not valid for this rule. Expected Comunidad Valenciana."
+      },   
       "valid": {
         "es": "El valor '{value}' es válido.",
         "en": "The value '{value}' is valid."

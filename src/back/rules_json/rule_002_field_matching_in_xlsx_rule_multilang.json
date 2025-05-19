@@ -13,7 +13,8 @@
     "xpath": "//IdentificacionEdificio/ZonaClimatica",
     "dependent_field": "//IdentificacionEdificio/Municipio",
     "valid_values_source": "data/Listado Poblaciones Zonificación Climática Comunidad Valenciana.xlsx",
-    "messages": {
+
+    "messages": { 
       "valid": {
         "es": "El valor '{zona}' es válido para el Municipio '{municipio}'.",
         "en": "The value '{zona}' is valid for the Municipality '{municipio}'."

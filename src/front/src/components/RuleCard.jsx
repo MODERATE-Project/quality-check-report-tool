@@ -5,7 +5,7 @@ const VISIBLE_FIELDS = ['status', 'messages', 'details'];
 
 export default function RuleCard({ rule, showAllFields, showSucceeded }) {
   const { t, i18n } = useTranslation('common');
-  const { rule_id, status, severity, messages, description, details } = rule;
+  const { rule_id, status, severity, messages, description, details, name } = rule;
 
   const getStatusClass = () => {
     if (status === 'success') return 'status-success';
@@ -79,6 +79,7 @@ export default function RuleCard({ rule, showAllFields, showSucceeded }) {
 
   return (
     <div className="rule-card">
+      <p><b>{t('Nombre')}:</b> {name}</p> {/* Campo 'name' agregado */}
       <p>
         <b>{t('Estado')}:</b>{" "}
         <span className={`status ${getStatusClass()}`}>{getStatusLabel()}</span>

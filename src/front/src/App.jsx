@@ -137,7 +137,7 @@ export default function XMLUploader() {
             <strong style={{'color':'red'}}>{t('Errores')}</strong> {t('error_description')}
           </li>
           <li>
-            <strong style={{'color':'orange'}}>{t('Sospechas de errores:')}</strong> {t('suspected_error_description')}
+            <strong style={{'color':'orange'}}>{t('Sospechas de errores:')}</strong> {t('suspected_error_description')} <strong>{t("suspected_error_description_bold")}</strong>
           </li>
         </ul>
           

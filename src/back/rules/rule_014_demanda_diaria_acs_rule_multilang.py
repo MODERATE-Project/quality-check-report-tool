@@ -27,6 +27,25 @@ class DemandaDiariaACSRule(BaseRule):
             for lang, detail in details_tpl.items()
         }
 
+    # def get_question(self, epc: EpcDto) -> Optional[Tuple[str, Dict[str, Dict[str, Any]]]]:
+    #     building_type = epc.get_value_by_xpath(self.parameters["xpath_tipo_edificio"])
+    #     valid_types = self.parameters.get("values", [])
+
+    #     if building_type not in valid_types:
+    #         return None
+
+    #     question = (
+    #         "¿Cuántas viviendas hay en el bloque?" if building_type == "BloqueDeViviendaCompleto"
+    #         else "¿Cuántos dormitorios tiene la vivienda?"
+    #     )
+
+    #     return (self.id, {
+    #         f"{self.id}_0": {
+    #             "text": question,
+    #             "type": "integer"
+    #         }
+    #     })
+
     def get_question(self, epc: EpcDto) -> Optional[Tuple[str, Dict[str, Dict[str, Any]]]]:
         building_type = epc.get_value_by_xpath(self.parameters["xpath_tipo_edificio"])
         valid_types = self.parameters.get("values", [])
@@ -34,17 +53,22 @@ class DemandaDiariaACSRule(BaseRule):
         if building_type not in valid_types:
             return None
 
-        question = (
-            "¿Cuántas viviendas hay en el bloque?" if building_type == "BloqueDeViviendaCompleto"
-            else "¿Cuántos dormitorios tiene la vivienda?"
+        questions_dict = self.parameters.get("questions", {})
+        question_key = "numero_viviendas" if building_type == "BloqueDeViviendaCompleto" else "numero_dormitorios"
+        prompt_multilang = questions_dict.get(question_key, {})
+
+        return (
+            self.id,
+            {
+                f"{self.id}_0": {
+                    "text": prompt_multilang,
+                    "type": "integer"
+                }
+            }
         )
 
-        return (self.id, {
-            f"{self.id}_0": {
-                "text": question,
-                "type": "integer"
-            }
-        })
+
+
 
     def validate(self, epc: EpcDto, questions) -> Dict:
         result = self._new_result()

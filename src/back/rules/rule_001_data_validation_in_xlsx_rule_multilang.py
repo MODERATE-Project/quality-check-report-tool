@@ -14,6 +14,10 @@ class DataValidationInXlsxRule(BaseRule):
         self.valid_values_source = self.parameters.get("valid_values_source")
         self.allow_multiple_languages = self.parameters.get("allow_multiple_languages", False)
 
+        self.comunidad_xpath = self.parameters.get("xpath_comunidad")
+        self.expected_region_values = self.parameters.get("expected_region_values", [])
+        
+
     def _get_translated_messages(self, key: str, **kwargs) -> dict:
         messages = self.parameters.get("messages", {}).get(key, {})
         return {
@@ -24,6 +28,13 @@ class DataValidationInXlsxRule(BaseRule):
 
     def validate(self, epc: "EpcDto") -> Dict:
         validation_result = self._new_result()  # por defecto status="error"
+
+        comunidad_value = epc.get_value_by_xpath(self.comunidad_xpath)
+        if comunidad_value is None or unidecode(comunidad_value.lower().strip()) not in [unidecode(v.lower()) for v in self.expected_region_values]:
+            validation_result["messages"] = self._get_translated_messages("invalid_region")
+            validation_result["status"] = "error"
+            return validation_result
+
         value_to_validate = epc.get_value_by_xpath(self.xpath)
         if value_to_validate is None:
             validation_result["messages"] = self._get_translated_messages("missing_value", xpath=self.xpath)

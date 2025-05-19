@@ -2,7 +2,10 @@
   "id": "rule_007",
   "type": "business_rule",
   "category": "common_rules",
-  "name": "Versión del procedimiento de calificación energética utilizado",
+  "name": {
+      "es": "Versión del procedimiento de calificación energética utilizado",
+      "en": "Version of the EPC software used"
+    },   
   "severity": "Error",
   "class": "ProcedimientoVersionCheckRule",
   "description": "Versión mínima exigida por programa.",

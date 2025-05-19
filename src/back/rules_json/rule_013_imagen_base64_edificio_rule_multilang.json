@@ -2,7 +2,10 @@
   "id": "rule_013",
   "type": "business_rule",
   "category": "common_rules",
-  "name": "Imagen del edificio (Base64)",
+  "name": {
+      "es": "Imagen del edificio (Base64)",
+      "en": "Building Image - Format Check (Base64)"
+    }, 
   "severity": "Error",
   "class": "ImagenBase64EdificioRule",
   "description": "Debe adjuntarse una imagen del edificio en formato de imagen Base64.",

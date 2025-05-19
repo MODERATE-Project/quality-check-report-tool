@@ -2,7 +2,10 @@
   "id": "rule_018",
   "type": "business_rule",
   "category": "common_rules",
-  "name": "Descripción de las pruebas realizadas al edificio",
+  "name": {
+    "es": "Descripción de las pruebas realizadas al edificio",
+    "en": "Description of the tests performed on the building"
+  },
   "severity": "Error",
   "class": "DescripcionVisitaRule",
   "description": "Debe figurar una descripción de la visita realizada en el campo <PruebasComprobacionesInspecciones>/<Visita>/<Datos>.",

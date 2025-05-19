@@ -2,7 +2,10 @@
   "id": "rule_008",
   "type": "business_rule",
   "category": "common_rules",
-  "name": "Alcance del certificado",
+  "name": {
+      "es": "Alcance del certificado",
+      "en": "Scope of the Certificate"
+    },   
   "severity": "Error",
   "class": "AlcanceYearInformacionXMLRule",
   "description": "Verifica que el año de construcción sea compatible con el tipo de alcance indicado.",

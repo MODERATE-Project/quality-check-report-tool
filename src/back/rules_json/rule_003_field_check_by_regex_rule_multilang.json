@@ -2,7 +2,10 @@
   "id": "rule_003",
   "type": "data_validation",
   "category": "common_rules",
-  "name": "Año construcción",
+  "name": {
+      "es": "Año construcción",
+      "en": "Year of Construction"
+    },  
   "severity": "Error",
   "class": "FieldCheckByRegExRule",
   "description": "Ano de construccion debe tener 4 digitos indicando un año concreto. Por ejemplo, no puede contener una franja de tiempo (1988-1990).",

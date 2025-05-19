@@ -2,7 +2,10 @@
   "id": "rule_017",
   "type": "business_rule",
   "category": "common_rules",
-  "name": "Validación de la Fecha de Visita e Inspección",
+  "name": {
+      "es": "Validación de la Fecha de Visita e Inspección",
+      "en": "Inspection and Visit Date"
+    }, 
   "severity": "Error",
   "class": "PruebasComprobacionesInspeccionesRule",
   "description": "Verifica que la fecha de la visita sea con un máximo de días antes de la fecha de emisión del certificado y que el campo <Datos> no esté vacío.",

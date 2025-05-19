@@ -2,7 +2,10 @@
   "id": "rule_014",
   "type": "business_rule",
   "category": "common_rules",
-  "name": "Demanda diaria de ACS",
+  "name": {
+      "es": "Demanda diaria de ACS",
+      "en": "Daily DHW Demand"
+    }, 
   "severity": "Error",
   "class": "DemandaDiariaACSRule",
   "description": "Verifica que la demanda diaria de ACS se corresponda con el número de dormitorios y viviendas según el CTE.",

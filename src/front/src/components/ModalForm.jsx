@@ -83,7 +83,7 @@ export default function ModalForm({ isOpen, fields, onSubmit, error, onCancel })
         <form onSubmit={handleSubmit} className="modal-body">
           {Object.entries(fields).map(([key, field]) => (
             <div className="modal-field" key={key}>
-              <label>{field.text}</label>
+              <label>{typeof field.text === 'object' ? field.text[i18n.language] : field.text}</label>
 
               {field.type === "boolean" ? (
                 <select

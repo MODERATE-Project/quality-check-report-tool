@@ -1,8 +1,11 @@
 import React, { useState, useCallback, useEffect } from "react";
+import { useTranslation } from 'react-i18next';
+
 import "./ModalForm.css";
 
 export default function ModalForm({ isOpen, fields, onSubmit, error, onCancel }) {
   const [formValues, setFormValues] = useState({});
+  const { t, i18n } = useTranslation('common');
 
   const handleKeyDown = useCallback(
     (e) => {
@@ -74,7 +77,7 @@ export default function ModalForm({ isOpen, fields, onSubmit, error, onCancel })
           &times;
         </button>
 
-        <h2 className="modal-title">Información adicional requerida</h2>
+        <h2 className="modal-title">{t('Información adicional requerida')}</h2>
         
         {error && <p className="modal-error global">{error}</p>}
         <form onSubmit={handleSubmit} className="modal-body">
@@ -105,8 +108,8 @@ export default function ModalForm({ isOpen, fields, onSubmit, error, onCancel })
           ))}
         </form>
           <div className="modal-buttons">
-            <button type="submit" className="modal-btn primary" onClick={handleSubmit}>Enviar</button>
-            <button type="button" className="modal-btn" onClick={onCancel}>Cancelar</button>
+            <button type="submit" className="modal-btn primary" onClick={handleSubmit}>{t('Enviar')}</button>
+            <button type="button" className="modal-btn" onClick={onCancel}>{t('Cancelar')}</button>
           </div>
       </div>
     </div>

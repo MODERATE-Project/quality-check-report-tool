@@ -58,6 +58,16 @@
           "validated_demand": "{real}"
         }
       }
-    }
+    },
+    "questions": {
+      "numero_viviendas": {
+        "es": "¿Cuántas viviendas hay en el bloque?",
+        "en": "How many dwellings are in the block?"
+      },
+      "numero_dormitorios": {
+        "es": "¿Cuántos dormitorios tiene la vivienda?",
+        "en": "How many bedrooms does the dwelling have?"
+      }
+    }  
   }
 }

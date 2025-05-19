@@ -22,7 +22,10 @@
         "year_range": {
           "max": 2007
         },
-        "prompt_on_error": "¿Se trata de una actualización de un certificado de eficiencia energética ya registrado?"
+        "prompt_on_error": {
+          "es": "¿Se trata de una actualización de un certificado de eficiencia energética ya registrado?",
+          "en": "Is this an update to an already registered energy efficiency certificate?"
+        }  
       },
       {
         "values": [
@@ -33,7 +36,10 @@
         "year_range": {
           "min": 2008
         },
-        "prompt_on_error": "El año de construcción no concuerda con el tipo de alcance 'nuevo'."
+        "prompt_on_error": {
+          "es": "El año de construcción no concuerda con el tipo de alcance 'nuevo'",
+          "en": "The construction year does not match the 'new' scope."
+        }  
       }
     ],
     "messages": {

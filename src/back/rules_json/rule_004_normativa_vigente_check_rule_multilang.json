@@ -76,24 +76,24 @@
       "invalid_normativa": {
         "es": {
           "normativa": "{normativa}",
-          "ano": "{ano}",
+          "año": "{ano}",
           "esperado": "{esperado}"
         },
         "en": {
           "regulation": "{normativa}",
-          "ano": "{ano}",
+          "year": "{ano}",
           "expected": "{esperado}"
         }
       },
       "valid_normativa": {
         "es": {
           "normativa": "{normativa}",
-          "ano": "{ano}",
+          "año": "{ano}",
           "esperado": "{esperado}"
         },
         "en": {
           "regulation": "{normativa}",
-          "ano": "{ano}",
+          "year": "{ano}",
           "expected": "{esperado}"
         }
       }

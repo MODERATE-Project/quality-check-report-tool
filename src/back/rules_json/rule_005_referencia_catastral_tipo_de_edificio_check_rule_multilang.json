@@ -31,12 +31,12 @@
     },
     "messages": {
       "missing_value": {
-        "es": "No se encontró valor para el XPath: {xpath}.",
-        "en": "No value found for XPath: {xpath}."
+        "es": "No se encontró valor para Referencia catastral: {xpath}.",
+        "en": "No value found for Cadastral Reference: {xpath}."
       },
       "missing_dependent": {
-        "es": "No se encontró valor para el campo dependiente: {field}.",
-        "en": "No value found for dependent field: {field}."
+        "es": "No se encontró valor para el campo dependiente (Tipo de edificio): {field}.",
+        "en": "No value found for dependent field (Building Type): {field}."
       },
       "no_lengths": {
         "es": "No se encontraron longitudes válidas para el tipo de edificio '{tipo}'.",

@@ -12,12 +12,12 @@
     "valid_values_source": "data/Listado Poblaciones Zonificación Climática Comunidad Valenciana.xlsx",
     "messages": {
       "valid": {
-        "es": "El valor '{zona}' es válido para el municipio '{municipio}'.",
-        "en": "The value '{zona}' is valid for the town '{municipio}'."
+        "es": "El valor '{zona}' es válido para el Municipio '{municipio}'.",
+        "en": "The value '{zona}' is valid for the Municipality '{municipio}'."
       },
       "missing_value": {
-        "es": "No se encontró valor para el XPath: {field}",
-        "en": "No value found for XPath: {field}"
+        "es": "No se encontró valor para la Zona Climática: {field}",
+        "en": "No value found for Climate Zone: {field}"
       },
       "missing_dependent": {
         "es": "No se encontró valor para el campo dependiente: {field}",
@@ -33,11 +33,11 @@
       },
       "no_zones_found": {
         "es": "No se encontraron valores válidos para el municipio '{municipio}'.",
-        "en": "No valid zones found for the town '{municipio}'."
+        "en": "No valid zones found for the Municipality '{municipio}'."
       },
       "zone_mismatch": {
-        "es": "Dada la localidad ('{municipio}'), la zona climática del XML ('{zona}') no concuerda. Zonas admitidas: {zonas}.",
-        "en": "Given the town ('{municipio}'), the XML climate zone ('{zona}') does not match. Accepted zones: {zonas}."
+        "es": "Dado el municipio ('{municipio}'), la zona climática del XML ('{zona}') no concuerda. Zonas admitidas: {zonas}.",
+        "en": "Given the Municipality ('{municipio}'), the XML climate zone ('{zona}') does not match. Accepted zones: {zonas}."
       }
     }
   }

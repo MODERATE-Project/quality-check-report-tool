@@ -45,12 +45,12 @@
     ],
     "messages": {
       "missing_normativa": {
-        "es": "No se encontró valor para el XPath: {field}",
-        "en": "No value found for XPath: {field}"
+        "es": "No se encontró valor para Normativa vigente: {field}",
+        "en": "No value found for Applicable Regulation: {field}"
       },
       "missing_ano": {
         "es": "No se encontró el año de construcción (<AnoConstruccion>).",
-        "en": "Construction year (<AnoConstruccion>) not found."
+        "en": "Year of Construction (<AnoConstruccion>) not found."
       },
       "ano_not_numeric": {
         "es": "'AnoConstruccion' no es numérico: {value}",
@@ -77,7 +77,7 @@
           "esperado": "{esperado}"
         },
         "en": {
-          "normativa": "{normativa}",
+          "regulation": "{normativa}",
           "ano": "{ano}",
           "expected": "{esperado}"
         }
@@ -89,7 +89,7 @@
           "esperado": "{esperado}"
         },
         "en": {
-          "normativa": "{normativa}",
+          "regulation": "{normativa}",
           "ano": "{ano}",
           "expected": "{esperado}"
         }

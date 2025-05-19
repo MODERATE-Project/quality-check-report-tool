@@ -17,8 +17,8 @@
     ],
     "messages": {
       "missing_value": {
-        "es": "No se encontró valor para el XPath: {xpath}.",
-        "en": "No value found for XPath: {xpath}."
+        "es": "No se encontró valor para Tipo de edificio : {xpath}.",
+        "en": "No value found for Building Type: {xpath}."
       },
       "invalid": {
         "es": "El tipo de edificio '{tipo}' no es válido.",

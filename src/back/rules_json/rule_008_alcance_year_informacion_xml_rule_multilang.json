@@ -44,11 +44,11 @@
       },
       "incompatible": {
         "es": "El alcance del certificado indicado no es compatible con el año de construcción de la edificación.",
-        "en": "Scope is not compatible with construction year."
+        "en": "Scope of the certificate is not compatible with construction year."
       },
       "invalid_value": {
         "es": "No concuerda el alcance con la lista de categorías admitidas.",
-        "en": "Scope does not match allowed categories."
+        "en": "Scope of the certificate does not match allowed categories."
       },
       "missing_data": {
         "es": "Faltan datos de alcance o año.",
@@ -59,8 +59,8 @@
         "en": "Year is not numeric: '{raw}'."
       },
       "pending": {
-        "es": "Se requiere confirmación del usuario para validar este alcance.",
-        "en": "User confirmation is required to validate this scope."
+        "es": "Se requiere confirmación del usuario para validar este alcance del certificado.",
+        "en": "User confirmation is required to validate this scope of the certificate."
       }
     },
     "details": {

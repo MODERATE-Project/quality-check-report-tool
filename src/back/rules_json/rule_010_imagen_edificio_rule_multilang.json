@@ -13,8 +13,8 @@
     "xpath_imagen": "//DatosGeneralesyGeometria/Imagen",
     "messages": {
       "missing": {
-        "es": "Debe adjuntarse imagen del edificio.",
-        "en": "An image of the building must be attached."
+        "es": "Debe adjuntarse imagen del edificio. No se detecta ningún archivo adjunto.",
+        "en": "An image of the building must be attached. Building image not found."
       },
       "valid": {
         "es": "La imagen del edificio está correctamente adjunta.",

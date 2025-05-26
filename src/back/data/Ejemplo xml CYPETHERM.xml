@@ -1,0 +1,1021 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DatosEnergeticosDelEdificio version="2.0">
+	<IdentificacionEdificio>
+		<NombreDelEdificio>nombre</NombreDelEdificio>
+		<Direccion>dirección</Direccion>
+		<Municipio>municipio</Municipio>
+		<CodigoPostal>00000</CodigoPostal>
+		<Provincia>provincia</Provincia>
+		<ComunidadAutonoma>comunidad autónoma</ComunidadAutonoma>
+		<ZonaClimatica>B4</ZonaClimatica>
+		<AnoConstruccion>2020</AnoConstruccion>
+		<NormativaVigente>CTE HE 2019</NormativaVigente>
+		<ReferenciaCatastral>xxxxxxxxxx</ReferenciaCatastral>
+		<TipoDeEdificio>ViviendaUnifamiliar</TipoDeEdificio>
+		<Procedimiento>CYPETHERM HE Plus. 2023.d</Procedimiento>
+		<AlcanceInformacionXML>CertificacionNuevo</AlcanceInformacionXML>
+	</IdentificacionEdificio>
+	<DatosDelCertificador>
+		<NombreyApellidos>xx</NombreyApellidos>
+		<NIF>xx</NIF>
+		<RazonSocial>xx</RazonSocial>
+		<NIFEntidad>xx</NIFEntidad>
+		<Domicilio>xx</Domicilio>
+		<Municipio>xx</Municipio>
+		<CodigoPostal>xx</CodigoPostal>
+		<Provincia>xx</Provincia>
+		<ComunidadAutonoma>xx</ComunidadAutonoma>
+		<Email>xx</Email>
+		<Telefono>xx</Telefono>
+		<Titulacion>xx</Titulacion>
+		<Fecha>01/05/2020</Fecha>
+	</DatosDelCertificador>
+	<DatosGeneralesyGeometria>
+		<NumeroDePlantasSobreRasante>2</NumeroDePlantasSobreRasante>
+		<NumeroDePlantasBajoRasante>0</NumeroDePlantasBajoRasante>
+		<SuperficieHabitable>162.51</SuperficieHabitable>
+		<VolumenEspacioHabitable>485.06</VolumenEspacioHabitable>
+		<Compacidad>1.43</Compacidad>
+		<PorcentajeSuperficieHabitableCalefactada>100</PorcentajeSuperficieHabitableCalefactada>
+		<PorcentajeSuperficieHabitableRefrigerada>100</PorcentajeSuperficieHabitableRefrigerada>
+		<PorcentajeSuperficieAcristalada>
+			<N>0</N>
+			<NE>0</NE>
+			<E>15</E>
+			<SE>22</SE>
+			<S>0</S>
+			<SO>0</SO>
+			<O>10</O>
+			<NO>0</NO>
+		</PorcentajeSuperficieAcristalada>
+		<Imagen>			/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAIBAQIBAQICAgICAgICAwUDAwMDAwYEBAMFBwYHBwcGBwcICQsJCAgKCAcHCg0KCgsMDAwMBwkODw0MDgsMDAz/2wBDAQICAgMDAwYDAwYMCAcIDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAz/wAARCAJYAyADASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD9/KKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKAP/2Q==
+		</Imagen>
+		<Plano>
+			/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAIBAQIBAQICAgICAgICAwUDAwMDAwYEBAMFBwYHBwcGBwcICQsJCAgKCAcHCg0KCgsMDAwMBwkODw0MDgsMDAz/2wBDAQICAgMDAwYDAwYMCAcIDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAz/wAARCAJYAyADASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD9/KKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKAP/2Q==
+		</Plano>
+		<VentilacionUsoResidencial>0.63</VentilacionUsoResidencial>
+		<VentilacionTotal>1.03</VentilacionTotal>
+		<DemandaDiariaACS>140</DemandaDiariaACS>
+	</DatosGeneralesyGeometria>
+	<DatosEnvolventeTermica>
+		<CerramientosOpacos>
+			<Elemento>
+				<Nombre>Fachada aislada</Nombre>
+				<Tipo>Fachada</Tipo>
+				<Superficie>40.55</Superficie>
+				<Orientacion>Este</Orientacion>
+				<Transmitancia>0.28</Transmitancia>
+				<ModoDeObtencion>Usuario</ModoDeObtencion>
+				<Capas>
+					<Capa>
+						<Material>Mortero de cemento o cal para albañilería y para revoco/enlucido 1000 &lt; d &lt; 1250</Material>
+						<Espesor>0.02</Espesor>
+						<ConductividadTermica>0.55</ConductividadTermica>
+						<Densidad>1125</Densidad>
+						<FactorResistenciaVapor>10.00</FactorResistenciaVapor>
+						<CalorEspecifico>1000</CalorEspecifico>
+					</Capa>
+					<Capa>
+						<Material>1/2 pie LP métrico o catalán 60 mm&lt; G &lt; 80 mm</Material>
+						<Espesor>0.15</Espesor>
+						<ConductividadTermica>0.583</ConductividadTermica>
+						<Densidad>1020</Densidad>
+						<FactorResistenciaVapor>10.00</FactorResistenciaVapor>
+						<CalorEspecifico>1000</CalorEspecifico>
+					</Capa>
+					<Capa>
+						<Material>MW Lana mineral [0.04 W/[mK]]</Material>
+						<Espesor>0.12</Espesor>
+						<ConductividadTermica>0.04</ConductividadTermica>
+						<Densidad>40</Densidad>
+						<FactorResistenciaVapor>1.00</FactorResistenciaVapor>
+						<CalorEspecifico>1000</CalorEspecifico>
+					</Capa>
+					<Capa>
+						<Material>Placa de yeso laminado [PYL] 750 &lt; d &lt; 900</Material>
+						<Espesor>0.02</Espesor>
+						<ConductividadTermica>0.25</ConductividadTermica>
+						<Densidad>825</Densidad>
+						<FactorResistenciaVapor>4.00</FactorResistenciaVapor>
+						<CalorEspecifico>1000</CalorEspecifico>
+					</Capa>
+				</Capas>
+			</Elemento>
+			<Elemento>
+				<Nombre>Solera aislada</Nombre>
+				<Tipo>Suelo</Tipo>
+				<Superficie>85.19</Superficie>
+				<Orientacion>Sureste</Orientacion>
+				<Transmitancia>0.25</Transmitancia>
+				<ModoDeObtencion>Usuario</ModoDeObtencion>
+				<Capas>
+					<Capa>
+						<Material>Gres calcáreo 2000 &lt; d &lt; 2700</Material>
+						<Espesor>0.02</Espesor>
+						<ConductividadTermica>1.9</ConductividadTermica>
+						<Densidad>2350</Densidad>
+						<FactorResistenciaVapor>20.00</FactorResistenciaVapor>
+						<CalorEspecifico>1000</CalorEspecifico>
+					</Capa>
+					<Capa>
+						<Material>Mortero de cemento o cal para albañilería y para revoco/enlucido 1800 &lt; d &lt; 2000</Material>
+						<Espesor>0.06</Espesor>
+						<ConductividadTermica>1.3</ConductividadTermica>
+						<Densidad>1900</Densidad>
+						<FactorResistenciaVapor>10.00</FactorResistenciaVapor>
+						<CalorEspecifico>1000</CalorEspecifico>
+					</Capa>
+					<Capa>
+						<Material>XPS Expandido con dióxido de carbono CO2 [ 0.034 W/[mK]]</Material>
+						<Espesor>0.08</Espesor>
+						<ConductividadTermica>0.034</ConductividadTermica>
+						<Densidad>37.5</Densidad>
+						<FactorResistenciaVapor>20.00</FactorResistenciaVapor>
+						<CalorEspecifico>1000</CalorEspecifico>
+					</Capa>
+					<Capa>
+						<Material>Hormigón armado 2300 &lt; d &lt; 2500</Material>
+						<Espesor>0.14</Espesor>
+						<ConductividadTermica>2.3</ConductividadTermica>
+						<Densidad>2400</Densidad>
+						<FactorResistenciaVapor>80.00</FactorResistenciaVapor>
+						<CalorEspecifico>1000</CalorEspecifico>
+					</Capa>
+				</Capas>
+			</Elemento>
+			<Elemento>
+				<Nombre>Fachada aislada</Nombre>
+				<Tipo>Fachada</Tipo>
+				<Superficie>44.4</Superficie>
+				<Orientacion>Norte</Orientacion>
+				<Transmitancia>0.28</Transmitancia>
+				<ModoDeObtencion>Usuario</ModoDeObtencion>
+				<Capas>
+					<Capa>
+						<Material>Mortero de cemento o cal para albañilería y para revoco/enlucido 1000 &lt; d &lt; 1250</Material>
+						<Espesor>0.02</Espesor>
+						<ConductividadTermica>0.55</ConductividadTermica>
+						<Densidad>1125</Densidad>
+						<FactorResistenciaVapor>10.00</FactorResistenciaVapor>
+						<CalorEspecifico>1000</CalorEspecifico>
+					</Capa>
+					<Capa>
+						<Material>1/2 pie LP métrico o catalán 60 mm&lt; G &lt; 80 mm</Material>
+						<Espesor>0.15</Espesor>
+						<ConductividadTermica>0.583</ConductividadTermica>
+						<Densidad>1020</Densidad>
+						<FactorResistenciaVapor>10.00</FactorResistenciaVapor>
+						<CalorEspecifico>1000</CalorEspecifico>
+					</Capa>
+					<Capa>
+						<Material>MW Lana mineral [0.04 W/[mK]]</Material>
+						<Espesor>0.12</Espesor>
+						<ConductividadTermica>0.04</ConductividadTermica>
+						<Densidad>40</Densidad>
+						<FactorResistenciaVapor>1.00</FactorResistenciaVapor>
+						<CalorEspecifico>1000</CalorEspecifico>
+					</Capa>
+					<Capa>
+						<Material>Placa de yeso laminado [PYL] 750 &lt; d &lt; 900</Material>
+						<Espesor>0.02</Espesor>
+						<ConductividadTermica>0.25</ConductividadTermica>
+						<Densidad>825</Densidad>
+						<FactorResistenciaVapor>4.00</FactorResistenciaVapor>
+						<CalorEspecifico>1000</CalorEspecifico>
+					</Capa>
+				</Capas>
+			</Elemento>
+			<Elemento>
+				<Nombre>Fachada aislada</Nombre>
+				<Tipo>Fachada</Tipo>
+				<Superficie>42.05</Superficie>
+				<Orientacion>Oeste</Orientacion>
+				<Transmitancia>0.28</Transmitancia>
+				<ModoDeObtencion>Usuario</ModoDeObtencion>
+				<Capas>
+					<Capa>
+						<Material>Mortero de cemento o cal para albañilería y para revoco/enlucido 1000 &lt; d &lt; 1250</Material>
+						<Espesor>0.02</Espesor>
+						<ConductividadTermica>0.55</ConductividadTermica>
+						<Densidad>1125</Densidad>
+						<FactorResistenciaVapor>10.00</FactorResistenciaVapor>
+						<CalorEspecifico>1000</CalorEspecifico>
+					</Capa>
+					<Capa>
+						<Material>1/2 pie LP métrico o catalán 60 mm&lt; G &lt; 80 mm</Material>
+						<Espesor>0.15</Espesor>
+						<ConductividadTermica>0.583</ConductividadTermica>
+						<Densidad>1020</Densidad>
+						<FactorResistenciaVapor>10.00</FactorResistenciaVapor>
+						<CalorEspecifico>1000</CalorEspecifico>
+					</Capa>
+					<Capa>
+						<Material>MW Lana mineral [0.04 W/[mK]]</Material>
+						<Espesor>0.12</Espesor>
+						<ConductividadTermica>0.04</ConductividadTermica>
+						<Densidad>40</Densidad>
+						<FactorResistenciaVapor>1.00</FactorResistenciaVapor>
+						<CalorEspecifico>1000</CalorEspecifico>
+					</Capa>
+					<Capa>
+						<Material>Placa de yeso laminado [PYL] 750 &lt; d &lt; 900</Material>
+						<Espesor>0.02</Espesor>
+						<ConductividadTermica>0.25</ConductividadTermica>
+						<Densidad>825</Densidad>
+						<FactorResistenciaVapor>4.00</FactorResistenciaVapor>
+						<CalorEspecifico>1000</CalorEspecifico>
+					</Capa>
+				</Capas>
+			</Elemento>
+			<Elemento>
+				<Nombre>Fachada aislada</Nombre>
+				<Tipo>Fachada</Tipo>
+				<Superficie>47.57</Superficie>
+				<Orientacion>Sureste</Orientacion>
+				<Transmitancia>0.28</Transmitancia>
+				<ModoDeObtencion>Usuario</ModoDeObtencion>
+				<Capas>
+					<Capa>
+						<Material>Mortero de cemento o cal para albañilería y para revoco/enlucido 1000 &lt; d &lt; 1250</Material>
+						<Espesor>0.02</Espesor>
+						<ConductividadTermica>0.55</ConductividadTermica>
+						<Densidad>1125</Densidad>
+						<FactorResistenciaVapor>10.00</FactorResistenciaVapor>
+						<CalorEspecifico>1000</CalorEspecifico>
+					</Capa>
+					<Capa>
+						<Material>1/2 pie LP métrico o catalán 60 mm&lt; G &lt; 80 mm</Material>
+						<Espesor>0.15</Espesor>
+						<ConductividadTermica>0.583</ConductividadTermica>
+						<Densidad>1020</Densidad>
+						<FactorResistenciaVapor>10.00</FactorResistenciaVapor>
+						<CalorEspecifico>1000</CalorEspecifico>
+					</Capa>
+					<Capa>
+						<Material>MW Lana mineral [0.04 W/[mK]]</Material>
+						<Espesor>0.12</Espesor>
+						<ConductividadTermica>0.04</ConductividadTermica>
+						<Densidad>40</Densidad>
+						<FactorResistenciaVapor>1.00</FactorResistenciaVapor>
+						<CalorEspecifico>1000</CalorEspecifico>
+					</Capa>
+					<Capa>
+						<Material>Placa de yeso laminado [PYL] 750 &lt; d &lt; 900</Material>
+						<Espesor>0.02</Espesor>
+						<ConductividadTermica>0.25</ConductividadTermica>
+						<Densidad>825</Densidad>
+						<FactorResistenciaVapor>4.00</FactorResistenciaVapor>
+						<CalorEspecifico>1000</CalorEspecifico>
+					</Capa>
+				</Capas>
+			</Elemento>
+			<Elemento>
+				<Nombre>Cubierta aislada</Nombre>
+				<Tipo>Cubierta</Tipo>
+				<Superficie>2</Superficie>
+				<Orientacion>Sureste</Orientacion>
+				<Transmitancia>0.25</Transmitancia>
+				<ModoDeObtencion>Usuario</ModoDeObtencion>
+				<Capas>
+					<Capa>
+						<Material>Plaqueta o baldosa de gres</Material>
+						<Espesor>0.02</Espesor>
+						<ConductividadTermica>2.3</ConductividadTermica>
+						<Densidad>2500</Densidad>
+						<FactorResistenciaVapor>30.00</FactorResistenciaVapor>
+						<CalorEspecifico>1000</CalorEspecifico>
+					</Capa>
+					<Capa>
+						<Material>Asfalto</Material>
+						<Espesor>0.01</Espesor>
+						<ConductividadTermica>0.7</ConductividadTermica>
+						<Densidad>2100</Densidad>
+						<FactorResistenciaVapor>50000.00</FactorResistenciaVapor>
+						<CalorEspecifico>1000</CalorEspecifico>
+					</Capa>
+					<Capa>
+						<Material>Mortero de cemento o cal para albañilería y para revoco/enlucido 1000 &lt; d &lt; 1250</Material>
+						<Espesor>0.04</Espesor>
+						<ConductividadTermica>0.55</ConductividadTermica>
+						<Densidad>1125</Densidad>
+						<FactorResistenciaVapor>10.00</FactorResistenciaVapor>
+						<CalorEspecifico>1000</CalorEspecifico>
+					</Capa>
+					<Capa>
+						<Material>FU Entrevigado de hormigón -Canto 300 mm</Material>
+						<Espesor>0.3</Espesor>
+						<ConductividadTermica>1.43</ConductividadTermica>
+						<Densidad>1240</Densidad>
+						<FactorResistenciaVapor>80.00</FactorResistenciaVapor>
+						<CalorEspecifico>1000</CalorEspecifico>
+					</Capa>
+					<Capa>
+						<Material>MW Lana mineral [0.04 W/[mK]]</Material>
+						<Espesor>0.14</Espesor>
+						<ConductividadTermica>0.04</ConductividadTermica>
+						<Densidad>40</Densidad>
+						<FactorResistenciaVapor>1.00</FactorResistenciaVapor>
+						<CalorEspecifico>1000</CalorEspecifico>
+					</Capa>
+					<Capa>
+						<Material>Placa de yeso laminado [PYL] 750 &lt; d &lt; 900</Material>
+						<Espesor>0.02</Espesor>
+						<ConductividadTermica>0.25</ConductividadTermica>
+						<Densidad>825</Densidad>
+						<FactorResistenciaVapor>4.00</FactorResistenciaVapor>
+						<CalorEspecifico>1000</CalorEspecifico>
+					</Capa>
+				</Capas>
+			</Elemento>
+			<Elemento>
+				<Nombre>Tejado inclinado</Nombre>
+				<Tipo>Cubierta</Tipo>
+				<Superficie>45.5</Superficie>
+				<Orientacion>Este</Orientacion>
+				<Transmitancia>0.22</Transmitancia>
+				<ModoDeObtencion>Usuario</ModoDeObtencion>
+				<Capas>
+					<Capa>
+						<Material>Teja de arcilla cocida</Material>
+						<Espesor>0.02</Espesor>
+						<ConductividadTermica>1</ConductividadTermica>
+						<Densidad>2000</Densidad>
+						<FactorResistenciaVapor>30.00</FactorResistenciaVapor>
+						<CalorEspecifico>800</CalorEspecifico>
+					</Capa>
+					<Capa>
+						<Material>XPS Expandido con dióxido de carbono CO2 [ 0.034 W/[mK]]</Material>
+						<Espesor>0.14</Espesor>
+						<ConductividadTermica>0.034</ConductividadTermica>
+						<Densidad>37.5</Densidad>
+						<FactorResistenciaVapor>20.00</FactorResistenciaVapor>
+						<CalorEspecifico>1000</CalorEspecifico>
+					</Capa>
+					<Capa>
+						<Material>FR Entrevigado de hormigón -Canto 300 mm</Material>
+						<Espesor>0.3</Espesor>
+						<ConductividadTermica>2</ConductividadTermica>
+						<Densidad>1285</Densidad>
+						<FactorResistenciaVapor>100.00</FactorResistenciaVapor>
+						<CalorEspecifico>1000</CalorEspecifico>
+					</Capa>
+					<Capa>
+						<Material>Enlucido de yeso 1000 &lt; d &lt; 1300</Material>
+						<Espesor>0.02</Espesor>
+						<ConductividadTermica>0.57</ConductividadTermica>
+						<Densidad>1150</Densidad>
+						<FactorResistenciaVapor>6.00</FactorResistenciaVapor>
+						<CalorEspecifico>1000</CalorEspecifico>
+					</Capa>
+				</Capas>
+			</Elemento>
+			<Elemento>
+				<Nombre>Tejado inclinado</Nombre>
+				<Tipo>Cubierta</Tipo>
+				<Superficie>36.71</Superficie>
+				<Orientacion>Oeste</Orientacion>
+				<Transmitancia>0.22</Transmitancia>
+				<ModoDeObtencion>Usuario</ModoDeObtencion>
+				<Capas>
+					<Capa>
+						<Material>Teja de arcilla cocida</Material>
+						<Espesor>0.02</Espesor>
+						<ConductividadTermica>1</ConductividadTermica>
+						<Densidad>2000</Densidad>
+						<FactorResistenciaVapor>30.00</FactorResistenciaVapor>
+						<CalorEspecifico>800</CalorEspecifico>
+					</Capa>
+					<Capa>
+						<Material>XPS Expandido con dióxido de carbono CO2 [ 0.034 W/[mK]]</Material>
+						<Espesor>0.14</Espesor>
+						<ConductividadTermica>0.034</ConductividadTermica>
+						<Densidad>37.5</Densidad>
+						<FactorResistenciaVapor>20.00</FactorResistenciaVapor>
+						<CalorEspecifico>1000</CalorEspecifico>
+					</Capa>
+					<Capa>
+						<Material>FR Entrevigado de hormigón -Canto 300 mm</Material>
+						<Espesor>0.3</Espesor>
+						<ConductividadTermica>2</ConductividadTermica>
+						<Densidad>1285</Densidad>
+						<FactorResistenciaVapor>100.00</FactorResistenciaVapor>
+						<CalorEspecifico>1000</CalorEspecifico>
+					</Capa>
+					<Capa>
+						<Material>Enlucido de yeso 1000 &lt; d &lt; 1300</Material>
+						<Espesor>0.02</Espesor>
+						<ConductividadTermica>0.57</ConductividadTermica>
+						<Densidad>1150</Densidad>
+						<FactorResistenciaVapor>6.00</FactorResistenciaVapor>
+						<CalorEspecifico>1000</CalorEspecifico>
+					</Capa>
+				</Capas>
+			</Elemento>
+			<Elemento>
+				<Nombre>Tabique aislado</Nombre>
+				<Tipo>ParticionInteriorVertical</Tipo>
+				<Superficie>16.24</Superficie>
+				<Orientacion>Sureste</Orientacion>
+				<Transmitancia>0.38</Transmitancia>
+				<ModoDeObtencion>Usuario</ModoDeObtencion>
+				<Capas>
+					<Capa>
+						<Material>Enlucido de yeso 1000 &lt; d &lt; 1300</Material>
+						<Espesor>0.02</Espesor>
+						<ConductividadTermica>0.57</ConductividadTermica>
+						<Densidad>1150</Densidad>
+						<FactorResistenciaVapor>6.00</FactorResistenciaVapor>
+						<CalorEspecifico>1000</CalorEspecifico>
+					</Capa>
+					<Capa>
+						<Material>1/2 pie LP métrico o catalán 60 mm&lt; G &lt; 80 mm</Material>
+						<Espesor>0.14</Espesor>
+						<ConductividadTermica>0.583</ConductividadTermica>
+						<Densidad>1020</Densidad>
+						<FactorResistenciaVapor>10.00</FactorResistenciaVapor>
+						<CalorEspecifico>1000</CalorEspecifico>
+					</Capa>
+					<Capa>
+						<Material>MW Lana mineral [0.04 W/[mK]]</Material>
+						<Espesor>0.08</Espesor>
+						<ConductividadTermica>0.04</ConductividadTermica>
+						<Densidad>40</Densidad>
+						<FactorResistenciaVapor>1.00</FactorResistenciaVapor>
+						<CalorEspecifico>1000</CalorEspecifico>
+					</Capa>
+					<Capa>
+						<Material>Placa de yeso laminado [PYL] 750 &lt; d &lt; 900</Material>
+						<Espesor>0.02</Espesor>
+						<ConductividadTermica>0.25</ConductividadTermica>
+						<Densidad>825</Densidad>
+						<FactorResistenciaVapor>4.00</FactorResistenciaVapor>
+						<CalorEspecifico>1000</CalorEspecifico>
+					</Capa>
+				</Capas>
+			</Elemento>
+		</CerramientosOpacos>
+		<HuecosyLucernarios>
+			<Elemento>
+				<Nombre>Puerta 90x210</Nombre>
+				<Tipo>Hueco</Tipo>
+				<Superficie>1.89</Superficie>
+				<Orientacion>Este</Orientacion>
+				<Transmitancia>1.44</Transmitancia>
+				<FactorSolar>0.45</FactorSolar>
+				<ModoDeObtencionTransmitancia>Usuario</ModoDeObtencionTransmitancia>
+				<ModoDeObtencionFactorSolar>Usuario</ModoDeObtencionFactorSolar>
+			</Elemento>
+			<Elemento>
+				<Nombre>Ventana 150x105</Nombre>
+				<Tipo>Hueco</Tipo>
+				<Superficie>3.15</Superficie>
+				<Orientacion>Este</Orientacion>
+				<Transmitancia>1.48</Transmitancia>
+				<FactorSolar>0.43</FactorSolar>
+				<ModoDeObtencionTransmitancia>Usuario</ModoDeObtencionTransmitancia>
+				<ModoDeObtencionFactorSolar>Usuario</ModoDeObtencionFactorSolar>
+			</Elemento>
+			<Elemento>
+				<Nombre>Ventana 90x105</Nombre>
+				<Tipo>Hueco</Tipo>
+				<Superficie>1.89</Superficie>
+				<Orientacion>Oeste</Orientacion>
+				<Transmitancia>1.48</Transmitancia>
+				<FactorSolar>0.43</FactorSolar>
+				<ModoDeObtencionTransmitancia>Usuario</ModoDeObtencionTransmitancia>
+				<ModoDeObtencionFactorSolar>Usuario</ModoDeObtencionFactorSolar>
+			</Elemento>
+			<Elemento>
+				<Nombre>Puerta 90x210</Nombre>
+				<Tipo>Hueco</Tipo>
+				<Superficie>1.89</Superficie>
+				<Orientacion>Sureste</Orientacion>
+				<Transmitancia>1.44</Transmitancia>
+				<FactorSolar>0.45</FactorSolar>
+				<ModoDeObtencionTransmitancia>Usuario</ModoDeObtencionTransmitancia>
+				<ModoDeObtencionFactorSolar>Usuario</ModoDeObtencionFactorSolar>
+			</Elemento>
+			<Elemento>
+				<Nombre>Fijo 100x210</Nombre>
+				<Tipo>Hueco</Tipo>
+				<Superficie>2.1</Superficie>
+				<Orientacion>Este</Orientacion>
+				<Transmitancia>1.44</Transmitancia>
+				<FactorSolar>0.45</FactorSolar>
+				<ModoDeObtencionTransmitancia>Usuario</ModoDeObtencionTransmitancia>
+				<ModoDeObtencionFactorSolar>Usuario</ModoDeObtencionFactorSolar>
+			</Elemento>
+			<Elemento>
+				<Nombre>Puerta 400x210</Nombre>
+				<Tipo>Hueco</Tipo>
+				<Superficie>8.4</Superficie>
+				<Orientacion>Sureste</Orientacion>
+				<Transmitancia>1.41</Transmitancia>
+				<FactorSolar>0.48</FactorSolar>
+				<ModoDeObtencionTransmitancia>Usuario</ModoDeObtencionTransmitancia>
+				<ModoDeObtencionFactorSolar>Usuario</ModoDeObtencionFactorSolar>
+			</Elemento>
+			<Elemento>
+				<Nombre>Puerta exterior</Nombre>
+				<Tipo>Hueco</Tipo>
+				<Superficie>1.89</Superficie>
+				<Orientacion>Oeste</Orientacion>
+				<Transmitancia>3</Transmitancia>
+				<FactorSolar>0</FactorSolar>
+				<ModoDeObtencionTransmitancia>Usuario</ModoDeObtencionTransmitancia>
+				<ModoDeObtencionFactorSolar>Usuario</ModoDeObtencionFactorSolar>
+			</Elemento>
+			<Elemento>
+				<Nombre>Fijo 60x210</Nombre>
+				<Tipo>Hueco</Tipo>
+				<Superficie>1.26</Superficie>
+				<Orientacion>Oeste</Orientacion>
+				<Transmitancia>1.44</Transmitancia>
+				<FactorSolar>0.45</FactorSolar>
+				<ModoDeObtencionTransmitancia>Usuario</ModoDeObtencionTransmitancia>
+				<ModoDeObtencionFactorSolar>Usuario</ModoDeObtencionFactorSolar>
+			</Elemento>
+			<Elemento>
+				<Nombre>Ventana 150x105</Nombre>
+				<Tipo>Hueco</Tipo>
+				<Superficie>3.15</Superficie>
+				<Orientacion>Sureste</Orientacion>
+				<Transmitancia>1.48</Transmitancia>
+				<FactorSolar>0.43</FactorSolar>
+				<ModoDeObtencionTransmitancia>Usuario</ModoDeObtencionTransmitancia>
+				<ModoDeObtencionFactorSolar>Usuario</ModoDeObtencionFactorSolar>
+			</Elemento>
+			<Elemento>
+				<Nombre>Ventana 150x105</Nombre>
+				<Tipo>Hueco</Tipo>
+				<Superficie>1.58</Superficie>
+				<Orientacion>Oeste</Orientacion>
+				<Transmitancia>1.48</Transmitancia>
+				<FactorSolar>0.43</FactorSolar>
+				<ModoDeObtencionTransmitancia>Usuario</ModoDeObtencionTransmitancia>
+				<ModoDeObtencionFactorSolar>Usuario</ModoDeObtencionFactorSolar>
+			</Elemento>
+			<Elemento>
+				<Nombre>Lucernario</Nombre>
+				<Tipo>Lucernario</Tipo>
+				<Superficie>0.67</Superficie>
+				<Orientacion>Oeste</Orientacion>
+				<Transmitancia>1.44</Transmitancia>
+				<FactorSolar>0.45</FactorSolar>
+				<ModoDeObtencionTransmitancia>Usuario</ModoDeObtencionTransmitancia>
+				<ModoDeObtencionFactorSolar>Usuario</ModoDeObtencionFactorSolar>
+			</Elemento>
+		</HuecosyLucernarios>
+		<PuentesTermicos>
+			<Elemento>
+				<Nombre>Wi [K]Puerta 90x210-[B]Fachada aislada</Nombre>
+				<Tipo>Hueco de ventana</Tipo>
+				<Longitud>1.8</Longitud>
+				<Transmitancia>0.09</Transmitancia>
+				<ModoDeObtencion>Usuario</ModoDeObtencion>
+			</Elemento>
+			<Elemento>
+				<Nombre>Wl [K]Puerta 90x210-[B]Fachada aislada</Nombre>
+				<Tipo>Hueco de ventana</Tipo>
+				<Longitud>8.4</Longitud>
+				<Transmitancia>0.04</Transmitancia>
+				<ModoDeObtencion>Usuario</ModoDeObtencion>
+			</Elemento>
+			<Elemento>
+				<Nombre>Ws [K]Puerta 90x210-[B]Fachada aislada</Nombre>
+				<Tipo>Hueco de ventana</Tipo>
+				<Longitud>1.8</Longitud>
+				<Transmitancia>0.12</Transmitancia>
+				<ModoDeObtencion>Usuario</ModoDeObtencion>
+			</Elemento>
+			<Elemento>
+				<Nombre>LFi [E]Solera aislada-[B]Fachada aislada(90)</Nombre>
+				<Tipo>Encuentro de fachada con solera</Tipo>
+				<Longitud>32.73</Longitud>
+				<Transmitancia>0.34</Transmitancia>
+				<ModoDeObtencion>Usuario</ModoDeObtencion>
+			</Elemento>
+			<Elemento>
+				<Nombre>TFms [F]Forjado entre pisos-[B]Fachada aislada(90)-[B]Fachada aislada(180)</Nombre>
+				<Tipo>Encuentro de fachada con forjado</Tipo>
+				<Longitud>15.69</Longitud>
+				<Transmitancia>0.11</Transmitancia>
+				<ModoDeObtencion>Usuario</ModoDeObtencion>
+			</Elemento>
+			<Elemento>
+				<Nombre>Wi [K]Ventana 150x105-[B]Fachada aislada</Nombre>
+				<Tipo>Hueco de ventana</Tipo>
+				<Longitud>7.5</Longitud>
+				<Transmitancia>0.09</Transmitancia>
+				<ModoDeObtencion>Usuario</ModoDeObtencion>
+			</Elemento>
+			<Elemento>
+				<Nombre>Wl [K]Ventana 150x105-[B]Fachada aislada</Nombre>
+				<Tipo>Hueco de ventana</Tipo>
+				<Longitud>10.5</Longitud>
+				<Transmitancia>0.04</Transmitancia>
+				<ModoDeObtencion>Usuario</ModoDeObtencion>
+			</Elemento>
+			<Elemento>
+				<Nombre>Ws [K]Ventana 150x105-[B]Fachada aislada</Nombre>
+				<Tipo>Hueco de ventana</Tipo>
+				<Longitud>7.5</Longitud>
+				<Transmitancia>0.12</Transmitancia>
+				<ModoDeObtencion>Usuario</ModoDeObtencion>
+			</Elemento>
+			<Elemento>
+				<Nombre>TWl [B]Fachada aislada-[B]Fachada aislada(90)-[C]Tabique(180)</Nombre>
+				<Tipo>Esquina entrante de fachadas</Tipo>
+				<Longitud>8.62</Longitud>
+				<Transmitancia>-0.12</Transmitancia>
+				<ModoDeObtencion>Usuario</ModoDeObtencion>
+			</Elemento>
+			<Elemento>
+				<Nombre>P [P]Pilar 0.25x0.25 cm-[B]Fachada aislada</Nombre>
+				<Tipo>Pilar</Tipo>
+				<Longitud>39.66</Longitud>
+				<Transmitancia>0.01</Transmitancia>
+				<ModoDeObtencion>Usuario</ModoDeObtencion>
+			</Elemento>
+			<Elemento>
+				<Nombre>CW [C]Tabique-[C]Tabique aislado(90)-[B]Fachada no aislada(90)-[B]Fachada aislada(90)</Nombre>
+				<Tipo>Esquina saliente de fachadas</Tipo>
+				<Longitud>2.6</Longitud>
+				<Transmitancia>0.5</Transmitancia>
+				<ModoDeObtencion>Usuario</ModoDeObtencion>
+			</Elemento>
+			<Elemento>
+				<Nombre>Wi [K]Ventana 90x105-[B]Fachada aislada</Nombre>
+				<Tipo>Hueco de ventana</Tipo>
+				<Longitud>1.8</Longitud>
+				<Transmitancia>0.09</Transmitancia>
+				<ModoDeObtencion>Usuario</ModoDeObtencion>
+			</Elemento>
+			<Elemento>
+				<Nombre>Wl [K]Ventana 90x105-[B]Fachada aislada</Nombre>
+				<Tipo>Hueco de ventana</Tipo>
+				<Longitud>4.2</Longitud>
+				<Transmitancia>0.04</Transmitancia>
+				<ModoDeObtencion>Usuario</ModoDeObtencion>
+			</Elemento>
+			<Elemento>
+				<Nombre>Ws [K]Ventana 90x105-[B]Fachada aislada</Nombre>
+				<Tipo>Hueco de ventana</Tipo>
+				<Longitud>1.8</Longitud>
+				<Transmitancia>0.12</Transmitancia>
+				<ModoDeObtencion>Usuario</ModoDeObtencion>
+			</Elemento>
+			<Elemento>
+				<Nombre>LWo [B]Fachada aislada-[B]Fachada aislada(90)</Nombre>
+				<Tipo>Esquina saliente de fachadas</Tipo>
+				<Longitud>27.39</Longitud>
+				<Transmitancia>0.09</Transmitancia>
+				<ModoDeObtencion>Usuario</ModoDeObtencion>
+			</Elemento>
+			<Elemento>
+				<Nombre>CFs [F]Forjado entre pisos-[B]Fachada aislada(90)-[H](90)-[B]Fachada aislada(90)</Nombre>
+				<Tipo>Encuentro de fachada con forjado</Tipo>
+				<Longitud>7.18</Longitud>
+				<Transmitancia>0.11</Transmitancia>
+				<ModoDeObtencion>Usuario</ModoDeObtencion>
+			</Elemento>
+			<Elemento>
+				<Nombre>Wi [K]Fijo 100x210-[B]Fachada aislada</Nombre>
+				<Tipo>Hueco de ventana</Tipo>
+				<Longitud>1</Longitud>
+				<Transmitancia>0.09</Transmitancia>
+				<ModoDeObtencion>Usuario</ModoDeObtencion>
+			</Elemento>
+			<Elemento>
+				<Nombre>Wl [K]Fijo 100x210-[B]Fachada aislada</Nombre>
+				<Tipo>Hueco de ventana</Tipo>
+				<Longitud>4.2</Longitud>
+				<Transmitancia>0.04</Transmitancia>
+				<ModoDeObtencion>Usuario</ModoDeObtencion>
+			</Elemento>
+			<Elemento>
+				<Nombre>Ws [K]Fijo 100x210-[B]Fachada aislada</Nombre>
+				<Tipo>Hueco de ventana</Tipo>
+				<Longitud>1</Longitud>
+				<Transmitancia>0.12</Transmitancia>
+				<ModoDeObtencion>Usuario</ModoDeObtencion>
+			</Elemento>
+			<Elemento>
+				<Nombre>Wi [K]Puerta 400x210-[B]Fachada aislada</Nombre>
+				<Tipo>Hueco de ventana</Tipo>
+				<Longitud>4</Longitud>
+				<Transmitancia>0.09</Transmitancia>
+				<ModoDeObtencion>Usuario</ModoDeObtencion>
+			</Elemento>
+			<Elemento>
+				<Nombre>Wl [K]Puerta 400x210-[B]Fachada aislada</Nombre>
+				<Tipo>Hueco de ventana</Tipo>
+				<Longitud>4.2</Longitud>
+				<Transmitancia>0.04</Transmitancia>
+				<ModoDeObtencion>Usuario</ModoDeObtencion>
+			</Elemento>
+			<Elemento>
+				<Nombre>Ws [K]Puerta 400x210-[B]Fachada aislada</Nombre>
+				<Tipo>Hueco de ventana</Tipo>
+				<Longitud>4</Longitud>
+				<Transmitancia>0.12</Transmitancia>
+				<ModoDeObtencion>Usuario</ModoDeObtencion>
+			</Elemento>
+			<Elemento>
+				<Nombre>TWr [B]Fachada aislada-[B]Fachada aislada(90)-[C]Tabique(90)</Nombre>
+				<Tipo>Esquina entrante de fachadas</Tipo>
+				<Longitud>8.62</Longitud>
+				<Transmitancia>-0.12</Transmitancia>
+				<ModoDeObtencion>Usuario</ModoDeObtencion>
+			</Elemento>
+			<Elemento>
+				<Nombre>LFs [G]Cubierta aislada-[B]Fachada aislada(90)</Nombre>
+				<Tipo>Encuentro de fachada con cubierta</Tipo>
+				<Longitud>0.92</Longitud>
+				<Transmitancia>0.31</Transmitancia>
+				<ModoDeObtencion>Usuario</ModoDeObtencion>
+			</Elemento>
+			<Elemento>
+				<Nombre>Wi [K]Fijo 60x210-[B]Fachada aislada</Nombre>
+				<Tipo>Hueco de ventana</Tipo>
+				<Longitud>0.6</Longitud>
+				<Transmitancia>0.09</Transmitancia>
+				<ModoDeObtencion>Usuario</ModoDeObtencion>
+			</Elemento>
+			<Elemento>
+				<Nombre>Wl [K]Fijo 60x210-[B]Fachada aislada</Nombre>
+				<Tipo>Hueco de ventana</Tipo>
+				<Longitud>4.2</Longitud>
+				<Transmitancia>0.04</Transmitancia>
+				<ModoDeObtencion>Usuario</ModoDeObtencion>
+			</Elemento>
+			<Elemento>
+				<Nombre>Ws [K]Fijo 60x210-[B]Fachada aislada</Nombre>
+				<Tipo>Hueco de ventana</Tipo>
+				<Longitud>0.6</Longitud>
+				<Transmitancia>0.12</Transmitancia>
+				<ModoDeObtencion>Usuario</ModoDeObtencion>
+			</Elemento>
+			<Elemento>
+				<Nombre>LFs [G]Tejado inclinado-[B]Fachada aislada(90)</Nombre>
+				<Tipo>Encuentro de fachada con cubierta</Tipo>
+				<Longitud>38.66</Longitud>
+				<Transmitancia>0.31</Transmitancia>
+				<ModoDeObtencion>Usuario</ModoDeObtencion>
+			</Elemento>
+			<Elemento>
+				<Nombre>CFi [F]Forjado entre pisos-[B]Fachada aislada(90)-[H](90)-[B]Fachada aislada(90)</Nombre>
+				<Tipo>Encuentro de fachada con forjado</Tipo>
+				<Longitud>7.18</Longitud>
+				<Transmitancia>0.11</Transmitancia>
+				<ModoDeObtencion>Usuario</ModoDeObtencion>
+			</Elemento>
+			<Elemento>
+				<Nombre>TFmi [F]Forjado entre pisos-[B]Fachada aislada(90)-[B]Fachada aislada(180)</Nombre>
+				<Tipo>Encuentro de fachada con forjado</Tipo>
+				<Longitud>15.69</Longitud>
+				<Transmitancia>0.11</Transmitancia>
+				<ModoDeObtencion>Usuario</ModoDeObtencion>
+			</Elemento>
+			<Elemento>
+				<Nombre>LFi [E]Solera no aislada-[B]Fachada no aislada(90)</Nombre>
+				<Tipo>Encuentro de fachada con solera</Tipo>
+				<Longitud>14.42</Longitud>
+				<Transmitancia>0.5</Transmitancia>
+				<ModoDeObtencion>Usuario</ModoDeObtencion>
+			</Elemento>
+			<Elemento>
+				<Nombre>CW [B]Fachada no aislada-[B]Fachada aislada(90)-[C]Tabique(90)-[C]Tabique aislado(90)</Nombre>
+				<Tipo>Esquina entrante de fachadas</Tipo>
+				<Longitud>2.6</Longitud>
+				<Transmitancia>0.5</Transmitancia>
+				<ModoDeObtencion>Usuario</ModoDeObtencion>
+			</Elemento>
+			<Elemento>
+				<Nombre>LWo [B]Fachada no aislada-[B]Fachada no aislada(90)</Nombre>
+				<Tipo>Esquina saliente de fachadas</Tipo>
+				<Longitud>5.59</Longitud>
+				<Transmitancia>0.24</Transmitancia>
+				<ModoDeObtencion>Usuario</ModoDeObtencion>
+			</Elemento>
+			<Elemento>
+				<Nombre>LFs [G]Cubierta no aislada-[B]Fachada no aislada(90)</Nombre>
+				<Tipo>Encuentro de fachada con cubierta</Tipo>
+				<Longitud>14.42</Longitud>
+				<Transmitancia>0.5</Transmitancia>
+				<ModoDeObtencion>Usuario</ModoDeObtencion>
+			</Elemento>
+			<Elemento>
+				<Nombre>P [P]Pilar 0.25x0.25 cm-[B]Fachada no aislada</Nombre>
+				<Tipo>Pilar</Tipo>
+				<Longitud>8.39</Longitud>
+				<Transmitancia>0.06</Transmitancia>
+				<ModoDeObtencion>Usuario</ModoDeObtencion>
+			</Elemento>
+		</PuentesTermicos>
+	</DatosEnvolventeTermica>
+	<InstalacionesTermicas>
+		<GeneradoresDeCalefaccion>
+			<Generador>
+				<Nombre>Split 1x1 conducido - Planta baja</Nombre>
+				<Tipo>Equipo compacto bomba de calor (PTHP)</Tipo>
+				<PotenciaNominal>5.5</PotenciaNominal>
+				<RendimientoNominal>3.5</RendimientoNominal>
+				<RendimientoEstacional>2.59</RendimientoEstacional>
+				<VectorEnergetico>ElectricidadPeninsular</VectorEnergetico>
+				<ModoDeObtencion>Usuario</ModoDeObtencion>
+			</Generador>
+			<Generador>
+				<Nombre>Split 1x1 conducido - Planta primera</Nombre>
+				<Tipo>Equipo compacto bomba de calor (PTHP)</Tipo>
+				<PotenciaNominal>5.5</PotenciaNominal>
+				<RendimientoNominal>3.5</RendimientoNominal>
+				<RendimientoEstacional>2.67</RendimientoEstacional>
+				<VectorEnergetico>ElectricidadPeninsular</VectorEnergetico>
+				<ModoDeObtencion>Usuario</ModoDeObtencion>
+			</Generador>
+		</GeneradoresDeCalefaccion>
+		<GeneradoresDeRefrigeracion>
+			<Generador>
+				<Nombre>Split 1x1 conducido - Planta baja</Nombre>
+				<Tipo>Equipo compacto bomba de calor (PTHP)</Tipo>
+				<PotenciaNominal>5</PotenciaNominal>
+				<RendimientoNominal>3.3</RendimientoNominal>
+				<RendimientoEstacional>3.37</RendimientoEstacional>
+				<VectorEnergetico>ElectricidadPeninsular</VectorEnergetico>
+				<ModoDeObtencion>Usuario</ModoDeObtencion>
+			</Generador>
+			<Generador>
+				<Nombre>Split 1x1 conducido - Planta primera</Nombre>
+				<Tipo>Equipo compacto bomba de calor (PTHP)</Tipo>
+				<PotenciaNominal>5</PotenciaNominal>
+				<RendimientoNominal>3.3</RendimientoNominal>
+				<RendimientoEstacional>3.06</RendimientoEstacional>
+				<VectorEnergetico>ElectricidadPeninsular</VectorEnergetico>
+				<ModoDeObtencion>Usuario</ModoDeObtencion>
+			</Generador>
+		</GeneradoresDeRefrigeracion>
+		<InstalacionesACS>
+			<Instalacion>
+				<Nombre>Equipo de ACS de apoyo</Nombre>
+				<Tipo>Quemador de gas</Tipo>
+				<PotenciaNominal>12</PotenciaNominal>
+				<RendimientoNominal>0.83</RendimientoNominal>
+				<RendimientoEstacional>0.83</RendimientoEstacional>
+				<VectorEnergetico>GasNatural</VectorEnergetico>
+				<ModoDeObtencion>Usuario</ModoDeObtencion>
+			</Instalacion>
+		</InstalacionesACS>
+	</InstalacionesTermicas>
+	<EnergiasRenovables>
+		<Termica>
+			<Sistema>
+				<Nombre>Medioambiente</Nombre>
+				<ConsumoFinalCalefaccion>61.85</ConsumoFinalCalefaccion>
+				<ConsumoFinalRefrigeracion>0</ConsumoFinalRefrigeracion>
+				<ConsumoFinalACS>76.49</ConsumoFinalACS>
+				<DemandaACS>79.67</DemandaACS>
+			</Sistema>
+		</Termica>
+		<Electrica>
+			<Sistema>
+				<Nombre>Panel fotovoltaico</Nombre>
+				<EnergiaGeneradaAutoconsumida>0</EnergiaGeneradaAutoconsumida>
+			</Sistema>
+		</Electrica>
+		<ReduccionGlobalEnergiaPrimariaNoRenovable>0</ReduccionGlobalEnergiaPrimariaNoRenovable>
+		<ReduccionGlobalEmisionesCO2>0</ReduccionGlobalEmisionesCO2>
+	</EnergiasRenovables>
+	<Demanda>
+		<EdificioObjeto>
+			<Global>43.16</Global>
+			<Calefaccion>8.61</Calefaccion>
+			<Refrigeracion>15.22</Refrigeracion>
+			<ACS>19.34</ACS>
+			<Conjunta>0</Conjunta>
+		</EdificioObjeto>
+		<Exigencias>
+			<LimiteCalefaccionVivienda>0</LimiteCalefaccionVivienda>
+			<LimiteRefrigeracionVivienda>0</LimiteRefrigeracionVivienda>
+		</Exigencias>
+	</Demanda>
+	<Consumo>
+		<FactoresdePaso>
+			<FinalAPrimariaNoRenovable>
+				<GasNatural>1.19</GasNatural>
+				<GasoleoC>1.179</GasoleoC>
+				<GLP>1.201</GLP>
+				<Carbon>1.082</Carbon>
+				<BiomasaPellet>0.085</BiomasaPellet>
+				<BiomasaOtros>0.034</BiomasaOtros>
+				<ElectricidadPeninsular>1.954</ElectricidadPeninsular>
+				<ElectricidadCanarias>2.924</ElectricidadCanarias>
+				<ElectricidadBaleares>2.968</ElectricidadBaleares>
+				<ElectricidadCeutayMelilla>2.718</ElectricidadCeutayMelilla>
+				<Biocarburante>1.3</Biocarburante>
+			</FinalAPrimariaNoRenovable>
+			<FinalAEmisiones>
+				<GasNatural>0.252</GasNatural>
+				<GasoleoC>0.311</GasoleoC>
+				<GLP>0.254</GLP>
+				<Carbon>0.472</Carbon>
+				<BiomasaPellet>0.018</BiomasaPellet>
+				<BiomasaOtros>0.018</BiomasaOtros>
+				<ElectricidadPeninsular>0.331</ElectricidadPeninsular>
+				<ElectricidadCanarias>0.776</ElectricidadCanarias>
+				<ElectricidadBaleares>0.932</ElectricidadBaleares>
+				<ElectricidadCeutayMelilla>0.721</ElectricidadCeutayMelilla>
+				<Biocarburante>0.3</Biocarburante>
+			</FinalAEmisiones>
+		</FactoresdePaso>
+		<EnergiaFinalVectores>
+			<ElectricidadPeninsular>
+				<Global>8.5</Global>
+				<Calefaccion>3.33</Calefaccion>
+				<Refrigeracion>5.17</Refrigeracion>
+				<ACS>0</ACS>
+				<Iluminacion>0</Iluminacion>
+			</ElectricidadPeninsular>
+			<GasNatural>
+				<Global>4.74</Global>
+				<Calefaccion>0</Calefaccion>
+				<Refrigeracion>0</Refrigeracion>
+				<ACS>4.74</ACS>
+				<Iluminacion>0</Iluminacion>
+			</GasNatural>
+		</EnergiaFinalVectores>
+		<EnergiaPrimariaNoRenovable>
+			<Global>27.86</Global>
+			<Calefaccion>6.51</Calefaccion>
+			<Refrigeracion>10.1</Refrigeracion>
+			<ACS>5.64</ACS>
+		</EnergiaPrimariaNoRenovable>
+		<Exigencias>
+			<LimiteViviendaGlobalEPNR>0</LimiteViviendaGlobalEPNR>
+		</Exigencias>
+	</Consumo>
+	<EmisionesCO2>
+		<Global>4.96</Global>
+		<Calefaccion>1.1</Calefaccion>
+		<Refrigeracion>1.71</Refrigeracion>
+		<ACS>1.19</ACS>
+		<ConsumoElectrico>3.76</ConsumoElectrico>
+		<ConsumoOtros>1.19</ConsumoOtros>
+		<TotalConsumoElectrico>611.66</TotalConsumoElectrico>
+		<TotalConsumoOtros>193.9</TotalConsumoOtros>
+	</EmisionesCO2>
+	<Calificacion>
+		<Demanda>
+			<EscalaCalefaccion>
+				<A>9.7</A>
+				<B>18.4</B>
+				<C>31.1</C>
+				<D>49.9</D>
+				<E>83.6</E>
+				<F>102.8</F>
+			</EscalaCalefaccion>
+			<Calefaccion>A</Calefaccion>
+			<EscalaRefrigeracion>
+				<A>13.9</A>
+				<B>20</B>
+				<C>28.4</C>
+				<D>41.4</D>
+				<E>50.9</E>
+				<F>62.6</F>
+			</EscalaRefrigeracion>
+			<Refrigeracion>B</Refrigeracion>
+		</Demanda>
+		<EnergiaPrimariaNoRenovable>
+			<EscalaGlobal>
+				<A>29.1</A>
+				<B>50.2</B>
+				<C>81.9</C>
+				<D>128.6</D>
+				<E>243.7</E>
+				<F>292.5</F>
+			</EscalaGlobal>
+			<Global>A</Global>
+			<Calefaccion>A</Calefaccion>
+			<Refrigeracion>A</Refrigeracion>
+			<ACS>A</ACS>
+		</EnergiaPrimariaNoRenovable>
+		<EmisionesCO2>
+			<EscalaGlobal>
+				<A>6.7</A>
+				<B>11.6</B>
+				<C>19</C>
+				<D>29.8</D>
+				<E>58.4</E>
+				<F>71.8</F>
+			</EscalaGlobal>
+			<Global>A</Global>
+			<Calefaccion>A</Calefaccion>
+			<Refrigeracion>A</Refrigeracion>
+			<ACS>A</ACS>
+		</EmisionesCO2>
+	</Calificacion>
+	<DatosPersonalizados>
+		<Aplicacion>CYPETHERM HE Plus 2023.d</Aplicacion>
+		<FechaGeneracion>12/07/2023</FechaGeneracion>
+	</DatosPersonalizados>
+</DatosEnergeticosDelEdificio>

@@ -16,12 +16,12 @@
     "max_height": 600,
     "messages": {
       "missing": {
-        "es": "Debe adjuntarse un plano del edificio en formato Base64.",
-        "en": "A building plan in Base64 format must be attached."
+        "es": "Debe adjuntarse el plano del edificio. No se detecta ningún archivo adjunto.",
+        "en": "A blueprint of the building must be attached. Building plan not found."
       },
       "invalid_base64": {
-        "es": "El plano no es una imagen válida en formato Base64.",
-        "en": "The plan is not a valid Base64-encoded image."
+        "es": "Error en el formato del plano. Debe ser en formato PNG o JPEG usando una codificación base64.”",
+        "en": "Error in the format of the blueprint. It must be in PNG or JPEG format using base64 encoding."
       },
       "invalid_ext": {
         "es": "La extensión '{ext}' no es válida. Las permitidas son: {valids}.",
@@ -33,7 +33,7 @@
       },
       "valid": {
         "es": "El plano del edificio es válido.",
-        "en": "The building plan is valid."
+        "en": "The building blueprint is valid."
       }
     },
     "details": {

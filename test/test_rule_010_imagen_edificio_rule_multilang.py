@@ -11,7 +11,7 @@ from core.epc_dto import EpcDto
 # Rutas a los directorios y archivos
 DATA_DIR = os.path.join(path, "data")
 CACHE_JSON_PATH = os.path.join(path, "core", "rules_cache.json")
-EPC_FILE_PATH = os.path.join(DATA_DIR, "1 Bloque de viviendas.xml")
+EPC_FILE_PATH = os.path.join(DATA_DIR, "Ejemplo xml CYPETHERM.xml")
 
 # Cargar el archivo EPC
 with open(EPC_FILE_PATH, "r", encoding="utf-8") as epc_file:

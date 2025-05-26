@@ -20,8 +20,8 @@
         "en": "A building image in Base64 format must be attached."
       },
       "invalid_data": {
-        "es": "La imagen proporcionada no es válida o está dañada.",
-        "en": "The provided image is invalid or corrupted."
+        "es": "Error en el formato de la imagen. Debe ser en formato PNG o JPEG usando una codificación base64.",
+        "en": "Error in the image format. It must be in PNG or JPEG format using base64 encoding."
       },
       "invalid_ext": {
         "es": "El formato de imagen '{formato}' no es válido. Permitidos: {validos}.",

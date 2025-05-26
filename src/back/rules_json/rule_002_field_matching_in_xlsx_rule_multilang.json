@@ -13,6 +13,9 @@
     "xpath": "//IdentificacionEdificio/ZonaClimatica",
     "dependent_field": "//IdentificacionEdificio/Municipio",
     "valid_values_source": "data/Listado Poblaciones Zonificación Climática Comunidad Valenciana.xlsx",
+    "column_filter": "MUNICIPIO",
+    "column_match_actualizada": "Z.C. actualizada",
+    "column_match_cte": "Z.C. CTE",
 
     "messages": { 
       "valid": {

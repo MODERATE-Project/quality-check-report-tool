@@ -116,11 +116,11 @@ export default function XMLUploader() {
       <div className="content">
         <button 
           className="language-button"
-          onClick={() => i18n.changeLanguage(i18n.language === 'es' ? 'en' : 'es')}
+          onClick={() => i18n.changeLanguage(i18n.language.startsWith('es') ? 'en' : 'es')}
         >
           <img 
-            src={i18n.language === 'es' ? enFlag : esFlag} 
-            alt={i18n.language === 'es' ? 'English' : 'Español'} 
+            src={i18n.language.startsWith('es') ? enFlag : esFlag} 
+            alt={i18n.language.startsWith('es') ? 'English' : 'Español'} 
             className="flag-icon"
           />
         </button>

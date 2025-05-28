@@ -13,12 +13,12 @@
     "xpath_plano": "//DatosGeneralesyGeometria/Plano",
     "messages": {
       "missing": {
-        "es": "Debe adjuntarse plano del edificio.",
-        "en": "A plan of the building must be attached."
+        "es": "Debe adjuntarse plano del edificio. No se detecta ningún archivo adjunto.",
+        "en": "A blueprint of the building must be attached. Building plan not found."
       },
       "valid": {
         "es": "El plano del edificio está correctamente adjunto.",
-        "en": "The building plan is properly attached."
+        "en": "The building blueprint is properly attached."
       }
     },
     "details": {

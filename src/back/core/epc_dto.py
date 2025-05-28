@@ -89,3 +89,24 @@ class EpcDto:
                 return []  # Si en cualquier punto la ruta es inválida, devolvemos una lista vacía
 
         return list(element) if element is not None else []
+
+    def get_values_by_xpath(self, xpath: str) -> List[str]:
+        """
+        Devuelve todos los valores de texto de los nodos que coinciden con el XPath.
+
+        Args:
+            xpath (str): XPath simple al nodo deseado, por ejemplo:
+                        "/DatosGeneralesyGeometria/Puentes_Termicos"
+
+        Returns:
+            List[str]: Lista de textos encontrados en los nodos.
+        """
+        path_parts = xpath.strip("/").split("/")
+        element = self.root
+        for part in path_parts[:-1]:
+            element = element.find(part)
+            if element is None:
+                return []
+
+        final_tag = path_parts[-1]
+        return [e.text or "" for e in element.findall(final_tag)] if element is not None else []

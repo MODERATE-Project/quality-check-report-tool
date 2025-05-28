@@ -1,56 +1,53 @@
 import json
 import sys, os
-
-# Ajustar el path para importar módulos desde la carpeta src/back
-path = os.path.abspath(os.path.join(os.path.dirname(__file__), "../src/back"))
+path = os.path.abspath(os.path.join(os.path.dirname(__file__), '../src/back'))
 sys.path.insert(0, path)
 
-from rules.rule_010_imagen_edificio_rule_multilang import ImagenEdificioRule
+from rules.rule_015_2_puentes_termicos_cerma_rule_multilang import PuentesTermicosCERMARule
 from core.epc_dto import EpcDto
+from utils_multilang_test import print_multilang_result
 
 # Rutas a los directorios y archivos
 DATA_DIR = os.path.join(path, "data")
 CACHE_JSON_PATH = os.path.join(path, "core", "rules_cache.json")
-EPC_FILE_PATH = os.path.join(DATA_DIR, "Ejemplo xml CYPETHERM.xml")
+EPC_FILE_PATH = os.path.join(DATA_DIR, "Ejemplo xml CERMA certi - bien.xml")
 
 # Cargar el archivo EPC
 with open(EPC_FILE_PATH, "r", encoding="utf-8") as epc_file:
     epc_content = epc_file.read()
 
-# Crear una instancia de EpcDto con el XML
+# Crear una instancia de EpcDto
 epc = EpcDto(epc_content)
 
 # Cargar las reglas desde el JSON de caché
 with open(CACHE_JSON_PATH, "r", encoding="utf-8") as cache_file:
     cache_data = json.load(cache_file)
 
-# Buscar la regla de tipo 'ImagenEdificioRule'
+# Buscar la regla por su clase
 rule_data = next(
-    (rule for rule in cache_data["rules"]["common_rules"] if rule["class"] == "ImagenEdificioRule"),
+    (rule for rule in cache_data["rules"]["common_rules"] if rule["class"] == "PuentesTermicosCERMARule"),
     None
 )
 
 if not rule_data:
-    raise ValueError("No se encontró una regla de tipo 'ImagenEdificioRule' en el JSON de caché.")
+    raise ValueError("No se encontró una regla de tipo 'PuentesTermicosCERMARule' en el JSON de caché.")
 
 # Instanciar la regla
-rule = ImagenEdificioRule(rule_data)
+rule = PuentesTermicosCERMARule(rule_data)
 
 # Validar el documento EPC
 result = rule.validate(epc)
 
-# Imprimir el resultado de manera legible
 if isinstance(result, dict):
     for key, value in result.items():
         if isinstance(value, dict):
             print(f"{key}:")
-            for sub_key, sub_value in value.items():
-                print(f"  - {sub_key}: {sub_value}")
+            for k, v in value.items():
+                print(f"  - {k}: {v}")
         else:
             print(f"{key}: {value}")
 else:
     print(result)
 
-# Mostrar traducciones
 from utils_multilang_test import print_multilang_result
 print_multilang_result(result)

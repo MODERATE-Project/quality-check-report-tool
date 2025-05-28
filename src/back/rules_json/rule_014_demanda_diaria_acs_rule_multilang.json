@@ -3,24 +3,24 @@
   "type": "business_rule",
   "category": "common_rules",
   "name": {
-      "es": "Demanda diaria de ACS",
-      "en": "Daily DHW Demand"
-    }, 
+    "es": "Demanda diaria de ACS",
+    "en": "Daily DHW Demand"
+  },
   "severity": "Error",
   "class": "DemandaDiariaACSRule",
   "description": "Verifica que la demanda diaria de ACS se corresponda con el número de dormitorios y viviendas según el CTE.",
   "parameters": {
     "DemandaDiariaACS": "/DatosGeneralesyGeometria/DemandaDiariaACS",
     "xpath_tipo_edificio": "/IdentificacionEdificio/TipoDeEdificio",
-    "values": ["ViviendaUnifamiliar", "BloqueDeViviendaCompleto", "ViviendaIndividualEnBloque"],
+    "values": ["ViviendaUnifamiliar", "ViviendaIndividualEnBloque"],
     "messages": {
       "missing_field": {
         "es": "No se especifica la demanda diaria de ACS en el XML.",
-        "en": "The daily ACS demand is not specified in the XML."
+        "en": "The daily DHW demand is not specified in the XML."
       },
       "not_numeric": {
         "es": "La demanda de ACS '{value}' no es un valor numérico.",
-        "en": "The ACS demand '{value}' is not a numeric value."
+        "en": "The DHW demand '{value}' is not a numeric value."
       },
       "missing_answer": {
         "es": "No se ha recibido respuesta del usuario.",
@@ -32,11 +32,11 @@
       },
       "invalid": {
         "es": "La demanda de ACS ({real} L/día) no concuerda con la esperada ({expected} ±10%).",
-        "en": "The ACS demand ({real} L/day) does not match the expected ({expected} ±10%)."
+        "en": "The DHW demand ({real} L/day) does not match the expected ({expected} ±10%)."
       },
       "valid": {
         "es": "La demanda de ACS real es válida: {real} L/día.",
-        "en": "The real ACS demand is valid: {real} L/day."
+        "en": "The real DHW demand is valid: {real} L/day."
       }
     },
     "details": {
@@ -60,14 +60,10 @@
       }
     },
     "questions": {
-      "numero_viviendas": {
-        "es": "¿Cuántas viviendas hay en el bloque?",
-        "en": "How many dwellings are in the block?"
-      },
       "numero_dormitorios": {
-        "es": "¿Cuántos dormitorios tiene la vivienda?",
-        "en": "How many bedrooms does the dwelling have?"
+        "es": "¿Cuántos dormitorios hay en la vivienda? Aplicable solo a vivienda unifamiliar o en bloque. En los demás casos, debe indicar un número, aunque no será considerado.",
+        "en": "How many bedrooms are there in the dwelling? Applicable only to single-family homes or individual dwellings in multi-unit buildings. In other cases, a number must be entered, but it will not be considered."
       }
-    }  
+    }
   }
 }

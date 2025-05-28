@@ -51,3 +51,14 @@ class BaseRule:
             return template.format(**kwargs) if template else ""
         except Exception:
             return ""
+        
+    def _get_translated_messages(self, key: str, **kwargs) -> dict:
+        mensajes = self.parameters.get("messages", {}).get(key, {})
+        return {lang: tpl.format(**kwargs) for lang, tpl in mensajes.items()}
+
+    def _get_translated_details(self, key: str, **kwargs) -> dict:
+        detalles = self.parameters.get("details", {}).get(key, {})
+        return {
+            lang: {k: v.format(**kwargs) for k, v in detalle.items()}
+            for lang, detalle in detalles.items()
+        }

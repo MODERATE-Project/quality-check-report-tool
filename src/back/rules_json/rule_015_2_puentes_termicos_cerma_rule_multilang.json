@@ -1,0 +1,30 @@
+{
+  "id": "rule_015_2",
+  "type": "business_rule",
+  "category": "common_rules",
+  "name": {
+    "es": "Puentes térmicos en CERMA",
+    "en": "Thermal bridges in CERMA"
+  },
+  "severity": "Error",
+  "class": "PuentesTermicosCERMARule",
+  "description": "Si el procedimiento es CERMA, todos los nodos <Puentes_Termicos> deben tener contenido.",
+  "parameters": {
+    "xpath_procedimiento": "/IdentificacionEdificio/Procedimiento",
+    "xpath_puentes": "/DatosPersonalizados/Cerma/Puentes_Termicos",
+    "messages": {
+      "missing": {
+        "es": "Si el procedimiento es CERMA, todos los nodos <Puentes_Termicos> deben contener información.",
+        "en": "If the procedure is CERMA, all <Puentes_Termicos> nodes must be filled in."
+      },
+      "not_applicable": {
+        "es": "La regla no aplica porque el procedimiento no es CERMA.",
+        "en": "Rule does not apply because the procedure is not CERMA."
+      },
+      "ok": {
+        "es": "Los nodos <Puentes_Termicos> están correctamente informados.",
+        "en": "The <Puentes_Termicos> nodes are correctly filled."
+      }
+    }
+  }
+}

@@ -19,26 +19,51 @@ def _normalize_ext(ext: str) -> str:
 
 
 def _decode_base64_image(b64_str: str) -> Tuple[bool, Dict]:
+    """
+    Intenta decodificar una cadena Base64 que representa una imagen.
+    Soporta tanto cadenas con encabezado MIME (data:image/png;base64,...) como sin él.
+
+    Returns:
+        - (True, {"image": PIL.Image, "ext": str}) si la imagen es válida
+        - (False, {"message": str, "details": dict}) si la imagen es inválida o está dañada
+    """
+    mime_ext = ""
+    
+    # Intentamos extraer el MIME si está presente
     m = re.match(r"^data:image/([a-z0-9.+-]+);base64,(.+)$", b64_str, re.I)
-    mime_ext = None
-    b64_data = b64_str
     if m:
         mime_ext = _normalize_ext(m.group(1).split("+")[0])
         b64_data = m.group(2)
+    else:
+        b64_data = b64_str
+
+    # Eliminar espacios, saltos de línea y tabulaciones
+    b64_clean = re.sub(r"\s+", "", b64_data)
 
     try:
-        img_bytes = base64.b64decode(b64_data, validate=True)
+        # Decodificamos la cadena base64
+        img_bytes = base64.b64decode(b64_clean, validate=True)
+
+        # Verificamos que es una imagen válida
+        with BytesIO(img_bytes) as bio:
+            img = Image.open(bio)
+            img.verify()  # Verifica estructura sin cargarla completamente
+
+        # Reabrimos la imagen para trabajar con ella
         img = Image.open(BytesIO(img_bytes))
-        img.verify()
-        img = Image.open(BytesIO(img_bytes))
-    except Exception:
+    except Exception as e:
         return False, {
-            "message": "El plano no es una imagen válida en formato Base64.",
-            "details": {"provided_value": b64_str[:40] + "..."}
+            "message": "La imagen no es válida o está dañada.",
+            "details": {
+                "error": str(e),
+                "sample": b64_str[:40] + "..."  # muestra para depuración
+            }
         }
 
+    # Determinar extensión
     ext = mime_ext or _normalize_ext(img.format.lower() if img.format else "")
     return True, {"image": img, "ext": ext}
+
 
 
 # ───────────────────────── regla ──────────────────────────────

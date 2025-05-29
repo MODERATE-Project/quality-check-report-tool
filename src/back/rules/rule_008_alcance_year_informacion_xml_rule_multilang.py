@@ -59,7 +59,7 @@ class AlcanceYearInformacionXMLRule(BaseRule):
         return None
 
 
-    def validate(self, epc, questions: Dict = None) -> Dict:
+    def validate(self, epc, questions: Dict = {}) -> Dict:
         alcance_value = epc.get_value_by_xpath(self.xpath)
         anno_raw = epc.get_value_by_xpath(self.xpathAnno)
         result = self._new_result()

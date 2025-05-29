@@ -37,7 +37,7 @@ class BaseRule:
         }
 
     # ───────────────────────── interfaces a implementar ─────────────────
-    def validate(self, epc: "EpcDto", questions=None) -> Dict:
+    def validate(self, epc: "EpcDto", questions={}) -> Dict:
         """Cada subclase debe implementar su lógica de validación."""
         raise NotImplementedError
 

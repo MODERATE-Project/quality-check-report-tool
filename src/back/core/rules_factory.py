@@ -339,9 +339,5 @@ class RulesFactory:
                     questions[pregunta_id]["text"] = contenido["text"]
                     questions[pregunta_id]["type"] = contenido["type"]
 
-
-        # Al final, si 'questions' está vacío, devolvemos None
-        if not questions:
-            return None
         
         return questions

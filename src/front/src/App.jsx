@@ -38,6 +38,11 @@ export default function XMLUploader() {
         setFormFields(data);
         setIsModalOpen(true);
       }
+      else {
+        setFormFields(null);
+        setIsModalOpen(false);
+        handleFormSubmit({});
+      }
     } catch (err) {
       setError(t("Error al validar el XML"));
     }
@@ -116,11 +121,11 @@ export default function XMLUploader() {
       <div className="content">
         <button 
           className="language-button"
-          onClick={() => i18n.changeLanguage(i18n.language.startsWith('es') ? 'en' : 'es')}
+          onClick={() => i18n.changeLanguage(i18n.resolvedLanguage.startsWith('es') ? 'en' : 'es')}
         >
           <img 
-            src={i18n.language.startsWith('es') ? enFlag : esFlag} 
-            alt={i18n.language.startsWith('es') ? 'English' : 'Español'} 
+            src={i18n.resolvedLanguage.startsWith('es') ? enFlag : esFlag} 
+            alt={i18n.resolvedLanguage.startsWith('es') ? 'English' : 'Español'} 
             className="flag-icon"
           />
         </button>

@@ -1,0 +1,51 @@
+{
+  "id": "rule_025",
+  "type": "business_rule",
+  "category": "common_rules",
+  "name": "Energía generada autoconsumida",
+  "severity": "Warning",
+  "class": "AutoconsumoFotovoltaicoRule",
+  "description": "Valida que la energía autoconsumida generada no sea excesiva, según número y potencia de paneles fotovoltaicos.",
+  "parameters": {
+    "xpath_valor": "//EnergiasRenovables/Electrica/Sistema/EnergiaGeneradaAutoconsumida",
+    "default_potencia_w": 450,
+    "horas_estimadas": 1500,
+    "factor_margen": 1.10,
+    "messages": {
+      "suspected": {
+        "es": "kWh considerado excesivo.",
+        "en": "Excessive kWh value detected."
+      },
+      "success": {
+        "es": "La energía generada autoconsumida es razonable.",
+        "en": "Self-consumed generated energy is within expected range."
+      }
+    },
+    "details": {
+      "suspected": {
+        "es": {
+          "valor indicado": "valor de EnergiaGeneradaAutoconsumida",
+          "máximo estimado": "valor límite calculado"
+        },
+        "en": {
+          "reported value": "value from EnergiaGeneradaAutoconsumida",
+          "estimated maximum": "calculated threshold"
+        }
+      },
+      "success": {
+        "es": {
+          "valor indicado": "valor de EnergiaGeneradaAutoconsumida",
+          "límite calculado": "valor máximo teórico permitido"
+        },
+        "en": {
+          "reported value": "value from EnergiaGeneradaAutoconsumida",
+          "calculated limit": "theoretical production limit"
+        }
+      }
+    },
+    "question_text": {
+      "es": "Indicar número de paneles y potencia por panel (W).\nNota: en caso de no saber potencia por panel, no indicarlo.",
+      "en": "Please indicate number of panels and power per panel (W).\nNote: if unknown, leave blank."
+    }
+  }
+}

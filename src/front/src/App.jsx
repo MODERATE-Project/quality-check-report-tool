@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 import { RULES_SERVICE_URL, RULES_EVALUATE_SERVICE_URL } from "./constants";
 import Footer from "./components/Footer";
@@ -19,6 +19,11 @@ export default function XMLUploader() {
   const [showSucceeded, setShowSucceeded] = useState(false);
   const { t, i18n } = useTranslation('common');
 
+  useEffect(() => {
+    if (file) {
+      validateXML(file);
+    }
+  }, [file]);
 
   const validateXML = async (xmlFile) => {
     const formData = new FormData();
@@ -37,6 +42,11 @@ export default function XMLUploader() {
       if (hasFormFields) {
         setFormFields(data);
         setIsModalOpen(true);
+      }
+      else {
+        setFormFields(null);
+        setIsModalOpen(false);
+        handleFormSubmit({});
       }
     } catch (err) {
       setError(t("Error al validar el XML"));
@@ -100,7 +110,6 @@ export default function XMLUploader() {
     if (droppedFile && droppedFile.type === "text/xml") {
       setFile(droppedFile);
       setError(null);
-      await validateXML(droppedFile);
     } else {
       setError(t("Por favor, sube un archivo XML válido."));
     }
@@ -116,11 +125,11 @@ export default function XMLUploader() {
       <div className="content">
         <button 
           className="language-button"
-          onClick={() => i18n.changeLanguage(i18n.language === 'es' ? 'en' : 'es')}
+          onClick={() => i18n.changeLanguage(i18n.resolvedLanguage.startsWith('es') ? 'en' : 'es')}
         >
           <img 
-            src={i18n.language === 'es' ? enFlag : esFlag} 
-            alt={i18n.language === 'es' ? 'English' : 'Español'} 
+            src={i18n.resolvedLanguage.startsWith('es') ? enFlag : esFlag} 
+            alt={i18n.resolvedLanguage.startsWith('es') ? 'English' : 'Español'} 
             className="flag-icon"
           />
         </button>

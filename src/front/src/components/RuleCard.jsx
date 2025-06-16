@@ -39,7 +39,7 @@ export default function RuleCard({ rule, showAllFields, showSucceeded }) {
 
     if (typeof details === 'object') {
       // Obtener los detalles en el idioma actual o usar el inglés como fallback
-      const localizedDetails = details[i18n.language] || details.en || details.es;
+      const localizedDetails = details[i18n.resolvedLanguage] || details.en || details.es;
       
       if (!localizedDetails) return null;
 
@@ -79,12 +79,12 @@ export default function RuleCard({ rule, showAllFields, showSucceeded }) {
 
   return (
     <div className="rule-card">
-      <p><b>{t('Nombre')}:</b> {typeof name === 'object' ? name[i18n.language] : name}</p>
+      <p><b>{t('Nombre')}:</b> {typeof name === 'object' ? name[i18n.resolvedLanguage] : name}</p>
       <p>
         <b>{t('Estado')}:</b>{" "}
         <span className={`status ${getStatusClass()}`}>{getStatusLabel()}</span>
       </p>
-      <p><b>{t('Mensaje')}:</b> {messages[i18n.language] || details.en || details.es}</p>
+      <p><b>{t('Mensaje')}:</b> {messages[i18n.resolvedLanguage] || details.en || details.es}</p>
 
       {renderDetails()}
       {renderExtraFields()}

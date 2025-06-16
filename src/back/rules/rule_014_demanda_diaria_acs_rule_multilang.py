@@ -40,7 +40,7 @@ class DemandaDiariaACSRule(BaseRule):
             }
         )
 
-    def validate(self, epc: EpcDto, questions) -> Dict:
+    def validate(self, epc: EpcDto, questions={}) -> Dict:
         result = self._new_result()
         tipo = epc.get_value_by_xpath(self.parameters["xpath_tipo_edificio"])
         demanda_str = epc.get_value_by_xpath(self.parameters["DemandaDiariaACS"])

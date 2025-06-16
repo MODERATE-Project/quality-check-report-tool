@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 import { RULES_SERVICE_URL, RULES_EVALUATE_SERVICE_URL } from "./constants";
 import Footer from "./components/Footer";
@@ -19,6 +19,11 @@ export default function XMLUploader() {
   const [showSucceeded, setShowSucceeded] = useState(false);
   const { t, i18n } = useTranslation('common');
 
+  useEffect(() => {
+    if (file) {
+      validateXML(file);
+    }
+  }, [file]);
 
   const validateXML = async (xmlFile) => {
     const formData = new FormData();
@@ -105,7 +110,6 @@ export default function XMLUploader() {
     if (droppedFile && droppedFile.type === "text/xml") {
       setFile(droppedFile);
       setError(null);
-      await validateXML(droppedFile);
     } else {
       setError(t("Por favor, sube un archivo XML válido."));
     }

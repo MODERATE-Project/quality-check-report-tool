@@ -22,6 +22,7 @@ i18n
     resources,
     fallbackLng: 'es',
     supportedLngs: ['es', 'en'],
+    load: 'languageOnly',
     nonExplicitSupportedLngs: true,
     ns: ['common'],
     defaultNS: 'common',

@@ -1,0 +1,66 @@
+{
+  "id": "rule_021",
+  "type": "business_rule",
+  "category": "common_rules",
+  "name": "Factor solar de huecos y lucernarios",
+  "severity": "Warning",
+  "class": "FactorSolarHuecosRule",
+  "description": "Valida que los valores de factor solar para los elementos huecos y lucernarios estén dentro de los límites definidos por año de construcción.",
+  "parameters": {
+    "xpath_anno": "//IdentificacionEdificio/AnoConstruccion",
+    "xpath_factores": "//DatosEnvolventeTermica/HuecosyLucernarios/Elemento/FactorSolar",
+    "intervalos": [
+      { "min_year": null, "max_year": 1940, "min_f": 0.69, "max_f": 0.82 },
+      { "min_year": 1941, "max_year": 1960, "min_f": 0.69, "max_f": 0.82 },
+      { "min_year": 1961, "max_year": 1980, "min_f": 0.69, "max_f": 0.82 },
+      { "min_year": 1981, "max_year": 2007, "min_f": 0.61, "max_f": 0.75 },
+      { "min_year": 2008, "max_year": 2013, "min_f": 0.61, "max_f": 0.65 }
+    ],
+    "messages": {
+      "success": {
+        "es": "Todos los valores de factor solar de huecos y lucernarios son válidos.",
+        "en": "All solar factor values for openings and skylights are valid."
+      },
+      "missing_factores": {
+        "es": "No se encontraron valores de factor solar en huecos/lucernarios.",
+        "en": "No solar factor values found for openings/skylights."
+      },
+      "invalid_anno": {
+        "es": "El año de construcción no es válido.",
+        "en": "Invalid construction year."
+      },
+      "no_interval": {
+        "es": "No se definió intervalo de factor solar aplicable para el año indicado.",
+        "en": "No solar factor range defined for the given year."
+      },
+      "error_values": {
+        "es": "Algunos valores de factor solar no cumplen con los límites establecidos.",
+        "en": "Some solar factor values are outside the allowed range."
+      }
+    },
+    "details": {
+      "error_values": {
+        "es": {
+          "año de construcción": "año extraído del XML",
+          "valores fuera de rango": "lista con índice y valor de cada nodo fuera de rango",
+          "límites permitidos": "intervalo esperado"
+        },
+        "en": {
+          "construction year": "year extracted from XML",
+          "out-of-range values": "list of index and value for each out-of-range node",
+          "allowed limits": "expected interval"
+        }
+      },
+      "success": {
+        "es": {
+          "año de construcción": "año extraído del XML",
+          "valores validados": "lista de valores válidos"
+        },
+        "en": {
+          "construction year": "year extracted from XML",
+          "validated values": "list of valid values"
+        }
+      }
+    }
+  }
+}

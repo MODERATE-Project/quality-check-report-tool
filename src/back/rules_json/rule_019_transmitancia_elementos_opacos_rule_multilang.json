@@ -6,7 +6,7 @@
     "es": "Transmitancia térmica de cerramientos opacos",
     "en": "Thermal transmittance of opaque enclosures"
   },
-  "severity": "Error",
+  "severity": "Warning",
   "class": "TransmitanciaElementosOpacosRule",
   "description": {
     "es": "Valida que los valores de transmitancia térmica de los elementos opacos se encuentren dentro de los límites permitidos según el año de construcción y la zona climática.",

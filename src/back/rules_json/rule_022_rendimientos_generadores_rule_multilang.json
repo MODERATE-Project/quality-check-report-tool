@@ -1,0 +1,80 @@
+{
+  "id": "rule_022",
+  "type": "business_rule",
+  "category": "common_rules",
+  "name": "Rendimiento de generadores de calefacción",
+  "severity": "Warning",
+  "class": "RendimientosGeneradoresRule",
+  "description": "Valida que el rendimiento nominal y estacional de los generadores esté dentro de los límites definidos para cada vector energético.",
+  "parameters": {
+    "xpath_generadores": "//InstalacionesTermicas/GeneradoresDeCalefaccion",
+    "rendimiento_nominal_tag": "RendimientoNominal",
+    "rendimiento_estacional_tag": "RendimientoEstacional",
+    "vector_tag": "VectorEnergetico",
+    "valor_excluido": "99999999.99",
+    "limites_nominal": {
+      "GasNatural":         [0.6, 1.11],
+      "GasoleoC":           [0.6, 1.05],
+      "BiomasaPellet":      [0.7, 1.0],
+      "BiomasaOtros":       [0.55, 0.95],
+      "ElectricidadPeninsular":        [0.95, 5.5],
+      "ElectricidadBaleares":          [0.95, 5.5],
+      "ElectricidadCanarias":          [0.95, 5.5],
+      "ElectricidadCeutayMelilla":     [0.95, 5.5]
+    },
+    "limites_estacional": {
+      "ElectricidadPeninsular":        [1.0, 7.0],
+      "ElectricidadBaleares":          [1.0, 7.0],
+      "ElectricidadCanarias":          [1.0, 7.0],
+      "ElectricidadCeutayMelilla":     [1.0, 7.0]
+    },
+    "messages": {
+      "success": {
+        "es": "Todos los generadores tienen rendimientos dentro de los límites establecidos.",
+        "en": "All generators have performance values within allowed limits."
+      },
+      "missing_data": {
+        "es": "No se encontraron generadores o falta algún campo requerido.",
+        "en": "No generators found or required fields are missing."
+      },
+      "error_nominal": {
+        "es": "Algún rendimiento nominal está fuera de los límites permitidos.",
+        "en": "Some nominal performance values are outside allowed range."
+      },
+      "error_estacional": {
+        "es": "Algún rendimiento estacional está fuera de los límites permitidos.",
+        "en": "Some seasonal performance values are outside allowed range."
+      }
+    },
+    "details": {
+      "error_nominal": {
+        "es": {
+          "generadores con error": "lista de índices y valores fuera de rango",
+          "límites nominales usados": "diccionario de límites por vector energético"
+        },
+        "en": {
+          "generators with error": "list of indices and out-of-range values",
+          "nominal limits used": "limits per energy vector"
+        }
+      },
+      "error_estacional": {
+        "es": {
+          "generadores con error": "lista de índices y valores fuera de rango",
+          "límites estacionales usados": "diccionario de límites por vector energético"
+        },
+        "en": {
+          "generators with error": "list of indices and out-of-range values",
+          "seasonal limits used": "limits per energy vector"
+        }
+      },
+      "success": {
+        "es": {
+          "generadores validados": "total y vector energético por generador"
+        },
+        "en": {
+          "validated generators": "total and energy vector per generator"
+        }
+      }
+    }
+  }
+}

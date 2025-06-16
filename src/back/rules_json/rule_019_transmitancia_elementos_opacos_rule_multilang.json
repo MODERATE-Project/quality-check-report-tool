@@ -1,0 +1,70 @@
+{
+  "id": "rule_019",
+  "type": "business_rule",
+  "category": "common_rules",
+  "name": {
+    "es": "Transmitancia térmica de cerramientos opacos",
+    "en": "Thermal transmittance of opaque enclosures"
+  },
+  "severity": "Error",
+  "class": "TransmitanciaElementosOpacosRule",
+  "description": {
+    "es": "Valida que los valores de transmitancia térmica de los elementos opacos se encuentren dentro de los límites permitidos según el año de construcción y la zona climática.",
+    "en": "Validates that the thermal transmittance values of opaque elements are within the allowed limits based on the construction year and climate zone."
+  },
+  "parameters": {
+    "xpath_elementos": "/DatosEnvolventeTermica/CerramientosOpacos",
+    "xpath_ano": "/IdentificacionEdificio/AnoConstruccion",
+    "xpath_zona": "/IdentificacionEdificio/ZonaClimatica",
+    "limites_tipo": {
+      "Fachada": [
+        { "desde": 0, "hasta": 1940, "min": 2.0, "max": 5.88 },
+        { "desde": 1941, "hasta": 1960, "min": 2.0, "max": 4.76 },
+        { "desde": 1961, "hasta": 1980, "min": 1.15, "max": 2.94 },
+        { "desde": 1981, "hasta": 2007, "min": 0.75, "max": 1.8 }
+      ],
+      "Cubierta": [
+        { "desde": 0, "hasta": 1940, "min": 2.63, "max": 4.17 },
+        { "desde": 1941, "hasta": 1960, "min": 2.04, "max": 4.17 },
+        { "desde": 1961, "hasta": 1980, "min": 2.03, "max": 2.33 },
+        { "desde": 1981, "hasta": 2007, "min": 0.67, "max": 2.33 }
+      ],
+      "Suelo": [
+        { "desde": 0, "hasta": 1980, "min": 1.0, "max": 2.5 },
+        { "desde": 1981, "hasta": 2007, "min": 0.7, "max": 2.38 }
+      ],
+      "ParticionInteriorVertical": [
+        { "desde": 0, "hasta": 1980, "min": 2.25, "max": 4.76 },
+        { "desde": 1981, "hasta": 2007, "min": 1.44, "max": 2.33 }
+      ],
+      "ParticionInteriorHorizontal": [
+        { "desde": 0, "hasta": 1940, "min": 2.63, "max": 4.17 },
+        { "desde": 1941, "hasta": 1960, "min": 2.04, "max": 4.17 },
+        { "desde": 1961, "hasta": 1980, "min": 2.03, "max": 2.33 },
+        { "desde": 1981, "hasta": 2007, "min": 0.67, "max": 2.33 }
+      ]
+    },
+    "limites_zona_2007_2013": {
+      "Fachada": {
+        "A": [0.94, 1.22], "B": [0.82, 1.07], "C": [0.73, 0.95],
+        "D": [0.66, 0.86], "E": [0.57, 0.74]
+      },
+      "Cubierta": {
+        "A": [0.5, 1.22], "B": [0.45, 1.07], "C": [0.41, 0.95],
+        "D": [0.38, 0.86], "E": [0.35, 0.74]
+      },
+      "Suelo": {
+        "A": [0.53, 1.22], "B": [0.52, 1.07], "C": [0.5, 0.95],
+        "D": [0.49, 0.86], "E": [0.48, 0.74]
+      },
+      "ParticionInteriorVertical": {
+        "A": [0.94, 1.22], "B": [0.82, 1.07], "C": [0.73, 0.95],
+        "D": [0.66, 0.86], "E": [0.57, 0.74]
+      },
+      "ParticionInteriorHorizontal": {
+        "A": [0.5, 1.22], "B": [0.45, 1.07], "C": [0.41, 0.95],
+        "D": [0.38, 0.86], "E": [0.35, 0.74]
+      }
+    }
+  }
+}

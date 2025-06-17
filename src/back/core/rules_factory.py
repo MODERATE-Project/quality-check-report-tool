@@ -320,6 +320,7 @@ class RulesFactory:
                     questions.setdefault(pregunta_id, {})
                     questions[pregunta_id]["text"] = contenido["text"]
                     questions[pregunta_id]["type"] = contenido["type"]
+                    questions[pregunta_id]["optional"] = contenido.get("optional", False)
 
 
 
@@ -338,6 +339,7 @@ class RulesFactory:
                     questions.setdefault(pregunta_id, {})
                     questions[pregunta_id]["text"] = contenido["text"]
                     questions[pregunta_id]["type"] = contenido["type"]
+                    questions[pregunta_id]["optional"] = contenido.get("optional", False)
 
         
         return questions

@@ -250,14 +250,14 @@ class RulesFactory:
         for rule in self.common_rules:
             logger.debug(f"Aplicando regla común: {rule.id}")
             # Comprobar si la regla tiene preguntas asociadas
-            if rule.id not in questions:
+            if not any(key.startswith(rule.id) for key in questions.keys()):
                 logger.debug(f"Regla {rule.id} no tiene preguntas asociadas.")
                 result = rule.validate(epc)
                 logger.debug(f"result: {result}")
             else:
                 logger.debug("***************************************************************************************")
                 # mostrar el contenido de questions
-                questions_for_rule = questions[rule.id]
+                questions_for_rule = {k: v for k, v in questions.items() if k.startswith(rule.id)}
                 logger.debug(f"questions: {questions_for_rule}")
                 logger.debug("***************************************************************************************")
                 result = rule.validate(epc, questions_for_rule)

@@ -1,11 +1,11 @@
 import React, { useState, useCallback, useEffect } from "react";
 import { useTranslation } from 'react-i18next';
-
 import "./ModalForm.css";
 
 export default function ModalForm({ isOpen, fields, onSubmit, error, onCancel }) {
   const [formValues, setFormValues] = useState({});
   const { t, i18n } = useTranslation('common');
+  const [localError, setLocalError] = useState(null);
 
   const handleKeyDown = useCallback(
     (e) => {
@@ -28,38 +28,18 @@ export default function ModalForm({ isOpen, fields, onSubmit, error, onCancel })
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    
+    // Verificar campos requeridos
+    const missingRequired = Object.entries(fields).filter(([key, field]) => {
+      return !field.optional && (formValues[key] === undefined || formValues[key] === "");
+    });
 
-    // 1) Convertimos las claves "regla_008_0" en un objeto anidado:
-    //    {
-    //      "regla_008": { "0": valor },
-    //      "regla_014": { "0": valor, "1": valor },
-    //      ...
-    //    }
-    const groupedValues = Object.entries(formValues).reduce((acc, [key, val]) => {
-      // key = "regla_008_0", "regla_008_1", etc.
-      const lastUnderscoreIndex = key.lastIndexOf("_");
-      if (lastUnderscoreIndex === -1) {
-        console.warn(`Clave sin el formato esperado: ${key}`);
-        return acc;
-      }
+    if (missingRequired.length > 0) {
+      setLocalError(t("Por favor, complete todos los campos requeridos"));
+      return;
+    }
 
-      // "regla_008" y "0"
-      const ruleId = key.substring(0, lastUnderscoreIndex);       // "regla_008"
-      const questionIndex = key.substring(lastUnderscoreIndex + 1); // "0"
-
-      // Creamos el objeto de la regla si no existe
-      if (!acc[ruleId]) {
-        acc[ruleId] = {};
-      }
-
-      // Añadimos la respuesta bajo su pregunta correspondiente
-      acc[ruleId][questionIndex] = val;
-
-      return acc;
-    }, {});
-
-    // 2) Llamamos a onSubmit con el objeto anidado
-    onSubmit(groupedValues);
+    onSubmit(formValues);
   };
 
   if (!isOpen) return null;
@@ -67,8 +47,7 @@ export default function ModalForm({ isOpen, fields, onSubmit, error, onCancel })
   return (
     <div className="modal-overlay">
       <div className="modal-container">
-
-      <button
+        <button
           className="modal-close-btn"
           aria-label="Cerrar"
           onClick={onCancel}
@@ -79,17 +58,19 @@ export default function ModalForm({ isOpen, fields, onSubmit, error, onCancel })
 
         <h2 className="modal-title">{t('Información adicional requerida')}</h2>
         
-        {error && <p className="modal-error global">{error}</p>}
-        <form onSubmit={handleSubmit} className="modal-body">
+        {(error || localError) && <p className="modal-error global">{error || localError}</p>}
+        <form onSubmit={handleSubmit} className="modal-body" noValidate>
           {Object.entries(fields).map(([key, field]) => (
             <div className="modal-field" key={key}>
-              <label>{field.text[i18n.resolvedLanguage] || field.text['en']}</label>
+              <label htmlFor={key}>{field.text[i18n.resolvedLanguage] || field.text['en']}</label>
 
               {field.type === "boolean" ? (
                 <select
+                  id={key}
                   value={formValues[key] ?? ""}
                   onChange={(e) => handleChange(key, e.target.value === "true")}
-                  required
+                  required={!field.optional}
+                  className={!field.optional && !formValues[key] ? "error" : ""}
                 >
                   <option value="">Seleccione una opción</option>
                   <option value="true">Sí</option>
@@ -97,20 +78,25 @@ export default function ModalForm({ isOpen, fields, onSubmit, error, onCancel })
                 </select>
               ) : (
                 <input
+                  id={key}
                   type="number"
                   step={field.type === "number" ? "any" : "1"}
-                  value={formValues[key] ?? ""}
+                  value={formValues[key] === undefined ? "" : formValues[key]}
                   onChange={(e) => handleChange(key, e.target.value)}
-                  required
+                  required={!field.optional}
+                  className={!field.optional && !formValues[key] ? "error" : ""}
                 />
+              )}
+              {!field.optional && !formValues[key] && (
+                <span className="field-error">{t("Este campo es obligatorio")}</span>
               )}
             </div>
           ))}
         </form>
-          <div className="modal-buttons">
-            <button type="submit" className="modal-btn primary" onClick={handleSubmit}>{t('Enviar')}</button>
-            <button type="button" className="modal-btn" onClick={onCancel}>{t('Cancelar')}</button>
-          </div>
+        <div className="modal-buttons">
+          <button type="submit" className="modal-btn primary" onClick={handleSubmit}>{t('Enviar')}</button>
+          <button type="button" className="modal-btn" onClick={onCancel}>{t('Cancelar')}</button>
+        </div>
       </div>
     </div>
   );

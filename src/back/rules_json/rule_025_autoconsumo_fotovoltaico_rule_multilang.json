@@ -43,14 +43,14 @@
         }
       }
     },
-"question_texts": {
-      "es": {
-        "num_paneles": "Indicar número de paneles instalados.",
-        "potencia_panel": "Indicar la potencia por panel (W).\nNota: en caso de no saber la potencia, dejar en blanco."
+    "question_texts": {
+      "num_paneles": {
+        "es": "Indicar número de paneles instalados.",
+        "en": "Indicate the number of installed panels."
       },
-      "en": {
-        "num_paneles": "Indicate the number of installed panels.",
-        "potencia_panel": "Indicate the power per panel (W).\nNote: if unknown, leave blank."
+      "potencia_panel": {
+        "es": "Indicar la potencia por panel (W).\nNota: en caso de no saber la potencia, dejar en blanco.",
+        "en": "Indicate the power per panel (W).\nNote: if unknown, leave blank."
       }
     }
   }

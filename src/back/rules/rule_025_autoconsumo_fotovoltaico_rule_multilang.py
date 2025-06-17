@@ -16,11 +16,11 @@ class AutoconsumoFotovoltaicoRule(BaseRule):
             self.id,
             {
                 f"{self.id}_num_paneles": {
-                    "text": textos.get("es", {}).get("num_paneles", "Número de paneles?"),
+                    "text": textos.get("num_paneles", "Número de paneles?"),
                     "type": "integer"
                 },
                 f"{self.id}_potencia_w": {
-                    "text": textos.get("es", {}).get("potencia_panel", "Potencia por panel?"),
+                    "text": textos.get("potencia_panel", "Potencia por panel?"),
                     "type": "integer",
                     "optional": True
                 }

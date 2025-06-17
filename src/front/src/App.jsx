@@ -135,7 +135,7 @@ export default function XMLUploader() {
         </button>
 
         <h1 className="title">{t('Moderate Quality Check Tool')}</h1>
-        <div style={{'textAlign':'justify'}}>
+        <div className="about">
           <h2><b>{t('Acerca de')}</b></h2>
         <p>
           {t('app_description')}

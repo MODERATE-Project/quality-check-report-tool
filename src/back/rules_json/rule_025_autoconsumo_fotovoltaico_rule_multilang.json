@@ -43,9 +43,15 @@
         }
       }
     },
-    "question_text": {
-      "es": "Indicar número de paneles y potencia por panel (W).\nNota: en caso de no saber potencia por panel, no indicarlo.",
-      "en": "Please indicate number of panels and power per panel (W).\nNote: if unknown, leave blank."
+"question_texts": {
+      "es": {
+        "num_paneles": "Indicar número de paneles instalados.",
+        "potencia_panel": "Indicar la potencia por panel (W).\nNota: en caso de no saber la potencia, dejar en blanco."
+      },
+      "en": {
+        "num_paneles": "Indicate the number of installed panels.",
+        "potencia_panel": "Indicate the power per panel (W).\nNote: if unknown, leave blank."
+      }
     }
   }
 }

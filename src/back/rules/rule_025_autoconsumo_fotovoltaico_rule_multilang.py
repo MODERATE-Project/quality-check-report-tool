@@ -11,15 +11,16 @@ class AutoconsumoFotovoltaicoRule(BaseRule):
         if valor is None or valor.strip() == "":
             return None
 
+        textos = self.parameters.get("question_texts", {})
         return (
             self.id,
             {
                 f"{self.id}_num_paneles": {
-                    "text": self.parameters["question_text"],
+                    "text": textos.get("es", {}).get("num_paneles", "Número de paneles?"),
                     "type": "integer"
                 },
                 f"{self.id}_potencia_w": {
-                    "text": self.parameters["question_text"],
+                    "text": textos.get("es", {}).get("potencia_panel", "Potencia por panel?"),
                     "type": "integer",
                     "optional": True
                 }

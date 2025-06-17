@@ -1,5 +1,6 @@
 .content {
   max-width: 1280px;
+  /* width: 100dvw; */
   margin: 0 auto;
   text-align: center;
   height: 80vh;
@@ -10,6 +11,11 @@
 
 .title {
   color: #4CAF50;
+}
+
+.about {
+  margin: 0 50px;
+  text-align: justify;
 }
 
 .drag-xml-box {
@@ -39,7 +45,7 @@
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  width: 80%;
+  max-width: 80dvw;
   text-align: left;
 }
 
@@ -58,6 +64,8 @@
   border: 1px solid #ccc;
   border-radius: 5px;
   margin-bottom: 10px;
+  /* overflow: auto;  */
+  word-wrap: break-word;
 }
 
 .language-button {

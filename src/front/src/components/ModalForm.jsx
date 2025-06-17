@@ -92,11 +92,11 @@ export default function ModalForm({ isOpen, fields, onSubmit, error, onCancel })
               )}
             </div>
           ))}
+          <div className="modal-buttons">
+            <button type="submit" className="modal-btn primary">{t('Enviar')}</button>
+            <button type="button" className="modal-btn" onClick={onCancel}>{t('Cancelar')}</button>
+          </div>
         </form>
-        <div className="modal-buttons">
-          <button type="submit" className="modal-btn primary" onClick={handleSubmit}>{t('Enviar')}</button>
-          <button type="button" className="modal-btn" onClick={onCancel}>{t('Cancelar')}</button>
-        </div>
       </div>
     </div>
   );

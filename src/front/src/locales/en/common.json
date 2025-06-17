@@ -28,5 +28,7 @@
     "Nombre":  "Name",
     "Información adicional requerida":  "Additional information required",
     "Enviar":  "Send",
-    "Cancelar":  "Cancel"
+    "Cancelar":  "Cancel",
+    "Por favor, complete todos los campos requeridos":  "Please, complete all required fields",
+    "Este campo es obligatorio":  "Required field"
 }

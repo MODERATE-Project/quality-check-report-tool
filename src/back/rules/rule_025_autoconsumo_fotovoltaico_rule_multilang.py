@@ -15,11 +15,11 @@ class AutoconsumoFotovoltaicoRule(BaseRule):
             self.id,
             {
                 f"{self.id}_num_paneles": {
-                    "text": self.parameters["question_text"]["es"],
+                    "text": self.parameters["question_text"],
                     "type": "integer"
                 },
                 f"{self.id}_potencia_w": {
-                    "text": self.parameters["question_text"]["es"],
+                    "text": self.parameters["question_text"],
                     "type": "integer",
                     "optional": True
                 }

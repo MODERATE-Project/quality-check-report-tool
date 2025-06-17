@@ -12,6 +12,8 @@ export default function RuleCard({ rule, showAllFields, showSucceeded }) {
     if (status === 'error') {
       return severity?.toLowerCase() === 'warning' ? 'status-suspected' : 'status-error';
     }
+    if (status === 'suspected') return 'status-suspected';
+    
     return '';
   };
 
@@ -19,6 +21,39 @@ export default function RuleCard({ rule, showAllFields, showSucceeded }) {
     if (status === 'success') return t('correcto');
     if (severity?.toLowerCase() === 'warning') return t('sospecha de error');
     return t('error');
+  };
+
+  const renderValue = (value, depth = 0) => {
+    if (value === null || value === undefined) return '';
+    if (typeof value === 'object' && depth === 0) {
+      if (Array.isArray(value)) {
+        return (
+          <ul>
+            {value.map((item, index) => (
+              <li key={index}>{renderValue(item, depth + 1)}</li>
+            ))}
+          </ul>
+        );
+      }
+      return (
+        <ul>
+          {Object.entries(value).map(([k, v]) => (
+            <li key={k}>
+              <b>{k}:</b> {renderValue(v, depth + 1)}
+            </li>
+          ))}
+        </ul>
+      );
+    }
+    if (typeof value === 'object') {
+      if (Array.isArray(value)) {
+        return value.join(', ');
+      }
+      return Object.entries(value)
+        .map(([k, v]) => `${k}: ${v}`)
+        .join(', ');
+    }
+    return String(value);
   };
 
   const renderDetails = () => {
@@ -49,7 +84,7 @@ export default function RuleCard({ rule, showAllFields, showSucceeded }) {
           <ul>
             {Object.entries(localizedDetails).map(([key, value]) => (
               <li key={key}>
-                <b>{key}:</b> {String(value)}
+                <b>{key}:</b> {renderValue(value)}
               </li>
             ))}
           </ul>

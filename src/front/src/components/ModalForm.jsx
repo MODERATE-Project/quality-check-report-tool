@@ -67,8 +67,8 @@ export default function ModalForm({ isOpen, fields, onSubmit, error, onCancel })
               {field.type === "boolean" ? (
                 <select
                   id={key}
-                  value={formValues[key] ?? ""}
-                  onChange={(e) => handleChange(key, e.target.value === "true")}
+                  value={formValues[key] === undefined ? "" : formValues[key]}
+                  onChange={(e) => handleChange(key, e.target.value)}
                   required={!field.optional}
                   className={!field.optional && !formValues[key] ? "error" : ""}
                 >

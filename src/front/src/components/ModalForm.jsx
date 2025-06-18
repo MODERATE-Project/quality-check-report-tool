@@ -6,6 +6,7 @@ export default function ModalForm({ isOpen, fields, onSubmit, error, onCancel })
   const [formValues, setFormValues] = useState({});
   const { t, i18n } = useTranslation('common');
   const [localError, setLocalError] = useState(null);
+  const [hasSubmitted, setHasSubmitted] = useState(false);
 
   const handleKeyDown = useCallback(
     (e) => {
@@ -28,6 +29,7 @@ export default function ModalForm({ isOpen, fields, onSubmit, error, onCancel })
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setHasSubmitted(true);
     
     // Verificar campos requeridos
     const missingRequired = Object.entries(fields).filter(([key, field]) => {
@@ -70,7 +72,7 @@ export default function ModalForm({ isOpen, fields, onSubmit, error, onCancel })
                   value={formValues[key] === undefined ? "" : formValues[key]}
                   onChange={(e) => handleChange(key, e.target.value)}
                   required={!field.optional}
-                  className={!field.optional && !formValues[key] ? "error" : ""}
+                  className={!field.optional && hasSubmitted && !formValues[key] ? "error" : ""}
                 >
                   <option value="">Seleccione una opción</option>
                   <option value="true">Sí</option>
@@ -84,11 +86,14 @@ export default function ModalForm({ isOpen, fields, onSubmit, error, onCancel })
                   value={formValues[key] === undefined ? "" : formValues[key]}
                   onChange={(e) => handleChange(key, e.target.value)}
                   required={!field.optional}
-                  className={!field.optional && !formValues[key] ? "error" : ""}
+                  className={!field.optional && hasSubmitted && !formValues[key] ? "error" : ""}
                 />
               )}
-              {!field.optional && !formValues[key] && (
+              {!field.optional && hasSubmitted && !formValues[key] && (
                 <span className="field-error">{t("Este campo es obligatorio")}</span>
+              )}
+              {field.optional && (
+                <span className="field-info">{t("Este campo es opcional")}</span>
               )}
             </div>
           ))}

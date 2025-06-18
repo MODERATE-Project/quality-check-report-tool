@@ -1,0 +1,24 @@
+﻿rule_id;rule_name;error_count;referencias_con_errores
+rule_013;Imagen del edificio (Base64);3;00000000000000|xxxxxxxxxx|46013A015000550000GA
+rule_002;Zona Climática;3;00000000000000|xxx|xxxxxxxxxx
+rule_xxx;Regla de ejemplo multilingüe;4;00000000000000|xxx|xxxxxxxxxx|46013A015000550000GA
+rule_005;Referencia catastral;4;00000000000000|xxx|xxxxxxxxxx|46013A015000550000GA
+rule_008;Alcance del certificado;1;00000000000000
+rule_014;Demanda diaria de ACS;4;00000000000000|xxx|xxxxxxxxxx|46013A015000550000GA
+rule_001;{'es': 'Municipio', 'en': 'Municipality'};3;00000000000000|xxx|xxxxxxxxxx
+rule_003;Año construcción;1;00000000000000
+rule_004;Normativa vigente;3;00000000000000|xxxxxxxxxx|xxx
+rule_016;Medidas de mejora;2;00000000000000|xxxxxxxxxx
+rule_009;Fecha de emisión del certificado;4;00000000000000|xxx|xxxxxxxxxx|46013A015000550000GA
+rule_015;Puentes térmicos;2;00000000000000|46013A015000550000GA
+rule_011;Plano del edificio;1;00000000000000
+rule_012;Plano del edificio (Base64);3;00000000000000|xxxxxxxxxx|46013A015000550000GA
+rule_007;{'es': 'Versión del procedimiento de calificación energética utilizado', 'en': 'Version of the EPC software used'};1;xxxxxxxxxx
+rule_017;{'es': 'Validación de la Fecha de Visita e Inspección', 'en': 'Inspection and Visit Date'};1;xxxxxxxxxx
+rule_018;{'es': 'Descripción de las pruebas realizadas al edificio', 'en': 'Description of the tests performed on the building'};1;xxxxxxxxxx
+rule_019;{'es': 'Transmitancia térmica de cerramientos opacos', 'en': 'Thermal transmittance of opaque enclosures'};4;00000000000000|xxx|46013A015000550000GA|xxxxxxxxxx
+rule_020;Transmitancia térmica de huecos y lucernarios;4;xxx|00000000000000|46013A015000550000GA|xxxxxxxxxx
+rule_021;Factor solar de huecos y lucernarios;4;xxx|00000000000000|46013A015000550000GA|xxxxxxxxxx
+rule_023;Rendimiento de generadores de refrigeración;3;xxx|00000000000000|46013A015000550000GA
+rule_022;Rendimiento de generadores de calefacción;1;00000000000000
+rule_025;Energía generada autoconsumida;2;00000000000000|xxxxxxxxxx

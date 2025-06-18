@@ -1,0 +1,664 @@
+{
+  "common_rules": [
+    {
+      "rule_id": "rule_xxx",
+      "status": "error",
+      "messages": {
+        "es": "No se encontró valor para el campo /Ruta/Ejemplo.",
+        "en": "No value found for field /Ruta/Ejemplo."
+      },
+      "description": "Plantilla base para reglas con soporte multilenguaje.",
+      "details": {},
+      "severity": "Warning",
+      "name": {
+        "es": "Regla de ejemplo multilingüe",
+        "en": "Multilingual Example Rule"
+      },
+      "type": "data_validation"
+    },
+    {
+      "rule_id": "rule_001",
+      "status": "success",
+      "messages": {
+        "es": "El valor 'Alboraya' es válido.",
+        "en": "The value 'Alboraya' is valid."
+      },
+      "description": "El municipio debe coincidir con los indicados en la lista “Listado Poblaciones Zonificación Climática Comunidad Valenciana.xlsx”. Algunos pueblos están indicados en castellano y valenciano. Todas las versiones son válidas para cada uno. Ignorar tildes.",
+      "details": {},
+      "severity": "Error",
+      "name": {
+        "es": "Municipio",
+        "en": "Municipality"
+      },
+      "type": "data_validation"
+    },
+    {
+      "rule_id": "rule_002",
+      "status": "success",
+      "messages": {
+        "es": "El valor 'B3' es válido para el Municipio 'Alboraya'.",
+        "en": "The value 'B3' is valid for the Municipality 'Alboraya'."
+      },
+      "description": "Con <Municipio> como entrada, debe tener una de las dos zonas climáticas indicadas en el Excel “Listado Poblaciones Zonificación Climática Comunidad Valenciana.xlsx”. Si es diferente, es incorrecta.",
+      "details": {},
+      "severity": "Error",
+      "name": {
+        "es": "Zona Climática",
+        "en": "Climate Zone"
+      },
+      "type": "data_validation"
+    },
+    {
+      "rule_id": "rule_003",
+      "status": "success",
+      "messages": {
+        "es": "El valor '1920' es válido.",
+        "en": "The value '1920' is valid."
+      },
+      "description": "Ano de construccion debe tener 4 digitos indicando un año concreto. Por ejemplo, no puede contener una franja de tiempo (1988-1990).",
+      "details": {},
+      "severity": "Error",
+      "name": {
+        "es": "Año construcción",
+        "en": "Year of Construction"
+      },
+      "type": "data_validation"
+    },
+    {
+      "rule_id": "rule_004",
+      "status": "success",
+      "messages": {
+        "es": "La normativa 'NO APLICABLE' es válida para el año 1920.",
+        "en": "The regulation 'NO APLICABLE' is valid for the year 1920."
+      },
+      "description": "En función del año de construcción (<AnoConstruccion>), debe contener la etiqueta:\n- Antes de 1981: Anterior/No aplicable\n- Entre 1981 y 2007: NBE-CT-79\n- Entre 2007 y 2014: CTE 2006\n- Entre 2014 y 2019: CTE 2013\n- De 2019 en adelante: CTE 2019\n\nNota: Es un parámetro no acotado en el documento que define el XML, por eso la información que contenga este parámetro debe incluir esas palabras, pero no tiene por qué ser exactamente esas palabras únicamente.\nPor ejemplo, es posible que una vivienda construida en 2009 incluya 'CTE-2006'. Esto debería considerarse como correcto.",
+      "details": {
+        "es": {
+          "normativa": "NO APLICABLE",
+          "año": "1920",
+          "esperado": "Anterior/No aplicable"
+        },
+        "en": {
+          "regulation": "NO APLICABLE",
+          "year": "1920",
+          "expected": "Anterior/No aplicable"
+        }
+      },
+      "severity": "Error",
+      "name": {
+        "es": "Normativa vigente",
+        "en": "Applicable Regulation"
+      },
+      "type": "business_rule"
+    },
+    {
+      "rule_id": "rule_005",
+      "status": "error",
+      "messages": {
+        "es": "No concuerda el número de dígitos de la referencia catastral con el tipo de edificio 'ViviendaIndividualEnBloque'.",
+        "en": "The number of digits in the cadastral reference does not match the building type 'ViviendaIndividualEnBloque'."
+      },
+      "description": "En función de <TipoDeEdificio>, variará el número de caracteres que debe tener:\\n- ViviendaUnifamiliar: 13 ó 18 dígitos\\n- BloqueDeViviendaCompleto: 13 dígitos\\n- ViviendaIndividualEnBloque: 18 dígitos\\n- EdificioUsoTerciario: 13 ó 18 dígitos\\n- LocalUsoTerciario: 13 ó 18 dígitos",
+      "details": {
+        "es": {
+          "tipo": "ViviendaIndividualEnBloque",
+          "longitud": "20",
+          "permitidas": "18"
+        },
+        "en": {
+          "type": "ViviendaIndividualEnBloque",
+          "length": "20",
+          "allowed_lengths": "18"
+        }
+      },
+      "severity": "Error",
+      "name": {
+        "es": "Referencia catastral",
+        "en": "Cadastral Reference"
+      },
+      "type": "data_validation"
+    },
+    {
+      "rule_id": "rule_006",
+      "status": "success",
+      "messages": {
+        "es": "El tipo de edificio 'ViviendaIndividualEnBloque' es válido.",
+        "en": "The building type 'ViviendaIndividualEnBloque' is valid."
+      },
+      "description": "Indicado en el documento “20200311 - Informe de evaluación energética del edificio en formato electrónico (XML) - Version 2.1”. Debe figurar uno de estos nombres:\n- ViviendaUnifamiliar\n- BloqueDeViviendaCompleto\n- ViviendaIndividualEnBloque\n- EdificioUsoTerciario\n- LocalUsoTerciario",
+      "details": {},
+      "severity": "Error",
+      "name": {
+        "es": "Tipo de edificio o parte del edificio certificado",
+        "en": "Building Type or Certified Building Part"
+      },
+      "type": "data_validation"
+    },
+    {
+      "rule_id": "rule_007",
+      "status": "success",
+      "messages": {
+        "es": "El procedimiento 'CERMA' con la versión '5.11' es válido.",
+        "en": "Procedure 'CERMA' with version '5.11' is valid."
+      },
+      "description": "Versión mínima exigida por programa.",
+      "details": {
+        "es": {
+          "procedimiento": "CERMA",
+          "version": "5.11"
+        },
+        "en": {
+          "procedure": "CERMA",
+          "version": "5.11"
+        }
+      },
+      "severity": "Error",
+      "name": {
+        "es": "Versión del procedimiento de calificación energética utilizado",
+        "en": "Version of the EPC software used"
+      },
+      "type": "business_rule"
+    },
+    {
+      "rule_id": "rule_008",
+      "status": "success",
+      "messages": {
+        "es": "El alcance 'CertificacionExistente' es compatible con el año 1920.",
+        "en": "Scope 'CertificacionExistente' is compatible with year 1920."
+      },
+      "description": "Verifica que el año de construcción sea compatible con el tipo de alcance indicado.",
+      "details": {
+        "es": {
+          "valor": "CertificacionExistente",
+          "año": "1920"
+        },
+        "en": {
+          "value": "CertificacionExistente",
+          "year": "1920"
+        }
+      },
+      "severity": "Error",
+      "name": {
+        "es": "Alcance del certificado",
+        "en": "Scope of the Certificate"
+      },
+      "type": "business_rule",
+      "message": "El alcance 'CertificacionExistente' es compatible con el año 1920."
+    },
+    {
+      "rule_id": "rule_009",
+      "status": "error",
+      "messages": {
+        "es": "La fecha de emisión (11/04/2023) supera los 30 días permitidos.",
+        "en": "Emission date (11/04/2023) exceeds the allowed 30 days."
+      },
+      "description": "La fecha de registro del certificado no puede superar los 30 días posteriores a su emisión.",
+      "details": {
+        "es": {
+          "fecha_emision": "11/04/2023",
+          "fecha_actual": "17/06/2025",
+          "fecha_limite": "18/05/2025"
+        },
+        "en": {
+          "emission_date": "11/04/2023",
+          "current_date": "17/06/2025",
+          "limit_date": "18/05/2025"
+        }
+      },
+      "severity": "Error",
+      "name": {
+        "es": "Fecha de emisión del certificado",
+        "en": "Certificate Issuance Date"
+      },
+      "type": "business_rule"
+    },
+    {
+      "rule_id": "rule_010",
+      "status": "success",
+      "messages": {
+        "es": "La imagen del edificio está correctamente adjunta.",
+        "en": "The building image is properly attached."
+      },
+      "description": "Debe adjuntarse imagen del edificio.",
+      "details": {
+        "es": {
+          "resultado": "imagen adjunta"
+        },
+        "en": {
+          "result": "imagen adjunta"
+        }
+      },
+      "severity": "Error",
+      "name": {
+        "es": "Imagen del edificio",
+        "en": "Building Image"
+      },
+      "type": "business_rule"
+    },
+    {
+      "rule_id": "rule_011",
+      "status": "success",
+      "messages": {
+        "es": "El plano del edificio está correctamente adjunto.",
+        "en": "The building blueprint is properly attached."
+      },
+      "description": "Debe adjuntarse plano del edificio.",
+      "details": {
+        "es": {
+          "resultado": "Plano Adjunto"
+        },
+        "en": {
+          "result": "Plano Adjunto"
+        }
+      },
+      "severity": "Error",
+      "name": {
+        "es": "Plano del edificio",
+        "en": "Building Blueprint"
+      },
+      "type": "business_rule"
+    },
+    {
+      "rule_id": "rule_012",
+      "status": "error",
+      "messages": {
+        "es": "Error en el formato del plano. Debe ser en formato PNG o JPEG usando una codificación base64.”",
+        "en": "Error in the format of the blueprint. It must be in PNG or JPEG format using base64 encoding."
+      },
+      "description": "Debe adjuntarse un plano del edificio en formato de imagen (Base64).",
+      "details": {
+        "es": {
+          "muestra": "\n\t\t\tdata:image/png;base64,iVBORw0KGgoAAA..."
+        },
+        "en": {
+          "sample": "\n\t\t\tdata:image/png;base64,iVBORw0KGgoAAA..."
+        }
+      },
+      "severity": "Error",
+      "name": {
+        "es": "Plano del edificio - Formato (Base64)",
+        "en": "Building Blueprint - Format Check (Base64)"
+      },
+      "type": "business_rule"
+    },
+    {
+      "rule_id": "rule_013",
+      "status": "error",
+      "messages": {
+        "es": "Error en el formato de la imagen. Debe ser en formato PNG o JPEG usando una codificación base64.",
+        "en": "Error in the image format. It must be in PNG or JPEG format using base64 encoding."
+      },
+      "description": "Debe adjuntarse una imagen del edificio en formato de imagen Base64.",
+      "details": {
+        "es": {
+          "error": "\n\t\t\tdata:image/png;base64,iVBORw0KGgoAAA..."
+        },
+        "en": {
+          "error": "\n\t\t\tdata:image/png;base64,iVBORw0KGgoAAA..."
+        }
+      },
+      "severity": "Error",
+      "name": {
+        "es": "Imagen del edificio (Base64)",
+        "en": "Building Image - Format Check (Base64)"
+      },
+      "type": "business_rule"
+    },
+    {
+      "rule_id": "rule_014",
+      "status": "error",
+      "messages": {
+        "es": "No se ha recibido respuesta del usuario.",
+        "en": "No user answer received."
+      },
+      "description": "Verifica que la demanda diaria de ACS se corresponda con el número de dormitorios y viviendas según el CTE.",
+      "details": {},
+      "severity": "Error",
+      "name": {
+        "es": "Demanda diaria de ACS",
+        "en": "Daily DHW Demand"
+      },
+      "type": "business_rule"
+    },
+    {
+      "rule_id": "rule_015_2",
+      "status": "success",
+      "messages": {
+        "es": "Los nodos <Puentes_Termicos> están correctamente informados.",
+        "en": "The <Puentes_Termicos> nodes are correctly filled."
+      },
+      "description": "Si el procedimiento es CERMA, todos los nodos <Puentes_Termicos> deben tener contenido.",
+      "details": {},
+      "severity": "Error",
+      "name": {
+        "es": "Puentes térmicos en CERMA",
+        "en": "Thermal bridges in CERMA"
+      },
+      "type": "business_rule"
+    },
+    {
+      "rule_id": "rule_015",
+      "status": "error",
+      "messages": {
+        "es": "No se encontraron datos de puentes térmicos.",
+        "en": "Thermal bridges data not found."
+      },
+      "description": "La definición del edificio debe incluir puentes térmicos y todas las longitudes deben ser mayores a 0.",
+      "details": {
+        "es": {
+          "detalle": "No hay nodos <PuenteTermico>"
+        },
+        "en": {
+          "detail": "No <PuenteTermico> nodes found"
+        }
+      },
+      "severity": "Error",
+      "name": {
+        "es": "Puentes térmicos",
+        "en": "Thermal Bridges"
+      },
+      "type": "business_rule"
+    },
+    {
+      "rule_id": "rule_016",
+      "status": "success",
+      "messages": {
+        "es": "Las medidas de mejora están correctamente definidas.",
+        "en": "Improvement measures are correctly defined."
+      },
+      "description": "Verifica que las medidas de mejora incluyan nombre, descripción y coste estimado.",
+      "details": {
+        "es": {
+          "estado": "OK"
+        },
+        "en": {
+          "status": "OK"
+        }
+      },
+      "severity": "Error",
+      "name": {
+        "es": "Medidas de mejora",
+        "en": "Improvement Measures"
+      },
+      "type": "business_rule"
+    },
+    {
+      "rule_id": "rule_017",
+      "status": "success",
+      "messages": {
+        "es": "La visita cumple con los requisitos de fecha y descripción.",
+        "en": "The visit meets the date and description requirements."
+      },
+      "description": "Verifica que la fecha de la visita sea con un máximo de días antes de la fecha de emisión del certificado y que el campo <Datos> no esté vacío.",
+      "details": {
+        "es": {
+          "estado": "OK"
+        },
+        "en": {
+          "status": "OK"
+        }
+      },
+      "severity": "Error",
+      "name": {
+        "es": "Validación de la Fecha de Visita e Inspección",
+        "en": "Inspection and Visit Date"
+      },
+      "type": "business_rule"
+    },
+    {
+      "rule_id": "rule_018",
+      "status": "success",
+      "messages": {
+        "es": "La descripción de la visita está presente.",
+        "en": "The visit description is present."
+      },
+      "description": "Debe figurar una descripción de la visita realizada en el campo <PruebasComprobacionesInspecciones>/<Visita>/<Datos>.",
+      "details": {
+        "es": {
+          "estado": "OK"
+        },
+        "en": {
+          "status": "OK"
+        }
+      },
+      "severity": "Error",
+      "name": {
+        "es": "Descripción de las pruebas realizadas al edificio",
+        "en": "Description of the tests performed on the building"
+      },
+      "type": "business_rule",
+      "message": "La descripción de la visita está presente."
+    },
+    {
+      "rule_id": "rule_019",
+      "status": "error",
+      "messages": {
+        "es": "Se han detectado valores de transmitancia fuera de los rangos permitidos.",
+        "en": "Some transmittance values were found to be outside the permitted ranges."
+      },
+      "description": {
+        "es": "Valida que los valores de transmitancia térmica de los elementos opacos se encuentren dentro de los límites permitidos según el año de construcción y la zona climática.",
+        "en": "Validates that the thermal transmittance values of opaque elements are within the allowed limits based on the construction year and climate zone."
+      },
+      "details": {
+        "es": {
+          "valores_sospechosos": [
+            {
+              "indice": 1,
+              "tipo": "Cubierta",
+              "valor": 0.55,
+              "motivo": "fuera de rango (2.63 - 4.17)"
+            },
+            {
+              "indice": 2,
+              "tipo": "Fachada",
+              "valor": 0.44,
+              "motivo": "fuera de rango (2.0 - 5.88)"
+            },
+            {
+              "indice": 3,
+              "tipo": "Fachada",
+              "valor": 1.18,
+              "motivo": "fuera de rango (2.0 - 5.88)"
+            }
+          ]
+        },
+        "en": {
+          "suspect_values": [
+            {
+              "index": 1,
+              "type": "Cubierta",
+              "value": 0.55,
+              "reason": "out of range (2.63 - 4.17)"
+            },
+            {
+              "index": 2,
+              "type": "Fachada",
+              "value": 0.44,
+              "reason": "out of range (2.0 - 5.88)"
+            },
+            {
+              "index": 3,
+              "type": "Fachada",
+              "value": 1.18,
+              "reason": "out of range (2.0 - 5.88)"
+            }
+          ]
+        }
+      },
+      "severity": "Warning",
+      "name": {
+        "es": "Transmitancia térmica de cerramientos opacos",
+        "en": "Thermal transmittance of opaque enclosures"
+      },
+      "type": "business_rule"
+    },
+    {
+      "rule_id": "rule_020",
+      "status": "error",
+      "messages": {
+        "es": "Algunos valores de transmitancia térmica no cumplen con los límites establecidos.",
+        "en": "Some transmittance values are outside the allowed range."
+      },
+      "description": "Valida que los valores de transmitancia térmica para los elementos huecos y lucernarios estén dentro de los límites definidos por año de construcción.",
+      "details": {
+        "es": {
+          "año de construcción": 1920,
+          "valores fuera de rango": [
+            [
+              1,
+              3.45
+            ]
+          ],
+          "límites permitidos": {
+            "min_year": null,
+            "max_year": 1940,
+            "min_u": 4.24,
+            "max_u": 5.7
+          }
+        },
+        "en": {
+          "construction year": 1920,
+          "out-of-range values": [
+            [
+              1,
+              3.45
+            ]
+          ],
+          "allowed limits": {
+            "min_year": null,
+            "max_year": 1940,
+            "min_u": 4.24,
+            "max_u": 5.7
+          }
+        }
+      },
+      "severity": "Warning",
+      "name": "Transmitancia térmica de huecos y lucernarios",
+      "type": "business_rule"
+    },
+    {
+      "rule_id": "rule_021",
+      "status": "error",
+      "messages": {
+        "es": "Algunos valores de factor solar no cumplen con los límites establecidos.",
+        "en": "Some solar factor values are outside the allowed range."
+      },
+      "description": "Valida que los valores de factor solar para los elementos huecos y lucernarios estén dentro de los límites definidos por año de construcción.",
+      "details": {
+        "es": {
+          "año de construcción": 1920,
+          "valores fuera de rango": [
+            [
+              1,
+              0.68
+            ]
+          ],
+          "límites permitidos": {
+            "min_year": null,
+            "max_year": 1940,
+            "min_f": 0.69,
+            "max_f": 0.82
+          }
+        },
+        "en": {
+          "construction year": 1920,
+          "out-of-range values": [
+            [
+              1,
+              0.68
+            ]
+          ],
+          "allowed limits": {
+            "min_year": null,
+            "max_year": 1940,
+            "min_f": 0.69,
+            "max_f": 0.82
+          }
+        }
+      },
+      "severity": "Warning",
+      "name": "Factor solar de huecos y lucernarios",
+      "type": "business_rule"
+    },
+    {
+      "rule_id": "rule_022",
+      "status": "success",
+      "messages": {
+        "es": "Todos los generadores tienen rendimientos dentro de los límites establecidos.",
+        "en": "All generators have performance values within allowed limits."
+      },
+      "description": "Valida que el rendimiento nominal y estacional de los generadores esté dentro de los límites definidos para cada vector energético.",
+      "details": {
+        "es": {
+          "generadores validados": [
+            "ElectricidadPeninsular",
+            "BiomasaPellet",
+            "ElectricidadPeninsular"
+          ]
+        },
+        "en": {
+          "validated generators": [
+            "ElectricidadPeninsular",
+            "BiomasaPellet",
+            "ElectricidadPeninsular"
+          ]
+        }
+      },
+      "severity": "Warning",
+      "name": "Rendimiento de generadores de calefacción",
+      "type": "business_rule"
+    },
+    {
+      "rule_id": "rule_023",
+      "status": "error",
+      "messages": {
+        "es": "No se encontraron generadores de refrigeración o falta algún campo requerido.",
+        "en": "No cooling generators found or required fields are missing."
+      },
+      "description": "Valida que el rendimiento nominal y estacional de los generadores de refrigeración esté dentro de los límites definidos para cada vector energético.",
+      "details": {},
+      "severity": "Warning",
+      "name": "Rendimiento de generadores de refrigeración",
+      "type": "business_rule"
+    },
+    {
+      "rule_id": "rule_024",
+      "status": "success",
+      "messages": {
+        "es": "Todos los generadores de ACS tienen rendimientos dentro de los límites establecidos.",
+        "en": "All DHW generators have performance values within allowed limits."
+      },
+      "description": "Valida que el rendimiento nominal de los generadores de ACS esté dentro de los límites definidos para cada vector energético.",
+      "details": {
+        "es": {
+          "generadores validados": [
+            "ElectricidadPeninsular"
+          ]
+        },
+        "en": {
+          "validated generators": [
+            "ElectricidadPeninsular"
+          ]
+        }
+      },
+      "severity": "Warning",
+      "name": "Rendimiento de generadores de ACS",
+      "type": "business_rule"
+    },
+    {
+      "rule_id": "rule_025",
+      "status": "success",
+      "messages": {
+        "es": "La energía generada autoconsumida es razonable.",
+        "en": "Self-consumed generated energy is within expected range."
+      },
+      "description": "Valida que la energía autoconsumida generada no sea excesiva, según número y potencia de paneles fotovoltaicos.",
+      "details": {},
+      "severity": "Warning",
+      "name": "Energía generada autoconsumida",
+      "type": "business_rule"
+    }
+  ],
+  "model_rules": {}
+}

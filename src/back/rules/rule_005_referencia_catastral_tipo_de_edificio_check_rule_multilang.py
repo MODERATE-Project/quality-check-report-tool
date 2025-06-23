@@ -61,5 +61,5 @@ class ReferenciaCatastralTipoDeEdificioRule(BaseRule):
 
         # Si pasa todas las validaciones
         validation_result["status"] = "success"
-        validation_result["messages"] = self._get_translated_messages("invalid_length", tipo=tipo_de_edificio)
+        validation_result["messages"] = self._get_translated_messages("valid", tipo=tipo_de_edificio)
         return validation_result

@@ -82,15 +82,15 @@ class TransmitanciaElementosOpacosRule(BaseRule):
 
             if not (min_val <= transmitancia <= max_val):
                 sospechosos.append({
-                    "indice": idx + 1,
+                    # "indice": idx + 1,
                     "tipo": tipo,
                     "valor": transmitancia,
-                    "motivo": f"fuera de rango ({min_val} - {max_val})"
+                    "motivo": f"fuera de rango"
                 })
 
         if sospechosos:
             result["messages"] = {
-                "es": "Se han detectado valores de transmitancia fuera de los rangos permitidos.",
+                "es": "Se han detectado un valor de transmitancia fuera de los rangos establecidos.",
                 "en": "Some transmittance values were found to be outside the permitted ranges."
             }
             result["details"] = {

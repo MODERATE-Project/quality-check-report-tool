@@ -113,7 +113,7 @@ export default function RuleCard({ rule, showAllFields, showSucceeded }) {
   if (!showSucceeded && status === "success") return null
 
   return (
-    <div className="rule-card">
+    <div className="rule-card avoid-break">
       <p><b>{t('Nombre')}:</b> {typeof name === 'object' ? name[i18n.resolvedLanguage] : name}</p>
       <p>
         <b>{t('Estado')}:</b>{" "}

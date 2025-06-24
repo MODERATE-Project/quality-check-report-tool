@@ -18,3 +18,11 @@
     background-color: rgb(206, 128, 0);
   }
   
+
+  @media print {
+    
+    .avoid-break {
+      page-break-inside: avoid;
+    }
+
+}

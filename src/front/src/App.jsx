@@ -101,6 +101,7 @@ export default function XMLUploader() {
     setFile(null);
     setError(null);
     setResults({});
+    setFormError(null);
   };
 
 

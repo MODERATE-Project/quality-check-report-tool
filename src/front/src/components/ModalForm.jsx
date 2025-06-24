@@ -8,6 +8,12 @@ export default function ModalForm({ isOpen, fields, onSubmit, error, onCancel })
   const [localError, setLocalError] = useState(null);
   const [hasSubmitted, setHasSubmitted] = useState(false);
 
+  const resetLocalState = useCallback(() => {
+    setFormValues({});
+    setLocalError(null);
+    setHasSubmitted(false);
+  }, []);
+
   const handleKeyDown = useCallback(
     (e) => {
       if (e.key === "Escape") {
@@ -16,6 +22,12 @@ export default function ModalForm({ isOpen, fields, onSubmit, error, onCancel })
     },
     [onCancel]
   );
+
+  useEffect(() => {
+    if (isOpen) {
+      resetLocalState();
+    }
+  }, [isOpen, resetLocalState]);
 
   useEffect(() => {
     if (!isOpen) return;        // sólo añadimos el listener cuando el modal está abierto

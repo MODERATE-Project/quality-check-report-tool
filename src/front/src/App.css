@@ -10,7 +10,8 @@
 }
 
 .title {
-  color: #4CAF50;
+  color: #213c59;
+  /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
 }
 
 .about {
@@ -32,7 +33,7 @@
 
 .button {
   padding: 10px;
-  background-color: #4CAF50;
+  background-color: #213C59;
   color: white;
   border: none;
   cursor: pointer;
@@ -50,13 +51,13 @@
 }
 
 .results h2 {
-  border-bottom: 2px solid #4CAF50;
+  border-bottom: 2px solid #213C59;
   padding-bottom: 5px;
-  color: #4CAF50;
+  color: #213C59;
 }
 
 .results h3 {
-  color: #4CAF50;
+  color: #213C59;
 }
 
 .rule-card {
@@ -73,7 +74,7 @@
   top: 20px;
   right: 20px;
   background: white;
-  border: 2px solid #4CAF50;
+  border: 2px solid #213C59;
   cursor: pointer;
   padding: 5px;
   border-radius: 50%;
@@ -99,3 +100,31 @@
   object-fit: cover;
   border: 1px solid #eee;
 }
+
+.custom-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.custom-list-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 0.5em;
+}
+
+.custom-list-icon {
+  font-size: 2rem;
+  margin-right: 0.5em;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+
+.custom-list-icon.error-icon {
+  color: rgb(206, 0, 0);
+}
+
+.custom-list-icon.warning-icon {
+  color: rgb(206, 128, 0);
+}
+

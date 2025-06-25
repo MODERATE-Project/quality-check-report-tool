@@ -20,24 +20,27 @@
     flex-direction: column;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
     max-height: 90vh; 
-    position: relative
+    position: relative;
   }
   
   .modal-body {
     padding: 20px 30px;
     overflow-y: auto;
     flex: 1;
-  }
+    gap: 40px;
+    display: flex;
+    flex-direction: column;
+ }
   
   .modal-title {
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
     color: #333;
     font-size: 1.3rem;
   }
   
   .modal-field {
-    margin-top: 30px;
-    margin-bottom: 30px;
+    /* margin-top: 30px; */
+    /* margin-bottom: 50px; */
     text-align: left;
   }
   
@@ -82,7 +85,7 @@
   }
   
   .modal-btn.primary {
-    background-color: #4CAF50;
+    background-color: #213C59;
     color: white;
   }
   

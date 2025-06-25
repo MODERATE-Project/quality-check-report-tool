@@ -7,6 +7,8 @@ import RuleCard from "./components/RuleCard";
 import { useTranslation } from 'react-i18next';
 import esFlag from './assets/es-flag.svg';
 import enFlag from './assets/en-flag.svg';
+import { BiSolidError } from "react-icons/bi";
+import { IoMdCloseCircle } from "react-icons/io";
 
 export default function XMLUploader() {
   const [file, setFile] = useState(null);
@@ -137,17 +139,19 @@ export default function XMLUploader() {
 
         <h1 className="title">{t('Moderate Quality Check Tool')}</h1>
         <div className="about">
-          <h2><b>{t('Acerca de')}</b></h2>
+          <h2>{t('Acerca de')}</h2>
         <p>
           {t('app_description')}
         </p>
 
-        <ul>
-          <li>
-            <strong style={{'color':'red'}}>{t('Errores')}</strong> {t('error_description')}
+        <ul className="custom-list">
+          <li className="custom-list-item">
+            <IoMdCloseCircle className="custom-list-icon error-icon" />
+            <span><strong>{t('Errores')}</strong> {t('error_description')}</span>
           </li>
-          <li>
-            <strong style={{'color':'orange'}}>{t('Sospechas de errores:')}</strong> {t('suspected_error_description')} <strong>{t("suspected_error_description_bold")}</strong>
+          <li className="custom-list-item">
+            <BiSolidError className="custom-list-icon warning-icon" />
+            <span><strong>{t('Sospechas de errores:')}</strong> {t('suspected_error_description')} <strong>{t("suspected_error_description_bold")}</strong></span>
           </li>
         </ul>
           

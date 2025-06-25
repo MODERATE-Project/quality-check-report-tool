@@ -19,9 +19,9 @@ body {
   justify-content: center;
   min-width: 320px;
   min-height: 100vh;
-  background-color: #f5f5f5;
+  background-color: #F9FAFB;
   color: #333;
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 #root{
@@ -41,7 +41,7 @@ button {
   font-size: 1.2em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: #213c59;
   cursor: pointer;
   transition: border-color 0.25s;
 }

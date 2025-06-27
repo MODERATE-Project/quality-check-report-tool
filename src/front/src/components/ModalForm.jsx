@@ -86,9 +86,9 @@ export default function ModalForm({ isOpen, fields, onSubmit, error, onCancel })
                   required={!field.optional}
                   className={!field.optional && hasSubmitted && !formValues[key] ? "error" : ""}
                 >
-                  <option value="">Seleccione una opción</option>
-                  <option value="true">Sí</option>
-                  <option value="false">No</option>
+                  <option value="">{t("Seleccione una opción")}</option>
+                  <option value="true">{t("Sí")}</option>
+                  <option value="false">{t("No")}</option>
                 </select>
               ) : (
                 <input

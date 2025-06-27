@@ -31,5 +31,8 @@
     "Cancelar":  "Cancelar",
     "Por favor, complete todos los campos requeridos":  "Por favor, complete todos los campos requeridos",
     "Este campo es obligatorio":  "Este campo es obligatorio",
-    "Este campo es opcional":  "(Opcional)"
+    "Este campo es opcional":  "(Opcional)",
+    "Seleccione una opción":  "Seleccione una opción",
+    "Sí":  "Sí",
+    "No":  "No"
 }

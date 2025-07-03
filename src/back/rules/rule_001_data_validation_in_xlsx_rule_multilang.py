@@ -30,9 +30,15 @@ class DataValidationInXlsxRule(BaseRule):
         validation_result = self._new_result()  # por defecto status="error"
 
         comunidad_value = epc.get_value_by_xpath(self.comunidad_xpath)
+        # if comunidad_value is None or unidecode(comunidad_value.lower().strip()) not in [unidecode(v.lower()) for v in self.expected_region_values]:
+        #     validation_result["messages"] = self._get_translated_messages("invalid_region")
+        #     validation_result["status"] = "error"
+        #     return validation_result
+
         if comunidad_value is None or unidecode(comunidad_value.lower().strip()) not in [unidecode(v.lower()) for v in self.expected_region_values]:
             validation_result["messages"] = self._get_translated_messages("invalid_region")
-            validation_result["status"] = "error"
+            validation_result["status"] = "success"
+            validation_result["details"] = self._get_translated_messages("invalid_region_details", value=comunidad_value)
             return validation_result
 
         value_to_validate = epc.get_value_by_xpath(self.xpath)

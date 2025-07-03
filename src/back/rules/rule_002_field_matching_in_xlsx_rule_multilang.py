@@ -8,6 +8,10 @@ class FieldMatchingInXlsxRule(BaseRule):
     def __init__(self, rule_data: Dict):
         super().__init__(rule_data)
 
+        # Comunidad autónoma esperada
+        self.comunidad_xpath = self.parameters.get("xpath_comunidad")
+        self.expected_region_values = self.parameters.get("expected_region_values", [])
+
         # XPath para extraer el valor a validar (zona climática) y el campo dependiente (municipio)
         self.xpath = self.parameters.get("xpath")
         self.dependent_field = self.parameters.get("dependent_field")
@@ -45,6 +49,12 @@ class FieldMatchingInXlsxRule(BaseRule):
 
     def validate(self, epc: "EpcDto") -> Dict:
         res = self._new_result()
+        comunidad_value = epc.get_value_by_xpath(self.comunidad_xpath)
+        if comunidad_value is None or self._normalize(comunidad_value) not in [self._normalize(v) for v in self.expected_region_values]:
+            res["status"] = "success"
+            res["messages"] = self._get_translated_messages("invalid_region")
+            res["details"] = self._get_translated_messages("invalid_region_details", value=comunidad_value)
+            return res
 
         # Obtener valores del XML
         zona_xml_raw = epc.get_value_by_xpath(self.xpath)

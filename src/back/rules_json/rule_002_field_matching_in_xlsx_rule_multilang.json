@@ -16,6 +16,11 @@
     "column_filter": "MUNICIPIO",
     "column_match_actualizada": "Z.C. actualizada",
     "column_match_cte": "Z.C. CTE",
+    "xpath_comunidad": "//IdentificacionEdificio/ComunidadAutonoma",
+    "expected_region_values": [
+      "comunidad valenciana",
+      "comunitat valenciana"
+    ],
 
     "messages": { 
       "valid": {
@@ -45,6 +50,14 @@
       "zone_mismatch": {
         "es": "Dado el municipio ('{municipio}'), la zona climática del XML ('{zona}') no concuerda. Zonas admitidas: {zonas}.",
         "en": "Given the Municipality ('{municipio}'), the XML climate zone ('{zona}') does not match. Accepted zones: {zonas}."
+      },
+      "invalid_region": {
+        "es": "La comunidad autónoma no es válida para esta regla. Se esperaba Comunidad Valenciana.",
+        "en": "The autonomous community is not valid for this rule. Expected Comunidad Valenciana."
+      },
+      "invalid_region_details": {
+        "es": "En el campo <ComunidadAutonoma> aparece el texto: '{value}'.",
+        "en": "The <ComunidadAutonoma> field contains the text: '{value}'."
       }
     }
   }

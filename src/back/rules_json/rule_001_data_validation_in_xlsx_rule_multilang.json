@@ -20,9 +20,9 @@
     ],
     "allow_multiple_languages": true,
     "messages": {
-      "invalid_region": {
-        "es": "La comunidad autónoma no es válida para esta regla. Se esperaba Comunidad Valenciana.",
-        "en": "The autonomous community is not valid for this rule. Expected Comunidad Valenciana."
+      "invalid_region_details": {
+        "es": "En el campo <ComunidadAutonoma> aparece el texto: '{value}'.",
+        "en": "The <ComunidadAutonoma> field contains the text: '{value}'."
       },   
       "valid": {
         "es": "El valor '{value}' es válido.",

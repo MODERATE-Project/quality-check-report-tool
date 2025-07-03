@@ -9,7 +9,7 @@ from core.epc_dto import EpcDto
 # Rutas a los directorios y archivos
 DATA_DIR = os.path.join(path,"data")
 CACHE_JSON_PATH = os.path.join(path,os.path.join("core","rules_cache.json"))
-EPC_FILE_PATH = os.path.join(DATA_DIR, "1 Bloque de viviendas.xml")
+EPC_FILE_PATH = "D:\\Proyectos\\2024\\MODERATE\\Ficheros\\02_XMLs\\Example_Dwelling.xml" #os.path.join(DATA_DIR, "1 Bloque de viviendas.xml")
 EXCEL_FILE_PATH = os.path.join(DATA_DIR, "Listado Poblaciones Zonificación Climática Comunidad Valenciana.xlsx")
 
 # Cargar el archivo EPC

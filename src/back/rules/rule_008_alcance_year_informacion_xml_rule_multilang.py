@@ -48,7 +48,7 @@ class AlcanceYearInformacionXMLRule(BaseRule):
             return (
                 self.id,
                 {
-                    str(idx): {
+                    str(self.id) + "_" + str(idx): {
                         "text": cond.get("prompt_on_error", "¿Confirmas que es una actualización?"),
                         "type": "boolean"
                     }

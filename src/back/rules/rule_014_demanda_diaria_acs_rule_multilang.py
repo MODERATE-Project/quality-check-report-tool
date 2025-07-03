@@ -59,12 +59,12 @@ class DemandaDiariaACSRule(BaseRule):
             result["messages"] = self._get_translated_messages("not_numeric", value=demanda_str)
             return result
 
-        if "0" not in questions:
+        if f"{self.id}_0" not in questions:
             result["messages"] = self._get_translated_messages("missing_answer")
             return result
 
         try:
-            dormitorios = int(questions["0"])
+            dormitorios = int(questions[f"{self.id}_0"])
         except ValueError:
             result["messages"] = self._get_translated_messages("invalid_input")
             return result

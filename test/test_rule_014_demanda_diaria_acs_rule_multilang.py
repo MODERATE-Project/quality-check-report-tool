@@ -7,9 +7,11 @@ sys.path.insert(0, path)
 from rules.rule_014_demanda_diaria_acs_rule_multilang import DemandaDiariaACSRule
 from core.epc_dto import EpcDto
 
-DATA_DIR = os.path.join(path, "data")
-CACHE_JSON_PATH = os.path.join(path, "core", "rules_cache.json")
-EPC_FILE_PATH = os.path.join(DATA_DIR, "1 Bloque de viviendas.xml")
+# Rutas a los directorios y archivos
+DATA_DIR = os.path.join(path,"data")
+CACHE_JSON_PATH = os.path.join(path,os.path.join("core","rules_cache.json"))
+EPC_FILE_PATH = "D:\\Proyectos\\2024\\MODERATE\\Ficheros\\02_XMLs\\Example_Dwelling.xml" #os.path.join(DATA_DIR, "1 Bloque de viviendas.xml")
+EXCEL_FILE_PATH = os.path.join(DATA_DIR, "Listado Poblaciones Zonificación Climática Comunidad Valenciana.xlsx")
 
 with open(EPC_FILE_PATH, "r", encoding="utf-8") as epc_file:
     epc_content = epc_file.read()
@@ -29,7 +31,7 @@ if not rule_data:
 rule = DemandaDiariaACSRule(rule_data)
 
 # Simulamos respuesta del usuario con 3 dormitorios
-questions = {"0": 10}
+questions = {"rule_014_0": 10}
 
 result = rule.validate(epc, questions)
 

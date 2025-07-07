@@ -12,9 +12,10 @@ class FactorSolarHuecosRule(BaseRule):
         mensajes = params.get("messages", {})
         detalles = params.get("details", {})
         intervalos = params.get("intervalos", [])
+        factorSolar_field = params["field"]
 
         anno_raw = epc.get_value_by_xpath(params["xpath_anno"])
-        valores_f = epc.get_values_by_xpath(params["xpath_factores"])
+        valores_f = epc.get_nodes_by_xpath(params["xpath_factores"])
 
         try:
             anno = int(anno_raw)
@@ -37,13 +38,20 @@ class FactorSolarHuecosRule(BaseRule):
             return result
 
         errores = []
-        for idx, val in enumerate(valores_f):
+        for idx, e in enumerate(valores_f):
+            tipo = e.findtext("Tipo")
+            nombre = e.findtext("Nombre")
             try:
-                f_val = float(val)
-                if not (intervalo["min_f"] <= f_val <= intervalo["max_f"]):
-                    errores.append((idx + 1, f_val))
-            except ValueError:
-                errores.append((idx + 1, val))
+                u_val = float(e.findtext(factorSolar_field))
+                info = {"nombre": nombre, "tipo": tipo, "valor": u_val}
+                if not (intervalo["min_u"] <= u_val <= intervalo["max_u"]):
+                    errores.append(info)
+            except:
+                errores.append({
+                    "nombre": nombre,
+                    "tipo": tipo,
+                    "valor": e.findtext(factorSolar_field)
+                })
 
         if errores:
             result.update({

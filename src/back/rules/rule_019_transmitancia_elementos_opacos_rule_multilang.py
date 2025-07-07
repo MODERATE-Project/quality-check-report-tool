@@ -38,6 +38,7 @@ class TransmitanciaElementosOpacosRule(BaseRule):
         for idx, elem in enumerate(elementos):
             tipo = elem.findtext("Tipo")
             transmitancia_str = elem.findtext("Transmitancia")
+            nombre = elem.findtext("Nombre")
             if tipo not in self.limites_tipo:
                 continue
 
@@ -45,7 +46,7 @@ class TransmitanciaElementosOpacosRule(BaseRule):
                 transmitancia = float(transmitancia_str)
             except Exception:
                 sospechosos.append({
-                    "indice": idx + 1,
+                    "nombre": nombre,
                     "tipo": tipo,
                     "valor": transmitancia_str,
                     "motivo": "no numérico"
@@ -57,7 +58,7 @@ class TransmitanciaElementosOpacosRule(BaseRule):
                 limites_zona = self.limites_zona_2007_2013.get(tipo, {}).get(zona_letra)
                 if not limites_zona:
                     sospechosos.append({
-                        "indice": idx + 1,
+                        "nombre": nombre,
                         "tipo": tipo,
                         "valor": transmitancia,
                         "motivo": f"zona climática '{zona_climatica}' no definida"
@@ -72,7 +73,7 @@ class TransmitanciaElementosOpacosRule(BaseRule):
                         break
                 if not limites:
                     sospechosos.append({
-                        "indice": idx + 1,
+                        "nombre": nombre,
                         "tipo": tipo,
                         "valor": transmitancia,
                         "motivo": f"no se encontró periodo para año {ano_construccion}"
@@ -83,6 +84,7 @@ class TransmitanciaElementosOpacosRule(BaseRule):
             if not (min_val <= transmitancia <= max_val):
                 sospechosos.append({
                     # "indice": idx + 1,
+                    "nombre": nombre,
                     "tipo": tipo,
                     "valor": transmitancia,
                     "motivo": f"fuera de rango"

@@ -8,7 +8,7 @@
   "description": "Valida que los valores de transmitancia térmica para los elementos huecos y lucernarios estén dentro de los límites definidos por año de construcción.",
   "parameters": {
     "xpath_anno": "//IdentificacionEdificio/AnoConstruccion",
-    "xpath_transmitancias": "//DatosEnvolventeTermica/HuecosyLucernarios/Elemento/Transmitancia",
+    "xpath_transmitancias": "//DatosEnvolventeTermica/HuecosyLucernarios",
     "intervalos": [
       { "min_year": null, "max_year": 1940, "min_u": 4.24, "max_u": 5.70 },
       { "min_year": 1941, "max_year": 1960, "min_u": 4.24, "max_u": 5.70 },

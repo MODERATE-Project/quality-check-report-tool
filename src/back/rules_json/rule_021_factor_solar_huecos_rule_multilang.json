@@ -8,7 +8,8 @@
   "description": "Valida que los valores de factor solar para los elementos huecos y lucernarios estén dentro de los límites definidos por año de construcción.",
   "parameters": {
     "xpath_anno": "//IdentificacionEdificio/AnoConstruccion",
-    "xpath_factores": "//DatosEnvolventeTermica/HuecosyLucernarios/Elemento/FactorSolar",
+    "xpath_factores": "//DatosEnvolventeTermica/HuecosyLucernarios",
+    "field": "FactorSolar",
     "intervalos": [
       { "min_year": null, "max_year": 1940, "min_f": 0.69, "max_f": 0.82 },
       { "min_year": 1941, "max_year": 1960, "min_f": 0.69, "max_f": 0.82 },

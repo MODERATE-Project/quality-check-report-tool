@@ -15,7 +15,7 @@ class TransmitanciaHuecosRule(BaseRule):
 
         # Extraer datos
         anno_raw = epc.get_value_by_xpath(params["xpath_anno"])
-        valores_u = epc.get_values_by_xpath(params["xpath_transmitancias"])
+        valores_u = epc.get_nodes_by_xpath(params["xpath_transmitancias"])
 
         # Validar año
         try:
@@ -39,13 +39,28 @@ class TransmitanciaHuecosRule(BaseRule):
             return result
 
         errores = []
-        for idx, val in enumerate(valores_u):
+        for idx, e in enumerate(valores_u):
+            tipo = e.findtext("Tipo")
+            nombre = e.findtext("Nombre")
             try:
-                u_val = float(val)
+                u_val = float(e.findtext("Transmitancia"))
+                info = {"nombre": nombre, "tipo": tipo, "valor": u_val}
                 if not (intervalo["min_u"] <= u_val <= intervalo["max_u"]):
-                    errores.append((idx + 1, u_val))
-            except ValueError:
-                errores.append((idx + 1, val))
+                    errores.append(info)
+            except:
+                errores.append({
+                    "nombre": nombre,
+                    "tipo": tipo,
+                    "valor": e.findtext("Transmitancia")
+                })
+
+
+            # try:
+            #     u_val = float(val)
+            #     if not (intervalo["min_u"] <= u_val <= intervalo["max_u"]):
+            #         errores.append((idx + 1, u_val))
+            # except ValueError:
+            #     errores.append((idx + 1, val))
 
         if errores:
             result["status"] = "error"

@@ -31,7 +31,7 @@ if not rule_data:
 rule = DemandaDiariaACSRule(rule_data)
 
 # Simulamos respuesta del usuario con 3 dormitorios
-questions = {"rule_014_0": 10}
+questions = {"rule_014_0": 3}
 
 result = rule.validate(epc, questions)
 

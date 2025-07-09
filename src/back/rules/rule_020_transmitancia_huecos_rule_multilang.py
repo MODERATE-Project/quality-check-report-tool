@@ -83,11 +83,11 @@ class TransmitanciaHuecosRule(BaseRule):
             result["details"] = {
                 "es": {
                     "año de construcción": anno,
-                    "valores validados": valores_u
+                    #"valores validados": valores_u
                 },
                 "en": {
                     "construction year": anno,
-                    "validated values": valores_u
+                    #"validated values": valores_u
                 }
             }
 

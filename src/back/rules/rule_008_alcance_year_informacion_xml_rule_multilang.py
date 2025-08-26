@@ -99,7 +99,12 @@ class AlcanceYearInformacionXMLRule(BaseRule):
 
             # Comprobar si hay respuesta del usuario
             answers = questions.get(self.id, questions) if questions else {}
-            user_resp = answers.get(str(idx)) if isinstance(answers, dict) else None
+            user_resp = answers.get(f'{self.id}_{str(idx)}') if isinstance(answers, dict) else None
+            
+            try:
+                user_resp = bool(user_resp)
+            except ValueError:
+                user_resp = None
 
             if user_resp is True:
                 result["status"] = "success"

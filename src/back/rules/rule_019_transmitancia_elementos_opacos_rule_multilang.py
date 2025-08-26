@@ -9,13 +9,12 @@ class TransmitanciaElementosOpacosRule(BaseRule):
         self.xpath_elementos = self.parameters.get("xpath_elementos")
         self.xpath_ano = self.parameters.get("xpath_ano")
         self.xpath_zona = self.parameters.get("xpath_zona")
-
         self.limites_tipo = self.parameters.get("limites_tipo", {})
         self.limites_zona_2007_2013 = self.parameters.get("limites_zona_2007_2013", {})
 
     def validate(self, epc: EpcDto, questions=None) -> Dict:
         result = self._new_result()
-        sospechosos = []
+        detalles = []
 
         try:
             ano_construccion = int(epc.get_value_by_xpath(self.xpath_ano))
@@ -38,27 +37,30 @@ class TransmitanciaElementosOpacosRule(BaseRule):
         for idx, elem in enumerate(elementos):
             tipo = elem.findtext("Tipo")
             transmitancia_str = elem.findtext("Transmitancia")
-            nombre = elem.findtext("Nombre")
+
             if tipo not in self.limites_tipo:
                 continue
 
             try:
                 transmitancia = float(transmitancia_str)
             except Exception:
-                sospechosos.append({
-                    "nombre": nombre,
+                detalles.append({
+                    "indice": idx,
                     "tipo": tipo,
                     "valor": transmitancia_str,
                     "motivo": "no numérico"
                 })
                 continue
 
+            # Obtener límites
+            min_val = max_val = None
+
             if 2007 <= ano_construccion <= 2013:
                 zona_letra = zona_climatica[0] if zona_climatica else ""
                 limites_zona = self.limites_zona_2007_2013.get(tipo, {}).get(zona_letra)
                 if not limites_zona:
-                    sospechosos.append({
-                        "nombre": nombre,
+                    detalles.append({
+                        "indice": idx,
                         "tipo": tipo,
                         "valor": transmitancia,
                         "motivo": f"zona climática '{zona_climatica}' no definida"
@@ -66,38 +68,35 @@ class TransmitanciaElementosOpacosRule(BaseRule):
                     continue
                 min_val, max_val = limites_zona
             else:
-                limites = None
                 for periodo in self.limites_tipo[tipo]:
                     if periodo["desde"] <= ano_construccion <= periodo["hasta"]:
-                        limites = (periodo["min"], periodo["max"])
+                        min_val, max_val = periodo["min"], periodo["max"]
                         break
-                if not limites:
-                    sospechosos.append({
-                        "nombre": nombre,
+                if min_val is None or max_val is None:
+                    detalles.append({
+                        "indice": idx,
                         "tipo": tipo,
                         "valor": transmitancia,
                         "motivo": f"no se encontró periodo para año {ano_construccion}"
                     })
                     continue
-                min_val, max_val = limites
 
             if not (min_val <= transmitancia <= max_val):
-                sospechosos.append({
-                    # "indice": idx + 1,
-                    "nombre": nombre,
+                detalles.append({
+                    "indice": idx,
                     "tipo": tipo,
                     "valor": transmitancia,
-                    "motivo": f"fuera de rango"
+                    "motivo": f"fuera de rango [{min_val} – {max_val}]"
                 })
 
-        if sospechosos:
+        if detalles:
             result["messages"] = {
-                "es": "Se han detectado un valor de transmitancia fuera de los rangos establecidos.",
+                "es": "Se han detectado valores de transmitancia fuera de los rangos establecidos.",
                 "en": "Some transmittance values were found to be outside the permitted ranges."
             }
             result["details"] = {
-                "es": {"valores_sospechosos": sospechosos},
-                "en": {"suspect_values": sospechosos}
+                "es": {"valores_sospechosos": detalles},
+                "en": {"suspect_values": detalles}
             }
             return result
 

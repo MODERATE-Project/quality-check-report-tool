@@ -78,6 +78,14 @@ export default function RuleCard({ rule, showAllFields, showSucceeded }) {
       
       if (!localizedDetails) return null;
 
+      if (typeof localizedDetails === 'string') {
+        return (
+          <p>
+            <b>{t('Detalles')}:</b> {localizedDetails}
+          </p>
+        );
+      }
+  
       return (
         <div>
           <b>{t('Detalles')}:</b>

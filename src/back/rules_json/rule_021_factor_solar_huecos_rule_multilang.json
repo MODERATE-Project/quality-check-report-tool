@@ -11,11 +11,11 @@
     "xpath_factores": "//DatosEnvolventeTermica/HuecosyLucernarios",
     "field": "FactorSolar",
     "intervalos": [
-      { "min_year": null, "max_year": 1940, "min_f": 0.69, "max_f": 0.82 },
-      { "min_year": 1941, "max_year": 1960, "min_f": 0.69, "max_f": 0.82 },
-      { "min_year": 1961, "max_year": 1980, "min_f": 0.69, "max_f": 0.82 },
-      { "min_year": 1981, "max_year": 2007, "min_f": 0.61, "max_f": 0.75 },
-      { "min_year": 2008, "max_year": 2013, "min_f": 0.61, "max_f": 0.65 }
+      { "min_year": null, "max_year": 1940, "min_f": 0.57, "max_f": 0.71 },
+      { "min_year": 1941, "max_year": 1960, "min_f": 0.57, "max_f": 0.71 },
+      { "min_year": 1961, "max_year": 1980, "min_f": 0.53, "max_f": 0.71 },
+      { "min_year": 1981, "max_year": 2007, "min_f": 0.56, "max_f": 0.69 },
+      { "min_year": 2008, "max_year": 2013, "min_f": 0.5, "max_f": 0.65 }
     ],
     "messages": {
       "success": {

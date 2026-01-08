@@ -10,7 +10,7 @@ class TransmitanciaElementosOpacosRule(BaseRule):
         self.xpath_ano = self.parameters.get("xpath_ano")
         self.xpath_zona = self.parameters.get("xpath_zona")
         self.limites_tipo = self.parameters.get("limites_tipo", {})
-        self.limites_zona_2007_2013 = self.parameters.get("limites_zona_2007_2013", {})
+        self.limites_zona_2008_2013 = self.parameters.get("limites_zona_2008_2013", {})
 
     def validate(self, epc: EpcDto, questions=None) -> Dict:
         result = self._new_result()
@@ -55,9 +55,9 @@ class TransmitanciaElementosOpacosRule(BaseRule):
             # Obtener límites
             min_val = max_val = None
 
-            if 2007 <= ano_construccion <= 2013:
+            if 2008 <= ano_construccion <= 2013:
                 zona_letra = zona_climatica[0] if zona_climatica else ""
-                limites_zona = self.limites_zona_2007_2013.get(tipo, {}).get(zona_letra)
+                limites_zona = self.limites_zona_2008_2013.get(tipo, {}).get(zona_letra)
                 if not limites_zona:
                     detalles.append({
                         "indice": idx,

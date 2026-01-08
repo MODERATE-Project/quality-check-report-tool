@@ -9,10 +9,12 @@
   "parameters": {
     "xpath_generadores": "/InstalacionesTermicas/InstalacionesACS",
     "rendimiento_nominal_tag": "RendimientoNominal",
+    "rendimiento_estacional_tag": "RendimientoEstacional",
     "vector_tag": "VectorEnergetico",
     "valor_excluido": "99999999.99",
     "limites_nominal": {
       "GasNatural":         [0.6, 1.11],
+      "GLP":                [0.6, 1.11],
       "GasoleoC":           [0.6, 1.05],
       "BiomasaPellet":      [0.7, 1.0],
       "BiomasaOtros":       [0.55, 0.95],
@@ -20,6 +22,17 @@
       "ElectricidadBaleares":          [0.85, 4.0],
       "ElectricidadCanarias":          [0.85, 4.0],
       "ElectricidadCeutayMelilla":     [0.85, 4.0]
+    },
+    "limites_estacional": {
+      "GasNatural":         [0.54, 1.00],
+      "GLP":                [0.54, 1.00],
+      "GasoleoC":           [0.54, 0.98],
+      "BiomasaPellet":      [0.54, 1.0],
+      "BiomasaOtros":       [0.54, 0.95],
+      "ElectricidadPeninsular":        [1.0, 5.1],
+      "ElectricidadBaleares":          [1.0, 5.1],
+      "ElectricidadCanarias":          [1.0, 5.1],
+      "ElectricidadCeutayMelilla":     [1.0, 5.1]
     },
     "messages": {
       "success": {
@@ -33,6 +46,10 @@
       "error_nominal": {
         "es": "Algún rendimiento nominal de ACS está fuera de los límites permitidos.",
         "en": "Some nominal performance values for DHW are outside allowed range."
+      },
+      "error_estacional": {
+        "es": "Algún rendimiento estacional de ACS está fuera de los límites permitidos.",
+        "en": "Some seasonal performance values for DHW are outside allowed range."
       }
     },
     "details": {
@@ -44,6 +61,16 @@
         "en": {
           "generators with error": "list of indices and out-of-range value",
           "nominal limits used": "limit dictionary per vector"
+        }
+      },
+      "error_estacional": {
+        "es": {
+          "generadores con error": "lista de índices y valores fuera de rango",
+          "límites estacionales usados": "diccionario de límites por vector energético"
+        },
+        "en": {
+          "generators with error": "list of indices and out-of-range values",
+          "seasonal limits used": "limits per energy vector"
         }
       },
       "success": {

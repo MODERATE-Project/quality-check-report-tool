@@ -19,7 +19,10 @@ class RendimientosGeneradoresRefrigeracionRule(BaseRule):
 
         nominal_errors = []
         estacional_errors = []
+        vector_invalido_errors = []
         resumen_generadores = []
+
+        vectores_validos = p.get("vectores_validos", [])
 
         for idx, gen in enumerate(nodos):
             vector = gen.find(p["vector_tag"])
@@ -28,6 +31,10 @@ class RendimientosGeneradoresRefrigeracionRule(BaseRule):
 
             vector_text = vector.text.strip()
             resumen_generadores.append(vector_text)
+
+            # Validar Vector Energético
+            if vectores_validos and vector_text not in vectores_validos:
+                 vector_invalido_errors.append((idx + 1, vector_text))
 
             # RENDIMIENTO NOMINAL
             r_nominal = gen.find(p["rendimiento_nominal_tag"])
@@ -52,6 +59,23 @@ class RendimientosGeneradoresRefrigeracionRule(BaseRule):
                             estacional_errors.append((idx + 1, val_est, vector_text))
                 except ValueError:
                     estacional_errors.append((idx + 1, r_estacional.text, vector_text))
+
+        if vector_invalido_errors:
+            result.update({
+                "status": "warning",
+                "messages": mensajes.get("error_vector", {}),
+                "details": {
+                    "es": {
+                        "vectores no permitidos": vector_invalido_errors,
+                        "lista permitida": vectores_validos
+                    },
+                    "en": {
+                        "not allowed vectors": vector_invalido_errors,
+                        "allowed list": vectores_validos
+                    }
+                }
+            })
+            return result
 
         if nominal_errors:
             result.update({

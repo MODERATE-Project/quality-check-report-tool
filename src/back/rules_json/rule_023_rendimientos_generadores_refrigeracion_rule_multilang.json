@@ -12,6 +12,12 @@
     "rendimiento_estacional_tag": "RendimientoEstacional",
     "vector_tag": "VectorEnergetico",
     "valor_excluido": "99999999.99",
+    "vectores_validos": [
+      "ElectricidadPeninsular",
+      "ElectricidadBaleares",
+      "ElectricidadCanarias",
+      "ElectricidadCeutayMelilla"
+    ],
     "limites_nominal": {
       "ElectricidadPeninsular":        [1.50, 6.00],
       "ElectricidadBaleares":          [1.50, 6.00],
@@ -40,6 +46,10 @@
       "error_estacional": {
         "es": "Algún rendimiento estacional de refrigeración está fuera de los límites permitidos.",
         "en": "Some seasonal performance values for cooling are outside allowed range."
+      },
+      "error_vector": {
+        "es": "Se ha detectado un vector energético no estándar para refrigeración.",
+        "en": "A non-standard energy vector for cooling has been detected."
       }
     },
     "details": {
